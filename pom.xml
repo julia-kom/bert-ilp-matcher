@@ -19,14 +19,36 @@
   </properties>
 
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
-  </dependencies>
 
+    <!-- https://mvnrepository.com/artifact/org.jbpt/jbpt-bp -->
+    <dependency>
+      <groupId>org.jbpt</groupId>
+      <artifactId>jbpt-bp</artifactId>
+      <version>0.3.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.jbpt/jbpt-petri -->
+    <dependency>
+      <groupId>org.jbpt</groupId>
+      <artifactId>jbpt-petri</artifactId>
+      <version>0.3.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.jbpt/jbpt-deco -->
+    <dependency>
+      <groupId>org.jbpt</groupId>
+      <artifactId>jbpt-deco</artifactId>
+      <version>0.3.1</version>
+    </dependency>
+
+  </dependencies>
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
