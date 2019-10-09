@@ -12,6 +12,15 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
+  <repositories>
+    <repository>
+      <id>ext-repo-for-gurobi</id>
+      <name>Jena University</name>
+      <url>https://bio.informatik.uni-jena.de/repository/libs-release-oss/</url>
+    </repository>
+  </repositories>
+
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
@@ -47,6 +56,15 @@
       <artifactId>jbpt-deco</artifactId>
       <version>0.3.1</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/gurobi/gurobi-linux64 -->
+    <dependency>
+      <groupId>gurobi</groupId>
+      <artifactId>gurobi-linux64</artifactId>
+      <version>8.1.0</version>
+    </dependency>
+
+
 
   </dependencies>
   <build>

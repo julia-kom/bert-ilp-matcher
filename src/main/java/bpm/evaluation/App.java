@@ -1,4 +1,4 @@
-package bpm.matcher;
+package bpm.evaluation;
 
 import  gurobi.*;
 
