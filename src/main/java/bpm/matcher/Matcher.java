@@ -6,7 +6,7 @@ import java.io.*;
 public class Matcher {
 
     /**
-     * Read the given arguments properly:
+     * Input parser for a single matching task
      *
      * @param args see -h for args
      */
