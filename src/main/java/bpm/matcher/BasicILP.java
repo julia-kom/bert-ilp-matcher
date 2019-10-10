@@ -69,7 +69,7 @@ public class BasicILP extends AbstractILP {
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
 
-                expr.addTerm(((1- this.similarityWeight)*sim.betweenIndex(i,j))/(minSize), x[i][j]);
+                expr.addTerm(((1- this.similarityWeight)*LabelSimilarity.BoWSim(entitiesNet1[i].getLabel(),entitiesNet2[j].getLabel()))/(minSize), x[i][j]);
             }
         }
 
