@@ -1,15 +1,17 @@
 package bpm.matcher;
 
+import gurobi.GRBException;
 import org.jbpt.bp.RelSet;
-import org.jbpt.bp.construct.BPCreator;
 import org.jbpt.bp.construct.BPCreatorNet;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.PetriNet;
 import org.jbpt.petri.io.PNMLSerializer;
 
+import java.sql.Timestamp;
 import java.io.File;
 
-import static java.lang.System.exit;
+
+
 
 /**
  * Matching Pipeline. Note, use builder to construct.
@@ -44,11 +46,21 @@ public class Pipeline {
         RelSet relNet1 = createProfile(net1);
         RelSet relNet2 = createProfile(net2);
 
+        //Compute Label Similarity Matrix
+        LabelSimilarity simL = new LabelSimilarity(net1.getEntities(),net2.getEntities());
+
         // Run ILP
         // TODO Implement
+        AbstractILP ilp = getILP();
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
-        //Postprocess if needed
-
+        try {
+            ilp.init(new File("./log-"+ timestamp), similarityWeight);
+            ilp.solve(relNet1, relNet2, net1, net2, simL);
+        } catch (GRBException e) {
+            System.out.println("Error code: " + e.getErrorCode() + ". " +
+                    e.getMessage());
+        }
 
     }
 
@@ -64,7 +76,7 @@ public class Pipeline {
         }else{
             serializer.clear();
         }
-        return serializer.parse(f.toString());
+        return serializer.parse(f.getAbsolutePath());
     }
 
     private RelSet createProfile(NetSystem net){
@@ -76,12 +88,15 @@ public class Pipeline {
                 break;
             case CBP:
                 throw new UnsupportedOperationException("Causal BP not yet implemented");
-                exit(1);
             default:
-                throw new UnsupportedOperationException("Operator not yet implemented: " profile.toString());
-                exit(1);
+                throw new UnsupportedOperationException("Operator not yet implemented: " + profile.toString());
         }
         return r;
+    }
+
+    private AbstractILP getILP(){
+        //TODO switch versions here. Use enum in AbstractILP
+        return new BasicILP();
     }
 
     /**
@@ -92,10 +107,10 @@ public class Pipeline {
     private void checkPetriNetProperties(NetSystem net){
         // TODO soundness
         if (!PetriNet.STRUCTURAL_CHECKS.isWorkflowNet(net)){
-            throw new IllegalArgumentException("net is not WF-net:" net.toString());
+            throw new IllegalArgumentException("net is not WF-net:" + net.toString());
         }
         if(!PetriNet.STRUCTURAL_CHECKS.isFreeChoice(net)){
-            throw new IllegalArgumentException("net is not free choice:" net.toString());
+            throw new IllegalArgumentException("net is not free choice:" + net.toString());
         }
 
         //TODO soundness incl 1 bounded.
@@ -179,5 +194,4 @@ public class Pipeline {
             return pip;
         }
     }
-
 }
