@@ -46,9 +46,6 @@ public class Pipeline {
         RelSet relNet1 = createProfile(net1);
         RelSet relNet2 = createProfile(net2);
 
-        //Compute Label Similarity Matrix
-        LabelSimilarity simL = new LabelSimilarity(net1.getEntities(),net2.getEntities());
-
         // Run ILP
         // TODO Implement
         AbstractILP ilp = getILP();
@@ -56,7 +53,7 @@ public class Pipeline {
 
         try {
             ilp.init(new File("./log-"+ timestamp), similarityWeight);
-            ilp.solve(relNet1, relNet2, net1, net2, simL);
+            ilp.solve(relNet1, relNet2, net1, net2);
         } catch (GRBException e) {
             System.out.println("Error code: " + e.getErrorCode() + ". " +
                     e.getMessage());

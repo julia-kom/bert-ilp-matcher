@@ -20,12 +20,11 @@ public class BasicILP extends AbstractILP {
      * @param relNet2 Profile of Net 2
      * @param net1 Net 1
      * @param net2 Net 2
-     * @param sim Label Similarity Matrix between the two nets
      * @return
      * @throws GRBException
      */
     @Override
-    protected AbstractILP.Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2, LabelSimilarity sim) throws GRBException {
+    protected AbstractILP.Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2) throws GRBException {
         //setup variables
         Node[] entitiesNet1 = (Node[]) net1.getEntities().toArray();
         Node[] entitiesNet2 = (Node[]) net2.getEntities().toArray();

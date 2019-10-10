@@ -43,7 +43,7 @@ public abstract class AbstractILP {
     }
 
     // todo maybe replace sim with a function pointer
-    protected abstract AbstractILP.Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2, LabelSimilarity sim) throws GRBException ;
+    protected abstract AbstractILP.Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2) throws GRBException ;
 
     public class Result{
         double similarity;
