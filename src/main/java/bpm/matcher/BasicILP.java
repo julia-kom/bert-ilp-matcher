@@ -8,6 +8,8 @@ import org.jbpt.bp.RelSet;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 
+import java.util.Set;
+
 
 public class BasicILP extends AbstractILP {
     public BasicILP(){
@@ -26,8 +28,8 @@ public class BasicILP extends AbstractILP {
     @Override
     protected AbstractILP.Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2) throws GRBException {
         //setup variables
-        Node[] entitiesNet1 = (Node[]) net1.getEntities().toArray();
-        Node[] entitiesNet2 = (Node[]) net2.getEntities().toArray();
+        Node[] entitiesNet1 =  net1.getNodes().toArray(new Node[net1.getNodes().size()]);
+        Node[] entitiesNet2 =  net2.getNodes().toArray(new Node[net2.getNodes().size()]);
         int nodesNet1 = entitiesNet1.length;
         int nodesNet2 = entitiesNet2.length;
         int minSize = Math.min(nodesNet1,nodesNet2);

@@ -35,29 +35,37 @@ public class Pipeline {
      */
     public void run(File fileNet1, File fileNet2){
         //parse the two petri nets
+        System.out.println("##### Start Parsing #####");
         NetSystem net1 = parseFile(fileNet1);
         NetSystem net2 = parseFile(fileNet2);
+        System.out.println("##### Parsing Complete #####");
 
         //  wf-net and free choice check
+        System.out.println("##### Start Check Up #####");
         checkPetriNetProperties(net1);
         checkPetriNetProperties(net2);
+        System.out.println("##### Check Up Complete #####");
 
         // Create Profile
+        System.out.println("##### Start Creating Profiles #####");
         RelSet relNet1 = createProfile(net1);
         RelSet relNet2 = createProfile(net2);
+        System.out.println("##### Creating Profiles Complete #####");
 
         // Run ILP
+        System.out.println("##### Start ILP #####");
         // TODO Implement
         AbstractILP ilp = getILP();
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
         try {
-            ilp.init(new File("./log-"+ timestamp), similarityWeight);
+            ilp.init(new File("./gurobi-logs/log-"+ timestamp+".log"), similarityWeight);
             ilp.solve(relNet1, relNet2, net1, net2);
         } catch (GRBException e) {
             System.out.println("Error code: " + e.getErrorCode() + ". " +
                     e.getMessage());
         }
+        System.out.println("##### ILP Complete #####");
 
     }
 
