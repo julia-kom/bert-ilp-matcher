@@ -10,3 +10,7 @@ This is a simultaneous label and behavior process model matcher.
 5.  Preprocess the matches
 6.  Run the ILP that simultaneously maximizes behavior and label similarity
 7.  Postprocess the matches
+
+## First Test Runs with following parameters:
+
+``-n1 ./src/main/resources/pnml-files/Uni/Frankfurt_reduced.pnml -n2 ./src/main/resources/pnml-files/Uni/Frankfurt_reduced.pnml`
