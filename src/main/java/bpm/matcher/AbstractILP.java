@@ -47,6 +47,7 @@ public abstract class AbstractILP {
 
     public class Result{
         double similarity;
+
         //todo add alignment
 
         public Result(double objective, GRBVar[][] x){
