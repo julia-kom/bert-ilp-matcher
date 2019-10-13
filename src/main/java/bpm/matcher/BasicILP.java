@@ -132,9 +132,6 @@ public class BasicILP extends AbstractILP {
             model.addConstr(con2, GRB.LESS_EQUAL, 1.0, "Max Matches");
         }
 
-        //hinting that the total similarity must be below 1.0 to increase speed.
-        //todo
-
         // linking between similar entries in the F matrices and the mapping
         for (int i = 0; i< nodesNet1; i++){
             for (int k = 0; k < nodesNet1; k++){

@@ -18,7 +18,10 @@ public class RelaxedILP extends AbstractILP {
     }
 
     /**
-     * Compute the basic 1:1 ILP behavior/label simialrity match.
+     * Compute the Relaxed 1:1 *LP* behavior/label simialrity match.
+     * Variables are contineous and the linking between x and y is split into two functions
+     * Hint on Objective function is used.
+     * This ILP produces a valid matching and similarity score
      * @param relNet1 Profile of Net 1
      * @param relNet2 Profile of Net 2
      * @param net1 Net 1
@@ -43,8 +46,7 @@ public class RelaxedILP extends AbstractILP {
                 x[i][j] = model.addVar(0.0, 1.0,0.0, GRB.CONTINUOUS, "x_"+i+"_"+j);
             }
         }
-
-
+        
         GRBVar[][][][] y = new GRBVar[nodesNet1][nodesNet1][nodesNet2][nodesNet2];
         for (int i = 0; i< nodesNet1; i++){
             for (int k = 0; k< nodesNet1; k++){

@@ -16,7 +16,10 @@ public class RelaxedILP2 extends AbstractILP {
     }
 
     /**
-     * Compute the basic 1:1 ILP behavior/label simialrity match.
+     * Compute the Relaxed2 1:1 *LP* behavior/label simialrity match:
+     * In comparison to the BASIC ILP here are just all Binary Variables Contineous.
+     * No hint on objective function used
+     * This ILP produces a valid matching. No similarity score!
      * @param relNet1 Profile of Net 1
      * @param relNet2 Profile of Net 2
      * @param net1 Net 1
@@ -130,8 +133,6 @@ public class RelaxedILP2 extends AbstractILP {
             model.addConstr(con2, GRB.LESS_EQUAL, 1.0, "Max Matches");
         }
 
-        //hinting that the total similarity must be below 1.0 to increase speed.
-        //todo
 
         // linking between similar entries in the F matrices and the mapping
         for (int i = 0; i< nodesNet1; i++){
