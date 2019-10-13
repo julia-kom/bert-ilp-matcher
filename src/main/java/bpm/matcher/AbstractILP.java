@@ -14,6 +14,7 @@ public abstract class AbstractILP {
     GRBEnv env;
     GRBModel model;
     double  similarityWeight;
+    LabelSimilarity sim;
 
     /**
      * Different ILP implementations
@@ -33,7 +34,7 @@ public abstract class AbstractILP {
     void init(File log, double similarityWeight) throws GRBException {
         // Set similarity weight
         this.similarityWeight = similarityWeight;
-
+        this.sim = new LabelSimilarity();
 
         // Create empty environment, set options, and start
         env = new GRBEnv(true);

@@ -38,6 +38,8 @@ public class RelaxedILP extends AbstractILP {
         int nodesNet2 = NodeNet2.length;
         int minSize = Math.min(nodesNet1,nodesNet2);
 
+
+
         model.set(GRB.IntParam.Crossover,0);
 
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
@@ -78,7 +80,7 @@ public class RelaxedILP extends AbstractILP {
         GRBLinExpr label = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                label.addTerm(LabelSimilarity.BoWSim(NodeNet1[i].getLabel() ,NodeNet2[j].getLabel())/(minSize), x[i][j]);
+                label.addTerm(sim.BagOfWordSim(NodeNet1[i].getLabel() ,NodeNet2[j].getLabel())/(minSize), x[i][j]);
             }
         }
         GRBLinExpr obj = new GRBLinExpr();

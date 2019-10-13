@@ -1,42 +1,132 @@
 package bpm.matcher;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import edu.cmu.lti.ws4j.WS4J;
 
-import org.jbpt.petri.Node;
+import java.util.*;
 
 
 public class LabelSimilarity {
-    private Node[] entitiesNet1;
-    private Node[] entitiesNet2;
-    private Map<Node, Map<Node, Double>> similarities;
-    @Deprecated
-    LabelSimilarity(Collection<Node> entitiesNet1, Collection<Node> entitiesNet2){
-        this.entitiesNet1 = (Node[]) entitiesNet1.toArray();
-        this.entitiesNet2 = (Node[]) entitiesNet2.toArray();
-        this.similarities = null;
-        //todo similarity call and store it
-    }
-    @Deprecated
-    double betweenIndex(int i, int j)  {
-        if ( i <0 || i >= entitiesNet1.length ||  j <0 || j >= entitiesNet2.length){
-            throw new IndexOutOfBoundsException("Index is out of bound to access entity in Label Similarity");
+
+
+    /**
+     * Implementation of the Basic Bag-of Word Similarity with Lev-Jiang Max between two strings according to
+     * "Increasing Recall of Process Model Matching by Improved Activity Label Matching" (2014)
+     * @param label1 first string
+     * @param label2 second string
+     * @return
+     */
+    public double BagOfWordSim(String label1, String label2){
+
+        //tokenizaiton
+        BagOfWords bag1 = new BagOfWords(label1);
+        BagOfWords bag2 = new BagOfWords(label2);
+
+        //stop word removal
+        bag1.removeStopWords();
+        bag2.removeStopWords();
+
+        //max computation word1
+        double sum1 = 0;
+        double max1;
+        for(int i = 0; i<bag1.size(); i++){
+            max1 = 0;
+            for(int j = 0; j < bag2.size(); j++){
+                double lin = 0;
+                if(bag1.at(i).equals(bag2.at(j))){
+                    lin = 1;
+                }else{
+                    lin = LinWordSim(bag1.at(i),bag2.at(j));
+                }
+                double lev = LevenshteinWordSim(bag1.at(i),bag2.at(j));
+                double tmp = Math.max(lin,lev);
+                if (max1 < tmp){
+                    max1 =  tmp;
+                }
+            }
+            sum1+=max1;
         }
-        return similarities.get(entitiesNet1[i]).get(entitiesNet2[j]);
+
+        //max computation word2
+        double sum2 = 0;
+        double max2 = 0;
+        for(int i = 0; i<bag2.size(); i++){
+            max2 = 0;
+            for(int j = 0; j < bag1.size(); j++){
+                double lin = 0;
+                if(bag2.at(i).equals(bag1.at(j))){
+                    lin = 1;
+                }else{
+                    lin = LinWordSim(bag2.at(i),bag1.at(j));
+                }
+                double lev = LevenshteinWordSim(bag2.at(i),bag1.at(j));
+                double tmp = Math.max(lin,lev);
+                if (max2 < tmp){
+                    max2 =  tmp;
+                }
+            }
+            sum2+=max2;
+        }
+
+        System.out.println("A: " + label1 + ", B: " + label2 + ":" +(sum1+sum2)/(bag1.size() + bag2.size()));
+        //aggregate
+        return (sum1+sum2)/(bag1.size() + bag2.size());
     }
 
-    @Deprecated
-    double between(Node entityNet1, Node entityNet2){
-        return similarities.get(entityNet1).get(entityNet2);
+    /**
+     * Compute Lin Similarity with wordnet via WS4J Lib
+     * @param s1 Word 1
+     * @param s2 Word 2
+     * @return Similarity Score
+     */
+    public static double LinWordSim(String s1, String s2){
+        return WS4J.runLIN(s1,s2);
+    }
+
+    /**
+     * Compute Jiang Similarity with wordnet via WS4J Lib
+     * @param s1 Word 1
+     * @param s2 Word 2
+     * @return Similarity Score
+     */
+    public static double JiangWordSim(String s1, String s2){
+        return WS4J.runJCN(s1,s2);
     }
 
 
-    public static double BoWSim(String s1, String s2){
-        //todo implement
+    /**
+     * Compute Levenshtein Similarity
+     * @param s1 Word 1
+     * @param s2 Word 2
+     * @return Similarity Score
+     */
+    public static double LevenshteinWordSim(String s1, String s2){
         return 0.0;
     }
 
+    private class BagOfWords{
+        List<String> words;
 
+        private BagOfWords(String label){
+            HashSet<String> set = new HashSet<>(Arrays.asList(label.split("\\s+")));
+            words = new ArrayList<String>(set);
+        }
 
+        private String at(int i){
+            return words.get(i);
+        }
+
+        private int size(){
+            return words.size();
+        }
+
+        private void removeStopWords(){
+
+        }
+    }
 }
+
+
+
+
+
+
