@@ -47,6 +47,14 @@ public class Matcher {
                 .desc("Sound, free-choice WF net 2")
                 .build();
 
+        Option ilp = Option.builder("i")
+                .hasArg(true)
+                .longOpt("ilp")
+                .desc("Choose an ILP Matcher here: \n Basic: 1:1 Matcher with ILP. Slow but returns similarity and matching. \n" +
+                        "Relaxed: 1:1 Matcher with LP. Slow but returns similarity and matching \n" +
+                        "Relaxed2: 1:1 Matcher with LP. Qucik but only matching.")
+                .build();
+
         //combine options
         Options options = new Options();
         options.addOption(optComplexMatches);
@@ -54,6 +62,7 @@ public class Matcher {
         options.addOption(optPostprocessThreshold);
         options.addOption(optPathNet1);
         options.addOption(optPathNet2);
+        options.addOption(ilp);
 
         //parse input
         CommandLine line;
@@ -119,6 +128,16 @@ public class Matcher {
             net1 = null;
             net2 = null;
 
+        }
+
+        //parse ILP
+        if (line.hasOption("i")) {
+            String sIlp = line.getOptionValue("i");
+            if(sIlp != null) {
+                builder.withILP(sIlp);
+            }else{
+                throw new IllegalArgumentException("ilp argument null");
+            }
         }
 
         //Build pipeline

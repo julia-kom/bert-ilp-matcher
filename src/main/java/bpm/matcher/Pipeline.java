@@ -6,11 +6,12 @@ import org.jbpt.bp.construct.BPCreatorNet;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.PetriNet;
 import org.jbpt.petri.io.PNMLSerializer;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.sql.Timestamp;
 import java.io.File;
 
-
+import static java.lang.System.exit;
 
 
 /**
@@ -21,6 +22,7 @@ public class Pipeline {
     private double  similarityWeight;
     private double  postprocessThreshold;
     private Matcher.Profile profile;
+    private AbstractILP.ILP ilp;
 
     /**
      * Empty Constructor for the Builder
@@ -99,9 +101,18 @@ public class Pipeline {
         return r;
     }
 
-    private AbstractILP getILP(){
-        //TODO switch versions here. Use enum in AbstractILP
-        return new BasicILP();
+    private AbstractILP getILP() throws NotImplementedException {
+        switch(ilp) {
+            case BASIC:
+                return new BasicILP();
+            case RELAXED:
+                return  new RelaxedILP();
+            case RELAXED2:
+                return new RelaxedILP2();
+            default:
+                throw new NotImplementedException();
+        }
+
     }
 
     /**
@@ -131,6 +142,7 @@ public class Pipeline {
         boolean complexMatches = false;
         double  similarityWeight = 0.3;
         double  postprocessThreshold = 0.0;
+        AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
         Matcher.Profile profile = Matcher.Profile.BP;
 
         /**
@@ -177,6 +189,28 @@ public class Pipeline {
         }
 
         /**
+         * Sets the ILP Matcher to Basic
+         * @return
+         */
+        public Pipeline.Builder withILP(String sIlp){
+            switch(sIlp) {
+                case "Basic":
+                    this.ilp = AbstractILP.ILP.BASIC;
+                    break;
+                case "Relaxed":
+                    this.ilp = AbstractILP.ILP.RELAXED;
+                    break;
+                case "Relaxed2":
+                    this.ilp = AbstractILP.ILP.RELAXED2;
+                    break;
+
+                    default:
+                        throw new IllegalArgumentException("ilp argument is not valid: " +sIlp);
+            }
+            return this;
+        }
+
+        /**
          * Set the profile type used to represent the behavior
          * @param p a profile of type Match.Profile
          * @return Builder
@@ -196,6 +230,7 @@ public class Pipeline {
             pip.complexMatches = this.complexMatches;
             pip.postprocessThreshold = this.postprocessThreshold;
             pip.profile = this.profile;
+            pip.ilp = this.ilp;
             return pip;
         }
     }

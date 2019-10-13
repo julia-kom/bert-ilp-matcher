@@ -9,11 +9,9 @@ import org.jbpt.bp.RelSetType;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 
-import java.util.Set;
 
-
-public class BasicILP extends AbstractILP {
-    public BasicILP(){
+public class RelaxedILP2 extends AbstractILP {
+    public RelaxedILP2(){
 
     }
 
@@ -27,7 +25,7 @@ public class BasicILP extends AbstractILP {
      * @throws GRBException
      */
     @Override
-    protected AbstractILP.Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2) throws GRBException {
+    protected Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2) throws GRBException {
         //setup variables
         Node[] NodeNet1 =  net1.getNodes().toArray(new Node[net1.getNodes().size()]);
         Node[] NodeNet2 =  net2.getNodes().toArray(new Node[net2.getNodes().size()]);
@@ -39,7 +37,7 @@ public class BasicILP extends AbstractILP {
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                x[i][j] = model.addVar(0.0, 1.0,0.0, GRB.BINARY, "x_"+i+"_"+j);
+                x[i][j] = model.addVar(0.0, 1.0,0.0, GRB.CONTINUOUS, "x_"+i+"_"+j);
             }
         }
 
@@ -49,7 +47,7 @@ public class BasicILP extends AbstractILP {
             for (int k = 0; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        y[i][j][k][l] = model.addVar(0.0, 1.0, 0.0, GRB.BINARY, "y_" + i + "_" + j+"_"+k+"_"+l);
+                        y[i][j][k][l] = model.addVar(0.0, 1.0, 0.0, GRB.CONTINUOUS, "y_" + i + "_" + j+"_"+k+"_"+l);
                     }
                 }
             }
@@ -184,7 +182,7 @@ public class BasicILP extends AbstractILP {
         //System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));
 
         // create result
-        AbstractILP.Result res = new AbstractILP.Result(model.get(GRB.DoubleAttr.ObjVal),x);
+        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),x);
 
         // Dispose of model and environment
         model.dispose();

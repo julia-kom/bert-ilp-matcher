@@ -12,8 +12,8 @@ import org.jbpt.petri.Node;
 import java.util.Set;
 
 
-public class BasicILP extends AbstractILP {
-    public BasicILP(){
+public class RelaxedILP extends AbstractILP {
+    public RelaxedILP(){
 
     }
 
@@ -35,11 +35,12 @@ public class BasicILP extends AbstractILP {
         int nodesNet2 = NodeNet2.length;
         int minSize = Math.min(nodesNet1,nodesNet2);
 
+        model.set(GRB.IntParam.Crossover,0);
 
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                x[i][j] = model.addVar(0.0, 1.0,0.0, GRB.BINARY, "x_"+i+"_"+j);
+                x[i][j] = model.addVar(0.0, 1.0,0.0, GRB.CONTINUOUS, "x_"+i+"_"+j);
             }
         }
 
@@ -49,14 +50,14 @@ public class BasicILP extends AbstractILP {
             for (int k = 0; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        y[i][j][k][l] = model.addVar(0.0, 1.0, 0.0, GRB.BINARY, "y_" + i + "_" + j+"_"+k+"_"+l);
+                        y[i][j][k][l] = model.addVar(0.0, 1.0, 0.0, GRB.CONTINUOUS, "y_" + i + "_" + j+"_"+k+"_"+l);
                     }
                 }
             }
         }
 
-        //GRBVar sum = model.addVar(0.0, GRB.INFINITY, 0.0, GRB.CONTINUOUS, "sum_y");
-        //GRBVar sum_x = model.addVar(0.0, GRB.INFINITY, 0.0, GRB.CONTINUOUS, "sum_x");
+        GRBVar sum = model.addVar(0.0, GRB.INFINITY, 0.0, GRB.CONTINUOUS, "sum_y");
+        GRBVar sum_x = model.addVar(0.0, GRB.INFINITY, 0.0, GRB.CONTINUOUS, "sum_x");
 
         // Objective weighted between behavioral correspondance and label similarity
         // Behavioral part
@@ -86,6 +87,10 @@ public class BasicILP extends AbstractILP {
 
         //setup model
 
+        // hint expressions
+        model.addConstr(obj,GRB.LESS_EQUAL,1.0, "objective hint");
+        model.addConstr(label,GRB.LESS_EQUAL,1.0, "objective hint");
+        model.addConstr(behavior,GRB.LESS_EQUAL,1.0, "objective hint");
 
         /*GRBLinExpr conTest = new GRBLinExpr();
         conTest.clear();
@@ -132,9 +137,6 @@ public class BasicILP extends AbstractILP {
             model.addConstr(con2, GRB.LESS_EQUAL, 1.0, "Max Matches");
         }
 
-        //hinting that the total similarity must be below 1.0 to increase speed.
-        //todo
-
         // linking between similar entries in the F matrices and the mapping
         for (int i = 0; i< nodesNet1; i++){
             for (int k = 0; k < nodesNet1; k++){
@@ -145,10 +147,15 @@ public class BasicILP extends AbstractILP {
                         if (relNet1.getRelationForEntities(NodeNet1[i], NodeNet1[k]).equals(relNet2.getRelationForEntities(NodeNet1[j], NodeNet1[l]))) {
                             GRBLinExpr con3 = new GRBLinExpr();
                             con3.clear();
-                            con3.addTerm(2, y[i][j][k][l]);
                             con3.addTerm(-1, x[i][j]);
-                            con3.addTerm(-1, x[k][l]);
+                            con3.addTerm(1, y[i][j][k][l]);
                             model.addConstr(con3, GRB.LESS_EQUAL, 0, "linking");
+
+                            GRBLinExpr con4 = new GRBLinExpr();
+                            con4.clear();
+                            con4.addTerm(1, y[i][j][k][l]);
+                            con4.addTerm(-1, x[k][l]);
+                            model.addConstr(con4, GRB.LESS_EQUAL, 0, "linking");
                         } else {
                             GRBLinExpr con3 = new GRBLinExpr();
                             con3.clear();
