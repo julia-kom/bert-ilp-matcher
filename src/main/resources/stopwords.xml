@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!-- author: Christopher Klinkmüller in the implementation of jpmmt in context of his paper "Increasing Recall of Process Model Matching by Improved Activity Label Matching" (2014) -->
 	<StopWords>
 		<StopWord>they</StopWord>
 		<StopWord>said</StopWord>
