@@ -1,13 +1,24 @@
 package bpm.similarity;
 
 import org.apache.commons.lang3.NotImplementedException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
+import java.io.File;
+import java.net.URISyntaxException;
 import java.util.*;
+import javax.xml.parsers.*;
+import java.io.*;
 
+import static java.lang.System.exit;
 
 public class LabelSimilarity {
 
-    Word.Similarities wordSimilarity;
+    private Word.Similarities wordSimilarity;
+
+    public static final HashSet<String> STOPWORDS = loadStopWords();
 
     /**
      * Construct a Label Similarity Function with specific word similarity measure.
@@ -68,24 +79,92 @@ public class LabelSimilarity {
         return (sum1+sum2)/(bag1.size() + bag2.size());
     }
 
+    private static HashSet<String> loadStopWords(){
+        // Create HashSet
+        HashSet<String> set = new HashSet<>();
+
+        // Get File Path
+        File file;
+        try {
+            file = new File(LabelSimilarity.class.getClassLoader().getResource("stopwords.xml").toURI());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            file = null;
+            exit(1);
+        }
+
+        // Create Builder
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = null;
+        try {
+            builder = factory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+
+        // Parse XML File
+        Document document = null;
+        try {
+            document = builder.parse(file);
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Element root = document.getDocumentElement();
+        NodeList stopWord = root.getElementsByTagName("StopWord");
+
+        // Fill the HashSet
+        for(int i = 0; i < stopWord.getLength(); i++)
+            set.add(stopWord.item(i).getTextContent());
+
+        return set;
+    }
+
     private class BagOfWords{
         List<String> words;
 
+        /**
+         * Create a Bag of Words. Duplicated Words are only regarded once.
+         * @param label the label of a node
+         */
         private BagOfWords(String label){
             HashSet<String> set = new HashSet<>(Arrays.asList(label.split("\\s+")));
             words = new ArrayList<String>(set);
         }
 
+        /**
+         * Get word at position i in the bag for iteration
+         * @param i
+         * @return
+         */
         private String at(int i){
             return words.get(i);
         }
 
+        /**
+         * Get number of words inside the bag
+          * @return
+         */
         private int size(){
             return words.size();
         }
 
+        /**
+         * Remove Stop Words which are defined in the stopword file from resources.
+         * Stopwords are taken from "Increasing Recall of Process Model Matching by Improved Activity Label Matching" (2014), for comparability reasons.
+         */
         private void removeStopWords(){
-            // todo
+            //iterate through all words and delete those which are in the stopword hashmap
+            Iterator<String> it = words.listIterator();
+            String w;
+            while(it.hasNext()){
+                w = it.next();
+                if (STOPWORDS.contains(w)){
+                    it.remove();
+                    System.out.println("Stopword Removed: " + w);
+                }
+            }
         }
     }
 
