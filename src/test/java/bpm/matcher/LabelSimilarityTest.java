@@ -34,7 +34,7 @@ public class LabelSimilarityTest
         // Order test
         String s1 = "house mouse klaus";
         String s2 = "klaus house mouse";
-        LabelSimilarity sim = new LabelSimilarity();
+        LabelSimilarity sim = new LabelSimilarity(Word.Similarities.LEVENSHTEIN_LIN_MAX);
         Assert.assertTrue(sim.BagOfWords(s1,s2) == 1);
 
         // Lin-Lev-Max Similarity Bag of Words Test
@@ -81,10 +81,10 @@ public class LabelSimilarityTest
         }
 
         //Compute the matrix
-        Matrix matrix = new Matrix(n1,n2);
+        Matrix matrix = new Matrix.Builder().withWordSimilarity(Word.Similarities.LEVENSHTEIN_LIN_MAX).build(n1,n2);
 
         // Label Simialarity
-        LabelSimilarity sim = new LabelSimilarity();
+        LabelSimilarity sim = new LabelSimilarity(Word.Similarities.LEVENSHTEIN_LIN_MAX);
 
         for (Node t1 : n1){
             for (Node t2 : n2){

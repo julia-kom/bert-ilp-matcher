@@ -1,13 +1,24 @@
 package bpm.similarity;
 
+import org.apache.commons.lang3.NotImplementedException;
+
 import java.util.*;
 
 
 public class LabelSimilarity {
 
+    Word.Similarities wordSimilarity;
 
     /**
-     * Implementation of the Basic Bag-of Word Similarity with Lev-Lin Max between two strings according to
+     * Construct a Label Similarity Function with specific word similarity measure.
+     * @param wordSimilarity
+     */
+    public LabelSimilarity(Word.Similarities wordSimilarity){
+        this.wordSimilarity = wordSimilarity;
+    }
+
+    /**
+     * Implementation of the Basic Bag-of Word Similarity with simFunction as word similarity between two strings according to
      * "Increasing Recall of Process Model Matching by Improved Activity Label Matching" (2014)
      * @param label1 first string
      * @param label2 second string
@@ -29,17 +40,8 @@ public class LabelSimilarity {
         for(int i = 0; i<bag1.size(); i++){
             max1 = 0;
             for(int j = 0; j < bag2.size(); j++){
-                // calculate lin
-                double lin;
-                if(bag1.at(i).equals(bag2.at(j))){
-                    lin = 1;
-                }else{
-                    lin = Word.LinSimilarity(bag1.at(i),bag2.at(j));
-                }
-                //calculate lev
-                double lev = Word.LevenshteinSimilarity(bag1.at(i),bag2.at(j));
-                //get max of both
-                double tmp = Math.max(lin,lev);
+                // calculate similarity
+                double tmp = wordSimilarity(bag1.at(i),bag2.at(j));
                 if (max1 < tmp){
                     max1 =  tmp;
                 }
@@ -53,14 +55,7 @@ public class LabelSimilarity {
         for(int i = 0; i<bag2.size(); i++){
             max2 = 0;
             for(int j = 0; j < bag1.size(); j++){
-                double lin = 0;
-                if(bag2.at(i).equals(bag1.at(j))){
-                    lin = 1;
-                }else{
-                    lin = Word.LinSimilarity(bag2.at(i),bag1.at(j));
-                }
-                double lev = Word.LevenshteinSimilarity(bag2.at(i),bag1.at(j));
-                double tmp = Math.max(lin,lev);
+                double tmp = wordSimilarity(bag2.at(i),bag1.at(j));
                 if (max2 < tmp){
                     max2 =  tmp;
                 }
@@ -93,7 +88,25 @@ public class LabelSimilarity {
             // todo
         }
     }
+
+    private double wordSimilarity(String s1, String s2){
+        switch(wordSimilarity){
+            case LIN:
+                return Word.LinSimilarity(s1,s2);
+            case JIANG:
+                return Word.JiangSimilarity(s1,s2);
+            case LEVENSHTEIN:
+                return Word.LevenshteinSimilarity(s1,s2);
+            case LEVENSHTEIN_JIANG_MAX:
+                return Word.LevenshteinJiangMaxSimialrity(s1,s2);
+            case LEVENSHTEIN_LIN_MAX:
+                return Word.LevenshteinLinMaxSimialrity(s1,s2);
+                default:
+                    throw new NotImplementedException("Word Similarity Function is not in switch.");
+        }
+    }
 }
+
 
 
 

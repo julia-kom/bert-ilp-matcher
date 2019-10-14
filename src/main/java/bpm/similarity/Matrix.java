@@ -8,25 +8,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Matrix{
+    private Word.Similarities wordSimilarityFunction;
     private Node[] nodesNet1;
     private Node[] nodesNet2;
     private Map<Pair<String,String>, Double> similarities;
 
     /**
-     * Create a new Bag of Words Similarity Matrix for given sets of nodes
-     * @param nodesNet1 nodes of net 1
-     * @param nodesNet2 nodes of net 2
+     * Use Builder
      */
-    public Matrix(Collection<Node> nodesNet1, Collection<Node> nodesNet2){
-        LabelSimilarity sim = new LabelSimilarity();
-        this.nodesNet1 = nodesNet1.toArray(new Node[nodesNet1.size()]);
-        this.nodesNet2 = nodesNet2.toArray(new Node[nodesNet2.size()]);
-        this.similarities = new HashMap<>();
+    private Matrix(){
 
+    }
+
+    /**
+     * Create a new Bag of Words Similarity Matrix for given sets of nodes
+     */
+    private void construct(){
+        this.similarities = new HashMap<>();
+        LabelSimilarity labelSimilarity = new LabelSimilarity(wordSimilarityFunction);
         // fill the matrix
         for(Node n1 : nodesNet1){
             for (Node n2 : nodesNet2){
-                similarities.put(new Pair<>(n1.getLabel(), n2.getLabel()), sim.BagOfWords(n1.getLabel(), n2.getLabel()));
+                similarities.put(new Pair<>(n1.getLabel(), n2.getLabel()), labelSimilarity.BagOfWords(n1.getLabel(), n2.getLabel()));
             }
         }
     }
@@ -47,5 +50,25 @@ public class Matrix{
     public double between(Node nodeNet1, Node nodeNet2){
         return similarities.get(new Pair<>(nodeNet1.getLabel(),nodeNet2.getLabel()));
     }
+
+    public static class Builder{
+        Word.Similarities sim = Word.Similarities.LEVENSHTEIN_LIN_MAX;
+
+        public Builder withWordSimilarity(Word.Similarities sim){
+            this.sim = sim;
+            return this;
+        }
+
+        public Matrix build(Collection<Node> nodesNet1, Collection<Node> nodesNet2){
+            Matrix res = new Matrix();
+            res.nodesNet1 = nodesNet1.toArray(new Node[nodesNet1.size()]);
+            res.nodesNet2 = nodesNet2.toArray(new Node[nodesNet2.size()]);
+            res.wordSimilarityFunction = this.sim;
+            res.construct();
+            return res;
+        }
+    }
+
+
 
 }

@@ -1,6 +1,7 @@
 package bpm.matcher;
 
 import bpm.similarity.LabelSimilarity;
+import bpm.similarity.Matrix;
 import gurobi.GRBEnv;
 import gurobi.GRBException;
 import gurobi.GRBModel;
@@ -15,7 +16,6 @@ public abstract class AbstractILP {
     GRBEnv env;
     GRBModel model;
     double  similarityWeight;
-    LabelSimilarity sim;
 
     /**
      * Different ILP implementations
@@ -35,7 +35,6 @@ public abstract class AbstractILP {
     void init(File log, double similarityWeight) throws GRBException {
         // Set similarity weight
         this.similarityWeight = similarityWeight;
-        this.sim = new LabelSimilarity();
 
         // Create empty environment, set options, and start
         env = new GRBEnv(true);
@@ -47,7 +46,7 @@ public abstract class AbstractILP {
     }
 
     // todo maybe replace sim with a function pointer
-    protected abstract AbstractILP.Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2) throws GRBException ;
+    protected abstract AbstractILP.Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2, Matrix matrix) throws GRBException ;
 
     public class Result{
         double similarity;

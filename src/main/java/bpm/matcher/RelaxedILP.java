@@ -1,5 +1,6 @@
 package bpm.matcher;
 
+import bpm.similarity.Matrix;
 import gurobi.GRB;
 import gurobi.GRBException;
 import gurobi.GRBLinExpr;
@@ -28,7 +29,7 @@ public class RelaxedILP extends AbstractILP {
      * @throws GRBException
      */
     @Override
-    protected AbstractILP.Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2) throws GRBException {
+    protected AbstractILP.Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2, Matrix matrix) throws GRBException {
         //setup variables
         Node[] NodeNet1 =  net1.getNodes().toArray(new Node[net1.getNodes().size()]);
         Node[] NodeNet2 =  net2.getNodes().toArray(new Node[net2.getNodes().size()]);
@@ -78,7 +79,7 @@ public class RelaxedILP extends AbstractILP {
         GRBLinExpr label = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                label.addTerm(sim.BagOfWords(NodeNet1[i].getLabel() ,NodeNet2[j].getLabel())/(minSize), x[i][j]);
+                label.addTerm(matrix.between(NodeNet1[i],NodeNet2[j])/(minSize), x[i][j]);
             }
         }
         GRBLinExpr obj = new GRBLinExpr();

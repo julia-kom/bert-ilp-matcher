@@ -1,14 +1,14 @@
 package bpm.matcher;
 
-import bpm.similarity.LabelSimilarity;
 import bpm.similarity.Matrix;
+import bpm.similarity.Word;
 import gurobi.GRBException;
 import org.jbpt.bp.RelSet;
 import org.jbpt.bp.construct.BPCreatorNet;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.PetriNet;
 import org.jbpt.petri.io.PNMLSerializer;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import org.apache.commons.lang3.NotImplementedException;
 
 import java.sql.Timestamp;
 import java.io.File;
@@ -56,7 +56,9 @@ public class Pipeline {
 
         // Create Label Similarity Matrix
         System.out.println("##### Start Creating Similarity Matrix #####");
-        Matrix simMatrix = new Matrix(net1.getNodes(), net2.getNodes());
+        Matrix simMatrix = new Matrix.Builder()
+                .withWordSimilarity(Word.Similarities.LEVENSHTEIN_LIN_MAX)
+                .build(net1.getNodes(),net2.getNodes());
         System.out.println("##### Creating Similarity Matrix Complete #####");
 
         // Run ILP
@@ -65,7 +67,7 @@ public class Pipeline {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         try {
             ilp.init(new File("./gurobi-logs/log-"+ timestamp+".log"), similarityWeight);
-            ilp.solve(relNet1, relNet2, net1, net2);
+            ilp.solve(relNet1, relNet2, net1, net2, simMatrix);
         } catch (GRBException e) {
             System.out.println("Error code: " + e.getErrorCode() + ". " +
                     e.getMessage());
@@ -113,7 +115,7 @@ public class Pipeline {
             case RELAXED2:
                 return new RelaxedILP2();
             default:
-                throw new NotImplementedException();
+                throw new NotImplementedException("ILP you searched for is not in switch");
         }
 
     }
