@@ -1,33 +1,29 @@
 package bpm.matcher;
 
-import edu.cmu.lti.ws4j.util.WS4JConfiguration;
+import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.awt.*;
-import java.lang.reflect.Array;
-import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Collections;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class LabelSimilarityTest
 {
     @Test
-    public void ws4jTest(){
+    public void wordSimilarityTests(){
         System.out.println();
         Assert.assertTrue(LabelSimilarity.LinWordSim("house","lodge") >= 0.9);
         Assert.assertTrue(LabelSimilarity.LinWordSim("house","car") <1.0);
         Assert.assertTrue(LabelSimilarity.JiangWordSim("house","lodge") >= 0.75);
         Assert.assertTrue(LabelSimilarity.JiangWordSim("house","car") <= 1.0);
-        //Assert.assertTrue( LabelSimilarity.LevenshteinWordSim("house","house") == 1.0);
-        //Assert.assertTrue( LabelSimilarity.LevenshteinWordSim("house","houte") == 0.8);
+        Assert.assertTrue( LabelSimilarity.LevenshteinWordSim("house","house") == 1.0);
+        Assert.assertTrue( LabelSimilarity.LevenshteinWordSim("house","houte") == 0.8);
     }
 
     @Test
-    public void bagOfWordsTest(){
+    public void bagOfWordsTests(){
         // Order test
         String s1 = "house mouse klaus";
         String s2 = "klaus house mouse";
@@ -56,6 +52,7 @@ public class AppTest
         bow += max(val3Lev, val3Lin, val6Lev,val6Lin); //elephant
         bow = bow / (2+3);
         Assert.assertTrue(Math.abs(sim.BagOfWordSim("house lion", "lodge car elephant") - bow) <0.01);
+
     }
 
     private static double max(Double... vals) {

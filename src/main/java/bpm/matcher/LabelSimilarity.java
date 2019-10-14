@@ -2,6 +2,7 @@ package bpm.matcher;
 
 import edu.cmu.lti.ws4j.WS4J;
 import edu.cmu.lti.ws4j.util.WS4JConfiguration;
+import org.apache.commons.text.similarity.LevenshteinDistance;
 
 import java.util.*;
 
@@ -10,7 +11,7 @@ public class LabelSimilarity {
 
 
     /**
-     * Implementation of the Basic Bag-of Word Similarity with Lev-Jiang Max between two strings according to
+     * Implementation of the Basic Bag-of Word Similarity with Lev-Lin Max between two strings according to
      * "Increasing Recall of Process Model Matching by Improved Activity Label Matching" (2014)
      * @param label1 first string
      * @param label2 second string
@@ -80,7 +81,7 @@ public class LabelSimilarity {
      * Compute Lin Similarity with wordnet via WS4J Lib
      * @param s1 Word 1
      * @param s2 Word 2
-     * @return Similarity Score
+     * @return Similarity Score between 0 and 1
      */
     public static double LinWordSim(String s1, String s2){
         WS4JConfiguration.getInstance().setMFS(false);
@@ -91,7 +92,7 @@ public class LabelSimilarity {
      * Compute Jiang Similarity with wordnet via WS4J Lib
      * @param s1 Word 1
      * @param s2 Word 2
-     * @return Similarity Score
+     * @return Similarity Score between 0 and 1
      */
     public static double JiangWordSim(String s1, String s2){
         WS4JConfiguration.getInstance().setMFS(false);
@@ -100,13 +101,18 @@ public class LabelSimilarity {
 
 
     /**
-     * Compute Levenshtein Similarity
+     * Compute Levenshtein Similarity with help of apache commons text Lib
      * @param s1 Word 1
      * @param s2 Word 2
-     * @return Similarity Score
+     * @return Similarity Score between 0 and 1
      */
     public static double LevenshteinWordSim(String s1, String s2){
-        return 0.0;
+        // get levenshtein distance
+        LevenshteinDistance lev = LevenshteinDistance.getDefaultInstance();
+        double dist = lev.apply(s1,s2);
+
+        // convert to similarity by normalizing and inverting
+        return 1.0 - (dist / Math.max(s2.length(),s1.length()));
     }
 
     private class BagOfWords{
@@ -126,7 +132,7 @@ public class LabelSimilarity {
         }
 
         private void removeStopWords(){
-
+            // todo
         }
     }
 }
