@@ -12,5 +12,4 @@ This is a simultaneous label and behavior process model matcher.
 7.  Postprocess the matches
 
 ## First Test Runs with following parameters:
-
 `-n1 ./src/main/resources/pnml-files/Uni/Frankfurt_reduced.pnml -n2 ./src/main/resources/pnml-files/Uni/Frankfurt_reduced.pnml`

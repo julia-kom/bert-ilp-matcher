@@ -1,17 +1,19 @@
 package bpm.matcher;
 
+import bpm.similarity.Matrix;
+import bpm.similarity.Word;
+
 import gurobi.GRBException;
+
 import org.jbpt.bp.RelSet;
 import org.jbpt.bp.construct.BPCreatorNet;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.PetriNet;
 import org.jbpt.petri.io.PNMLSerializer;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import org.apache.commons.lang3.NotImplementedException;
 
 import java.sql.Timestamp;
 import java.io.File;
-
-import static java.lang.System.exit;
 
 
 /**
@@ -23,6 +25,7 @@ public class Pipeline {
     private double  postprocessThreshold;
     private Matcher.Profile profile;
     private AbstractILP.ILP ilp;
+    private Word.Similarities wordSimilarity;
 
     /**
      * Empty Constructor for the Builder
@@ -54,15 +57,20 @@ public class Pipeline {
         RelSet relNet2 = createProfile(net2);
         System.out.println("##### Creating Profiles Complete #####");
 
+        // Create Label Similarity Matrix
+        System.out.println("##### Start Creating Similarity Matrix #####");
+        Matrix simMatrix = new Matrix.Builder()
+                .withWordSimilarity(this.wordSimilarity)
+                .build(net1.getNodes(),net2.getNodes());
+        System.out.println("##### Creating Similarity Matrix Complete #####");
+
         // Run ILP
         System.out.println("##### Start ILP #####");
-        // TODO Implement
         AbstractILP ilp = getILP();
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-
         try {
             ilp.init(new File("./gurobi-logs/log-"+ timestamp+".log"), similarityWeight);
-            ilp.solve(relNet1, relNet2, net1, net2);
+            ilp.solve(relNet1, relNet2, net1, net2, simMatrix);
         } catch (GRBException e) {
             System.out.println("Error code: " + e.getErrorCode() + ". " +
                     e.getMessage());
@@ -110,7 +118,7 @@ public class Pipeline {
             case RELAXED2:
                 return new RelaxedILP2();
             default:
-                throw new NotImplementedException();
+                throw new NotImplementedException("ILP you searched for is not in switch");
         }
 
     }
@@ -144,6 +152,7 @@ public class Pipeline {
         double  postprocessThreshold = 0.0;
         AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
         Matcher.Profile profile = Matcher.Profile.BP;
+        Word.Similarities wordSimilarity;
 
         /**
          * Create a Builder to define a Pipline Object.
@@ -185,6 +194,31 @@ public class Pipeline {
                 throw new NumberFormatException("Value PostprocessThreshold is out of range 0 to 1");
             }
             this.postprocessThreshold = p;
+            return this;
+        }
+
+        /**
+         * Set the Word Similarity Function
+         * @return Builder
+         */
+        public Pipeline.Builder withWordSimilarity(String wordSim){
+            switch (wordSim){
+                case "Lin":
+                    this.wordSimilarity = Word.Similarities.LIN;
+                    break;
+                case "Levenshtein":
+                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN;
+                    break;
+                case "Jiang":
+                    this.wordSimilarity = Word.Similarities.JIANG;
+                case "Levenshtein-Lin-Max":
+                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
+                    break;
+                case "Levenshtein-Jiang-Max":
+                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN_JIANG_MAX;
+                    default:
+                        throw new IllegalArgumentException("Word Similarity Parameter not supported: " + wordSim);
+            }
             return this;
         }
 
