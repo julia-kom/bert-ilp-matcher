@@ -1,6 +1,7 @@
 package bpm.matcher;
 
 import edu.cmu.lti.ws4j.WS4J;
+import edu.cmu.lti.ws4j.util.WS4JConfiguration;
 
 import java.util.*;
 
@@ -31,13 +32,16 @@ public class LabelSimilarity {
         for(int i = 0; i<bag1.size(); i++){
             max1 = 0;
             for(int j = 0; j < bag2.size(); j++){
-                double lin = 0;
+                // calculate lin
+                double lin;
                 if(bag1.at(i).equals(bag2.at(j))){
                     lin = 1;
                 }else{
                     lin = LinWordSim(bag1.at(i),bag2.at(j));
                 }
+                //calculate lev
                 double lev = LevenshteinWordSim(bag1.at(i),bag2.at(j));
+                //get max of both
                 double tmp = Math.max(lin,lev);
                 if (max1 < tmp){
                     max1 =  tmp;
@@ -48,7 +52,7 @@ public class LabelSimilarity {
 
         //max computation word2
         double sum2 = 0;
-        double max2 = 0;
+        double max2;
         for(int i = 0; i<bag2.size(); i++){
             max2 = 0;
             for(int j = 0; j < bag1.size(); j++){
@@ -79,6 +83,7 @@ public class LabelSimilarity {
      * @return Similarity Score
      */
     public static double LinWordSim(String s1, String s2){
+        WS4JConfiguration.getInstance().setMFS(false);
         return WS4J.runLIN(s1,s2);
     }
 
@@ -89,6 +94,7 @@ public class LabelSimilarity {
      * @return Similarity Score
      */
     public static double JiangWordSim(String s1, String s2){
+        WS4JConfiguration.getInstance().setMFS(false);
         return WS4J.runJCN(s1,s2);
     }
 
