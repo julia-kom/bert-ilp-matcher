@@ -125,12 +125,17 @@ public class LabelSimilarity {
         List<String> words;
 
         /**
-         * Create a Bag of Words. Duplicated Words are only regarded once.
+         * Create a Bag of Words.
+         * Duplicated Words are only regarded once.
+         * Case insensitive
          * @param label the label of a node
          */
         private BagOfWords(String label){
             HashSet<String> set = new HashSet<>(Arrays.asList(label.split("\\s+")));
             words = new ArrayList<String>(set);
+            for (int i = 0; i< words.size(); i++){
+                words.set(i,words.get(i).toLowerCase());
+            }
         }
 
         /**
@@ -185,10 +190,3 @@ public class LabelSimilarity {
         }
     }
 }
-
-
-
-
-
-
-

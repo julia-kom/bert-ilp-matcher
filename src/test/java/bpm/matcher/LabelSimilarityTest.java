@@ -91,6 +91,13 @@ public class LabelSimilarityTest
                 Assert.assertTrue(matrix.between(t1,t2) == sim.BagOfWords(t1.getLabel(),t2.getLabel()));
             }
         }
+    }
 
+    @Test
+    public void stopWordTest(){
+        String s1 = "A call from mom";
+        String s2 = "call mom";
+        LabelSimilarity labelSim = new LabelSimilarity(Word.Similarities.LEVENSHTEIN_LIN_MAX);
+        Assert.assertTrue(labelSim.BagOfWords(s1,s2) == 1.0);
     }
 }

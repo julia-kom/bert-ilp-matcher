@@ -1,9 +1,6 @@
 package bpm.matcher;
 
 import org.apache.commons.cli.*;
-import org.jbpt.petri.NetSystem;
-import org.jbpt.petri.io.PNMLSerializer;
-
 import java.io.*;
 
 public class Matcher {
@@ -55,14 +52,27 @@ public class Matcher {
                         "Relaxed2: 1:1 Matcher with LP. Qucik but only matching.")
                 .build();
 
+        Option wordSim = Option.builder("w")
+                .hasArg(true)
+                .longOpt("word-sim")
+                .desc("Choose a used word similarity function, used inside the Bag-of-Words Label Similarity: \n " +
+                        "Lin: Lin Similarity \n" +
+                        "Levenshtein: Levenshtein Similarity \n" +
+                        "Jiang: Jiang Similarity \n" +
+                        "Levenshtein-Lin-Max: Maximum of Levenshtein and Lin Similarity \n" +
+                        "Levenshtein-Jiang-Max: Maximum of Levenshtein and Jiang Similarity")
+                .build();
+
         //combine options
         Options options = new Options();
         options.addOption(optComplexMatches);
         options.addOption(optSimilarityWeight);
         options.addOption(optPostprocessThreshold);
+        options.addOption(ilp);
+        options.addOption(wordSim);
         options.addOption(optPathNet1);
         options.addOption(optPathNet2);
-        options.addOption(ilp);
+
 
         //parse input
         CommandLine line;
