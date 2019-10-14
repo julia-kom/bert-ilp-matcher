@@ -1,5 +1,7 @@
 package bpm.matcher;
 
+import bpm.similarity.LabelSimilarity;
+import bpm.similarity.Matrix;
 import gurobi.GRBException;
 import org.jbpt.bp.RelSet;
 import org.jbpt.bp.construct.BPCreatorNet;
@@ -10,8 +12,6 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.sql.Timestamp;
 import java.io.File;
-
-import static java.lang.System.exit;
 
 
 /**
@@ -54,12 +54,15 @@ public class Pipeline {
         RelSet relNet2 = createProfile(net2);
         System.out.println("##### Creating Profiles Complete #####");
 
+        // Create Label Similarity Matrix
+        System.out.println("##### Start Creating Similarity Matrix #####");
+        Matrix simMatrix = new Matrix(net1.getNodes(), net2.getNodes());
+        System.out.println("##### Creating Similarity Matrix Complete #####");
+
         // Run ILP
         System.out.println("##### Start ILP #####");
-        // TODO Implement
         AbstractILP ilp = getILP();
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-
         try {
             ilp.init(new File("./gurobi-logs/log-"+ timestamp+".log"), similarityWeight);
             ilp.solve(relNet1, relNet2, net1, net2);

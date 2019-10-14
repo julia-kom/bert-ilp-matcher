@@ -9,8 +9,6 @@ import org.jbpt.bp.RelSetType;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 
-import java.util.Set;
-
 
 public class RelaxedILP extends AbstractILP {
     public RelaxedILP(){
@@ -80,7 +78,7 @@ public class RelaxedILP extends AbstractILP {
         GRBLinExpr label = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                label.addTerm(sim.BagOfWordSim(NodeNet1[i].getLabel() ,NodeNet2[j].getLabel())/(minSize), x[i][j]);
+                label.addTerm(sim.BagOfWords(NodeNet1[i].getLabel() ,NodeNet2[j].getLabel())/(minSize), x[i][j]);
             }
         }
         GRBLinExpr obj = new GRBLinExpr();

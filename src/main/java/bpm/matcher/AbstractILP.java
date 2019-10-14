@@ -1,5 +1,6 @@
 package bpm.matcher;
 
+import bpm.similarity.LabelSimilarity;
 import gurobi.GRBEnv;
 import gurobi.GRBException;
 import gurobi.GRBModel;

@@ -1,8 +1,4 @@
-package bpm.matcher;
-
-import edu.cmu.lti.ws4j.WS4J;
-import edu.cmu.lti.ws4j.util.WS4JConfiguration;
-import org.apache.commons.text.similarity.LevenshteinDistance;
+package bpm.similarity;
 
 import java.util.*;
 
@@ -17,7 +13,7 @@ public class LabelSimilarity {
      * @param label2 second string
      * @return
      */
-    public double BagOfWordSim(String label1, String label2){
+    public double BagOfWords(String label1, String label2){
 
         //tokenizaiton
         BagOfWords bag1 = new BagOfWords(label1);
@@ -38,10 +34,10 @@ public class LabelSimilarity {
                 if(bag1.at(i).equals(bag2.at(j))){
                     lin = 1;
                 }else{
-                    lin = LinWordSim(bag1.at(i),bag2.at(j));
+                    lin = Word.LinSimilarity(bag1.at(i),bag2.at(j));
                 }
                 //calculate lev
-                double lev = LevenshteinWordSim(bag1.at(i),bag2.at(j));
+                double lev = Word.LevenshteinSimilarity(bag1.at(i),bag2.at(j));
                 //get max of both
                 double tmp = Math.max(lin,lev);
                 if (max1 < tmp){
@@ -61,9 +57,9 @@ public class LabelSimilarity {
                 if(bag2.at(i).equals(bag1.at(j))){
                     lin = 1;
                 }else{
-                    lin = LinWordSim(bag2.at(i),bag1.at(j));
+                    lin = Word.LinSimilarity(bag2.at(i),bag1.at(j));
                 }
-                double lev = LevenshteinWordSim(bag2.at(i),bag1.at(j));
+                double lev = Word.LevenshteinSimilarity(bag2.at(i),bag1.at(j));
                 double tmp = Math.max(lin,lev);
                 if (max2 < tmp){
                     max2 =  tmp;
@@ -75,44 +71,6 @@ public class LabelSimilarity {
         System.out.println("A: " + label1 + ", B: " + label2 + ":" +(sum1+sum2)/(bag1.size() + bag2.size()));
         //aggregate
         return (sum1+sum2)/(bag1.size() + bag2.size());
-    }
-
-    /**
-     * Compute Lin Similarity with wordnet via WS4J Lib
-     * @param s1 Word 1
-     * @param s2 Word 2
-     * @return Similarity Score between 0 and 1
-     */
-    public static double LinWordSim(String s1, String s2){
-        WS4JConfiguration.getInstance().setMFS(false);
-        return WS4J.runLIN(s1,s2);
-    }
-
-    /**
-     * Compute Jiang Similarity with wordnet via WS4J Lib
-     * @param s1 Word 1
-     * @param s2 Word 2
-     * @return Similarity Score between 0 and 1
-     */
-    public static double JiangWordSim(String s1, String s2){
-        WS4JConfiguration.getInstance().setMFS(false);
-        return WS4J.runJCN(s1,s2);
-    }
-
-
-    /**
-     * Compute Levenshtein Similarity with help of apache commons text Lib
-     * @param s1 Word 1
-     * @param s2 Word 2
-     * @return Similarity Score between 0 and 1
-     */
-    public static double LevenshteinWordSim(String s1, String s2){
-        // get levenshtein distance
-        LevenshteinDistance lev = LevenshteinDistance.getDefaultInstance();
-        double dist = lev.apply(s1,s2);
-
-        // convert to similarity by normalizing and inverting
-        return 1.0 - (dist / Math.max(s2.length(),s1.length()));
     }
 
     private class BagOfWords{
