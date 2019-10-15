@@ -70,7 +70,7 @@ public class Correspondence {
             nodesNet2.add(nodeNet2);
             return this;
         }
-        
+
         /**
          * Build the Correspondence
          * @return
@@ -85,6 +85,5 @@ public class Correspondence {
             c.nodesNet2 = this.nodesNet2;
             return c;
         }
-
     }
 }
