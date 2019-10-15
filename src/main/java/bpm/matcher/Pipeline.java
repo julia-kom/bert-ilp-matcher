@@ -1,5 +1,9 @@
 package bpm.matcher;
 
+import bpm.ilp.AbstractILP;
+import bpm.ilp.BasicILP;
+import bpm.ilp.RelaxedILP;
+import bpm.ilp.RelaxedILP2;
 import bpm.similarity.Matrix;
 import bpm.similarity.Word;
 
