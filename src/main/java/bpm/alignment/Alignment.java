@@ -49,6 +49,19 @@ public class Alignment {
     }
 
     /**
+     * Check if the alignment contains complex correspondences
+     * @return boolean
+     */
+    public boolean isComplex(){
+        for(Correspondence c : correspondences){
+            if(c.isComplexCorrespondence()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Returns a set of correspondences where a certain node participates inside
      * @param n node
      * @return set of correspondences
@@ -73,7 +86,7 @@ public class Alignment {
 
 
 
-    public class Builder{
+    public static class Builder{
 
         private Set<Correspondence> correspondences;
 

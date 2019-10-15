@@ -42,7 +42,7 @@ public class Correspondence {
         return nodesNet2;
     }
 
-    public class Builder{
+    public static class Builder{
         private Set<Node> nodesNet1;
         private Set<Node> nodesNet2;
 
