@@ -152,7 +152,7 @@ public class Pipeline {
         double  postprocessThreshold = 0.0;
         AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
         Matcher.Profile profile = Matcher.Profile.BP;
-        Word.Similarities wordSimilarity;
+        Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
 
         /**
          * Create a Builder to define a Pipline Object.
@@ -265,6 +265,7 @@ public class Pipeline {
             pip.postprocessThreshold = this.postprocessThreshold;
             pip.profile = this.profile;
             pip.ilp = this.ilp;
+            pip.wordSimilarity = this.wordSimilarity;
             return pip;
         }
     }
