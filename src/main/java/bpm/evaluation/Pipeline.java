@@ -8,12 +8,7 @@ import java.nio.file.Path;
 
 public class Pipeline{
     //Standard matcher options
-    private boolean complexMatches;
-    private double  similarityWeight;
-    private double  postprocessThreshold;
-    private Matcher.Profile profile;
-    private AbstractILP.ILP ilp;
-    private Word.Similarities wordSimilarity;
+    private bpm.matcher.Pipeline matchingPipeline;
 
     //Evaluation specific options
     private boolean batch;
@@ -24,6 +19,19 @@ public class Pipeline{
     private Path goldStandardPath;
 
     public void run(){
+        if(batch)
+            batchEval();
+        else
+            singleEval();
+    }
+
+
+    public void singleEval(){
+
+
+    }
+
+    public void batchEval(){
 
     }
 
@@ -33,12 +41,7 @@ public class Pipeline{
      */
     public static class Builder{
         // general options
-        protected boolean complexMatches = false;
-        protected double  similarityWeight = 0.3;
-        protected double  postprocessThreshold = 0.0;
-        protected AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
-        protected Matcher.Profile profile = Matcher.Profile.BP;
-        protected Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
+        private bpm.matcher.Pipeline matchingPipeline = new bpm.matcher.Pipeline.Builder().Build();
 
         // Evaluation specific options
         private boolean batch = false;
@@ -53,96 +56,11 @@ public class Pipeline{
         }
 
         /**
-         * Enable complex matches.
-         * @return Builder
-         */
-        public Builder withComplexMatches(){
-            this.complexMatches = true;
-            return this;
-        }
-
-        /**
-         * Set the weight between profile conformance influence and label similarity influence.
-         * 0 means label only, 1 means profile only.
-         * @param s between 0 and 1
-         * @return Builder
-         */
-        public Builder atSimilarityWeight(double s){
-            if( s < 0 || s > 1){
-                throw new NumberFormatException("Value SimilarityWeight is out of range 0 to 1");
-            }
-            this.similarityWeight = s;
-            return this;
-        }
-
-        /**
-         * Set the post processing min label threshold.
-         * Every match which has lover label similarity than the threshold p is post-pruned.
-         * @param p value between 0 and 1
-         * @return Builder
-         */
-        public Builder atPostprocessThreshold(double p){
-            if( p < 0 || p > 1){
-                throw new NumberFormatException("Value PostprocessThreshold is out of range 0 to 1");
-            }
-            this.postprocessThreshold = p;
-            return this;
-        }
-
-        /**
-         * Set the Word Similarity Function
-         * @return Builder
-         */
-        public Builder withWordSimilarity(String wordSim){
-            switch (wordSim){
-                case "Lin":
-                    this.wordSimilarity = Word.Similarities.LIN;
-                    break;
-                case "Levenshtein":
-                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN;
-                    break;
-                case "Jiang":
-                    this.wordSimilarity = Word.Similarities.JIANG;
-                case "Levenshtein-Lin-Max":
-                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
-                    break;
-                case "Levenshtein-Jiang-Max":
-                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN_JIANG_MAX;
-                default:
-                    throw new IllegalArgumentException("Word Similarity Parameter not supported: " + wordSim);
-            }
-            return this;
-        }
-
-        /**
-         * Sets the ILP Matcher to Basic
+         * Perform a batch test on given folder
          * @return
          */
-        public Builder withILP(String sIlp){
-            switch(sIlp) {
-                case "Basic":
-                    this.ilp = AbstractILP.ILP.BASIC;
-                    break;
-                case "Relaxed":
-                    this.ilp = AbstractILP.ILP.RELAXED;
-                    break;
-                case "Relaxed2":
-                    this.ilp = AbstractILP.ILP.RELAXED2;
-                    break;
-
-                default:
-                    throw new IllegalArgumentException("ilp argument is not valid: " +sIlp);
-            }
-            return this;
-        }
-
-        /**
-         * Set the profile type used to represent the behavior
-         * @param p a profile of type Match.Profile
-         * @return Builder
-         */
-        public Builder withProfile(Matcher.Profile p){
-            this.profile = p;
+        public Builder withMatcher(bpm.matcher.Pipeline matchingPipeline){
+            this.matchingPipeline = matchingPipeline;
             return this;
         }
 
@@ -204,14 +122,9 @@ public class Pipeline{
          */
         public Pipeline build(){
             Pipeline pip = new Pipeline();
-            // standard information
-            pip.complexMatches = this.complexMatches;
-            pip.ilp = this.ilp;
-            pip.postprocessThreshold = this.postprocessThreshold;
-            pip.profile = this.profile;
-            pip.similarityWeight = this.similarityWeight;
-            pip.wordSimilarity = this.wordSimilarity;
 
+            // standard information
+            pip.matchingPipeline = this.matchingPipeline;
 
             //evaluation specific information
             pip.batch = this.batch;
@@ -219,6 +132,7 @@ public class Pipeline{
             pip.net1 = this.net1;
             pip.net2 = this.net2;
             pip.goldStandard = this.goldStandard;
+            pip.goldStandardPath = this.goldStandardPath;
 
             //tests
             if(pip.batch && pip.batchPath == null){

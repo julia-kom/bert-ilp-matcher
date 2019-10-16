@@ -3,7 +3,6 @@ package bpm.evaluation;
 import org.apache.commons.cli.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -61,11 +60,11 @@ public class Evaluation {
                 .longOpt("gold-standard")
                 .desc("Gold Standard for single evaluation")
                 .build();
-        Option batch = Option.builder("b")
+        Option optBatch = Option.builder("b")
                 .longOpt("batch")
                 .desc("Perform batch evaluation")
                 .build();
-        Option netPath = Option.builder("np")
+        Option optNetPath = Option.builder("np")
                 .hasArg(true)
                 .longOpt("net-path")
                 .desc("Path to the folder containing all the nets that should be compared")
@@ -86,7 +85,9 @@ public class Evaluation {
         options.addOption(optGoldStandard);
         options.addOption(optPathNet1);
         options.addOption(optPathNet2);
-        options.addOption(batch);
+        options.addOption(optBatch);
+        options.addOption(optNetPath);
+        options.addOption(optGoldStandardPath);
 
         //parse input
         CommandLine line;
@@ -102,11 +103,13 @@ public class Evaluation {
         }
 
         //create matching pipeline
-        Pipeline.Builder builder = new Pipeline.Builder();
+        Pipeline.Builder evalBuilder = new Pipeline.Builder();
+        bpm.matcher.Pipeline.Builder matcherBuilder= new bpm.matcher.Pipeline.Builder();
+
 
         // parse complexMatches
         if (line.hasOption("c")) {
-            builder = builder.withComplexMatches();
+            matcherBuilder = matcherBuilder.withComplexMatches();
         }
 
         // parse similarityWeight
@@ -114,7 +117,7 @@ public class Evaluation {
             String sString = line.getOptionValue("s");
             try {
                 double s = Double.parseDouble(sString);
-                builder = builder.atSimilarityWeight(s);
+                matcherBuilder = matcherBuilder.atSimilarityWeight(s);
             } catch (NumberFormatException numExp) {
                 System.out.println("Parsing Failed: Number Input s " + numExp.getMessage());
             }
@@ -125,7 +128,7 @@ public class Evaluation {
             String pString = line.getOptionValue("pp");
             try {
                 double p = Double.parseDouble(pString);
-                builder = builder.atPostprocessThreshold(p);
+                matcherBuilder = matcherBuilder.atPostprocessThreshold(p);
             } catch (NumberFormatException numExp) {
                 System.out.println("Parsing Failed: Number Input p " + numExp.getMessage());
                 System.exit(1);
@@ -136,45 +139,46 @@ public class Evaluation {
         if(line.hasOption("n1")) {
             String n1String = line.getOptionValue("n1");
             File net1 = new File(n1String);
-            builder.onNet1(net1);
+            evalBuilder.onNet1(net1);
         }
 
         // net 2 for single eval
         if(line.hasOption("n2")) {
             String n2String = line.getOptionValue("n2");
             File net2 = new File(n2String);
-            builder.onNet2(net2);
+            evalBuilder.onNet2(net2);
         }
 
         // gold standard for single eval
         if(line.hasOption("gs")) {
             String n2String = line.getOptionValue("gs");
             File gs = new File(n2String);
-            builder.withGoldStandard(gs);
+            evalBuilder.withGoldStandard(gs);
         }
 
         // Perform Batch
         if(line.hasOption("b")){
-            builder.withBatch();
+            evalBuilder.withBatch();
         }
 
         // path that contains all nets to compare
         if(line.hasOption("np")){
             String netString = line.getOptionValue("np");
             Path nets = Paths.get(netString);
-            builder.withPath(nets);
+            evalBuilder.withPath(nets);
         }
 
+        // Gold Standard Path needed for batch
         if(line.hasOption("gsp")){
             String gsString = line.getOptionValue("gsp");
             Path gs = Paths.get(gsString);
-            builder.withGoldStandard(gs);
+            evalBuilder.withGoldStandard(gs);
         }
 
-        Pipeline pip = builder.build();
-
-
-
-
+        //build and run
+        bpm.matcher.Pipeline matchingPip = matcherBuilder.Build();
+        evalBuilder.withMatcher(matchingPip);
+        Pipeline evalPip = evalBuilder.build();
+        evalPip.run();
     }
 }
