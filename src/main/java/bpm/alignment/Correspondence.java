@@ -3,6 +3,7 @@ package bpm.alignment;
 import org.jbpt.petri.Node;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Correspondence {
@@ -101,6 +102,38 @@ public class Correspondence {
         public Builder addNodeFromNet2(Node nodeNet2) {
             nodesNet2.add(nodeNet2);
             return this;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            // Same type
+            if(!(o instanceof  Correspondence)){
+                return false;
+            }
+
+            // Same size
+            Correspondence c = (Correspondence) o;
+            if(c.getNet1Nodes().size() != nodesNet1.size() || c.getNet2Nodes().size() != nodesNet2.size()){
+                return false;
+            }
+
+            // All items equal
+            for(Node n1 : nodesNet1){
+                if(!c.getNet1Nodes().contains(n1)){
+                    return false;
+                }
+            }
+            for(Node n2 : nodesNet2){
+                if(!c.getNet2Nodes().contains(n2)){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        @Override
+        public int hashCode(){
+            return Objects.hash(nodesNet1.hashCode(), nodesNet2.hashCode());
         }
 
         /**

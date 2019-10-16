@@ -2,6 +2,7 @@ package bpm.evaluation;
 
 import bpm.alignment.Alignment;
 import bpm.alignment.Correspondence;
+import org.apache.commons.lang3.NotImplementedException;
 import org.jbpt.petri.Node;
 
 import java.io.File;
@@ -182,6 +183,21 @@ public class Eval {
             Eval res = new Eval();
 
             //Compute metrics based on tpCorrespondeces, fpCorrespondeces, tnCorrespondeces, fnCorrespondeces
+            //TP and FP
+            for(Correspondence m : matcher.getCorrespondences()){
+                if(goldstandard.getCorrespondences().contains(m)){
+                    res.tpCorrespondeces.add(m);
+                }else{
+                    res.fpCorrespondeces.add(m);
+                }
+            }
+
+            //FN
+            for(Correspondence g : goldstandard.getCorrespondences()){
+                if(!matcher.getCorrespondences().contains(g)){
+                    res.fnCorrespondeces.add(g);
+                }
+            }
             res.computeBinaryStats();
             return res;
         }
@@ -196,7 +212,7 @@ public class Eval {
          */
         public static Eval ProbabilisticEvaluation(Alignment matcher, Alignment goldstandard) {
             //todo
-            return null;
+            throw new NotImplementedException("Probabilistic Evaluation is not yet implemented");
         }
     }
 }
