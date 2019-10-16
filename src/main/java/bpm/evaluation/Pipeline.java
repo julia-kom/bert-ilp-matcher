@@ -26,12 +26,19 @@ public class Pipeline{
     public void run(){
         if(batch) {
             List<Eval> evals = batchEval();
+            AggregatedEval aggregatedEval = new AggregatedEval(evals);
         } else {
             Eval eval = singleEval(net1, net2, goldStandard);
         }
     }
 
-
+    /**
+     * Perform single evaluation
+     * @param n1 net 1
+     * @param n2 net 2
+     * @param gs gold standard
+     * @return
+     */
     public Eval singleEval(File n1, File n2, File gs){
         // Compute Alignment
         Result result = matchingPipeline.run(n1,n2);
@@ -45,6 +52,11 @@ public class Pipeline{
 
     }
 
+
+    /**
+     * Perform Batch Evaluation
+     * @return
+     */
     public List<Eval> batchEval(){
         // Get all pnml files in the batch dir
         File[] files =  batchPath.toFile().listFiles(new FilenameFilter() {
@@ -65,6 +77,12 @@ public class Pipeline{
         return evals;
     }
 
+    /**
+     * Call correct Evaluator for matcher and goldstandard
+     * @param matcher
+     * @param goldstandard
+     * @return
+     */
     private Eval evaluate(Alignment matcher, Alignment goldstandard){
         switch(evalStrat){
             case BINARY:

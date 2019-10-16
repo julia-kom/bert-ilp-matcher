@@ -23,9 +23,8 @@ public class Eval {
 
     //Confusion Matrix
     private int tp = 0;
-    private int tn = 0;
-    private int fp = 0;
     private int fn = 0;
+    private int fp = 0;
 
     //Scores
     private double precision = 0;
@@ -53,19 +52,11 @@ public class Eval {
     }
 
     /**
-     * getFN
+     * Get TN
      * @return
      */
     public int getFN() {
         return fn;
-    }
-
-    /**
-     * Get TN
-     * @return
-     */
-    public int getTN() {
-        return tn;
     }
 
     /**
@@ -101,7 +92,6 @@ public class Eval {
         return "##" + net1.getName() + " to " + net2.getName() + "## \n" +
                 "TP: " +tp + "\n" +
                 "FP: " +fp + "\n" +
-                "TN: " +tn + "\n" +
                 "FP: " +fn + "\n" +
                 "PRECISION: " + precision + "\n" +
                 "RECALL: " + recall + "\n" +
@@ -120,9 +110,9 @@ public class Eval {
         this.fp = this.fpCorrespondeces.size();
 
         // Scores
-        this.precision = 1.0 * this.tp /(this.tp + this.fp);
-        this.recall = 1.0 * this.tp /(this.tp + this.fn);
-        this.fscore = 2.0* this.precision*this.recall/(this.precision + this.recall);
+        this.precision = Metrics.precision(this.tp, this.fp); // 1.0 * this.tp /(this.tp + this.fp);
+        this.recall = Metrics.recall(this.tp, this.fn); //1.0 * this.tp /(this.tp + this.fn);
+        this.fscore = Metrics.fscore(this.tp, this.fp, this.fn); // 2.0* this.precision*this.recall/(this.precision + this.recall);
     }
 
     public static class Builder {
