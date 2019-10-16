@@ -84,6 +84,15 @@ public class Alignment {
         return correspondences;
     }
 
+    @Override
+    public String toString(){
+        String s = "";
+        for(Correspondence c : correspondences) {
+            s += c.toString();
+        }
+        return s;
+    }
+
 
 
     public static class Builder{
@@ -104,6 +113,34 @@ public class Alignment {
          */
         public Builder addCorrespondence(Correspondence c){
             correspondences.add(c);
+            return this;
+        }
+
+        /**
+         * Adds pair of nodes to correspndence, such that no non-mutual exclusive alignments exisit.
+         * @param n1 node of net 1
+         * @param n2 node of net 2
+         * @return
+         */
+        public Builder add(Node n1, Node n2){
+            boolean found = false;
+            //check if either node is already in a correspondence and if so add the other node to that correspondece too
+            for (Correspondence c :correspondences){
+                if(c.getNet1Nodes().contains(n1)){
+                    c.addNet2Node(n2);
+                    found = true;
+                    break;
+                }
+                if(c.getNet2Nodes().contains(n2)){
+                    c.addNet1Node(n1);
+                    found = true;
+                    break;
+                }
+            }
+            // if not: add a new correspondence
+            if(!found){
+                this.correspondences.add(new Correspondence.Builder().addNodeFromNet1(n1).addNodeFromNet2(n2).build());
+            }
             return this;
         }
 

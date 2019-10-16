@@ -42,6 +42,38 @@ public class Correspondence {
         return nodesNet2;
     }
 
+    @Override
+    public String toString() {
+        String s = "[";
+        for(Node n1 : nodesNet1){
+            s+= n1.getLabel() +",";
+        }
+        s = s.substring(0,s.length()-1);
+        s += "] to [";
+        for(Node n2 : nodesNet2){
+            s+= n2.getLabel() +",";
+        }
+        s = s.substring(0,s.length()-1);
+        s+="] \n";
+        return s;
+    }
+
+    /**
+     * Add post building a node of net 1 to the correspondence
+     * @param n1
+     */
+    public void addNet1Node(Node n1) {
+        nodesNet1.add(n1);
+    }
+
+    /**
+     * Add post building a node of net 2 to the correspondence
+     * @param n2
+     */
+    public void addNet2Node(Node n2) {
+        nodesNet2.add(n2);
+    }
+
     public static class Builder{
         private Set<Node> nodesNet1;
         private Set<Node> nodesNet2;

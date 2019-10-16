@@ -1,5 +1,7 @@
 package bpm.ilp;
 
+import bpm.alignment.Alignment;
+import bpm.alignment.Result;
 import bpm.similarity.Matrix;
 import gurobi.GRB;
 import gurobi.GRBException;
@@ -29,12 +31,12 @@ public class RelaxedILP extends AbstractILP {
      * @throws GRBException
      */
     @Override
-    public AbstractILP.Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2, Matrix matrix) throws GRBException {
+    public Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2, Matrix matrix) throws GRBException {
         //setup variables
-        Node[] NodeNet1 =  net1.getNodes().toArray(new Node[net1.getNodes().size()]);
-        Node[] NodeNet2 =  net2.getNodes().toArray(new Node[net2.getNodes().size()]);
-        int nodesNet1 = NodeNet1.length;
-        int nodesNet2 = NodeNet2.length;
+        Node[] nodeNet1 =  net1.getNodes().toArray(new Node[net1.getNodes().size()]);
+        Node[] nodeNet2 =  net2.getNodes().toArray(new Node[net2.getNodes().size()]);
+        int nodesNet1 = nodeNet1.length;
+        int nodesNet2 = nodeNet2.length;
         int minSize = Math.min(nodesNet1,nodesNet2);
 
 
@@ -79,7 +81,7 @@ public class RelaxedILP extends AbstractILP {
         GRBLinExpr label = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                label.addTerm(matrix.between(NodeNet1[i],NodeNet2[j])/(minSize), x[i][j]);
+                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(minSize), x[i][j]);
             }
         }
         GRBLinExpr obj = new GRBLinExpr();
@@ -145,9 +147,9 @@ public class RelaxedILP extends AbstractILP {
             for (int k = 0; k < nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++){
                     for (int l = 0; l < nodesNet2; l++) {
-                        RelSetType s = relNet1.getRelationForEntities(NodeNet1[i], NodeNet1[k]);
-                        RelSetType t = relNet2.getRelationForEntities(NodeNet1[j], NodeNet1[l]);
-                        if (relNet1.getRelationForEntities(NodeNet1[i], NodeNet1[k]).equals(relNet2.getRelationForEntities(NodeNet1[j], NodeNet1[l]))) {
+                        RelSetType s = relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]);
+                        RelSetType t = relNet2.getRelationForEntities(nodeNet1[j], nodeNet1[l]);
+                        if (relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]).equals(relNet2.getRelationForEntities(nodeNet1[j], nodeNet1[l]))) {
                             GRBLinExpr con3 = new GRBLinExpr();
                             con3.clear();
                             con3.addTerm(-1, x[i][j]);
@@ -193,9 +195,16 @@ public class RelaxedILP extends AbstractILP {
         //System.out.println(sum.get(GRB.StringAttr.VarName) + " " + sum.get(GRB.DoubleAttr.X));
         //System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));
 
-        // create result
-        AbstractILP.Result res = new AbstractILP.Result(model.get(GRB.DoubleAttr.ObjVal),x);
-
+        //Create Results
+        Alignment.Builder builder = new Alignment.Builder();
+        for (int i = 0; i< nodesNet1; i++) {
+            for (int j = 0; j < nodesNet2; j++) {
+                if( Math.abs(x[i][j].get(GRB.DoubleAttr.X)) > 0.9){
+                    builder.add(nodeNet1[i],nodeNet2[j]);
+                }
+            }
+        }
+        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build());
         // Dispose of model and environment
         model.dispose();
         env.dispose();

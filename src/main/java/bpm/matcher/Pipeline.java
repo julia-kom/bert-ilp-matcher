@@ -1,5 +1,6 @@
 package bpm.matcher;
 
+import bpm.alignment.Result;
 import bpm.ilp.AbstractILP;
 import bpm.ilp.BasicILP;
 import bpm.ilp.RelaxedILP;
@@ -18,6 +19,8 @@ import org.apache.commons.lang3.NotImplementedException;
 
 import java.sql.Timestamp;
 import java.io.File;
+
+import static java.lang.System.exit;
 
 
 /**
@@ -42,7 +45,7 @@ public class Pipeline {
      * @param fileNet1 petri net file path 1 in PNML format
      * @param fileNet2 petri net file path 2 in PNML format
      */
-    public void run(File fileNet1, File fileNet2){
+    public Result run(File fileNet1, File fileNet2){
         //parse the two petri nets
         System.out.println("##### Start Parsing #####");
         NetSystem net1 = parseFile(fileNet1);
@@ -72,15 +75,22 @@ public class Pipeline {
         System.out.println("##### Start ILP #####");
         AbstractILP ilp = getILP();
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        Result res;
         try {
             ilp.init(new File("./gurobi-logs/log-"+ timestamp+".log"), similarityWeight);
-            ilp.solve(relNet1, relNet2, net1, net2, simMatrix);
+            res = ilp.solve(relNet1, relNet2, net1, net2, simMatrix);
         } catch (GRBException e) {
-            System.out.println("Error code: " + e.getErrorCode() + ". " +
-                    e.getMessage());
+            System.out.println("Error code: " + e.getErrorCode() + ". " + e.getMessage());
+            exit(1);
+            res = null;
         }
         System.out.println("##### ILP Complete #####");
 
+
+        //Postprocess
+
+        //Return
+        return res;
     }
 
     private PNMLSerializer serializer = null;

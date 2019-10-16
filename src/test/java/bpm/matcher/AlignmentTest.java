@@ -85,6 +85,7 @@ public class AlignmentTest {
                 .addCorrespondence(c1)
                 .addCorrespondence(c2)
                 .build();
+        System.out.println(a.toString());
         Assert.assertTrue(a.isMapped(p1n1,p2n1));
         Assert.assertTrue(a.isMapped(p1n2,p2n1));
         Assert.assertTrue(!a.isMapped(p1n1,p1n2));
