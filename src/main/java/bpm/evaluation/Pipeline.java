@@ -1,8 +1,8 @@
 package bpm.evaluation;
 
-import bpm.ilp.AbstractILP;
-import bpm.matcher.Matcher;
-import bpm.similarity.Word;
+import bpm.alignment.Alignment;
+import bpm.alignment.Result;
+
 import java.io.File;
 import java.nio.file.Path;
 
@@ -26,12 +26,22 @@ public class Pipeline{
     }
 
 
-    public void singleEval(){
+    public void singleEval(File n1, File n2, File gs){
+        // Compute Alignment
+        Result result = matchingPipeline.run(n1,n2);
 
+        // Read Gold Standard
+        GoldStandardReader reader = new GoldStandardReader();
+        Alignment goldstandard = reader.getAlignmentFrom(gs);
+
+        //Evaluate
+        //todo
 
     }
 
     public void batchEval(){
+        // call single eval for each combination
+        //todo
 
     }
 
