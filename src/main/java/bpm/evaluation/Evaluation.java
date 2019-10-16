@@ -1,7 +1,11 @@
 package bpm.evaluation;
 
-import bpm.matcher.Pipeline;
 import org.apache.commons.cli.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Evaluation {
 
@@ -18,7 +22,7 @@ public class Evaluation {
                 .desc("Weight between 0 and 1 which defines how much the behavioral similarity should define the match.")
                 .type(Double.TYPE)
                 .build();
-        Option optPostprocessThreshold = Option.builder("p")
+        Option optPostprocessThreshold = Option.builder("pp")
                 .required(false)
                 .hasArg(true)
                 .longOpt("postprocess-threshold")
@@ -26,27 +30,23 @@ public class Evaluation {
                 .type(Double.TYPE)
                 .build();
         Option optPathNet1 = Option.builder("n1")
-                .required(true)
                 .hasArg(true)
                 .longOpt("net-1")
                 .desc("Sound, free-choice WF net 1")
                 .build();
         Option optPathNet2 = Option.builder("n2")
-                .required(true)
                 .hasArg(true)
                 .longOpt("net-2")
                 .desc("Sound, free-choice WF net 2")
                 .build();
-
-        Option ilp = Option.builder("i")
+        Option optIlp = Option.builder("i")
                 .hasArg(true)
                 .longOpt("ilp")
                 .desc("Choose an ILP Matcher here: \n Basic: 1:1 Matcher with ILP. Slow but returns similarity and matching. \n" +
                         "Relaxed: 1:1 Matcher with LP. Slow but returns similarity and matching \n" +
                         "Relaxed2: 1:1 Matcher with LP. Qucik but only matching.")
                 .build();
-
-        Option wordSim = Option.builder("w")
+        Option optWordSim = Option.builder("w")
                 .hasArg(true)
                 .longOpt("word-sim")
                 .desc("Choose a used word similarity function, used inside the Bag-of-Words Label Similarity: \n " +
@@ -56,17 +56,37 @@ public class Evaluation {
                         "Levenshtein-Lin-Max: Maximum of Levenshtein and Lin Similarity \n" +
                         "Levenshtein-Jiang-Max: Maximum of Levenshtein and Jiang Similarity")
                 .build();
+        Option optGoldStandard = Option.builder("gs")
+                .hasArg(true)
+                .longOpt("gold-standard")
+                .desc("Gold Standard for single evaluation")
+                .build();
+        Option batch = Option.builder("b")
+                .longOpt("batch")
+                .desc("Perform batch evaluation")
+                .build();
+        Option netPath = Option.builder("np")
+                .hasArg(true)
+                .longOpt("net-path")
+                .desc("Path to the folder containing all the nets that should be compared")
+                .build();
+        Option optGoldStandardPath = Option.builder("gsp")
+                .hasArg(true)
+                .longOpt("gold-standard-path")
+                .desc("Gold Standard Path for batch evaluation")
+                .build();
 
         //combine options
         Options options = new Options();
         options.addOption(optComplexMatches);
         options.addOption(optSimilarityWeight);
         options.addOption(optPostprocessThreshold);
-        options.addOption(ilp);
-        options.addOption(wordSim);
+        options.addOption(optIlp);
+        options.addOption(optWordSim);
+        options.addOption(optGoldStandard);
         options.addOption(optPathNet1);
         options.addOption(optPathNet2);
-
+        options.addOption(batch);
 
         //parse input
         CommandLine line;
@@ -82,7 +102,7 @@ public class Evaluation {
         }
 
         //create matching pipeline
-        bpm.matcher.Pipeline.Builder builder = new Pipeline.Builder();
+        Pipeline.Builder builder = new Pipeline.Builder();
 
         // parse complexMatches
         if (line.hasOption("c")) {
@@ -102,7 +122,7 @@ public class Evaluation {
 
         // parse postprocessThreshold
         if (line.hasOption("p")) {
-            String pString = line.getOptionValue("p");
+            String pString = line.getOptionValue("pp");
             try {
                 double p = Double.parseDouble(pString);
                 builder = builder.atPostprocessThreshold(p);
@@ -111,6 +131,50 @@ public class Evaluation {
                 System.exit(1);
             }
         }
+
+        // net 1 for single eval
+        if(line.hasOption("n1")) {
+            String n1String = line.getOptionValue("n1");
+            File net1 = new File(n1String);
+            builder.onNet1(net1);
+        }
+
+        // net 2 for single eval
+        if(line.hasOption("n2")) {
+            String n2String = line.getOptionValue("n2");
+            File net2 = new File(n2String);
+            builder.onNet2(net2);
+        }
+
+        // gold standard for single eval
+        if(line.hasOption("gs")) {
+            String n2String = line.getOptionValue("gs");
+            File gs = new File(n2String);
+            builder.withGoldStandard(gs);
+        }
+
+        // Perform Batch
+        if(line.hasOption("b")){
+            builder.withBatch();
+        }
+
+        // path that contains all nets to compare
+        if(line.hasOption("np")){
+            String netString = line.getOptionValue("np");
+            Path nets = Paths.get(netString);
+            builder.withPath(nets);
+        }
+
+        if(line.hasOption("gsp")){
+            String gsString = line.getOptionValue("gsp");
+            Path gs = Paths.get(gsString);
+            builder.withGoldStandard(gs);
+        }
+
+        Pipeline pip = builder.build();
+
+
+
 
     }
 }

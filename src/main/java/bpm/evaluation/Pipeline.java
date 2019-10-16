@@ -31,7 +31,16 @@ public class Pipeline{
     /**
      * Builder for the evaluation pipeline
      */
-    public static class Builder extends bpm.matcher.Pipeline.Builder{
+    public static class Builder{
+        // general options
+        protected boolean complexMatches = false;
+        protected double  similarityWeight = 0.3;
+        protected double  postprocessThreshold = 0.0;
+        protected AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
+        protected Matcher.Profile profile = Matcher.Profile.BP;
+        protected Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
+
+        // Evaluation specific options
         private boolean batch = false;
         private Path batchPath;
         private File net1;
@@ -42,6 +51,101 @@ public class Pipeline{
         public Builder(){
             super();
         }
+
+        /**
+         * Enable complex matches.
+         * @return Builder
+         */
+        public Builder withComplexMatches(){
+            this.complexMatches = true;
+            return this;
+        }
+
+        /**
+         * Set the weight between profile conformance influence and label similarity influence.
+         * 0 means label only, 1 means profile only.
+         * @param s between 0 and 1
+         * @return Builder
+         */
+        public Builder atSimilarityWeight(double s){
+            if( s < 0 || s > 1){
+                throw new NumberFormatException("Value SimilarityWeight is out of range 0 to 1");
+            }
+            this.similarityWeight = s;
+            return this;
+        }
+
+        /**
+         * Set the post processing min label threshold.
+         * Every match which has lover label similarity than the threshold p is post-pruned.
+         * @param p value between 0 and 1
+         * @return Builder
+         */
+        public Builder atPostprocessThreshold(double p){
+            if( p < 0 || p > 1){
+                throw new NumberFormatException("Value PostprocessThreshold is out of range 0 to 1");
+            }
+            this.postprocessThreshold = p;
+            return this;
+        }
+
+        /**
+         * Set the Word Similarity Function
+         * @return Builder
+         */
+        public Builder withWordSimilarity(String wordSim){
+            switch (wordSim){
+                case "Lin":
+                    this.wordSimilarity = Word.Similarities.LIN;
+                    break;
+                case "Levenshtein":
+                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN;
+                    break;
+                case "Jiang":
+                    this.wordSimilarity = Word.Similarities.JIANG;
+                case "Levenshtein-Lin-Max":
+                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
+                    break;
+                case "Levenshtein-Jiang-Max":
+                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN_JIANG_MAX;
+                default:
+                    throw new IllegalArgumentException("Word Similarity Parameter not supported: " + wordSim);
+            }
+            return this;
+        }
+
+        /**
+         * Sets the ILP Matcher to Basic
+         * @return
+         */
+        public Builder withILP(String sIlp){
+            switch(sIlp) {
+                case "Basic":
+                    this.ilp = AbstractILP.ILP.BASIC;
+                    break;
+                case "Relaxed":
+                    this.ilp = AbstractILP.ILP.RELAXED;
+                    break;
+                case "Relaxed2":
+                    this.ilp = AbstractILP.ILP.RELAXED2;
+                    break;
+
+                default:
+                    throw new IllegalArgumentException("ilp argument is not valid: " +sIlp);
+            }
+            return this;
+        }
+
+        /**
+         * Set the profile type used to represent the behavior
+         * @param p a profile of type Match.Profile
+         * @return Builder
+         */
+        public Builder withProfile(Matcher.Profile p){
+            this.profile = p;
+            return this;
+        }
+
 
         /**
          * Perform a batch test on given folder
@@ -92,6 +196,8 @@ public class Pipeline{
             return this;
         }
 
+
+
         /**
          * Build the Pipeline
          * @return Pipeline
@@ -99,12 +205,12 @@ public class Pipeline{
         public Pipeline build(){
             Pipeline pip = new Pipeline();
             // standard information
-            pip.complexMatches = super.complexMatches;
-            pip.ilp = super.ilp;
-            pip.postprocessThreshold = super.postprocessThreshold;
-            pip.profile = super.profile;
-            pip.similarityWeight = super.similarityWeight;
-            pip.wordSimilarity = super.wordSimilarity;
+            pip.complexMatches = this.complexMatches;
+            pip.ilp = this.ilp;
+            pip.postprocessThreshold = this.postprocessThreshold;
+            pip.profile = this.profile;
+            pip.similarityWeight = this.similarityWeight;
+            pip.wordSimilarity = this.wordSimilarity;
 
 
             //evaluation specific information

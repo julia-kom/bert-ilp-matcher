@@ -25,7 +25,7 @@ public class Matcher {
                 .desc("Weight between 0 and 1 which defines how much the behavioral similarity should define the match.")
                 .type(Double.TYPE)
                 .build();
-        Option optPostprocessThreshold = Option.builder("p")
+        Option optPostprocessThreshold = Option.builder("pp")
                 .required(false)
                 .hasArg(true)
                 .longOpt("postprocess-threshold")
@@ -109,7 +109,7 @@ public class Matcher {
 
         // parse postprocessThreshold
         if (line.hasOption("p")) {
-            String pString = line.getOptionValue("p");
+            String pString = line.getOptionValue("pp");
             try {
                 double p = Double.parseDouble(pString);
                 builder = builder.atPostprocessThreshold(p);
