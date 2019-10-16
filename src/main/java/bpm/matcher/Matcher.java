@@ -1,5 +1,6 @@
 package bpm.matcher;
 
+import bpm.alignment.Result;
 import org.apache.commons.cli.*;
 import java.io.*;
 
@@ -154,8 +155,12 @@ public class Matcher {
         Pipeline pip = builder.Build();
 
         //run files
-        pip.run(net1, net2);
+        Result r = pip.run(net1, net2);
 
+        //print
+        System.out.println(r.toString());
     }
+
+
 
 }

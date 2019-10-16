@@ -1,11 +1,10 @@
-package bpm.matcher;
+package bpm.ilp;
 
-import bpm.similarity.LabelSimilarity;
+import bpm.alignment.Result;
 import bpm.similarity.Matrix;
 import gurobi.GRBEnv;
 import gurobi.GRBException;
 import gurobi.GRBModel;
-import gurobi.GRBVar;
 import org.jbpt.bp.RelSet;
 import org.jbpt.petri.NetSystem;
 
@@ -32,7 +31,7 @@ public abstract class AbstractILP {
      * @param similarityWeight
      * @throws GRBException
      */
-    void init(File log, double similarityWeight) throws GRBException {
+    public void init(File log, double similarityWeight) throws GRBException {
         // Set similarity weight
         this.similarityWeight = similarityWeight;
 
@@ -46,19 +45,7 @@ public abstract class AbstractILP {
     }
 
     // todo maybe replace sim with a function pointer
-    protected abstract AbstractILP.Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2, Matrix matrix) throws GRBException ;
-
-    public class Result{
-        double similarity;
-
-        //todo add alignment
-
-        public Result(double objective, GRBVar[][] x){
-            similarity = objective;
-            //todo compute alignment
-        }
-
-    }
+    public abstract Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2, Matrix matrix) throws GRBException ;
 
 
 }
