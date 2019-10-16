@@ -2,9 +2,13 @@ package bpm.evaluation;
 
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
+import org.jbpt.petri.Node;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Pipeline{
     //Standard matcher options
@@ -17,16 +21,18 @@ public class Pipeline{
     private File net2;
     private File goldStandard;
     private Path goldStandardPath;
+    private Eval.Strategies evalStrat;
 
     public void run(){
-        if(batch)
-            batchEval();
-        else
-            singleEval();
+        if(batch) {
+            List<Eval> evals = batchEval();
+        } else {
+            Eval eval = singleEval(net1, net2, goldStandard);
+        }
     }
 
 
-    public void singleEval(File n1, File n2, File gs){
+    public Eval singleEval(File n1, File n2, File gs){
         // Compute Alignment
         Result result = matchingPipeline.run(n1,n2);
 
@@ -35,14 +41,40 @@ public class Pipeline{
         Alignment goldstandard = reader.getAlignmentFrom(gs);
 
         //Evaluate
-        //todo
+        return evaluate(result.getAlignment(),goldstandard);
 
     }
 
-    public void batchEval(){
-        // call single eval for each combination
-        //todo
+    public List<Eval> batchEval(){
+        // Get all pnml files in the batch dir
+        File[] files =  batchPath.toFile().listFiles(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return name.toLowerCase().endsWith(".pnml");
+            }
+        });
 
+        // run evaluation for each combination
+        List<Eval> evals = new ArrayList<>();
+        for(File f1 : files){
+            for(File f2 : files){
+                if(f1 != f2) {
+                    evals.add(singleEval(f1, f2, null));
+                }
+            }
+        }
+        return evals;
+    }
+
+    private Eval evaluate(Alignment matcher, Alignment goldstandard){
+        switch(evalStrat){
+            case BINARY:
+                return Eval.Builder.BinaryEvaluation(matcher,goldstandard);
+            case STRICT_BINARY:
+                return Eval.Builder.StrictBinaryEvaluation(matcher,goldstandard);
+            case PROBABILISTICALLY:
+                return Eval.Builder.ProbabilisticEvaluation(matcher,goldstandard);
+        }
+        throw  new IllegalStateException("Evaluation Method not found");
     }
 
 
@@ -60,6 +92,7 @@ public class Pipeline{
         private File net2;
         private File goldStandard;
         private Path goldStandardPath;
+        private Eval.Strategies evalStrat = Eval.Strategies.BINARY;
 
         public Builder(){
             super();
@@ -124,6 +157,11 @@ public class Pipeline{
             return this;
         }
 
+        public Builder withEvalStrat(Eval.Strategies strat){
+            this.evalStrat = strat;
+            return this;
+        }
+
 
 
         /**
@@ -143,6 +181,7 @@ public class Pipeline{
             pip.net2 = this.net2;
             pip.goldStandard = this.goldStandard;
             pip.goldStandardPath = this.goldStandardPath;
+            pip.evalStrat = this.evalStrat;
 
             //tests
             if(pip.batch && pip.batchPath == null){

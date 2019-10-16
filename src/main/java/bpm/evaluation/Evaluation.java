@@ -75,6 +75,15 @@ public class Evaluation {
                 .desc("Gold Standard Path for batch evaluation")
                 .build();
 
+        Option optEvalStrat = Option.builder("e")
+                .hasArg(true)
+                .longOpt("eval-strat")
+                .desc("Choose the evaluation strategy: \n" +
+                        "Binary: Lose Binary Relations. Partley correct matches account partly \n" +
+                        "StrictBinary: Only exact matches account as true positives \n" +
+                        "Probabilistically: Acc. to \"Probabilistic Evaluation of Process Model Matching Techniques\" ")
+                .build();
+
         //combine options
         Options options = new Options();
         options.addOption(optComplexMatches);
@@ -88,6 +97,7 @@ public class Evaluation {
         options.addOption(optBatch);
         options.addOption(optNetPath);
         options.addOption(optGoldStandardPath);
+        options.addOption(optEvalStrat);
 
         //parse input
         CommandLine line;
@@ -173,6 +183,21 @@ public class Evaluation {
             String gsString = line.getOptionValue("gsp");
             Path gs = Paths.get(gsString);
             evalBuilder.withGoldStandard(gs);
+        }
+
+        if(line.hasOption("e")){
+            switch(line.getOptionValue("e")){
+                case "Binary":
+                    evalBuilder.withEvalStrat(Eval.Strategies.BINARY);
+                    break;
+                case "StrictBinary":
+                    evalBuilder.withEvalStrat(Eval.Strategies.STRICT_BINARY);
+                    break;
+                case "Probabilistically":
+                    evalBuilder.withEvalStrat(Eval.Strategies.PROBABILISTICALLY);
+                default:
+                    throw new IllegalArgumentException("Eval Strategy does not exist: " + line.getOptionValue("e"));
+            }
         }
 
         //build and run
