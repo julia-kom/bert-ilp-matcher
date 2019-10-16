@@ -14,7 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Unit test for simple App.
+ * Unit test
  */
 public class LabelSimilarityTest
 {

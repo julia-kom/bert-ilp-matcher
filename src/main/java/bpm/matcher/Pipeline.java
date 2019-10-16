@@ -161,12 +161,12 @@ public class Pipeline {
      * Builder for class Pipeline
      */
     public static class Builder{
-        boolean complexMatches = false;
-        double  similarityWeight = 0.3;
-        double  postprocessThreshold = 0.0;
-        AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
-        Matcher.Profile profile = Matcher.Profile.BP;
-        Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
+        protected boolean complexMatches = false;
+        protected double  similarityWeight = 0.3;
+        protected double  postprocessThreshold = 0.0;
+        protected AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
+        protected Matcher.Profile profile = Matcher.Profile.BP;
+        protected Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
 
         /**
          * Create a Builder to define a Pipline Object.
