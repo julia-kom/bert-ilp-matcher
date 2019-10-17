@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Alignment {
-    private Set<Correspondence> correspondences;
+    private HashSet<Correspondence> correspondences;
 
     /**
      * Use builder
@@ -49,6 +49,20 @@ public class Alignment {
     }
 
     /**
+     * Contains a certain correspondence
+     * @param c
+     * @return
+     */
+    public boolean contains(Correspondence c){
+        for(Correspondence p : correspondences){
+            if( c.equals(p)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Check if the alignment contains complex correspondences
      * @return boolean
      */
@@ -80,7 +94,7 @@ public class Alignment {
      * Get all correspondences
      * @return
      */
-    public Set<Correspondence> getCorrespondences(){
+    public HashSet<Correspondence> getCorrespondences(){
         return correspondences;
     }
 
@@ -97,7 +111,7 @@ public class Alignment {
 
     public static class Builder{
 
-        private Set<Correspondence> correspondences;
+        private HashSet<Correspondence> correspondences;
 
         /**
          * Create a new builder for alignments
@@ -107,7 +121,8 @@ public class Alignment {
         }
 
         /**
-         * Add a new Correspondence to the alignment
+         * Add a new Correspondence to the alignment.
+         * Do not use this to create alignments!!! Use add() instead to prevent non-mutally exclusivness
          * @param c the correspondence to add
          * @return Builder
          */
@@ -117,7 +132,7 @@ public class Alignment {
         }
 
         /**
-         * Adds pair of nodes to correspndence, such that no non-mutual exclusive alignments exisit.
+         * Adds pair of nodes to correspndence, such that no non-mutual exclusive alignments exist.
          * @param n1 node of net 1
          * @param n2 node of net 2
          * @return
@@ -125,7 +140,7 @@ public class Alignment {
         public Builder add(Node n1, Node n2){
             boolean found = false;
             //check if either node is already in a correspondence and if so add the other node to that correspondece too
-            for (Correspondence c :correspondences){
+            for (Correspondence c : correspondences){
                 if(c.getNet1Nodes().contains(n1)){
                     c.addNet2Node(n2);
                     found = true;

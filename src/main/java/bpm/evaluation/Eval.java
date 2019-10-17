@@ -175,7 +175,7 @@ public class Eval {
             //Compute metrics based on tpCorrespondeces, fpCorrespondeces, tnCorrespondeces, fnCorrespondeces
             //TP and FP
             for(Correspondence m : matcher.getCorrespondences()){
-                if(goldstandard.getCorrespondences().contains(m)){
+                if(goldstandard.contains(m)){
                     res.tpCorrespondeces.add(m);
                 }else{
                     res.fpCorrespondeces.add(m);
@@ -184,7 +184,7 @@ public class Eval {
 
             //FN
             for(Correspondence g : goldstandard.getCorrespondences()){
-                if(!matcher.getCorrespondences().contains(g)){
+                if(!matcher.contains(g)){
                     res.fnCorrespondeces.add(g);
                 }
             }
