@@ -8,23 +8,57 @@ import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+
 import bpm.alignment.Correspondence;
 import fr.inrialpes.exmo.align.impl.URIAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
+import fr.inrialpes.exmo.align.parser.AlignmentParser;
 import org.jbpt.petri.Node;
 import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentVisitor;
-
+import org.semanticweb.owl.align.Cell;
 /**
  * Use an adapter to read files from the PMMC'15 challenge
  */
 public class RdfAlignmentReader implements Reader{
-
+    /**
+     * This reads and RDF alignment file. Note that those files only store the node ids.
+     * Therefore the resulting alignment got empty node labels.
+     * Since comparison of nodes is done via the id it doesn't matter but comes unhandy.
+     * @param file
+     * @return
+     * @throws AlignmentException
+     */
     @Override
-    public Alignment readAlignmentFrom(File file) {
-        return null;
+    public Alignment readAlignmentFrom(File file) throws AlignmentException {
+        // create an alignment parser
+        AlignmentParser aparser = new AlignmentParser(0);
+        // load an alignment from a file (a reference alignment)
+        org.semanticweb.owl.align.Alignment reference = aparser.parse(file.toURI());
+        // iterate over the correspondences and create local alignment
+        Alignment.Builder builder = new Alignment.Builder();
+        for (Cell c : reference) {
+            Node n1 = new Node();
+            String uri1 = c.getObject1().toString();
+            n1.setId(uri1.substring(uri1.indexOf('#')+1, uri1.length()));
+            Node n2 = new Node();
+            String uri2 = c.getObject2().toString();
+            n2.setId(uri2.substring(uri2.indexOf('#')+1, uri2.length()));
+            builder.add(n1,n2);
+        }
+        return builder.build();
     }
 
+    /**
+     * Write an alignment to RDF alignment format. Note that only Node ids are stored,
+     * and therefore this store method is lossy.
+     * @param file file where to store
+     * @param alignment alignment to store
+     * @param model1 name of model1
+     * @param model2 name of model2
+     * @throws AlignmentException
+     * @throws FileNotFoundException
+     */
     @Override
     public void writeAlignmentTo(File file, Alignment alignment, String model1, String model2) throws AlignmentException, FileNotFoundException {
         // Init Process Alignment
