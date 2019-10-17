@@ -2,7 +2,6 @@ package bpm.evaluation;
 
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
-import org.jbpt.petri.Node;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -44,7 +43,7 @@ public class Pipeline{
         Result result = matchingPipeline.run(n1,n2);
 
         // Read Gold Standard
-        GoldStandardReader reader = new GoldStandardReader();
+        RdfAlignmentReader reader = new RdfAlignmentReader();
         Alignment goldstandard = reader.getAlignmentFrom(gs);
 
         //Evaluate

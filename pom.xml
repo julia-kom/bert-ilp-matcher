@@ -67,6 +67,21 @@
           <systemPath>${project.basedir}/src/main/resources/libs/jawjaw-1.0.2.jar</systemPath>
       </dependency>
 
+      <!-- https://jitpack.io/#dozed/align-api-project/-SNAPSHOT -->
+      <dependency>
+          <groupId>com.github.dozed.align-api-project</groupId>
+          <artifactId>align-api</artifactId>
+          <version>be09dfc585</version>
+      </dependency>
+
+      <!-- https://jitpack.io/#dozed/align-api-project/-SNAPSHOT-->
+      <dependency>
+          <groupId>com.github.dozed.align-api-project</groupId>
+          <artifactId>alignsvc</artifactId>
+          <version>be09dfc585</version>
+      </dependency>
+
+
 
       <!-- https://mvnrepository.com/artifact/commons-cli/commons-cli -->
       <dependency>
