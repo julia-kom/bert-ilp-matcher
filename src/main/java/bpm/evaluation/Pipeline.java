@@ -9,6 +9,8 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.System.exit;
+
 public class Pipeline{
     //Standard matcher options
     private bpm.matcher.Pipeline matchingPipeline;
@@ -27,7 +29,13 @@ public class Pipeline{
             List<Eval> evals = batchEval();
             AggregatedEval aggregatedEval = new AggregatedEval(evals);
         } else {
-            Eval eval = singleEval(net1, net2, goldStandard);
+            try {
+                Eval eval = singleEval(net1, net2, goldStandard);
+            }catch(Exception e){
+                System.out.println("Evaluation of "+  net1.getName() + " to " + net2.getName() +
+                        "threw and Exception: " + e.getMessage());
+                exit(1);
+            }
         }
     }
 
@@ -38,13 +46,13 @@ public class Pipeline{
      * @param gs gold standard
      * @return
      */
-    public Eval singleEval(File n1, File n2, File gs){
+    public Eval singleEval(File n1, File n2, File gs) throws Exception{
         // Compute Alignment
         Result result = matchingPipeline.run(n1,n2);
 
         // Read Gold Standard
         RdfAlignmentReader reader = new RdfAlignmentReader();
-        Alignment goldstandard = reader.getAlignmentFrom(gs);
+        Alignment goldstandard = reader.readAlignmentFrom(gs);
 
         //Evaluate
         return evaluate(result.getAlignment(),goldstandard);
@@ -69,7 +77,12 @@ public class Pipeline{
         for(File f1 : files){
             for(File f2 : files){
                 if(f1 != f2) {
-                    evals.add(singleEval(f1, f2, null));
+                    try {
+                        evals.add(singleEval(f1, f2, null));
+                    }catch(Exception e){
+                        System.out.println("Evaluation of "+  f1.getName() + " to " + f2.getName() +
+                                "threw and Exception: " + e.getMessage());
+                    }
                 }
             }
         }
