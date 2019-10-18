@@ -121,12 +121,6 @@ public class EvalTest {
         Assert.assertTrue(abs(aggEval.getRecallMacro() - (11.0/12)) < 0.0001);
         Assert.assertTrue(abs(aggEval.getPrecisionMicro() - (10.0/11)) < 0.0001);
         Assert.assertTrue(abs(aggEval.getRecallMicro() - (10.0/11)) < 0.0001);
-
-        try {
-            aggEval.toCSV(new File("./res.eval"));
-        }catch(Exception e){
-            System.out.println("Didnt work: " + e.getMessage());
-        }
     }
 
 }

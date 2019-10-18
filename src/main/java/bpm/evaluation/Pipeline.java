@@ -33,7 +33,7 @@ public class Pipeline{
             List<Eval> evals = batchEval();
             AggregatedEval aggregatedEval = new AggregatedEval(evals);
             try {
-                aggregatedEval.toCSV(new File("eval-results/" + logFolder + "/aggResults.eval"));
+                aggregatedEval.toCSV(new File("./eval-results/" + logFolder + "/aggResults.eval"));
             }catch(IOException e){
                 System.out.println("It was not possible to write the aggregated result CSV!");
             }
@@ -63,6 +63,12 @@ public class Pipeline{
     public Eval singleEval(File n1, File n2, File gs) throws Exception{
         // Compute Alignment
         Result result = matchingPipeline.run(n1,n2);
+
+        // Save alignment
+        RdfAlignmentReader rdfParser = new RdfAlignmentReader();
+        String model1 = result.getAlignment().getName().substring(0,result.getAlignment().getName().indexOf('-'));
+        String model2 = result.getAlignment().getName().substring(result.getAlignment().getName().indexOf('-'));
+        rdfParser.writeAlignmentTo(new File("./eval-results/" + logFolder + "/"+result.getAlignment().getName()+".rdf"),result.getAlignment(), model1, model2);
 
         // Read Gold Standard
         RdfAlignmentReader reader = new RdfAlignmentReader();
@@ -233,6 +239,8 @@ public class Pipeline{
             }else{
                 pip.logFolder ="single-"+net1.getName()+"-"+net2.getName()+"-"+evalStrat.toString()+"-"+timestamp;
             }
+            File f = new File(pip.logFolder);
+            f.mkdir();
 
             //tests
             if(pip.batch && pip.batchPath == null){
