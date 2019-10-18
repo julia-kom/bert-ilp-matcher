@@ -49,7 +49,9 @@ public class Pipeline {
         //parse the two petri nets
         System.out.println("##### Start Parsing #####");
         NetSystem net1 = parseFile(fileNet1);
+        net1.setName(fileNet1.getName());
         NetSystem net2 = parseFile(fileNet2);
+        net2.setName(fileNet2.getName());
         System.out.println("##### Parsing Complete #####");
 
         //  wf-net and free choice check
@@ -283,4 +285,5 @@ public class Pipeline {
             return pip;
         }
     }
+
 }

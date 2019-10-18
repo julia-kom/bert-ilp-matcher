@@ -146,6 +146,12 @@ public class Evaluation {
         }
 
         // net 1 for single eval
+        if(line.hasOption("i")) {
+            String iString = line.getOptionValue("i");
+            matcherBuilder.withILP(iString);
+        }
+
+        // net 1 for single eval
         if(line.hasOption("n1")) {
             String n1String = line.getOptionValue("n1");
             File net1 = new File(n1String);
