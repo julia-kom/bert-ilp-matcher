@@ -34,7 +34,7 @@ public class Pipeline{
             List<Eval> evals = batchEval();
             AggregatedEval aggregatedEval = new AggregatedEval(evals);
             try {
-                aggregatedEval.toCSV(new File("eval-results/" + logFolder + "/aggResults.eval"));
+                aggregatedEval.toCSV(new File("./eval-results/" + logFolder + "/aggResults.eval"));
             }catch(IOException e){
                 System.out.println("It was not possible to write the aggregated result CSV!");
             }
@@ -67,10 +67,12 @@ public class Pipeline{
 
         // Save alignment
         RdfAlignmentReader rdfParser = new RdfAlignmentReader();
+
         //extract names
         String model1 = result.getAlignment().getName().substring(0,result.getAlignment().getName().indexOf('-')-5);
         String model2 = result.getAlignment().getName().substring(result.getAlignment().getName().indexOf('-')+1,result.getAlignment().getName().length()-5);
         rdfParser.writeAlignmentTo(new File("eval-results/" + logFolder + "/"+result.getAlignment().getName()+".rdf"),result.getAlignment(), model1, model2);
+
 
         // Read Gold Standard
         if(!gs.exists()){
