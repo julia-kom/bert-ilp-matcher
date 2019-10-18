@@ -6,6 +6,7 @@ import org.apache.commons.lang3.NotImplementedException;
 import org.jbpt.petri.Node;
 
 import java.io.File;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -32,9 +33,14 @@ public class Eval {
     private double fscore = 0;
 
     // Detailed Information
-    private Set<Correspondence> tpCorrespondeces;
-    private Set<Correspondence> fpCorrespondeces;
-    private Set<Correspondence> fnCorrespondeces;
+    private Set<Correspondence> tpCorrespondeces = new HashSet<>();
+    private Set<Correspondence> fpCorrespondeces = new HashSet<>();
+    private Set<Correspondence> fnCorrespondeces = new HashSet<>();
+
+    private Eval(){
+
+    }
+
     /**
      * Get TP
      * @return

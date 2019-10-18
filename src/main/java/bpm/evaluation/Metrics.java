@@ -30,7 +30,7 @@ public class Metrics {
      * @return
      */
     public static double fscore(int tp, int fp, int fn){
-        return (2.0* tp) /(2.0*tp+fn +fp);
+        return (2.0* tp) /(2.0*tp+ fn +fp);
     }
 
 

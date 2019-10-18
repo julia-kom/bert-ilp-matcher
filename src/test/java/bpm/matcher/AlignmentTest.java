@@ -203,6 +203,7 @@ public class AlignmentTest {
 
         //this does work
         Assert.assertTrue(a.contains(c1));
+        Assert.assertTrue(!a.contains(c2));
 
         // this doesnt work
         //Assert.assertTrue(a.getCorrespondences().contains(c1));
