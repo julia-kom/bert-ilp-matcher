@@ -46,7 +46,7 @@ public class RdfAlignmentReader implements Reader{
             n2.setId(uri2.substring(uri2.indexOf('#')+1, uri2.length()));
             builder.add(n1,n2);
         }
-        return builder.build();
+        return builder.build(file.getName());
     }
 
     /**

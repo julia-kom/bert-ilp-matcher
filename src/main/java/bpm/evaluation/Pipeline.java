@@ -5,7 +5,9 @@ import bpm.alignment.Result;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
 import java.nio.file.Path;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,14 +25,26 @@ public class Pipeline{
     private File goldStandard;
     private Path goldStandardPath;
     private Eval.Strategies evalStrat;
+    private String logFolder = "";
 
     public void run(){
+
         if(batch) {
             List<Eval> evals = batchEval();
             AggregatedEval aggregatedEval = new AggregatedEval(evals);
+            try {
+                aggregatedEval.toCSV(new File("eval-results/" + logFolder + "/aggResults.eval"));
+            }catch(IOException e){
+                System.out.println("It was not possible to write the aggregated result CSV!");
+            }
         } else {
             try {
                 Eval eval = singleEval(net1, net2, goldStandard);
+                try {
+                    eval.toCSV(new File("eval-results/" + logFolder + "/"+eval.getName()+".eval"));
+                }catch(IOException e){
+                    System.out.println("It was not possible to write the single result CSV: " + eval.getName());
+                }
             }catch(Exception e){
                 System.out.println("Evaluation of "+  net1.getName() + " to " + net2.getName() +
                         "threw and Exception: " + e.getMessage());
@@ -81,7 +95,7 @@ public class Pipeline{
                         evals.add(singleEval(f1, f2, null));
                     }catch(Exception e){
                         System.out.println("Evaluation of "+  f1.getName() + " to " + f2.getName() +
-                                "threw and Exception: " + e.getMessage());
+                                "threw an Exception: " + e.getMessage());
                     }
                 }
             }
@@ -200,6 +214,7 @@ public class Pipeline{
          */
         public Pipeline build(){
             Pipeline pip = new Pipeline();
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
             // standard information
             pip.matchingPipeline = this.matchingPipeline;
@@ -212,6 +227,12 @@ public class Pipeline{
             pip.goldStandard = this.goldStandard;
             pip.goldStandardPath = this.goldStandardPath;
             pip.evalStrat = this.evalStrat;
+            // Define log folder where all log files are generated
+            if(batch) {
+                pip.logFolder ="batch-"+batchPath.getFileName()+"-"+evalStrat.toString()+"-"+timestamp;
+            }else{
+                pip.logFolder ="single-"+net1.getName()+"-"+net2.getName()+"-"+evalStrat.toString()+"-"+timestamp;
+            }
 
             //tests
             if(pip.batch && pip.batchPath == null){

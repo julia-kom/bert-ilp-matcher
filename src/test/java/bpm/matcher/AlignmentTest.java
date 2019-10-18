@@ -59,10 +59,10 @@ public class AlignmentTest {
         Alignment a = new Alignment.Builder()
                 .addCorrespondence(c1)
                 .addCorrespondence(c2)
-                .build();
+                .build("test");
         Assert.assertTrue(!a.isMutuallyExclusive());
 
-        a = new Alignment.Builder().addCorrespondence(c1).build();
+        a = new Alignment.Builder().addCorrespondence(c1).build("test");
         Assert.assertTrue(a.isMutuallyExclusive());
     }
 
@@ -86,7 +86,7 @@ public class AlignmentTest {
         Alignment a = new Alignment.Builder()
                 .addCorrespondence(c1)
                 .addCorrespondence(c2)
-                .build();
+                .build("test");
         System.out.println(a.toString());
         Assert.assertTrue(a.isMapped(p1n1,p2n1));
         Assert.assertTrue(a.isMapped(p1n2,p2n1));
@@ -114,7 +114,7 @@ public class AlignmentTest {
         Alignment a = new Alignment.Builder()
                 .addCorrespondence(c1)
                 .addCorrespondence(c2)
-                .build();
+                .build("test");
         Assert.assertTrue(a.getCorrespondenceOfNode(p1n1).size() == 1);
         Assert.assertTrue(a.getCorrespondenceOfNode(p2n1).size() == 2);
     }
@@ -156,7 +156,7 @@ public class AlignmentTest {
 
         Correspondence c1 = new Correspondence.Builder().addNodeFromNet1(n1).addNodeFromNet1(n2).addNodeFromNet2(n3).build();
         Correspondence c2 = new Correspondence.Builder().addNodeFromNet1(n4).addNodeFromNet1(n5).addNodeFromNet2(n6).build();
-        Alignment a = new Alignment.Builder().add(n1,n3).add(n2,n3).build();
+        Alignment a = new Alignment.Builder().add(n1,n3).add(n2,n3).build("test");
         Correspondence c3 = new Correspondence.Builder().addNodeFromNet1(n4).addNodeFromNet2(n6).build();
 
         // Equals function test
@@ -192,7 +192,7 @@ public class AlignmentTest {
         Node n6 = new Node("n3");
         n6.setId("id3");
 
-        Alignment a = new Alignment.Builder().add(n1,n3).add(n2,n3).build();
+        Alignment a = new Alignment.Builder().add(n1,n3).add(n2,n3).build("test");
 
         Correspondence c1 = new Correspondence.Builder().addNodeFromNet1(n4).addNodeFromNet1(n5).addNodeFromNet2(n6).build();
         Correspondence c2 = new Correspondence.Builder().addNodeFromNet1(n4).addNodeFromNet2(n6).build();

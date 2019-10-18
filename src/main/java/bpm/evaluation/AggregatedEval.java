@@ -1,5 +1,9 @@
 package bpm.evaluation;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 
 public class AggregatedEval {
@@ -17,13 +21,15 @@ public class AggregatedEval {
     private double recallMacro = 0;
     private double fscoreMacro = 0;
 
+    // store the evals
+    private List<Eval> evals = new LinkedList<>();
 
     /**
      * Constructor
      * @param evals
      */
     public AggregatedEval(List<Eval> evals){
-
+        this.evals = evals;
         for(Eval e :evals){
             // macro
             precisionMacro += e.getPrecision() / evals.size();
@@ -122,7 +128,7 @@ public class AggregatedEval {
         return "## Aggregated Statistics ## \n" +
                 "TP: " +tp + "\n" +
                 "FP: " +fp + "\n" +
-                "FP: " +fn + "\n" +
+                "FN: " +fn + "\n" +
                 "PRECISION (MACRO): " + precisionMacro + "\n" +
                 "PRECISION (MICRO): " + precisionMicro + "\n" +
                 "RECALL (MACRO): " + recallMacro + "\n" +
@@ -131,5 +137,29 @@ public class AggregatedEval {
                 "FSCORE (MICRO): " + fscoreMicro + "\n";
     }
 
+    /**
+     * Compute the csv summary file of the aggregated eval test.
+     * First row: Aggregated Macro Statistics (note that confusion values for macro and micro are always equal)
+     * Second row: Aggregated Micro Statistics (note that confusion values for macro and micro are always equal)
+     * @param file File where to write the stats to.
+     * @throws IOException
+     */
+    public void toCSV(File file) throws IOException {
+        FileWriter csvWriter = new FileWriter(file.getAbsolutePath());
+        // column description
+        csvWriter.append("Name,").append("TP,").append("FP,").append("FN,").append("PRECISION,").append("RECALL,").append("FSCORE\n");
 
+        // aggregated statistics
+        csvWriter.append("Aggregated (MACRO),").append(this.tp+",").append(this.fp+",").append(this.fn+",").append(this.precisionMacro+",").append(this.recallMacro+",").append(this.fscoreMacro+"\n");
+        csvWriter.append("Aggregated (MICRO),").append(this.tp+",").append(this.fp+",").append(this.fn+",").append(this.precisionMicro+",").append(this.recallMicro+",").append(this.fscoreMicro+"\n");
+
+        // detailed statistics
+        for(Eval e : evals){
+                csvWriter.append(e.getName().replace(',',';').replace("\n"," ")+",").append(e.getTP()+",").append(e.getFP()+",").append(e.getFN()+",").append(e.getPrecision()+",").append(e.getRecall()+",").append(e.getFscore()+"\n");
+            }
+
+        //properly close everything
+        csvWriter.flush();
+        csvWriter.close();
+    }
 }

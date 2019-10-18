@@ -5,6 +5,7 @@ import org.jbpt.petri.Node;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,9 +31,9 @@ public class EvalTest {
         Node n7 = new Node("n7");
         n7.setId("id7");
 
-        Alignment match = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build();
-        Alignment gs1 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n4,n7).build(); // 1 matcher found one to many
-        Alignment gs2 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build(); // Exact match
+        Alignment match = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build("test1");
+        Alignment gs1 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n4,n7).build("gs1"); // 1 matcher found one to many
+        Alignment gs2 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build("gs2"); // Exact match
 
         // precision = 3/4 , recall = 0
         Eval e1 = Eval.Builder.BinaryEvaluation(match,gs1);
@@ -64,9 +65,9 @@ public class EvalTest {
         Node n7 = new Node("n7");
         n7.setId("id7");
 
-        Alignment match = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build();
-        Alignment gs1 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n4,n7).build(); // 1 matcher found one to many
-        Alignment gs2 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build(); // Exact match
+        Alignment match = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build("test");
+        Alignment gs1 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n4,n7).build("gs1"); // 1 matcher found one to many
+        Alignment gs2 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build("gs2"); // Exact match
 
         // precision = 2/3 , recall = 2/3
         Eval e1 = Eval.Builder.StrictBinaryEvaluation(match,gs1);
@@ -98,9 +99,9 @@ public class EvalTest {
         Node n7 = new Node("n7");
         n7.setId("id7");
 
-        Alignment match = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build();
-        Alignment gs1 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n4,n7).build(); // 1 matcher found one to many
-        Alignment gs2 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build(); // Exact match
+        Alignment match = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build("test");
+        Alignment gs1 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n4,n7).build("gs1"); // 1 matcher found one to many
+        Alignment gs2 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build("gs2"); // Exact match
 
         // precision = 3/4 , recall = 1
         Eval e1 = Eval.Builder.BinaryEvaluation(match,gs1);
@@ -120,6 +121,12 @@ public class EvalTest {
         Assert.assertTrue(abs(aggEval.getRecallMacro() - (11.0/12)) < 0.0001);
         Assert.assertTrue(abs(aggEval.getPrecisionMicro() - (10.0/11)) < 0.0001);
         Assert.assertTrue(abs(aggEval.getRecallMicro() - (10.0/11)) < 0.0001);
+
+        try {
+            aggEval.toCSV(new File("./res.eval"));
+        }catch(Exception e){
+            System.out.println("Didnt work: " + e.getMessage());
+        }
     }
 
 }

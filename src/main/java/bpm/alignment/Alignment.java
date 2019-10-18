@@ -8,6 +8,7 @@ import java.util.Set;
 
 public class Alignment {
     private HashSet<Correspondence> correspondences;
+    private String name;
 
     /**
      * Use builder
@@ -98,6 +99,8 @@ public class Alignment {
         return correspondences;
     }
 
+    public String getName(){return name;}
+
     @Override
     public String toString(){
         String s = "";
@@ -163,8 +166,9 @@ public class Alignment {
          * Build the alignment
          * @return Alignment
          */
-        public Alignment build(){
+        public Alignment build(String name){
             Alignment a = new Alignment();
+            a.name = name;
             a.correspondences = this.correspondences;
             return a;
         }

@@ -38,7 +38,7 @@ public class AlignmentReaderTest
         Alignment a = new Alignment.Builder()
                 .add(p1n1,p2n1)
                 .add(p2n1,p2n1)
-                .build();
+                .build("test");
 
         RdfAlignmentReader reader = new RdfAlignmentReader();
         File file = folder.newFile("rdf-read-write-test.rdf");

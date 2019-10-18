@@ -64,12 +64,12 @@ public class Correspondence {
     public String toString() {
         String s = "[";
         for(Node n1 : nodesNet1){
-            s+= n1.getLabel() +",";
+            s+= n1.getLabel() +";";
         }
         s = s.substring(0,s.length()-1);
         s += "] to [";
         for(Node n2 : nodesNet2){
-            s+= n2.getLabel() +",";
+            s+= n2.getLabel() +";";
         }
         s = s.substring(0,s.length()-1);
         s+="] \n";
