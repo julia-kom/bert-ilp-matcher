@@ -43,3 +43,4 @@ out/
 ## Evaluation
 ##############################
 ./eval-logs
+./eval
