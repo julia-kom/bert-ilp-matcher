@@ -6,6 +6,9 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * This can even be used to map places. Transistions and Places are both nodes.
+ */
 public class Correspondence {
     private Set<Node> nodesNet1;
     private Set<Node> nodesNet2;

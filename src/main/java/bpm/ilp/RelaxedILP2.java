@@ -33,8 +33,8 @@ public class RelaxedILP2 extends AbstractILP {
     @Override
     public Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2, Matrix matrix) throws GRBException {
         //setup variables
-        Node[] nodeNet1 =  net1.getNodes().toArray(new Node[net1.getNodes().size()]);
-        Node[] nodeNet2 =  net2.getNodes().toArray(new Node[net2.getNodes().size()]);
+        Node[] nodeNet1 =  net1.getTransitions().toArray(new Node[net1.getTransitions().size()]);
+        Node[] nodeNet2 =  net2.getTransitions().toArray(new Node[net2.getTransitions().size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
         int minSize = Math.min(nodesNet1,nodesNet2);
@@ -188,7 +188,7 @@ public class RelaxedILP2 extends AbstractILP {
         Alignment.Builder builder = new Alignment.Builder();
         for (int i = 0; i< nodesNet1; i++) {
             for (int j = 0; j < nodesNet2; j++) {
-                if( Math.abs(x[i][j].get(GRB.DoubleAttr.X)) > 0.9){
+                if( Math.abs(x[i][j].get(GRB.DoubleAttr.X)) > 0.7){
                     builder.add(nodeNet1[i],nodeNet2[j]);
                 }
             }

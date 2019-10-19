@@ -70,7 +70,7 @@ public class Pipeline {
         System.out.println("##### Start Creating Similarity Matrix #####");
         Matrix simMatrix = new Matrix.Builder()
                 .withWordSimilarity(this.wordSimilarity)
-                .build(net1.getNodes(),net2.getNodes());
+                .build(net1.getTransitions(),net2.getTransitions());
         System.out.println("##### Creating Similarity Matrix Complete #####");
 
         // Run ILP
