@@ -63,7 +63,9 @@ public class Pipeline {
         // Create Profile
         System.out.println("##### Start Creating Profiles #####");
         RelSet relNet1 = createProfile(net1);
+        System.out.print("Net 1" +relNet1.toString());
         RelSet relNet2 = createProfile(net2);
+        System.out.print("Net 2" +relNet1.toString());
         System.out.println("##### Creating Profiles Complete #####");
 
         // Create Label Similarity Matrix
@@ -90,6 +92,8 @@ public class Pipeline {
 
 
         //Postprocess
+
+        System.out.println(res.toString());
 
         //Return
         return res;
@@ -149,7 +153,7 @@ public class Pipeline {
         if (!PetriNet.STRUCTURAL_CHECKS.isWorkflowNet(net)){
             throw new IllegalArgumentException("net is not WF-net:" + net.toString());
         }
-        if(!PetriNet.STRUCTURAL_CHECKS.isFreeChoice(net)){
+        if(!PetriNet.STRUCTURAL_CHECKS.isExtendedFreeChoice(net)){
             throw new IllegalArgumentException("net is not free choice:" + net.toString());
         }
 

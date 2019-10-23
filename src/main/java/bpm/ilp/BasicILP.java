@@ -161,9 +161,12 @@ public class BasicILP extends AbstractILP {
         model.optimize();
 
         //print alignment
+
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++) {
-                System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " + x[i][j].get(GRB.DoubleAttr.X));
+                System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " +
+                        x[i][j].get(GRB.DoubleAttr.X) +": "+nodeNet1[i].getLabel()+ "("+nodeNet1[i].getId()+")"
+                        +" - "+ nodeNet2[j].getLabel()+ "("+nodeNet2[j].getId()+")");
             }
         }
 

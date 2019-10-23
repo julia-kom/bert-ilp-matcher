@@ -74,7 +74,7 @@ public class LabelSimilarity {
             sum2+=max2;
         }
 
-        //System.out.println("A: " + label1 + ", B: " + label2 + ":" +(sum1+sum2)/(bag1.size() + bag2.size()));
+        System.out.println("A: " + label1 + ", B: " + label2 + ":" +(sum1+sum2)/(bag1.size() + bag2.size()));
         //aggregate
         return (sum1+sum2)/(bag1.size() + bag2.size());
     }
