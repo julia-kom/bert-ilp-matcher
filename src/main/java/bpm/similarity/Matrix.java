@@ -2,15 +2,16 @@ package bpm.similarity;
 
 import javafx.util.Pair;
 import org.jbpt.petri.Node;
+import org.jbpt.petri.Transition;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Matrix{
     private Word.Similarities wordSimilarityFunction;
-    private Node[] nodesNet1;
-    private Node[] nodesNet2;
+    private Transition[] nodesNet1;
+    private Transition[] nodesNet2;
     private Map<Pair<String,String>, Double> similarities;
 
     /**
@@ -27,8 +28,8 @@ public class Matrix{
         this.similarities = new HashMap<>();
         LabelSimilarity labelSimilarity = new LabelSimilarity(wordSimilarityFunction);
         // fill the matrix
-        for(Node n1 : nodesNet1){
-            for (Node n2 : nodesNet2){
+        for(Transition n1 : nodesNet1){
+            for (Transition n2 : nodesNet2){
                 similarities.put(new Pair<>(n1.getLabel(), n2.getLabel()), labelSimilarity.BagOfWords(n1.getLabel(), n2.getLabel()));
             }
         }
@@ -59,10 +60,10 @@ public class Matrix{
             return this;
         }
 
-        public Matrix build(Collection<Node> nodesNet1, Collection<Node> nodesNet2){
+        public Matrix build(Set<Transition> nodesNet1, Set<Transition> nodesNet2){
             Matrix res = new Matrix();
-            res.nodesNet1 = nodesNet1.toArray(new Node[nodesNet1.size()]);
-            res.nodesNet2 = nodesNet2.toArray(new Node[nodesNet2.size()]);
+            res.nodesNet1 = nodesNet1.toArray(new Transition[nodesNet1.size()]);
+            res.nodesNet2 = nodesNet2.toArray(new Transition[nodesNet2.size()]);
             res.wordSimilarityFunction = this.sim;
             res.construct();
             return res;

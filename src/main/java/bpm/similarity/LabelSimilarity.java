@@ -167,7 +167,7 @@ public class LabelSimilarity {
                 w = it.next();
                 if (STOPWORDS.contains(w)){
                     it.remove();
-                    System.out.println("Stopword Removed: " + w);
+                    //System.out.println("Stopword Removed: " + w);
                 }
             }
         }

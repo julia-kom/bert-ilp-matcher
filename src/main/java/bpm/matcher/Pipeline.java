@@ -49,7 +49,9 @@ public class Pipeline {
         //parse the two petri nets
         System.out.println("##### Start Parsing #####");
         NetSystem net1 = parseFile(fileNet1);
+        net1.setName(fileNet1.getName());
         NetSystem net2 = parseFile(fileNet2);
+        net2.setName(fileNet2.getName());
         System.out.println("##### Parsing Complete #####");
 
         //  wf-net and free choice check
@@ -61,14 +63,16 @@ public class Pipeline {
         // Create Profile
         System.out.println("##### Start Creating Profiles #####");
         RelSet relNet1 = createProfile(net1);
+        System.out.print("Net 1" +relNet1.toString());
         RelSet relNet2 = createProfile(net2);
+        System.out.print("Net 2" +relNet1.toString());
         System.out.println("##### Creating Profiles Complete #####");
 
         // Create Label Similarity Matrix
         System.out.println("##### Start Creating Similarity Matrix #####");
         Matrix simMatrix = new Matrix.Builder()
                 .withWordSimilarity(this.wordSimilarity)
-                .build(net1.getNodes(),net2.getNodes());
+                .build(net1.getTransitions(),net2.getTransitions());
         System.out.println("##### Creating Similarity Matrix Complete #####");
 
         // Run ILP
@@ -88,6 +92,8 @@ public class Pipeline {
 
 
         //Postprocess
+
+        System.out.println(res.toString());
 
         //Return
         return res;
@@ -147,7 +153,7 @@ public class Pipeline {
         if (!PetriNet.STRUCTURAL_CHECKS.isWorkflowNet(net)){
             throw new IllegalArgumentException("net is not WF-net:" + net.toString());
         }
-        if(!PetriNet.STRUCTURAL_CHECKS.isFreeChoice(net)){
+        if(!PetriNet.STRUCTURAL_CHECKS.isExtendedFreeChoice(net)){
             throw new IllegalArgumentException("net is not free choice:" + net.toString());
         }
 
@@ -161,12 +167,12 @@ public class Pipeline {
      * Builder for class Pipeline
      */
     public static class Builder{
-        boolean complexMatches = false;
-        double  similarityWeight = 0.3;
-        double  postprocessThreshold = 0.0;
-        AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
-        Matcher.Profile profile = Matcher.Profile.BP;
-        Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
+        protected boolean complexMatches = false;
+        protected double  similarityWeight = 0.3;
+        protected double  postprocessThreshold = 0.0;
+        protected AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
+        protected Matcher.Profile profile = Matcher.Profile.BP;
+        protected Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
 
         /**
          * Create a Builder to define a Pipline Object.
@@ -283,4 +289,5 @@ public class Pipeline {
             return pip;
         }
     }
+
 }

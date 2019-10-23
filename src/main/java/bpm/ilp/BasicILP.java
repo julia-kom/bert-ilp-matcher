@@ -29,8 +29,8 @@ public class BasicILP extends AbstractILP {
     @Override
     public Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2, Matrix matrix) throws GRBException {
         //setup variables
-        Node[] nodeNet1 =  net1.getNodes().toArray(new Node[net1.getNodes().size()]);
-        Node[] nodeNet2 =  net2.getNodes().toArray(new Node[net2.getNodes().size()]);
+        Node[] nodeNet1 =  net1.getTransitions().toArray(new Node[net1.getTransitions().size()]);
+        Node[] nodeNet2 =  net2.getTransitions().toArray(new Node[net2.getTransitions().size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
         int minSize = Math.min(nodesNet1,nodesNet2);
@@ -161,9 +161,12 @@ public class BasicILP extends AbstractILP {
         model.optimize();
 
         //print alignment
+
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++) {
-                System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " + x[i][j].get(GRB.DoubleAttr.X));
+                System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " +
+                        x[i][j].get(GRB.DoubleAttr.X) +": "+nodeNet1[i].getLabel()+ "("+nodeNet1[i].getId()+")"
+                        +" - "+ nodeNet2[j].getLabel()+ "("+nodeNet2[j].getId()+")");
             }
         }
 
@@ -190,7 +193,7 @@ public class BasicILP extends AbstractILP {
             }
         }
 
-        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build());
+        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(net1.getName()+"-"+net2.getName()));
 
         // Dispose of model and environment
         model.dispose();

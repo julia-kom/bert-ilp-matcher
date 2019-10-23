@@ -4,6 +4,7 @@ import bpm.similarity.LabelSimilarity;
 import bpm.similarity.Matrix;
 import bpm.similarity.Word;
 import org.jbpt.petri.Node;
+import org.jbpt.petri.Transition;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Unit test for simple App.
+ * Unit test
  */
 public class LabelSimilarityTest
 {
@@ -71,13 +72,13 @@ public class LabelSimilarityTest
         // Create two sets of nodes
         String[] s1 = new String[]{"Car", "House", "Child"};
         String[] s2 = new String[]{"Bus", "Flat", "Cat"};
-        Set<Node> n1 = new HashSet<>();
+        Set<Transition> n1 = new HashSet<>();
         for (String s : s1){
-            n1.add(new Node(s));
+            n1.add(new Transition(s));
         }
-        Set<Node> n2 = new HashSet<>();
+        Set<Transition> n2 = new HashSet<>();
         for (String s : s2){
-            n2.add(new Node(s));
+            n2.add(new Transition(s));
         }
 
         //Compute the matrix
