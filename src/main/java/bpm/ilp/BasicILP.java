@@ -49,7 +49,7 @@ public class BasicILP extends AbstractILP {
             for (int k = 0; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        y[i][j][k][l] = model.addVar(0.0, 1.0, 0.0, GRB.BINARY, "y_" + i + "_" + j+"_"+k+"_"+l);
+                        y[i][k][j][l] = model.addVar(0.0, 1.0, 0.0, GRB.BINARY, "y_" + i + "_" + j+"_"+k+"_"+l);
                     }
                 }
             }
@@ -65,7 +65,7 @@ public class BasicILP extends AbstractILP {
             for (int k = 0; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        behavior.addTerm(1.0/(minSize*minSize), y[i][j][k][l]);
+                        behavior.addTerm(1.0/(minSize*minSize), y[i][k][j][l]);
                     }
                 }
             }
@@ -93,7 +93,7 @@ public class BasicILP extends AbstractILP {
             for (int k = 0; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        conTest.addTerm(1, y[i][j][k][l]);
+                        conTest.addTerm(1, y[i][k][j][l]);
                     }
                 }
             }
@@ -137,19 +137,17 @@ public class BasicILP extends AbstractILP {
             for (int k = 0; k < nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++){
                     for (int l = 0; l < nodesNet2; l++) {
-                        RelSetType s = relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]);
-                        RelSetType t = relNet2.getRelationForEntities(nodeNet1[j], nodeNet1[l]);
-                        if (relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]).equals(relNet2.getRelationForEntities(nodeNet1[j], nodeNet1[l]))) {
+                        if (relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]).equals(relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]))) {
                             GRBLinExpr con3 = new GRBLinExpr();
                             con3.clear();
-                            con3.addTerm(2, y[i][j][k][l]);
+                            con3.addTerm(2, y[i][k][j][l]);
                             con3.addTerm(-1, x[i][j]);
                             con3.addTerm(-1, x[k][l]);
                             model.addConstr(con3, GRB.LESS_EQUAL, 0, "linking");
                         } else {
                             GRBLinExpr con3 = new GRBLinExpr();
                             con3.clear();
-                            con3.addTerm(1, y[i][j][k][l]);
+                            con3.addTerm(1, y[i][k][j][l]);
                             model.addConstr(con3, GRB.EQUAL, 0, "zero setter");
                         }
                     }
@@ -174,7 +172,7 @@ public class BasicILP extends AbstractILP {
             for (int k = 0; k< nodesNet1; k++) {
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        System.out.println(y[i][j][k][l].get(GRB.StringAttr.VarName) + " " + y[i][j][k][l].get(GRB.DoubleAttr.X));
+                        System.out.println(y[i][k][j][l].get(GRB.StringAttr.VarName) + " " + y[i][k][j][l].get(GRB.DoubleAttr.X));
                     }
                 }
             }
