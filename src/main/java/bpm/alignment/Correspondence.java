@@ -10,8 +10,8 @@ import java.util.Set;
  * This can even be used to map places. Transistions and Places are both nodes.
  */
 public class Correspondence {
-    private Set<Node> nodesNet1;
-    private Set<Node> nodesNet2;
+    private HashSet<Node> nodesNet1;
+    private HashSet<Node> nodesNet2;
 
     /**
      * Use the Builder
@@ -23,7 +23,7 @@ public class Correspondence {
      * @return boolean
      */
     public boolean isComplexCorrespondence(){
-        if(nodesNet1.size() > 1 ||nodesNet2.size() > 1){
+        if(nodesNet1.size() > 1 || nodesNet2.size() > 1){
             return true;
         }else{
             return false;
@@ -108,13 +108,13 @@ public class Correspondence {
 
     @Override
     public int hashCode(){
-        return Objects.hash(nodesNet1.hashCode(), nodesNet2.hashCode());
+        return 1;
     }
 
 
     public static class Builder{
-        private Set<Node> nodesNet1;
-        private Set<Node> nodesNet2;
+        private HashSet<Node> nodesNet1;
+        private HashSet<Node> nodesNet2;
 
         public Builder(){
             nodesNet1 = new HashSet<>();

@@ -1,5 +1,6 @@
 package bpm.matcher;
 
+import bpm.alignment.Alignment;
 import bpm.alignment.Result;
 import bpm.ilp.AbstractILP;
 import bpm.ilp.BasicILP;
@@ -14,11 +15,13 @@ import org.jbpt.bp.RelSet;
 import org.jbpt.bp.construct.BPCreatorNet;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.PetriNet;
+import org.jbpt.petri.Transition;
 import org.jbpt.petri.io.PNMLSerializer;
 import org.apache.commons.lang3.NotImplementedException;
 
 import java.sql.Timestamp;
 import java.io.File;
+import java.util.Set;
 
 import static java.lang.System.exit;
 
@@ -28,6 +31,7 @@ import static java.lang.System.exit;
  */
 public class Pipeline {
     private boolean complexMatches;
+    private boolean prematch;
     private double  similarityWeight;
     private double  postprocessThreshold;
     private Matcher.Profile profile;
@@ -63,17 +67,35 @@ public class Pipeline {
         // Create Profile
         System.out.println("##### Start Creating Profiles #####");
         RelSet relNet1 = createProfile(net1);
-        System.out.print("Net 1" +relNet1.toString());
+        //System.out.print("Net 1" +relNet1.toString());
         RelSet relNet2 = createProfile(net2);
-        System.out.print("Net 2" +relNet1.toString());
+        //System.out.print("Net 2" +relNet1.toString());
         System.out.println("##### Creating Profiles Complete #####");
+
+        // Preprocess ignore taus
+        System.out.println("##### Start Preprocessing Tau Transitions#####");
+        Set<Transition> reducedNet1 = Preprocessor.reduceTauTransitions(net1.getTransitions());
+        Set<Transition> reducedNet2 = Preprocessor.reduceTauTransitions(net2.getTransitions());
+        System.out.println("##### Complete Preprocessing Tau Transitions#####");
 
         // Create Label Similarity Matrix
         System.out.println("##### Start Creating Similarity Matrix #####");
         Matrix simMatrix = new Matrix.Builder()
                 .withWordSimilarity(this.wordSimilarity)
-                .build(net1.getTransitions(),net2.getTransitions());
+                .build(reducedNet1,reducedNet2);
         System.out.println("##### Creating Similarity Matrix Complete #####");
+
+        // Preprocess ignore taus and prematch
+        System.out.println("##### Start Prematch #####");
+        Alignment preAlignment;
+        if(prematch){
+            preAlignment = Preprocessor.prematch(reducedNet1,reducedNet2,simMatrix);
+            System.out.println("Prematched " + preAlignment.getCorrespondences().size() + " Pairs of Transitions.");
+        }else{
+            System.out.println("Prematching is disabled.");
+            preAlignment = new Alignment.Builder().build("empty prematch");
+        }
+        System.out.println("##### Preprocessing Complete #####");
 
         // Run ILP
         System.out.println("##### Start ILP #####");
@@ -82,7 +104,7 @@ public class Pipeline {
         Result res;
         try {
             ilp.init(new File("./gurobi-logs/log-"+ timestamp+".log"), similarityWeight);
-            res = ilp.solve(relNet1, relNet2, net1, net2, simMatrix);
+            res = ilp.solve(relNet1, relNet2, reducedNet1, reducedNet2, simMatrix, preAlignment, net1.getName()+"-"+net2.getName());
         } catch (GRBException e) {
             System.out.println("Error code: " + e.getErrorCode() + ". " + e.getMessage());
             exit(1);
@@ -173,6 +195,7 @@ public class Pipeline {
         protected AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
         protected Matcher.Profile profile = Matcher.Profile.BP;
         protected Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
+        protected boolean prematch = false;
 
         /**
          * Create a Builder to define a Pipline Object.
@@ -274,6 +297,11 @@ public class Pipeline {
             return this;
         }
 
+        public Pipeline.Builder withPreMatching() {
+            this.prematch = true;
+            return this;
+        }
+
         /**
          *Build a Pipeline with the previously assigned arguments.
          * @return Executable Pipeline
@@ -286,8 +314,11 @@ public class Pipeline {
             pip.profile = this.profile;
             pip.ilp = this.ilp;
             pip.wordSimilarity = this.wordSimilarity;
+            pip.prematch = this.prematch;
             return pip;
         }
+
+
     }
 
 }

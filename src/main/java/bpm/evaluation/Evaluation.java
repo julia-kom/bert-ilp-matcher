@@ -83,6 +83,8 @@ public class Evaluation {
                         "StrictBinary: Only exact matches account as true positives \n" +
                         "Probabilistically: Acc. to \"Probabilistic Evaluation of Process Model Matching Techniques\" ")
                 .build();
+        Option optPreMatch = new Option("pm", "pre-match", false, "Run Prematcher before running the ILP, reducing runtime");
+
 
         //combine options
         Options options = new Options();
@@ -98,6 +100,7 @@ public class Evaluation {
         options.addOption(optNetPath);
         options.addOption(optGoldStandardPath);
         options.addOption(optEvalStrat);
+        options.addOption(optPreMatch);
 
         //parse input
         CommandLine line;
@@ -120,6 +123,11 @@ public class Evaluation {
         // parse complexMatches
         if (line.hasOption("c")) {
             matcherBuilder = matcherBuilder.withComplexMatches();
+        }
+
+        // parse prematch
+        if (line.hasOption("pm")) {
+            matcherBuilder = matcherBuilder.withPreMatching();
         }
 
         // parse similarityWeight

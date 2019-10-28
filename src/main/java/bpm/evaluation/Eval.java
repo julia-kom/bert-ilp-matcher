@@ -105,7 +105,7 @@ public class Eval {
         return "##" + this.name + "## \n" +
                 "TP: " +tp + "\n" +
                 "FP: " +fp + "\n" +
-                "FP: " +fn + "\n" +
+                "FN: " +fn + "\n" +
                 "PRECISION: " + precision + "\n" +
                 "RECALL: " + recall + "\n" +
                 "FSCORE: " + fscore + "\n";

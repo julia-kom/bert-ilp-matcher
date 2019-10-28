@@ -80,9 +80,12 @@ public class Pipeline{
         }
         RdfAlignmentReader reader = new RdfAlignmentReader();
         Alignment goldstandard = reader.readAlignmentFrom(gs);
+        Eval eval = evaluate(result.getAlignment(),goldstandard);
+
+        System.out.println(eval);
 
         //Evaluate
-        return evaluate(result.getAlignment(),goldstandard);
+        return eval;
 
     }
 
