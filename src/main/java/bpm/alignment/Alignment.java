@@ -163,6 +163,18 @@ public class Alignment {
         }
 
         /**
+         * Removes complex matches from the alignment that is build up
+         * @return
+         */
+        public Builder removeComplexMatches(){
+            for(Correspondence c: correspondences){
+                if (c.isComplexCorrespondence())
+                    this.correspondences.remove(c);
+            }
+            return this;
+        }
+
+        /**
          * Build the alignment
          * @return Alignment
          */
