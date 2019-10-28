@@ -1,6 +1,7 @@
 package bpm.ilp;
 
 import bpm.alignment.Alignment;
+import bpm.alignment.Correspondence;
 import bpm.alignment.Result;
 import bpm.similarity.Matrix;
 import gurobi.GRB;
@@ -13,6 +14,7 @@ import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
 
+import java.util.Arrays;
 import java.util.Set;
 
 
@@ -174,15 +176,26 @@ public class RelaxedILP extends AbstractILP {
             }
         }
 
+        // add prematches
+        for (Correspondence c: preAlignment.getCorrespondences()){
+            Node n1 =  c.getNet1Nodes().iterator().next();
+            Node n2 =  c.getNet2Nodes().iterator().next();
+            int i = Arrays.asList(nodeNet1).indexOf(n1);
+            int j = Arrays.asList(nodeNet2).indexOf(n2);
+            GRBLinExpr conPre = new GRBLinExpr();
+            conPre.addTerm(1,x[i][j]);
+            model.addConstr(conPre, GRB.EQUAL, 1, "pre matched");
+        }
+
         // Optimize model
         model.optimize();
 
         //print alignment
-        for (int i = 0; i< nodesNet1; i++){
+        /*for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++) {
                 System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " + x[i][j].get(GRB.DoubleAttr.X));
             }
-        }
+        }*/
 
         /*for (int i = 0; i< nodesNet1; i++){
             for (int k = 0; k< nodesNet1; k++) {

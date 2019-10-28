@@ -90,7 +90,9 @@ public class Pipeline {
         Alignment preAlignment;
         if(prematch){
             preAlignment = Preprocessor.prematch(reducedNet1,reducedNet2,simMatrix);
+            System.out.println("Prematched " + preAlignment.getCorrespondences().size() + " Pairs of Transitions.");
         }else{
+            System.out.println("Prematching is disabled.");
             preAlignment = new Alignment.Builder().build("empty prematch");
         }
         System.out.println("##### Preprocessing Complete #####");

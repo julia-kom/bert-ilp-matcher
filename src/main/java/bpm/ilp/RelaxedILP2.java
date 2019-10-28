@@ -1,6 +1,7 @@
 package bpm.ilp;
 
 import bpm.alignment.Alignment;
+import bpm.alignment.Correspondence;
 import bpm.alignment.Result;
 import bpm.similarity.Matrix;
 import gurobi.GRB;
@@ -13,6 +14,7 @@ import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
 
+import java.util.Arrays;
 import java.util.Set;
 
 
@@ -34,7 +36,7 @@ public class RelaxedILP2 extends AbstractILP {
      * @throws GRBException
      */
     @Override
-    public Result solve(RelSet relNet1, RelSet relNet2, Set<Transition> net1, Set<Transition> net2, Matrix matrix,Alignment preMatch, String name) throws GRBException {
+    public Result solve(RelSet relNet1, RelSet relNet2, Set<Transition> net1, Set<Transition> net2, Matrix matrix,Alignment preAlignment, String name) throws GRBException {
         //setup variables
         Node[] nodeNet1 =  net1.toArray(new Node[net1.size()]);
         Node[] nodeNet2 =  net2.toArray(new Node[net2.size()]);
@@ -161,6 +163,18 @@ public class RelaxedILP2 extends AbstractILP {
                 }
             }
         }
+
+        // add prematches
+        for (Correspondence c: preAlignment.getCorrespondences()){
+            Node n1 =  c.getNet1Nodes().iterator().next();
+            Node n2 =  c.getNet2Nodes().iterator().next();
+            int i = Arrays.asList(nodeNet1).indexOf(n1);
+            int j = Arrays.asList(nodeNet2).indexOf(n2);
+            GRBLinExpr conPre = new GRBLinExpr();
+            conPre.addTerm(1,x[i][j]);
+            model.addConstr(conPre, GRB.EQUAL, 1, "pre matched");
+        }
+
 
         // Optimize model
         model.optimize();
