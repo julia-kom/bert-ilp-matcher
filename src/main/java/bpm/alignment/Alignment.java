@@ -4,6 +4,7 @@ import org.jbpt.petri.Node;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class Alignment {
@@ -167,9 +168,12 @@ public class Alignment {
          * @return
          */
         public Builder removeComplexMatches(){
-            for(Correspondence c: correspondences){
-                if (c.isComplexCorrespondence())
-                    this.correspondences.remove(c);
+            Iterator<Correspondence> it = this.correspondences.iterator();
+            while(it.hasNext()){
+                Correspondence c = it.next();
+                if (c.isComplexCorrespondence()) {
+                    it.remove();
+                }
             }
             return this;
         }

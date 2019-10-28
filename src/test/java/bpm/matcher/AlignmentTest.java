@@ -3,9 +3,11 @@ package bpm.matcher;
 import bpm.alignment.Alignment;
 import bpm.alignment.Correspondence;
 import org.jbpt.petri.Node;
+import org.jbpt.petri.Transition;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -172,8 +174,8 @@ public class AlignmentTest {
         // HashCode Test
         Assert.assertTrue(c1.hashCode() == c2.hashCode());
         Assert.assertTrue(a.getCorrespondences().iterator().next().hashCode() == c1.hashCode());
-        Assert.assertTrue(c1.hashCode() != c3.hashCode());
-        Assert.assertTrue(c2.hashCode() != c3.hashCode());
+        //Assert.assertTrue(c1.hashCode() != c3.hashCode()); THIS IS NOT NEEDED ACCORDING TO hashCode() and equal() contract
+        // Assert.assertTrue(c2.hashCode() != c3.hashCode()); "       "
     }
 
     @Test
@@ -204,14 +206,38 @@ public class AlignmentTest {
         //this does work
         Assert.assertTrue(a.contains(c1));
         Assert.assertTrue(!a.contains(c2));
-
-        // this doesnt work
-        //Assert.assertTrue(a.getCorrespondences().contains(c1));
-
-        //Assert.assertTrue(!a.getCorrespondences().contains(c2));
-
-
-
+        //this too?
+        Assert.assertTrue(a.getCorrespondences().contains(c1));
+        Assert.assertTrue(!a.getCorrespondences().contains(c2));
     }
 
+    @Test
+    public void removeComplexMatches(){
+        Transition n1 = new Transition("n1");
+        Transition n2 = new Transition("n2");
+        Transition n3 = new Transition("n3");
+        Alignment.Builder b = new Alignment.Builder().add(n1,n2).add(n1,n3);
+        b.removeComplexMatches();
+        Alignment a = b.build("test");
+        Assert.assertTrue(a.getCorrespondences().isEmpty());
+    }
+
+    @Test
+    public void hashTest(){
+        Transition n1 = new Transition("n1");
+        Transition n2 = new Transition("n2");
+        Transition n3 = new Transition("n3");
+        Correspondence c = new Correspondence.Builder()
+                .addNodeFromNet1(n1)
+                .addNodeFromNet2(n2)
+                .addNodeFromNet2(n3)
+                .build();
+
+        Alignment a = new Alignment.Builder().add(n1,n2).add(n1,n3).build("test");
+        for(Correspondence c2: a.getCorrespondences()){
+            Assert.assertTrue(a.getCorrespondences().contains(c2));
+        }
+        Assert.assertTrue(c.equals(c));
+        Assert.assertTrue(a.getCorrespondences().contains(c));
+    }
 }
