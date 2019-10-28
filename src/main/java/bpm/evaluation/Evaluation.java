@@ -17,6 +17,7 @@ public class Evaluation {
         Option optComplexMatches = new Option("c", "complex-matches", false, "Run Matcher which detects complex matches (n:m, 1:n)");
         Option optSimilarityWeight = Option.builder("s")
                 .required(false)
+                .hasArg(true)
                 .longOpt("similarity-weight")
                 .desc("Weight between 0 and 1 which defines how much the behavioral similarity should define the match.")
                 .type(Double.TYPE)
