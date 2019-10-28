@@ -8,6 +8,9 @@ import org.jbpt.bp.RelSet;
 import org.jbpt.bp.RelSetType;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
+import org.jbpt.petri.Transition;
+
+import java.util.Set;
 
 import static java.lang.Math.abs;
 
@@ -27,10 +30,10 @@ public class BasicILP extends AbstractILP {
      * @throws GRBException
      */
     @Override
-    public Result solve(RelSet relNet1, RelSet relNet2, NetSystem net1, NetSystem net2, Matrix matrix) throws GRBException {
+    public Result solve(RelSet relNet1, RelSet relNet2, Set<Transition> net1, Set<Transition> net2, Matrix matrix, Alignment preAlignment, String name) throws GRBException {
         //setup variables
-        Node[] nodeNet1 =  net1.getTransitions().toArray(new Node[net1.getTransitions().size()]);
-        Node[] nodeNet2 =  net2.getTransitions().toArray(new Node[net2.getTransitions().size()]);
+        Node[] nodeNet1 =  net1.toArray(new Node[net1.size()]);
+        Node[] nodeNet2 =  net2.toArray(new Node[net2.size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
         int minSize = Math.min(nodesNet1,nodesNet2);
@@ -191,7 +194,7 @@ public class BasicILP extends AbstractILP {
             }
         }
 
-        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(net1.getName()+"-"+net2.getName()));
+        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name));
 
         // Dispose of model and environment
         model.dispose();

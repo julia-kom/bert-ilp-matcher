@@ -19,11 +19,11 @@ public class Preprocessor {
      * @param sim simialrity matrix of net system 1 and net system 2
      * @return prematch alignment
      */
-    public static Alignment prematch(NetSystem net1, NetSystem net2, Matrix sim){
+    public static Alignment prematch(Set<Transition> net1, Set<Transition> net2, Matrix sim){
         // Create a matching that contains all optimal label matches
         Alignment.Builder builder = new Alignment.Builder();
-        for(Transition t1 : net1.getTransitions()){
-            for(Transition t2: net2.getTransitions()){
+        for(Transition t1 : net1){
+            for(Transition t2: net2){
                 if(Math.abs(sim.between(t1,t2)-1.0) < 0.0001){
                    builder = builder.add(t1,t2);
                 }

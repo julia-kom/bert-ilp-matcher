@@ -65,6 +65,9 @@ public class Matcher {
                         "Levenshtein-Jiang-Max: Maximum of Levenshtein and Jiang Similarity")
                 .build();
 
+        Option optPreMatch = new Option("pm", "pre-match", false, "Run Prematcher before running the ILP, reducing runtime");
+
+
         //combine options
         Options options = new Options();
         options.addOption(optComplexMatches);
@@ -74,6 +77,7 @@ public class Matcher {
         options.addOption(wordSim);
         options.addOption(optPathNet1);
         options.addOption(optPathNet2);
+        options.addOption(optPreMatch);
 
 
         //parse input
@@ -97,6 +101,11 @@ public class Matcher {
             builder = builder.withComplexMatches();
         }
 
+        // parse prematcher
+        if (line.hasOption("pm")) {
+            builder = builder.withPreMatching();
+        }
+
         // parse similarityWeight
         if (line.hasOption("s")) {
             String sString = line.getOptionValue("s");
@@ -109,7 +118,7 @@ public class Matcher {
         }
 
         // parse postprocessThreshold
-        if (line.hasOption("p")) {
+        if (line.hasOption("pp")) {
             String pString = line.getOptionValue("pp");
             try {
                 double p = Double.parseDouble(pString);

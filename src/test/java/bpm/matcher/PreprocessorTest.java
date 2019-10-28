@@ -66,7 +66,7 @@ public class PreprocessorTest {
         t3.setLabel("L3");
         t4.setLabel("L4");
         Matrix sim = new Matrix.Builder().build(net1.getTransitions(), net2.getTransitions());
-        Alignment a = Preprocessor.prematch(net1, net2, sim);
+        Alignment a = Preprocessor.prematch(net1.getTransitions(), net2.getTransitions(), sim);
         Assert.assertTrue(a.getCorrespondences().size() == 0);
 
         //find two prematches
@@ -75,7 +75,7 @@ public class PreprocessorTest {
         t3.setLabel("L1");
         t4.setLabel("L2");
         sim = new Matrix.Builder().build(net1.getTransitions(), net2.getTransitions());
-        a = Preprocessor.prematch(net1, net2, sim);
+        a = Preprocessor.prematch(net1.getTransitions(), net2.getTransitions(), sim);
         Assert.assertTrue(a.getCorrespondences().size() == 2);
 
         //find a complex match and delete it right away
@@ -84,7 +84,7 @@ public class PreprocessorTest {
         t3.setLabel("L1");
         t4.setLabel("L1");
         sim = new Matrix.Builder().build(net1.getTransitions(), net2.getTransitions());
-        a = Preprocessor.prematch(net1, net2, sim);
+        a = Preprocessor.prematch(net1.getTransitions(), net2.getTransitions(), sim);
         Assert.assertTrue(a.getCorrespondences().size() == 0);
 
     }
