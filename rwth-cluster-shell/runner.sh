@@ -8,4 +8,8 @@
 #BSUB -u dominik.hueser@rwth-aachen.de
 #BSUB -N
 module switch intel gcc/6
+
+#Add Gurobi
+module load MATH
+module load gurobi
 sh batch-test.sh
