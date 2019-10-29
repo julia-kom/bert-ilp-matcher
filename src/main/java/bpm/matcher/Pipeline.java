@@ -19,6 +19,7 @@ import org.jbpt.petri.Transition;
 import org.jbpt.petri.io.PNMLSerializer;
 import org.apache.commons.lang3.NotImplementedException;
 
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.io.File;
 import java.util.Set;
@@ -103,10 +104,10 @@ public class Pipeline {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Result res;
         try {
-            ilp.init(new File("./gurobi-logs/log-"+ timestamp+".log"), similarityWeight);
+            ilp.init(new File("gurobi-logs/log-"+ timestamp+".log"), similarityWeight);
             res = ilp.solve(relNet1, relNet2, reducedNet1, reducedNet2, simMatrix, preAlignment, net1.getName()+"-"+net2.getName());
-        } catch (GRBException e) {
-            System.out.println("Error code: " + e.getErrorCode() + ". " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getCause()+ ": " + e.getMessage());
             exit(1);
             res = null;
         }
