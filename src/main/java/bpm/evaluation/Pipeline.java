@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -146,6 +147,26 @@ public class Pipeline{
                 return Eval.Builder.ProbabilisticEvaluation(matcher,goldstandard);
         }
         throw  new IllegalStateException("Evaluation Method not found");
+    }
+
+    @Override
+    public String toString(){
+        String res = "Batch: "+ Boolean.toString(this.batch) + "\n" +
+                "Eval Strategy:" + this.evalStrat.toString() + "\n";
+
+                if(this.batch){
+                    res +=  "Batch Path: " + this.batchPath.toString() + "\n" +
+                            "Gold Standard Path" + this.goldStandardPath.toString() + "\n";
+                }else {
+                    res += "Net 1: " + this.net1.toString() + "\n" +
+                            "Net 2: " + this.net2.toString() + "\n" +
+                            "Gold Standard:" + this.goldStandard.toString() + "\n";
+                }
+        return res;
+    }
+
+    public Path getLogPath(){
+        return Paths.get("./eval-results/" + this.logFolder);
     }
 
 
