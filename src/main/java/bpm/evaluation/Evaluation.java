@@ -2,7 +2,11 @@ package bpm.evaluation;
 
 import org.apache.commons.cli.*;
 
+import javax.sound.midi.SysexMessage;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -117,7 +121,7 @@ public class Evaluation {
 
         //create matching pipeline
         Pipeline.Builder evalBuilder = new Pipeline.Builder();
-        bpm.matcher.Pipeline.Builder matcherBuilder= new bpm.matcher.Pipeline.Builder();
+        bpm.matcher.Pipeline.Builder matcherBuilder = new bpm.matcher.Pipeline.Builder();
 
 
         // parse complexMatches
@@ -154,53 +158,53 @@ public class Evaluation {
         }
 
         // net 1 for single eval
-        if(line.hasOption("i")) {
+        if (line.hasOption("i")) {
             String iString = line.getOptionValue("i");
             matcherBuilder.withILP(iString);
         }
 
         // net 1 for single eval
-        if(line.hasOption("n1")) {
+        if (line.hasOption("n1")) {
             String n1String = line.getOptionValue("n1");
             File net1 = new File(n1String);
             evalBuilder.onNet1(net1);
         }
 
         // net 2 for single eval
-        if(line.hasOption("n2")) {
+        if (line.hasOption("n2")) {
             String n2String = line.getOptionValue("n2");
             File net2 = new File(n2String);
             evalBuilder.onNet2(net2);
         }
 
         // gold standard for single eval
-        if(line.hasOption("gs")) {
+        if (line.hasOption("gs")) {
             String n2String = line.getOptionValue("gs");
             File gs = new File(n2String);
             evalBuilder.withGoldStandard(gs);
         }
 
         // Perform Batch
-        if(line.hasOption("b")){
+        if (line.hasOption("b")) {
             evalBuilder.withBatch();
         }
 
         // path that contains all nets to compare
-        if(line.hasOption("np")){
+        if (line.hasOption("np")) {
             String netString = line.getOptionValue("np");
             Path nets = Paths.get(netString);
             evalBuilder.withPath(nets);
         }
 
         // Gold Standard Path needed for batch
-        if(line.hasOption("gsp")){
+        if (line.hasOption("gsp")) {
             String gsString = line.getOptionValue("gsp");
             Path gs = Paths.get(gsString);
             evalBuilder.withGoldStandard(gs);
         }
 
-        if(line.hasOption("e")){
-            switch(line.getOptionValue("e")){
+        if (line.hasOption("e")) {
+            switch (line.getOptionValue("e")) {
                 case "Binary":
                     evalBuilder.withEvalStrat(Eval.Strategies.BINARY);
                     break;
@@ -214,10 +218,27 @@ public class Evaluation {
             }
         }
 
-        //build and run
+
+        //build
         bpm.matcher.Pipeline matchingPip = matcherBuilder.Build();
         evalBuilder.withMatcher(matchingPip);
         Pipeline evalPip = evalBuilder.build();
+
+        //Write Config to File
+        try {
+            String config = "#####Evaluation Framework##### " + "\n" + evalPip.toString() +
+                    "#####Matcher Framework#####" + "\n" + matchingPip.toString();
+            File f = new File(evalPip.getLogPath() + "/config.log");
+            BufferedWriter writer = new BufferedWriter(new FileWriter(f));
+            writer.write(config);
+
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Unable to write Evaluation/Matcher Config file: " + e.getMessage());
+        }
+
+        //run
         evalPip.run();
     }
+
 }

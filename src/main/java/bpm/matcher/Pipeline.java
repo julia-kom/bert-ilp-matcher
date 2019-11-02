@@ -183,6 +183,17 @@ public class Pipeline {
 
     }
 
+    @Override
+    public String toString(){
+        String res = "ILP: " + this.ilp.toString() + "\n" +
+                "Profile: " + this.profile.toString() + "\n" +
+                "Label Similarity: " + this.wordSimilarity.toString() +"\n" +
+                "Complex Matches: " + Boolean.toString(this.complexMatches) + "\n" +
+                "Prematch: "+ Boolean.toString(this.prematch) + "\n" +
+                "Similarity Weight:" + this.similarityWeight + "\n" +
+                "Postprocessing Thresh:" +  this.postprocessThreshold + "\n";
+        return res;
+    }
 
 
     /**
