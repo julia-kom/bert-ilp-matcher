@@ -1,7 +1,12 @@
 ## Functionality
 This is a simultaneous label and behavior process model matcher.
-
-
+Install local repositories via maven commands:
+`install:install-file -Dfile=libs/ws4j-1.0.1.jar` and
+`install:install-file -Dfile=libs/jawjaw-1.0.0.jar`
+## Run jar on server
+1. scp ./rwth-cluster-shell to RWTH Cluster $HOME
+2. scp ./eval-data to RWTH CLuster Home
+3. execute `sbatch batch-test.sh ` in ./rwth-cluster-shell.
 ## General Structure of the matcher
 1.  Convert EPC etc. to Petri net via Prom. This is actually not implemented and needs to be done **once** manually.
 2.  Read pair of Labeled Petri Nets (and maybe check if it is sound, free choice WF-net)
