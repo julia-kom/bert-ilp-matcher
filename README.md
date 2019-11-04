@@ -1,8 +1,11 @@
 ## Functionality
 This is a simultaneous label and behavior process model matcher.
 Install local repositories via maven commands:
-`install:install-file -Dfile=libs/ws4j-1.0.1.jar` and
+`install:install-file -Dfile=libs/ws4j-1.0.1.jar`,
+
 `install:install-file -Dfile=libs/jawjaw-1.0.0.jar`
+
+`install:install-file -Dfile=libs/ExRoRUBPP-dev.jar -DgroupId=com.iise.shudi.exroru -Dversion=1.0 -Dpackaging=jar -DartifactId=ExRORUBPP-dev`
 ## Run jar on server
 1. scp ./rwth-cluster-shell to RWTH Cluster $HOME
 2. scp ./eval-data to RWTH CLuster Home
