@@ -49,8 +49,6 @@
       </dependency>
 
       <!-- https://mvnrepository.com/artifact/de.sciss/ws4j -->
-
-
       <dependency>
           <groupId>org.xerial</groupId>
           <artifactId>sqlite-jdbc</artifactId>
@@ -114,6 +112,12 @@
           <groupId>gurobi</groupId>
           <artifactId>gurobi-linux64</artifactId>
           <version>8.1.0</version>
+      </dependency>
+
+      <dependency>
+          <groupId>com.iise.shudi.exroru</groupId>
+          <artifactId>ExRORUBPP-dev</artifactId>
+          <version>1.0</version>
       </dependency>
   </dependencies>
 

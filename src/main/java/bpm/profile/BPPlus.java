@@ -15,7 +15,7 @@ import java.util.Collection;
  */
 public class BPPlus extends AbstractProfile {
     RefinedOrderingRelationsMatrix rorm;
-    public BPPlus{
+    public BPPlus(){
 
     }
 
