@@ -1,5 +1,7 @@
 package bpm.profile;
 
+import com.iise.shudi.exroru.RefinedOrderingRelation;
+import com.iise.shudi.exroru.RefinedOrderingRelationsMatrix;
 import org.jbpt.bp.RelSet;
 import org.jbpt.bp.construct.AbstractRelSetCreator;
 import org.jbpt.bp.construct.RelSetCreator;
@@ -12,7 +14,7 @@ import java.util.Collection;
  * Wrapper Class for BP+
  */
 public class BPPlus extends AbstractProfile {
-
+    RefinedOrderingRelationsMatrix rorm;
     public BPPlus{
 
     }
