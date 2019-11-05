@@ -20,6 +20,7 @@ public class BP extends AbstractProfile {
         RelSetType rel = relations.getRelationForEntities(n1, n2);
         switch(rel){
             case Order:
+                return Relation.BP_ORDER;
             case Exclusive:
                 return Relation.BP_EXCLUSIVE;
             case Interleaving:
@@ -31,4 +32,16 @@ public class BP extends AbstractProfile {
         }
         return null;
     }
+
+    @Override
+    public double getRelationSimilarity(Relation r1, Relation r2) {
+        return 1.0;
+    }
+
+    @Override
+    public String toString(){
+        return relations.toString();
+    }
+
+
 }
