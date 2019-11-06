@@ -21,6 +21,7 @@ public class BPPlus extends AbstractProfile {
         this.net = net;
     }
 
+
     @Override
     public Relation getRelationBetween(Node n1, Node n2) {
         List<String> tName1 = rorm.gettName();
@@ -53,7 +54,7 @@ public class BPPlus extends AbstractProfile {
                 return Relation.BPP_ALWAYS_CONCURRENT;
             }
         }
-        return Relation.NONE;
+        return Relation.BPP_CONFLICT; // todo NONE or CONFLICT  ????? CONFLICT NOT EXPLICITLY DEFINED IN CODE.
     }
 
     @Override
