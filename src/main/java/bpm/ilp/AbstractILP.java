@@ -11,6 +11,7 @@ import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Transition;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Set;
 
 
@@ -34,12 +35,15 @@ public abstract class AbstractILP {
      * @param similarityWeight
      * @throws GRBException
      */
-    public void init(File log, double similarityWeight) throws GRBException {
+    public void init(File log, double similarityWeight) throws GRBException, IOException {
         // Set similarity weight
         this.similarityWeight = similarityWeight;
 
         // Create empty environment, set options, and start
         env = new GRBEnv(true);
+        //mk dir and create the file
+        log.getParentFile().mkdirs();
+        log.createNewFile();
         env.set("logFile", log.getAbsolutePath());
         env.start();
 

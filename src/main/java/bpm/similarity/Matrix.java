@@ -1,6 +1,8 @@
 package bpm.similarity;
 
-import javafx.util.Pair;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
 
@@ -30,7 +32,7 @@ public class Matrix{
         // fill the matrix
         for(Transition n1 : nodesNet1){
             for (Transition n2 : nodesNet2){
-                similarities.put(new Pair<>(n1.getLabel(), n2.getLabel()), labelSimilarity.BagOfWords(n1.getLabel(), n2.getLabel()));
+                similarities.put(new ImmutablePair<>(n1.getLabel(), n2.getLabel()), labelSimilarity.BagOfWords(n1.getLabel(), n2.getLabel()));
             }
         }
     }
@@ -45,11 +47,11 @@ public class Matrix{
         if ( i <0 || i >= nodesNet1.length ||  j <0 || j >= nodesNet2.length){
             throw new IndexOutOfBoundsException("Index is out of bound to access entity in Label Similarity");
         }
-        return similarities.get(new Pair<>(nodesNet1[i].getLabel(), nodesNet2[j].getLabel()));
+        return similarities.get(new ImmutablePair<>(nodesNet1[i].getLabel(), nodesNet2[j].getLabel()));
     }
 
     public double between(Node nodeNet1, Node nodeNet2){
-        return similarities.get(new Pair<>(nodeNet1.getLabel(),nodeNet2.getLabel()));
+        return similarities.get(new ImmutablePair<>(nodeNet1.getLabel(),nodeNet2.getLabel()));
     }
 
     public static class Builder{

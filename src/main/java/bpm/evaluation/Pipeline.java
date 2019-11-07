@@ -72,7 +72,12 @@ public class Pipeline{
         //extract names
         String model1 = result.getAlignment().getName().substring(0,result.getAlignment().getName().indexOf('-')-5);
         String model2 = result.getAlignment().getName().substring(result.getAlignment().getName().indexOf('-')+1,result.getAlignment().getName().length()-5);
-        rdfParser.writeAlignmentTo(new File("eval-results/" + logFolder + "/"+result.getAlignment().getName()+".rdf"),result.getAlignment(), model1, model2);
+
+        //Write to file
+        File rdfFile = new File("eval-results/" + logFolder + "/"+result.getAlignment().getName()+".rdf");
+        rdfFile.getParentFile().mkdirs();
+        rdfFile.createNewFile();
+        rdfParser.writeAlignmentTo(rdfFile,result.getAlignment(), model1, model2);
 
 
         // Read Gold Standard
@@ -295,7 +300,7 @@ public class Pipeline{
                 pip.logFolder ="single-"+net1.getName()+"-"+net2.getName()+"-"+evalStrat.toString()+"-"+timestamp;
             }
             File f = new File("eval-results/"+pip.logFolder);
-            f.mkdir();
+            f.mkdirs();
 
 
             return pip;

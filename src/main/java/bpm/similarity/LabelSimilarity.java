@@ -84,14 +84,11 @@ public class LabelSimilarity {
         HashSet<String> set = new HashSet<>();
 
         // Get File Path
-        File file;
-        try {
-            file = new File(LabelSimilarity.class.getClassLoader().getResource("stopwords.xml").toURI());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            file = null;
-            exit(1);
-        }
+       // File file = new File(LabelSimilarity.class.getClassLoader().getFile("stopwords.xml").getFile());
+
+        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+        InputStream is = classloader.getResourceAsStream("stopwords.xml");
+
 
         // Create Builder
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -105,7 +102,7 @@ public class LabelSimilarity {
         // Parse XML File
         Document document = null;
         try {
-            document = builder.parse(file);
+            document = builder.parse(is);
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
