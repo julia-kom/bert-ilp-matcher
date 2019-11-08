@@ -33,10 +33,11 @@ public class BPPlusTest {
         net1.putTokens(p1,1);
 
         net1.addEdge(p1,t1);
-        net1.addEdge(t2,p3);
         net1.addEdge(t1,p2);
-        net1.addEdge(p1,t2);
+        net1.addEdge(p2,t2);
+        net1.addEdge(t2,p3);
         BPPlus plus = new BPPlus(net1);
+        // Problem here: The compiled jar and the project use different versions of the same class + probably different compiler verisions (BP+ 1.8, this 1.7)
         Assert.assertSame(plus.getRelationBetween(t1,t2), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
     }
 }
