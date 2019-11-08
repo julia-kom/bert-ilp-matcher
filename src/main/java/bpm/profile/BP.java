@@ -35,7 +35,11 @@ public class BP extends AbstractProfile {
 
     @Override
     public double getRelationSimilarity(Relation r1, Relation r2) {
-        return 1.0;
+        if (r1 == r2) {
+            return 1.0;
+        }else {
+            return 0.0;
+        }
     }
 
     @Override
