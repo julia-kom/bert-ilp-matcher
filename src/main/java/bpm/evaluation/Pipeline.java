@@ -114,6 +114,7 @@ public class Pipeline{
             for(File f2 : files){
                 if(f1 != f2) {
                     try {
+                        System.gc(); // hint to garbage collect old entries which are not needed anymore
                         String model1 = f1.getName().substring(0,f1.getName().length()-5);
                         String model2 = f2.getName().substring(0,f2.getName().length()-5);
                         File gs = new File(goldStandardPath+"/"+model1+"-"+model2+".rdf");
