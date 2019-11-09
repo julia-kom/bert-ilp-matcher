@@ -15,6 +15,9 @@ public class ExecutionTimer {
     }
 
     public void stopLpTime(){
+        if (lpStart < 0) {
+            throw new Error("Timer was not started in first place");
+        }
         lpTime = System.nanoTime() - lpStart;
     }
 
@@ -23,6 +26,9 @@ public class ExecutionTimer {
     }
 
     public void stopOverallTime(){
+        if (overallStart < 0) {
+            throw new Error("Timer was not started in first place");
+        }
         overallTime = System.nanoTime() - overallStart;
     }
 
@@ -31,6 +37,9 @@ public class ExecutionTimer {
     }
 
     public void stopLabelSimilarityTime(){
+        if (labelSimStart < 0) {
+            throw new Error("Timer was not started in first place");
+        }
         labelSimTime = System.nanoTime() - labelSimStart;
     }
 
@@ -39,34 +48,25 @@ public class ExecutionTimer {
     }
 
     public void stopBPTime(){
+        if (bpStart < 0) {
+            throw new Error("Timer was not started in first place");
+        }
         bpTime = System.nanoTime() - bpStart;
     }
 
     public long getLpTime(){
-        if (lpStart < 0) {
-            throw new Error("Timer was not started in first place");
-        }
         return lpTime;
     }
 
     public long getOverallTime(){
-        if (overallStart < 0) {
-            throw new Error("Timer was not started in first place");
-        }
         return overallTime;
     }
 
     public long getLabelSimialrityTime(){
-        if (labelSimStart < 0) {
-            throw new Error("Timer was not started in first place");
-        }
         return labelSimTime;
     }
 
     public long getBPTime(){
-        if (bpStart < 0) {
-            throw new Error("Timer was not started in first place");
-        }
         return bpTime;
     }
 
