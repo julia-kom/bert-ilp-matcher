@@ -2,7 +2,6 @@ package bpm.matcher;
 
 import bpm.alignment.Alignment;
 import bpm.similarity.Matrix;
-import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Transition;
 
 import java.util.HashSet;

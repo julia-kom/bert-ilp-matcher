@@ -63,13 +63,20 @@ public class Pipeline{
      * @return
      */
     public Eval singleEval(File n1, File n2, File gs) throws Exception{
+        // Initialize timer
+        ExecutionTimer timer = new ExecutionTimer();
+        timer.startOverallTime();
+
         // Compute Alignment
-        Result result = matchingPipeline.run(n1,n2);
+        Result result = matchingPipeline.run(n1,n2,timer);
+
+        // Stop timer
+        timer.stopOverallTime();
 
         // Save alignment
         RdfAlignmentReader rdfParser = new RdfAlignmentReader();
 
-        //extract names
+        //extract net-names
         String model1 = result.getAlignment().getName().substring(0,result.getAlignment().getName().indexOf('-')-5);
         String model2 = result.getAlignment().getName().substring(result.getAlignment().getName().indexOf('-')+1,result.getAlignment().getName().length()-5);
 
@@ -87,7 +94,7 @@ public class Pipeline{
         RdfAlignmentReader reader = new RdfAlignmentReader();
         Alignment goldstandard = reader.readAlignmentFrom(gs);
         Eval eval = evaluate(result.getAlignment(),goldstandard);
-
+        eval.setBenchmark(timer);
         System.out.println(eval);
 
         //Evaluate

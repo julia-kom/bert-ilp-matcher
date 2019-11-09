@@ -2,6 +2,7 @@ package bpm.matcher;
 
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
+import bpm.evaluation.ExecutionTimer;
 import bpm.ilp.AbstractILP;
 import bpm.ilp.BasicILP;
 import bpm.ilp.RelaxedILP;
@@ -51,6 +52,16 @@ public class Pipeline {
      * @param fileNet2 petri net file path 2 in PNML format
      */
     public Result run(File fileNet1, File fileNet2){
+       return run(fileNet1,fileNet2,new ExecutionTimer());
+    }
+
+    /**
+     * Run the timed matching pipeline for the given two petri nets.
+     * @param fileNet1 petri net file path 1 in PNML format
+     * @param fileNet2 petri net file path 2 in PNML format
+     * @param timer timer object which is updated while execution (call by reference)
+     */
+    public Result run(File fileNet1, File fileNet2, ExecutionTimer timer){
         //parse the two petri nets
         System.out.println("##### Start Parsing #####");
         NetSystem net1 = parseFile(fileNet1);
@@ -64,13 +75,14 @@ public class Pipeline {
         checkPetriNetProperties(net1);
         checkPetriNetProperties(net2);
         System.out.println("##### Check Up Complete #####");
-
         // Create Profile
         System.out.println("##### Start Creating Profiles #####");
+        timer.startBPTime();
         RelSet relNet1 = createProfile(net1);
         //System.out.print("Net 1" +relNet1.toString());
         RelSet relNet2 = createProfile(net2);
         //System.out.print("Net 2" +relNet1.toString());
+        timer.stopBPTime();
         System.out.println("##### Creating Profiles Complete #####");
 
         // Preprocess ignore taus
@@ -81,10 +93,13 @@ public class Pipeline {
 
         // Create Label Similarity Matrix
         System.out.println("##### Start Creating Similarity Matrix #####");
+        timer.startLabelSimilarityTime();
         Matrix simMatrix = new Matrix.Builder()
                 .withWordSimilarity(this.wordSimilarity)
                 .build(reducedNet1,reducedNet2);
+        timer.stopLabelSimilarityTime();
         System.out.println("##### Creating Similarity Matrix Complete #####");
+
 
         // Preprocess ignore taus and prematch
         System.out.println("##### Start Prematch #####");
@@ -100,6 +115,7 @@ public class Pipeline {
 
         // Run ILP
         System.out.println("##### Start ILP #####");
+        timer.startLpTime();
         AbstractILP ilp = getILP();
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Result res;
@@ -111,8 +127,8 @@ public class Pipeline {
             exit(1);
             res = null;
         }
+        timer.stopLpTime();
         System.out.println("##### ILP Complete #####");
-
 
         //Postprocess
 
