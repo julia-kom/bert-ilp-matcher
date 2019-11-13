@@ -11,6 +11,8 @@ public class Matcher {
         CBP // Causal Behavioral Profile
     }
 
+    public static boolean PRINT_ENABLED = false;
+
     /**
      * Input parser for a single matching task
      *
@@ -66,6 +68,8 @@ public class Matcher {
                 .build();
 
         Option optPreMatch = new Option("pm", "pre-match", false, "Run Prematcher before running the ILP, reducing runtime");
+        Option optPrint= new Option("sys", "sys-print", false, "Enable System out print commands");
+
 
 
         //combine options
@@ -78,6 +82,7 @@ public class Matcher {
         options.addOption(optPathNet1);
         options.addOption(optPathNet2);
         options.addOption(optPreMatch);
+        options.addOption(optPrint);
 
 
         //parse input
@@ -106,6 +111,11 @@ public class Matcher {
             builder = builder.withPreMatching();
         }
 
+        // print commands
+        if (line.hasOption("sys")) {
+            PRINT_ENABLED = true;
+        }
+
         // parse similarityWeight
         if (line.hasOption("s")) {
             String sString = line.getOptionValue("s");
@@ -113,7 +123,7 @@ public class Matcher {
                 double s = Double.parseDouble(sString);
                 builder = builder.atSimilarityWeight(s);
             } catch (NumberFormatException numExp) {
-                System.out.println("Parsing Failed: Number Input s " + numExp.getMessage());
+                if(PRINT_ENABLED) System.out.println("Parsing Failed: Number Input s " + numExp.getMessage());
             }
         }
 
@@ -124,7 +134,7 @@ public class Matcher {
                 double p = Double.parseDouble(pString);
                 builder = builder.atPostprocessThreshold(p);
             } catch (NumberFormatException numExp) {
-                System.out.println("Parsing Failed: Number Input p " + numExp.getMessage());
+                if(PRINT_ENABLED) System.out.println("Parsing Failed: Number Input p " + numExp.getMessage());
                 System.exit(1);
             }
         }
@@ -144,7 +154,7 @@ public class Matcher {
                 throw new FileNotFoundException("Net 2 file not found under" + n2String);
             }
         } catch (FileNotFoundException fileExp) {
-            System.out.println("Parsing Failed: Petri Net File not found:" + fileExp.getMessage());
+            if(PRINT_ENABLED) System.out.println("Parsing Failed: Petri Net File not found:" + fileExp.getMessage());
             System.exit(1);
             net1 = null;
             net2 = null;
@@ -168,7 +178,7 @@ public class Matcher {
         Result r = pip.run(net1, net2);
 
         //print
-        System.out.println(r.toString());
+        if(PRINT_ENABLED) System.out.println(r.toString());
     }
 
 

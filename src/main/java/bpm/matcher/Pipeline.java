@@ -2,6 +2,7 @@ package bpm.matcher;
 
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
+import bpm.evaluation.ExecutionTimer;
 import bpm.ilp.AbstractILP;
 import bpm.ilp.BasicILP;
 import bpm.ilp.RelaxedILP;
@@ -24,6 +25,7 @@ import java.sql.Timestamp;
 import java.io.File;
 import java.util.Set;
 
+import static bpm.matcher.Matcher.PRINT_ENABLED;
 import static java.lang.System.exit;
 
 
@@ -51,55 +53,70 @@ public class Pipeline {
      * @param fileNet2 petri net file path 2 in PNML format
      */
     public Result run(File fileNet1, File fileNet2){
+       return run(fileNet1,fileNet2,new ExecutionTimer());
+    }
+
+    /**
+     * Run the timed matching pipeline for the given two petri nets.
+     * @param fileNet1 petri net file path 1 in PNML format
+     * @param fileNet2 petri net file path 2 in PNML format
+     * @param timer timer object which is updated while execution (call by reference)
+     */
+    public Result run(File fileNet1, File fileNet2, ExecutionTimer timer){
         //parse the two petri nets
-        System.out.println("##### Start Parsing #####");
+        if(PRINT_ENABLED) System.out.println("##### Start Parsing #####");
         NetSystem net1 = parseFile(fileNet1);
         net1.setName(fileNet1.getName());
         NetSystem net2 = parseFile(fileNet2);
         net2.setName(fileNet2.getName());
-        System.out.println("##### Parsing Complete #####");
+        if(PRINT_ENABLED) System.out.println("##### Parsing Complete #####");
 
         //  wf-net and free choice check
-        System.out.println("##### Start Check Up #####");
+        if(PRINT_ENABLED) System.out.println("##### Start Check Up #####");
         checkPetriNetProperties(net1);
         checkPetriNetProperties(net2);
-        System.out.println("##### Check Up Complete #####");
-
+        if(PRINT_ENABLED) System.out.println("##### Check Up Complete #####");
         // Create Profile
-        System.out.println("##### Start Creating Profiles #####");
-        RelSet relNet1 = createProfile(net1);
+        if(PRINT_ENABLED) System.out.println("##### Start Creating Profiles #####");
+        timer.startBPTime();
+        RelSet relNet1 = createProfile(net1, this.profile);
         //System.out.print("Net 1" +relNet1.toString());
-        RelSet relNet2 = createProfile(net2);
+        RelSet relNet2 = createProfile(net2, this.profile);
         //System.out.print("Net 2" +relNet1.toString());
-        System.out.println("##### Creating Profiles Complete #####");
+        timer.stopBPTime();
+        if(PRINT_ENABLED) System.out.println("##### Creating Profiles Complete #####");
 
         // Preprocess ignore taus
-        System.out.println("##### Start Preprocessing Tau Transitions#####");
+        if(PRINT_ENABLED) System.out.println("##### Start Preprocessing Tau Transitions#####");
         Set<Transition> reducedNet1 = Preprocessor.reduceTauTransitions(net1.getTransitions());
         Set<Transition> reducedNet2 = Preprocessor.reduceTauTransitions(net2.getTransitions());
-        System.out.println("##### Complete Preprocessing Tau Transitions#####");
+        if(PRINT_ENABLED) System.out.println("##### Complete Preprocessing Tau Transitions#####");
 
         // Create Label Similarity Matrix
-        System.out.println("##### Start Creating Similarity Matrix #####");
+        if(PRINT_ENABLED) System.out.println("##### Start Creating Similarity Matrix #####");
+        timer.startLabelSimilarityTime();
         Matrix simMatrix = new Matrix.Builder()
                 .withWordSimilarity(this.wordSimilarity)
                 .build(reducedNet1,reducedNet2);
-        System.out.println("##### Creating Similarity Matrix Complete #####");
+        timer.stopLabelSimilarityTime();
+        if(PRINT_ENABLED) System.out.println("##### Creating Similarity Matrix Complete #####");
+
 
         // Preprocess ignore taus and prematch
-        System.out.println("##### Start Prematch #####");
+        if(PRINT_ENABLED) System.out.println("##### Start Prematch #####");
         Alignment preAlignment;
         if(prematch){
             preAlignment = Preprocessor.prematch(reducedNet1,reducedNet2,simMatrix);
-            System.out.println("Prematched " + preAlignment.getCorrespondences().size() + " Pairs of Transitions.");
+            if(PRINT_ENABLED) System.out.println("Prematched " + preAlignment.getCorrespondences().size() + " Pairs of Transitions.");
         }else{
-            System.out.println("Prematching is disabled.");
+            if(PRINT_ENABLED) System.out.println("Prematching is disabled.");
             preAlignment = new Alignment.Builder().build("empty prematch");
         }
-        System.out.println("##### Preprocessing Complete #####");
+        if(PRINT_ENABLED) System.out.println("##### Preprocessing Complete #####");
 
         // Run ILP
-        System.out.println("##### Start ILP #####");
+        if(PRINT_ENABLED) System.out.println("##### Start ILP #####");
+        timer.startLpTime();
         AbstractILP ilp = getILP();
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Result res;
@@ -107,37 +124,33 @@ public class Pipeline {
             ilp.init(new File("gurobi-logs/log-"+ timestamp+".log"), similarityWeight);
             res = ilp.solve(relNet1, relNet2, reducedNet1, reducedNet2, simMatrix, preAlignment, net1.getName()+"-"+net2.getName());
         } catch (Exception e) {
-            System.out.println(e.getCause()+ ": " + e.getMessage());
+            if(PRINT_ENABLED) System.out.println(e.getCause()+ ": " + e.getMessage());
             exit(1);
             res = null;
         }
-        System.out.println("##### ILP Complete #####");
-
+        timer.stopLpTime();
+        if(PRINT_ENABLED) System.out.println("##### ILP Complete #####");
 
         //Postprocess
 
-        System.out.println(res.toString());
+        if(PRINT_ENABLED) System.out.println(res.toString());
 
         //Return
         return res;
     }
 
-    private PNMLSerializer serializer = null;
     /**
      * Parses a PNML file to a NetSystem
      * @param f file path of the petri net in PNML format
      * @return NetSystem
      */
-    private NetSystem parseFile(File f){
-        if (serializer == null){
-            serializer = new PNMLSerializer();
-        }else{
-            serializer.clear();
-        }
+    public static NetSystem parseFile(File f){
+        PNMLSerializer serializer = new PNMLSerializer();
         return serializer.parse(f.getAbsolutePath());
     }
 
-    private RelSet createProfile(NetSystem net){
+    //TODO Transfer to abstract profile if exists
+    public static RelSet createProfile(NetSystem net, Matcher.Profile profile){
         RelSet r;
         switch(profile){
             case BP:

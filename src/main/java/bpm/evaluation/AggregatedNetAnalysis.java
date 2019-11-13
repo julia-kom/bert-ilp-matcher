@@ -1,0 +1,109 @@
+package bpm.evaluation;
+
+import bpm.matcher.Preprocessor;
+import org.jbpt.bp.RelSet;
+import org.jbpt.bp.RelSetType;
+import org.jbpt.petri.NetSystem;
+import org.jbpt.petri.Transition;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+public class AggregatedNetAnalysis{
+    FileWriter csvWriter;
+
+    /**
+     * Create an empty aggregated net analysis in the parameter file
+     * @param file where to create the net information
+     * @throws IOException
+     */
+    public AggregatedNetAnalysis(File file) throws IOException {
+        csvWriter = new FileWriter(file.getAbsolutePath());
+        csvWriter.append("Name, nSilentTransitions, nNonSilentTransitions,");
+        // Number of relations
+        for (RelSetType t : RelSetType.values()) {
+            csvWriter.append("n" + t.toString() + ",");
+        }
+        csvWriter.append("\n");
+    }
+
+
+    /**
+     * Add a net's stats to the csv file (wrt the profile given as parameter)
+     * @param net
+     * @param profile
+     * @throws IOException
+     */
+    public void addNet(NetSystem net, RelSet profile) throws IOException {
+        NetAnalysis analysis = new NetAnalysis(net,profile);
+
+        // transition stats
+        csvWriter.append(analysis.name.replace(',', ';').replace("\n", " ") + ",").
+                append(analysis.nSilentTransitions + ",").append(analysis.nNonSilentTransitions + ",").append(analysis.nNonSilentTransitions + ",");
+
+        // Profile Stats
+        for (RelSetType t : RelSetType.values()) {
+            csvWriter.append(getNumberOfRelations(t, net, profile)+ ",");
+        }
+        csvWriter.append("\n");
+    }
+
+    /**
+     * Get the number of times two transitions of net are in a relation rel inside the profile.
+     * @param rel
+     * @param net
+     * @param profile
+     * @return
+     */
+    private int getNumberOfRelations(RelSetType rel, NetSystem net, RelSet profile){
+        int n = 0;
+        for (Transition t1 :net.getTransitions()){
+            for(Transition t2 : net.getTransitions()){
+                RelSetType r = profile.getRelationForEntities(t1,t2);
+                if(r.equals(rel)){
+                   n++;
+                }
+            }
+        }
+        return n;
+    }
+
+    /**
+     * Complete the CSV
+     * @throws IOException
+     */
+    public void toCSV() throws IOException {
+        //properly close everything
+        csvWriter.flush();
+        csvWriter.close();
+    }
+
+
+    private class NetAnalysis{
+        String name;
+        int nSilentTransitions = 0;
+        int nNonSilentTransitions = 0;
+        RelSet profile;
+
+        private NetAnalysis(NetSystem net, RelSet profile) {
+            // Analyze Transitions
+            Set<Transition> transitions = net.getTransitions();
+            Iterator<Transition> iterator = transitions.iterator();
+            while(iterator.hasNext()) {
+                Transition t = iterator.next();
+                if (Preprocessor.isTau(t)) {
+                    nSilentTransitions += 1;
+                } else {
+                    nNonSilentTransitions += 1;
+                }
+            }
+            //name and profile
+            this.name = net.getName();
+            this.profile = profile;
+        }
+    }
+
+}

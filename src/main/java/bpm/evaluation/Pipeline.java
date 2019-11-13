@@ -2,6 +2,8 @@ package bpm.evaluation;
 
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
+import bpm.matcher.Matcher;
+import org.jbpt.petri.NetSystem;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,6 +15,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import static bpm.matcher.Pipeline.createProfile;
+import static bpm.matcher.Pipeline.parseFile;
 import static java.lang.System.exit;
 
 public class Pipeline{
@@ -21,6 +25,10 @@ public class Pipeline{
 
     //Evaluation specific options
     private boolean batch;
+    private boolean netEval;
+    private Matcher.Profile netProfile;
+    private boolean retrospective;
+    private Path resultPath;
     private Path batchPath;
     private File net1;
     private File net2;
@@ -31,7 +39,40 @@ public class Pipeline{
 
     public void run(){
 
-        if(batch) {
+        // Run a net evaluation test
+        if(netEval){
+            AggregatedNetAnalysis netAnalysis;
+            try {
+                netAnalysis = new AggregatedNetAnalysis(new File("./eval-results/" + logFolder + "/net.eval"));
+            }catch(Exception e){
+                System.out.println("Net Analysis initialization not possible " + e.toString());
+                netAnalysis = null;
+            }
+            // get files
+            File[] files =  batchPath.toFile().listFiles(new FilenameFilter() {
+                public boolean accept(File dir, String name) {
+                    return name.toLowerCase().endsWith(".pnml");
+                }
+            });
+
+            // add to csv
+            for(File f : files){
+                NetSystem net1 = parseFile(f);
+                net1.setName(f.getName());
+                try {
+                    netAnalysis.addNet(net1, createProfile(net1, netProfile));
+                }catch(Exception e){
+                    System.out.println("Analysis not possible for net " + f.getName() + e.toString());
+                }
+            }
+            try {
+                netAnalysis.toCSV();
+            }catch(Exception e){
+                System.out.println("Flush not possible " + e.toString());
+            }
+
+        // Run a batch test
+        }else if(batch) {
             List<Eval> evals = batchEval();
             AggregatedEval aggregatedEval = new AggregatedEval(evals);
             try {
@@ -39,7 +80,9 @@ public class Pipeline{
             }catch(IOException e){
                 System.out.println("It was not possible to write the aggregated result CSV!");
             }
-        } else {
+
+        //Run a single evaluation test
+        } else if(!retrospective){
             try {
                 Eval eval = singleEval(net1, net2, goldStandard);
                 try {
@@ -52,6 +95,15 @@ public class Pipeline{
                         "threw and Exception: " + e.getMessage());
                 exit(1);
             }
+        // Run a retrospective test
+        }else{
+            List<Eval> evals = retrospectiveEval(resultPath,goldStandardPath);
+            AggregatedEval aggregatedEval = new AggregatedEval(evals);
+            try {
+                aggregatedEval.toCSV(new File("./eval-results/" + logFolder + "/aggRetrospectiveResults.eval"));
+            }catch(IOException e){
+                System.out.println("It was not possible to write the aggregated result CSV!");
+            }
         }
     }
 
@@ -63,13 +115,20 @@ public class Pipeline{
      * @return
      */
     public Eval singleEval(File n1, File n2, File gs) throws Exception{
+        // Initialize timer
+        ExecutionTimer timer = new ExecutionTimer();
+        timer.startOverallTime();
+
         // Compute Alignment
-        Result result = matchingPipeline.run(n1,n2);
+        Result result = matchingPipeline.run(n1,n2,timer);
+
+        // Stop timer
+        timer.stopOverallTime();
 
         // Save alignment
         RdfAlignmentReader rdfParser = new RdfAlignmentReader();
 
-        //extract names
+        //extract net-names
         String model1 = result.getAlignment().getName().substring(0,result.getAlignment().getName().indexOf('-')-5);
         String model2 = result.getAlignment().getName().substring(result.getAlignment().getName().indexOf('-')+1,result.getAlignment().getName().length()-5);
 
@@ -87,7 +146,7 @@ public class Pipeline{
         RdfAlignmentReader reader = new RdfAlignmentReader();
         Alignment goldstandard = reader.readAlignmentFrom(gs);
         Eval eval = evaluate(result.getAlignment(),goldstandard);
-
+        eval.setBenchmark(timer);
         System.out.println(eval);
 
         //Evaluate
@@ -114,6 +173,7 @@ public class Pipeline{
             for(File f2 : files){
                 if(f1 != f2) {
                     try {
+                        System.gc(); // hint to garbage collect old entries which are not needed anymore
                         String model1 = f1.getName().substring(0,f1.getName().length()-5);
                         String model2 = f2.getName().substring(0,f2.getName().length()-5);
                         File gs = new File(goldStandardPath+"/"+model1+"-"+model2+".rdf");
@@ -131,13 +191,60 @@ public class Pipeline{
         return evals;
     }
 
+
+    public List<Eval> retrospectiveEval(Path resultPath, Path goldstandardPath){
+        File[] resultFiles =  resultPath.toFile().listFiles(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return name.toLowerCase().endsWith(".rdf");
+            }
+        });
+
+        File[] goldstandardFiles =  goldstandardPath.toFile().listFiles(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return name.toLowerCase().endsWith(".rdf");
+            }
+        });
+
+        if(goldstandardFiles.length == 0){
+            throw new Error("Gold Standard Path is empty");
+        }
+
+        if(resultFiles.length == 0){
+            throw new Error("Gold Standard Path is empty");
+        }
+
+
+        // find corresponding alignments and calculate evaluation
+        List<Eval> evals = new ArrayList<>();
+        for(File f1 : resultFiles){
+            for(File f2 : goldstandardFiles){
+                if(f1.getName().equals(f2.getName())) {
+                    try{
+                        RdfAlignmentReader reader = new RdfAlignmentReader();
+                        Alignment result = reader.readAlignmentFrom(f1);
+                        Alignment goldstandard = reader.readAlignmentFrom(f2);
+                        evals.add(this.evaluate(result,goldstandard));
+                    }catch(Exception e){
+                        System.out.println("Evaluation of "+  f1.getName() + " to " + f2.getName() +
+                                "threw an Exception: " + e.getMessage());
+                    }
+                }
+            }
+        }
+        return evals;
+    }
+
+
+
+
+
     /**
      * Call correct Evaluator for matcher and goldstandard
      * @param matcher
      * @param goldstandard
      * @return
      */
-    private Eval evaluate(Alignment matcher, Alignment goldstandard){
+    protected Eval evaluate(Alignment matcher, Alignment goldstandard){
         switch(evalStrat){
             case BINARY:
                 return Eval.Builder.BinaryEvaluation(matcher,goldstandard);
@@ -152,12 +259,18 @@ public class Pipeline{
     @Override
     public String toString(){
         String res = "Batch: "+ Boolean.toString(this.batch) + "\n" +
+                "Retrospective: "+ Boolean.toString(this.retrospective) + "\n" +
                 "Eval Strategy:" + this.evalStrat.toString() + "\n";
 
                 if(this.batch){
                     res +=  "Batch Path: " + this.batchPath.toString() + "\n" +
                             "Gold Standard Path" + this.goldStandardPath.toString() + "\n";
-                }else {
+                }else if(retrospective) {
+                    res +=  "Gold Standard Path: " + this.goldStandardPath.toString() + "\n" +
+                            "Result Path: " + this.resultPath.toString() + "\n";
+                }else if(netEval) {
+                    res += "Relational Profile: " + this.netProfile.toString()+ "\n";
+                }else{
                     res += "Net 1: " + this.net1.toString() + "\n" +
                             "Net 2: " + this.net2.toString() + "\n" +
                             "Gold Standard:" + this.goldStandard.toString() + "\n";
@@ -179,6 +292,10 @@ public class Pipeline{
 
         // Evaluation specific options
         private boolean batch = false;
+        private boolean retrospective = false;
+        private boolean netEval = false;
+        private Matcher.Profile netProfile;
+        private Path resultPath;
         private Path batchPath;
         private File net1;
         private File net2;
@@ -210,12 +327,61 @@ public class Pipeline{
         }
 
         /**
+         * Perform a  net test on given folder
+         * @return
+         */
+        public Builder withNetEval(){
+            this.netEval = true;
+            return this;
+        }
+
+        /**
+         * Add a profile for net evaluation
+         * @param profile
+         * @return
+         */
+        public Builder withNetEvalProfile(String profile){
+            Matcher.Profile p;
+            switch(profile){
+                case "BP":
+                    p = Matcher.Profile.BP;
+                    break;
+                case "CBP":
+                    p = Matcher.Profile.CBP;
+                    break;
+                default:
+                    throw new IllegalArgumentException("ilp argument is not valid: " +profile);
+            }
+            this.netProfile = p;
+            return this;
+        }
+
+        /**
+         * Perform a retrospective evaluation on given folders
+         * @return
+         */
+        public Builder withRetrospective(){
+            this.retrospective = true;
+            return this;
+        }
+
+        /**
          * Batch path to be used
          * @param p
          * @return
          */
-        public Builder withPath(Path p){
+        public Builder withBatchPath(Path p){
             this.batchPath = p;
+            return this;
+        }
+
+        /**
+         * Result path for retrospective evalaution
+         * @param p
+         * @return
+         */
+        public Builder withResultPath(Path p){
+            this.resultPath = p;
             return this;
         }
 
@@ -269,33 +435,49 @@ public class Pipeline{
 
             //evaluation specific information
             pip.batch = this.batch;
+            pip.retrospective = this.retrospective;
+            pip.resultPath = this.resultPath;
             pip.batchPath = this.batchPath;
             pip.net1 = this.net1;
             pip.net2 = this.net2;
             pip.goldStandard = this.goldStandard;
             pip.goldStandardPath = this.goldStandardPath;
             pip.evalStrat = this.evalStrat;
+            pip.netEval = this.netEval;
+            pip.netProfile = this.netProfile;
 
             //tests
             if(pip.batch && pip.batchPath == null){
                 throw new IllegalArgumentException("When batch mode on, then -batchPath argument needed");
             }
 
-            if(!pip.batch && (pip.net1 == null || pip.net2 == null)){
-                throw new IllegalArgumentException("When batch mode off, then -net1, -net2 argument needed");
+            if(!pip.batch && !retrospective && !netEval && (pip.net1 == null || pip.net2 == null)){
+                throw new IllegalArgumentException("When single evaluation, then -net1, -net2 argument needed");
             }
 
-            if(!pip.batch && pip.goldStandard == null){
-                throw new IllegalArgumentException("When batch mode off, then goldstandard file -g argument needed");
+            if(!pip.batch && !retrospective  && !netEval && pip.goldStandard == null){
+                throw new IllegalArgumentException("When single evaluation, then goldstandard file -g argument needed");
             }
 
             if(pip.batch && pip.goldStandardPath == null){
                 throw new IllegalArgumentException("When batch mode on, then goldstandard path -gsp argument needed");
             }
 
+            if(pip.retrospective && (pip.goldStandardPath == null || pip.resultPath == null)){
+                throw new IllegalArgumentException("When retrospective mode on, then goldstandard path and result path to rdf files are needed");
+            }
+
+            if(pip.netEval && (pip.netProfile == null || pip.batchPath == null)){
+                throw new IllegalArgumentException("When netEval mode on, then batch path and net profile must be given");
+            }
+
             // Define log folder where all log files are generated
             if(batch) {
                 pip.logFolder ="batch-"+batchPath.getFileName()+"-"+evalStrat.toString()+"-"+timestamp;
+            }else if(retrospective){
+                pip.logFolder ="retrospective-"+resultPath.getFileName()+"-"+evalStrat.toString()+"-"+timestamp;
+            }else if(netEval) {
+                pip.logFolder ="net-" +netProfile.toString()+"-"+timestamp;
             }else{
                 pip.logFolder ="single-"+net1.getName()+"-"+net2.getName()+"-"+evalStrat.toString()+"-"+timestamp;
             }

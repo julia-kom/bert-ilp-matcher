@@ -38,9 +38,12 @@ public class Eval {
     private double fscore = 0;
 
     // Detailed Information
-    private Set<Correspondence> tpCorrespondeces = new HashSet<>();
-    private Set<Correspondence> fpCorrespondeces = new HashSet<>();
-    private Set<Correspondence> fnCorrespondeces = new HashSet<>();
+    private Set<String> tpCorrespondeces = new HashSet<>();
+    private Set<String> fpCorrespondeces = new HashSet<>();
+    private Set<String> fnCorrespondeces = new HashSet<>();
+
+    // Timer
+    ExecutionTimer timer = new ExecutionTimer();
 
     private Eval(){
 
@@ -94,7 +97,27 @@ public class Eval {
         return recall;
     }
 
+    /**
+     * Get name
+     * @return name
+     */
     public String getName(){ return name;}
+
+    /**
+     * Get Benchmark Information
+     * @return Exectution Timer Object
+     */
+    public ExecutionTimer getBenchmark(){
+        return  timer;
+    }
+
+    /**
+     * Add a Benchmarking timer ti the evaluation
+     * @param timer
+     */
+    public void setBenchmark(ExecutionTimer timer){
+        this.timer = timer;
+    }
 
     /**
      * Evalaution to String
@@ -108,7 +131,8 @@ public class Eval {
                 "FN: " +fn + "\n" +
                 "PRECISION: " + precision + "\n" +
                 "RECALL: " + recall + "\n" +
-                "FSCORE: " + fscore + "\n";
+                "FSCORE: " + fscore + "\n" +
+                timer.toString();
     }
 
     /**
@@ -120,16 +144,18 @@ public class Eval {
     public void toCSV(File file) throws IOException {
         FileWriter csvWriter = new FileWriter(file.getAbsolutePath());
         // column description
-        csvWriter.append("Name,").append("TP,").append("FP,").append("FN,").append("PRECISION,").append("RECALL,").append("FSCORE\n");
+        csvWriter.append("Name,").append("TP,").append("FP,").append("FN,").append("PRECISION,").append("RECALL,").append("FSCORE,").append("OVERALL TIME,").append("LP TIME,").append("LABEL-SIM TIME,").append("BP TIME\n");
         // stats
         csvWriter.append(this.getName().replace(',',';').replace("\n"," ")+",")
                  .append(this.getTP()+",").append(this.getFP()+",").append(this.getFN()+",")
-                 .append(this.getPrecision()+",").append(this.getRecall()+",").append(this.getFscore()+"\n");
+                 .append(this.getPrecision()+",").append(this.getRecall()+",").append(this.getFscore()+",")
+                 .append(this.getBenchmark().getOverallTime()+",").append(this.getBenchmark().getLpTime()+",")
+                 .append(this.getBenchmark().getLabelSimialrityTime()+",").append(this.getBenchmark().getBPTime()+"\n");
 
         // tp,fp,fn correspondences:
-        Iterator<Correspondence> tpIt = tpCorrespondeces.iterator();
-        Iterator<Correspondence> fnIt = fnCorrespondeces.iterator();
-        Iterator<Correspondence> fpIt = fpCorrespondeces.iterator();
+        Iterator<String> tpIt = tpCorrespondeces.iterator();
+        Iterator<String> fnIt = fnCorrespondeces.iterator();
+        Iterator<String> fpIt = fpCorrespondeces.iterator();
         String corTP;
         String corFN;
         String corFP;
@@ -138,16 +164,19 @@ public class Eval {
             corFP = "";
             corTP = "";
             if(tpIt.hasNext()){
-                corTP = tpIt.next().toString();
+                corTP = tpIt.next();
             }
             if(fpIt.hasNext()){
-                corFP = fpIt.next().toString();
+                corFP = fpIt.next();
             }
             if(fnIt.hasNext()){
-                corFN = fnIt.next().toString();
+                corFN = fnIt.next();
             }
             csvWriter.append("CORRESPONDENCES,").append(corTP+",").append(corFP+",").append(corFN+",").append(",,,\n");
         }
+        //properly close everything
+        csvWriter.flush();
+        csvWriter.close();
     }
 
 
@@ -188,10 +217,10 @@ public class Eval {
                     for (Node n2 : m.getNet2Nodes()) {
                         if (goldstandard.isMapped(n1, n2)) {
                             // mapped in goldstandard and in match
-                            res.tpCorrespondeces.add(new Correspondence.Builder().addNodeFromNet1(n1).addNodeFromNet2(n2).build());
+                            res.tpCorrespondeces.add(new Correspondence.Builder().addNodeFromNet1(n1).addNodeFromNet2(n2).build().toString());
                         } else {
                             // mapped in match but not in gold standard
-                            res.fpCorrespondeces.add(new Correspondence.Builder().addNodeFromNet1(n1).addNodeFromNet2(n2).build());
+                            res.fpCorrespondeces.add(new Correspondence.Builder().addNodeFromNet1(n1).addNodeFromNet2(n2).build().toString());
                         }
                     }
                 }
@@ -204,7 +233,7 @@ public class Eval {
                     for(Node n2 : g.getNet2Nodes()){
                         if(!matcher.isMapped(n1,n2)){
                             // mapped in goldstandard but not in match
-                            res.fnCorrespondeces.add(new Correspondence.Builder().addNodeFromNet1(n1).addNodeFromNet2(n2).build());
+                            res.fnCorrespondeces.add(new Correspondence.Builder().addNodeFromNet1(n1).addNodeFromNet2(n2).build().toString());
                         }
                     }
                 }
@@ -230,16 +259,16 @@ public class Eval {
             //TP and FP
             for(Correspondence m : matcher.getCorrespondences()){
                 if(goldstandard.contains(m)){
-                    res.tpCorrespondeces.add(m);
+                    res.tpCorrespondeces.add(m.toString());
                 }else{
-                    res.fpCorrespondeces.add(m);
+                    res.fpCorrespondeces.add(m.toString());
                 }
             }
 
             //FN
             for(Correspondence g : goldstandard.getCorrespondences()){
                 if(!matcher.contains(g)){
-                    res.fnCorrespondeces.add(g);
+                    res.fnCorrespondeces.add(g.toString());
                 }
             }
             res.computeBinaryStats();

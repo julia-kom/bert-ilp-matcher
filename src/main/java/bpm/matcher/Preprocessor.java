@@ -2,7 +2,6 @@ package bpm.matcher;
 
 import bpm.alignment.Alignment;
 import bpm.similarity.Matrix;
-import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Transition;
 
 import java.util.HashSet;
@@ -55,7 +54,7 @@ public class Preprocessor {
         return result;
     }
 
-    private static boolean isTau(Transition t){
+    public static boolean isTau(Transition t){
         // silent
         if(t.isSilent()){
             return true;

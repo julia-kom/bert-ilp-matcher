@@ -2,7 +2,6 @@ package bpm.evaluation;
 
 import org.apache.commons.cli.*;
 
-import javax.sound.midi.SysexMessage;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -19,6 +18,8 @@ public class Evaluation {
      */
     public static void main(String[] args) {
         Option optComplexMatches = new Option("c", "complex-matches", false, "Run Matcher which detects complex matches (n:m, 1:n)");
+        Option optRetrospectiveEval = new Option("r", "retrospective", false, "Run retrospective evaluation");
+        Option optNetEval= new Option("ne", "net-eval", false, "Run petri net evaluation");
         Option optSimilarityWeight = Option.builder("s")
                 .required(false)
                 .hasArg(true)
@@ -77,9 +78,13 @@ public class Evaluation {
         Option optGoldStandardPath = Option.builder("gsp")
                 .hasArg(true)
                 .longOpt("gold-standard-path")
-                .desc("Gold Standard Path for batch evaluation")
+                .desc("Gold Standard Path for batch or retrospective evaluation")
                 .build();
-
+        Option optResultPath = Option.builder("rp")
+                .hasArg(true)
+                .longOpt("result-path")
+                .desc("ResultPath of a previous evaluation for performing a retrospective evaluation")
+                .build();
         Option optEvalStrat = Option.builder("e")
                 .hasArg(true)
                 .longOpt("eval-strat")
@@ -87,6 +92,11 @@ public class Evaluation {
                         "Binary: Lose Binary Relations. Partley correct matches account partly \n" +
                         "StrictBinary: Only exact matches account as true positives \n" +
                         "Probabilistically: Acc. to \"Probabilistic Evaluation of Process Model Matching Techniques\" ")
+                .build();
+        Option optNetEvalProfile = Option.builder("nep")
+                .hasArg(true)
+                .longOpt("net-eval-profile")
+                .desc("Profile for net evaluation")
                 .build();
         Option optPreMatch = new Option("pm", "pre-match", false, "Run Prematcher before running the ILP, reducing runtime");
 
@@ -104,8 +114,12 @@ public class Evaluation {
         options.addOption(optBatch);
         options.addOption(optNetPath);
         options.addOption(optGoldStandardPath);
+        options.addOption(optResultPath);
         options.addOption(optEvalStrat);
         options.addOption(optPreMatch);
+        options.addOption(optRetrospectiveEval);
+        options.addOption(optNetEval);
+        options.addOption(optNetEvalProfile);
 
         //parse input
         CommandLine line;
@@ -161,47 +175,70 @@ public class Evaluation {
         // net 1 for single eval
         if (line.hasOption("i")) {
             String iString = line.getOptionValue("i");
-            matcherBuilder.withILP(iString);
+            matcherBuilder = matcherBuilder.withILP(iString);
         }
 
         // net 1 for single eval
         if (line.hasOption("n1")) {
             String n1String = line.getOptionValue("n1");
             File net1 = new File(n1String);
-            evalBuilder.onNet1(net1);
+            evalBuilder = evalBuilder.onNet1(net1);
         }
 
         // net 2 for single eval
         if (line.hasOption("n2")) {
             String n2String = line.getOptionValue("n2");
             File net2 = new File(n2String);
-            evalBuilder.onNet2(net2);
+            evalBuilder = evalBuilder.onNet2(net2);
         }
 
         // gold standard for single eval
         if (line.hasOption("gs")) {
             String n2String = line.getOptionValue("gs");
             File gs = new File(n2String);
-            evalBuilder.withGoldStandard(gs);
+            evalBuilder = evalBuilder.withGoldStandard(gs);
         }
 
         // Perform Batch
         if (line.hasOption("b")) {
-            evalBuilder.withBatch();
+            evalBuilder = evalBuilder.withBatch();
+        }
+
+        // Perform Net Eval
+        if (line.hasOption("ne")) {
+            evalBuilder = evalBuilder.withNetEval();
+        }
+
+        // gold standard for single eval
+        if (line.hasOption("nep")) {
+            String n2String = line.getOptionValue("nep");
+            evalBuilder = evalBuilder.withNetEvalProfile(n2String);
         }
 
         // path that contains all nets to compare
         if (line.hasOption("np")) {
             String netString = line.getOptionValue("np");
             Path nets = Paths.get(netString);
-            evalBuilder.withPath(nets);
+            evalBuilder = evalBuilder.withBatchPath(nets);
         }
 
         // Gold Standard Path needed for batch
         if (line.hasOption("gsp")) {
             String gsString = line.getOptionValue("gsp");
             Path gs = Paths.get(gsString);
-            evalBuilder.withGoldStandard(gs);
+            evalBuilder = evalBuilder.withGoldStandard(gs);
+        }
+
+        // parse complexMatches
+        if (line.hasOption("r")) {
+            evalBuilder = evalBuilder.withRetrospective();
+        }
+
+        // Retrospective Result Path needed for retrospective analysis
+        if (line.hasOption("rp")) {
+            String rString = line.getOptionValue("rp");
+            Path rp = Paths.get(rString);
+            evalBuilder = evalBuilder.withResultPath(rp);
         }
 
         if (line.hasOption("e")) {
