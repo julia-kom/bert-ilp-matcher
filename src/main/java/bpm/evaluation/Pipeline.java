@@ -21,6 +21,8 @@ public class Pipeline{
 
     //Evaluation specific options
     private boolean batch;
+    private boolean retrospective;
+    private Path resultPath;
     private Path batchPath;
     private File net1;
     private File net2;
@@ -39,7 +41,7 @@ public class Pipeline{
             }catch(IOException e){
                 System.out.println("It was not possible to write the aggregated result CSV!");
             }
-        } else {
+        } else if(!retrospective){
             try {
                 Eval eval = singleEval(net1, net2, goldStandard);
                 try {
@@ -51,6 +53,14 @@ public class Pipeline{
                 System.out.println("Evaluation of "+  net1.getName() + " to " + net2.getName() +
                         "threw and Exception: " + e.getMessage());
                 exit(1);
+            }
+        }else{
+            List<Eval> evals = retrospectiveEval(resultPath,goldStandardPath);
+            AggregatedEval aggregatedEval = new AggregatedEval(evals);
+            try {
+                aggregatedEval.toCSV(new File("./eval-results/" + logFolder + "/aggRetrospectiveResults.eval"));
+            }catch(IOException e){
+                System.out.println("It was not possible to write the aggregated result CSV!");
             }
         }
     }
@@ -139,13 +149,60 @@ public class Pipeline{
         return evals;
     }
 
+
+    public List<Eval> retrospectiveEval(Path resultPath, Path goldstandardPath){
+        File[] resultFiles =  resultPath.toFile().listFiles(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return name.toLowerCase().endsWith(".rdf");
+            }
+        });
+
+        File[] goldstandardFiles =  goldstandardPath.toFile().listFiles(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return name.toLowerCase().endsWith(".rdf");
+            }
+        });
+
+        if(goldstandardFiles.length == 0){
+            throw new Error("Gold Standard Path is empty");
+        }
+
+        if(resultFiles.length == 0){
+            throw new Error("Gold Standard Path is empty");
+        }
+
+
+        // find corresponding alignments and calculate evaluation
+        List<Eval> evals = new ArrayList<>();
+        for(File f1 : resultFiles){
+            for(File f2 : goldstandardFiles){
+                if(f1.getName().equals(f2.getName())) {
+                    try{
+                        RdfAlignmentReader reader = new RdfAlignmentReader();
+                        Alignment result = reader.readAlignmentFrom(f1);
+                        Alignment goldstandard = reader.readAlignmentFrom(f2);
+                        evals.add(this.evaluate(result,goldstandard));
+                    }catch(Exception e){
+                        System.out.println("Evaluation of "+  f1.getName() + " to " + f2.getName() +
+                                "threw an Exception: " + e.getMessage());
+                    }
+                }
+            }
+        }
+        return evals;
+    }
+
+
+
+
+
     /**
      * Call correct Evaluator for matcher and goldstandard
      * @param matcher
      * @param goldstandard
      * @return
      */
-    private Eval evaluate(Alignment matcher, Alignment goldstandard){
+    protected Eval evaluate(Alignment matcher, Alignment goldstandard){
         switch(evalStrat){
             case BINARY:
                 return Eval.Builder.BinaryEvaluation(matcher,goldstandard);
@@ -160,12 +217,16 @@ public class Pipeline{
     @Override
     public String toString(){
         String res = "Batch: "+ Boolean.toString(this.batch) + "\n" +
+                "Retrospective: "+ Boolean.toString(this.retrospective) + "\n" +
                 "Eval Strategy:" + this.evalStrat.toString() + "\n";
 
                 if(this.batch){
                     res +=  "Batch Path: " + this.batchPath.toString() + "\n" +
                             "Gold Standard Path" + this.goldStandardPath.toString() + "\n";
-                }else {
+                }else if(retrospective) {
+                    res +=  "Gold Standard Path" + this.goldStandardPath.toString() + "\n" +
+                            "Result Path" + this.resultPath.toString() + "\n";
+                }else{
                     res += "Net 1: " + this.net1.toString() + "\n" +
                             "Net 2: " + this.net2.toString() + "\n" +
                             "Gold Standard:" + this.goldStandard.toString() + "\n";
@@ -187,6 +248,8 @@ public class Pipeline{
 
         // Evaluation specific options
         private boolean batch = false;
+        private boolean retrospective = false;
+        private Path resultPath;
         private Path batchPath;
         private File net1;
         private File net2;
@@ -218,12 +281,31 @@ public class Pipeline{
         }
 
         /**
+         * Perform a retrospective evaluation on given folders
+         * @return
+         */
+        public Builder withRetrospective(){
+            this.retrospective = true;
+            return this;
+        }
+
+        /**
          * Batch path to be used
          * @param p
          * @return
          */
-        public Builder withPath(Path p){
+        public Builder withBatchPath(Path p){
             this.batchPath = p;
+            return this;
+        }
+
+        /**
+         * Result path for retrospective evalaution
+         * @param p
+         * @return
+         */
+        public Builder withResultPath(Path p){
+            this.resultPath = p;
             return this;
         }
 
@@ -277,6 +359,8 @@ public class Pipeline{
 
             //evaluation specific information
             pip.batch = this.batch;
+            pip.retrospective = this.retrospective;
+            pip.resultPath = this.resultPath;
             pip.batchPath = this.batchPath;
             pip.net1 = this.net1;
             pip.net2 = this.net2;
@@ -289,22 +373,28 @@ public class Pipeline{
                 throw new IllegalArgumentException("When batch mode on, then -batchPath argument needed");
             }
 
-            if(!pip.batch && (pip.net1 == null || pip.net2 == null)){
-                throw new IllegalArgumentException("When batch mode off, then -net1, -net2 argument needed");
+            if(!pip.batch && !retrospective && (pip.net1 == null || pip.net2 == null)){
+                throw new IllegalArgumentException("When single evaluation, then -net1, -net2 argument needed");
             }
 
-            if(!pip.batch && pip.goldStandard == null){
-                throw new IllegalArgumentException("When batch mode off, then goldstandard file -g argument needed");
+            if(!pip.batch && !retrospective && pip.goldStandard == null){
+                throw new IllegalArgumentException("When single evaluation, then goldstandard file -g argument needed");
             }
 
             if(pip.batch && pip.goldStandardPath == null){
                 throw new IllegalArgumentException("When batch mode on, then goldstandard path -gsp argument needed");
             }
 
+            if(pip.retrospective && (pip.goldStandardPath == null || pip.resultPath == null)){
+                throw new IllegalArgumentException("When retrospective mode on, then goldstandard path and result path to rdf files are needed");
+            }
+
             // Define log folder where all log files are generated
             if(batch) {
                 pip.logFolder ="batch-"+batchPath.getFileName()+"-"+evalStrat.toString()+"-"+timestamp;
-            }else{
+            } if(retrospective){
+                pip.logFolder ="retrospective-"+resultPath.getFileName()+"-"+evalStrat.toString()+"-"+timestamp;
+            } else {
                 pip.logFolder ="single-"+net1.getName()+"-"+net2.getName()+"-"+evalStrat.toString()+"-"+timestamp;
             }
             File f = new File("eval-results/"+pip.logFolder);
