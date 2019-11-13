@@ -472,9 +472,9 @@ public class Pipeline{
             // Define log folder where all log files are generated
             if(batch) {
                 pip.logFolder ="batch-"+batchPath.getFileName()+"-"+evalStrat.toString()+"-"+timestamp;
-            } if(retrospective){
+            }else if(retrospective){
                 pip.logFolder ="retrospective-"+resultPath.getFileName()+"-"+evalStrat.toString()+"-"+timestamp;
-            } else if(netEval) {
+            }else if(netEval) {
                 pip.logFolder ="net-" +netProfile.toString()+"-"+timestamp;
             }else{
                 pip.logFolder ="single-"+net1.getName()+"-"+net2.getName()+"-"+evalStrat.toString()+"-"+timestamp;
