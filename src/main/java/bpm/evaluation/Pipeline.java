@@ -266,8 +266,10 @@ public class Pipeline{
                     res +=  "Batch Path: " + this.batchPath.toString() + "\n" +
                             "Gold Standard Path" + this.goldStandardPath.toString() + "\n";
                 }else if(retrospective) {
-                    res +=  "Gold Standard Path" + this.goldStandardPath.toString() + "\n" +
-                            "Result Path" + this.resultPath.toString() + "\n";
+                    res +=  "Gold Standard Path: " + this.goldStandardPath.toString() + "\n" +
+                            "Result Path: " + this.resultPath.toString() + "\n";
+                }else if(netEval) {
+                    res += "Relational Profile: " + this.netProfile.toString()+ "\n";
                 }else{
                     res += "Net 1: " + this.net1.toString() + "\n" +
                             "Net 2: " + this.net2.toString() + "\n" +
@@ -449,11 +451,11 @@ public class Pipeline{
                 throw new IllegalArgumentException("When batch mode on, then -batchPath argument needed");
             }
 
-            if(!pip.batch && !retrospective && (pip.net1 == null || pip.net2 == null)){
+            if(!pip.batch && !retrospective && !netEval && (pip.net1 == null || pip.net2 == null)){
                 throw new IllegalArgumentException("When single evaluation, then -net1, -net2 argument needed");
             }
 
-            if(!pip.batch && !retrospective && pip.goldStandard == null){
+            if(!pip.batch && !retrospective  && !netEval && pip.goldStandard == null){
                 throw new IllegalArgumentException("When single evaluation, then goldstandard file -g argument needed");
             }
 

@@ -27,9 +27,16 @@ public class AggregatedNetAnalysis{
         for (RelSetType t : RelSetType.values()) {
             csvWriter.append("n" + t.toString() + ",");
         }
+        csvWriter.append("\n");
     }
 
 
+    /**
+     * Add a net's stats to the csv file (wrt the profile given as parameter)
+     * @param net
+     * @param profile
+     * @throws IOException
+     */
     public void addNet(NetSystem net, RelSet profile) throws IOException {
         NetAnalysis analysis = new NetAnalysis(net,profile);
 
@@ -39,12 +46,35 @@ public class AggregatedNetAnalysis{
 
         // Profile Stats
         for (RelSetType t : RelSetType.values()) {
-            HashSet<RelSetType> type = new HashSet<RelSetType>();
-            type.add(t);
-            csvWriter.append(analysis.profile.getRelationsByType(type).size()+ ",");
+            csvWriter.append(getNumberOfRelations(t, net, profile)+ ",");
         }
+        csvWriter.append("\n");
     }
 
+    /**
+     * Get the number of times two transitions of net are in a relation rel inside the profile.
+     * @param rel
+     * @param net
+     * @param profile
+     * @return
+     */
+    private int getNumberOfRelations(RelSetType rel, NetSystem net, RelSet profile){
+        int n = 0;
+        for (Transition t1 :net.getTransitions()){
+            for(Transition t2 : net.getTransitions()){
+                RelSetType r = profile.getRelationForEntities(t1,t2);
+                if(r.equals(rel)){
+                   n++;
+                }
+            }
+        }
+        return n;
+    }
+
+    /**
+     * Complete the CSV
+     * @throws IOException
+     */
     public void toCSV() throws IOException {
         //properly close everything
         csvWriter.flush();
