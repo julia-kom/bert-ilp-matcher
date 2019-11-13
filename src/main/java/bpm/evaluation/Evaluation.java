@@ -18,7 +18,8 @@ public class Evaluation {
      */
     public static void main(String[] args) {
         Option optComplexMatches = new Option("c", "complex-matches", false, "Run Matcher which detects complex matches (n:m, 1:n)");
-        Option optRetrospectiveMatches = new Option("r", "retrospective", false, "Run retrospective evaluation");
+        Option optRetrospectiveEval = new Option("r", "retrospective", false, "Run retrospective evaluation");
+        Option optNetEval= new Option("ne", "net-eval", false, "Run petri net evaluation");
         Option optSimilarityWeight = Option.builder("s")
                 .required(false)
                 .hasArg(true)
@@ -92,6 +93,11 @@ public class Evaluation {
                         "StrictBinary: Only exact matches account as true positives \n" +
                         "Probabilistically: Acc. to \"Probabilistic Evaluation of Process Model Matching Techniques\" ")
                 .build();
+        Option optNetEvalProfile = Option.builder("nep")
+                .hasArg(true)
+                .longOpt("net-eval-profile")
+                .desc("Profile for net evaluation")
+                .build();
         Option optPreMatch = new Option("pm", "pre-match", false, "Run Prematcher before running the ILP, reducing runtime");
 
 
@@ -111,7 +117,9 @@ public class Evaluation {
         options.addOption(optResultPath);
         options.addOption(optEvalStrat);
         options.addOption(optPreMatch);
-        options.addOption(optRetrospectiveMatches);
+        options.addOption(optRetrospectiveEval);
+        options.addOption(optNetEval);
+        options.addOption(optNetEvalProfile);
 
         //parse input
         CommandLine line;
@@ -194,6 +202,17 @@ public class Evaluation {
         // Perform Batch
         if (line.hasOption("b")) {
             evalBuilder = evalBuilder.withBatch();
+        }
+
+        // Perform Net Eval
+        if (line.hasOption("ne")) {
+            evalBuilder = evalBuilder.withNetEval();
+        }
+
+        // gold standard for single eval
+        if (line.hasOption("nep")) {
+            String n2String = line.getOptionValue("nep");
+            evalBuilder = evalBuilder.withNetEvalProfile(n2String);
         }
 
         // path that contains all nets to compare

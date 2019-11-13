@@ -2,6 +2,8 @@ package bpm.evaluation;
 
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
+import bpm.matcher.Matcher;
+import org.jbpt.petri.NetSystem;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,6 +15,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import static bpm.matcher.Pipeline.createProfile;
+import static bpm.matcher.Pipeline.parseFile;
 import static java.lang.System.exit;
 
 public class Pipeline{
@@ -21,6 +25,8 @@ public class Pipeline{
 
     //Evaluation specific options
     private boolean batch;
+    private boolean netEval;
+    private Matcher.Profile netProfile;
     private boolean retrospective;
     private Path resultPath;
     private Path batchPath;
@@ -33,7 +39,40 @@ public class Pipeline{
 
     public void run(){
 
-        if(batch) {
+        // Run a net evaluation test
+        if(netEval){
+            AggregatedNetAnalysis netAnalysis;
+            try {
+                netAnalysis = new AggregatedNetAnalysis(new File("./eval-results/" + logFolder + "/net.eval"));
+            }catch(Exception e){
+                System.out.println("Net Analysis initialization not possible " + e.toString());
+                netAnalysis = null;
+            }
+            // get files
+            File[] files =  batchPath.toFile().listFiles(new FilenameFilter() {
+                public boolean accept(File dir, String name) {
+                    return name.toLowerCase().endsWith(".pnml");
+                }
+            });
+
+            // add to csv
+            for(File f : files){
+                NetSystem net1 = parseFile(f);
+                net1.setName(f.getName());
+                try {
+                    netAnalysis.addNet(net1, createProfile(net1, netProfile));
+                }catch(Exception e){
+                    System.out.println("Analysis not possible for net " + f.getName() + e.toString());
+                }
+            }
+            try {
+                netAnalysis.toCSV();
+            }catch(Exception e){
+                System.out.println("Flush not possible " + e.toString());
+            }
+
+        // Run a batch test
+        }else if(batch) {
             List<Eval> evals = batchEval();
             AggregatedEval aggregatedEval = new AggregatedEval(evals);
             try {
@@ -41,6 +80,8 @@ public class Pipeline{
             }catch(IOException e){
                 System.out.println("It was not possible to write the aggregated result CSV!");
             }
+
+        //Run a single evaluation test
         } else if(!retrospective){
             try {
                 Eval eval = singleEval(net1, net2, goldStandard);
@@ -54,6 +95,7 @@ public class Pipeline{
                         "threw and Exception: " + e.getMessage());
                 exit(1);
             }
+        // Run a retrospective test
         }else{
             List<Eval> evals = retrospectiveEval(resultPath,goldStandardPath);
             AggregatedEval aggregatedEval = new AggregatedEval(evals);
@@ -249,6 +291,8 @@ public class Pipeline{
         // Evaluation specific options
         private boolean batch = false;
         private boolean retrospective = false;
+        private boolean netEval = false;
+        private Matcher.Profile netProfile;
         private Path resultPath;
         private Path batchPath;
         private File net1;
@@ -277,6 +321,36 @@ public class Pipeline{
          */
         public Builder withBatch(){
             this.batch = true;
+            return this;
+        }
+
+        /**
+         * Perform a  net test on given folder
+         * @return
+         */
+        public Builder withNetEval(){
+            this.netEval = true;
+            return this;
+        }
+
+        /**
+         * Add a profile for net evaluation
+         * @param profile
+         * @return
+         */
+        public Builder withNetEvalProfile(String profile){
+            Matcher.Profile p;
+            switch(profile){
+                case "BP":
+                    p = Matcher.Profile.BP;
+                    break;
+                case "CBP":
+                    p = Matcher.Profile.CBP;
+                    break;
+                default:
+                    throw new IllegalArgumentException("ilp argument is not valid: " +profile);
+            }
+            this.netProfile = p;
             return this;
         }
 
@@ -367,6 +441,8 @@ public class Pipeline{
             pip.goldStandard = this.goldStandard;
             pip.goldStandardPath = this.goldStandardPath;
             pip.evalStrat = this.evalStrat;
+            pip.netEval = this.netEval;
+            pip.netProfile = this.netProfile;
 
             //tests
             if(pip.batch && pip.batchPath == null){
@@ -389,12 +465,18 @@ public class Pipeline{
                 throw new IllegalArgumentException("When retrospective mode on, then goldstandard path and result path to rdf files are needed");
             }
 
+            if(pip.netEval && (pip.netProfile == null || pip.batchPath == null)){
+                throw new IllegalArgumentException("When netEval mode on, then batch path and net profile must be given");
+            }
+
             // Define log folder where all log files are generated
             if(batch) {
                 pip.logFolder ="batch-"+batchPath.getFileName()+"-"+evalStrat.toString()+"-"+timestamp;
             } if(retrospective){
                 pip.logFolder ="retrospective-"+resultPath.getFileName()+"-"+evalStrat.toString()+"-"+timestamp;
-            } else {
+            } else if(netEval) {
+                pip.logFolder ="net-" +netProfile.toString()+"-"+timestamp;
+            }else{
                 pip.logFolder ="single-"+net1.getName()+"-"+net2.getName()+"-"+evalStrat.toString()+"-"+timestamp;
             }
             File f = new File("eval-results/"+pip.logFolder);

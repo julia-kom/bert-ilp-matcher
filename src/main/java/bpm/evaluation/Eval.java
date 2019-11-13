@@ -174,6 +174,9 @@ public class Eval {
             }
             csvWriter.append("CORRESPONDENCES,").append(corTP+",").append(corFP+",").append(corFN+",").append(",,,\n");
         }
+        //properly close everything
+        csvWriter.flush();
+        csvWriter.close();
     }
 
 

@@ -78,9 +78,9 @@ public class Pipeline {
         // Create Profile
         System.out.println("##### Start Creating Profiles #####");
         timer.startBPTime();
-        RelSet relNet1 = createProfile(net1);
+        RelSet relNet1 = createProfile(net1, this.profile);
         //System.out.print("Net 1" +relNet1.toString());
-        RelSet relNet2 = createProfile(net2);
+        RelSet relNet2 = createProfile(net2, this.profile);
         //System.out.print("Net 2" +relNet1.toString());
         timer.stopBPTime();
         System.out.println("##### Creating Profiles Complete #####");
@@ -138,22 +138,18 @@ public class Pipeline {
         return res;
     }
 
-    private PNMLSerializer serializer = null;
     /**
      * Parses a PNML file to a NetSystem
      * @param f file path of the petri net in PNML format
      * @return NetSystem
      */
-    private NetSystem parseFile(File f){
-        if (serializer == null){
-            serializer = new PNMLSerializer();
-        }else{
-            serializer.clear();
-        }
+    public static NetSystem parseFile(File f){
+        PNMLSerializer serializer = new PNMLSerializer();
         return serializer.parse(f.getAbsolutePath());
     }
 
-    private RelSet createProfile(NetSystem net){
+    //TODO Transfer to abstract profile if exists
+    public static RelSet createProfile(NetSystem net, Matcher.Profile profile){
         RelSet r;
         switch(profile){
             case BP:

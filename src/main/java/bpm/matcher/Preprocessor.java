@@ -54,7 +54,7 @@ public class Preprocessor {
         return result;
     }
 
-    private static boolean isTau(Transition t){
+    public static boolean isTau(Transition t){
         // silent
         if(t.isSilent()){
             return true;
