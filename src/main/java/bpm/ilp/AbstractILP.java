@@ -3,6 +3,7 @@ package bpm.ilp;
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
 import bpm.similarity.Matrix;
+import gurobi.GRB;
 import gurobi.GRBEnv;
 import gurobi.GRBException;
 import gurobi.GRBModel;
@@ -13,6 +14,8 @@ import org.jbpt.petri.Transition;
 import java.io.File;
 import java.io.IOException;
 import java.util.Set;
+
+import static bpm.matcher.Matcher.PRINT_ENABLED;
 
 
 public abstract class AbstractILP {
@@ -45,6 +48,10 @@ public abstract class AbstractILP {
         log.getParentFile().mkdirs();
         log.createNewFile();
         env.set("logFile", log.getAbsolutePath());
+
+        // Disable logging
+        if(!PRINT_ENABLED) env.set(GRB.IntParam.OutputFlag, 0);
+
         env.start();
 
         // Create empty model

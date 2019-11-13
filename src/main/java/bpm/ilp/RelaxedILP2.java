@@ -17,6 +17,8 @@ import org.jbpt.petri.Transition;
 import java.util.Arrays;
 import java.util.Set;
 
+import static bpm.matcher.Matcher.PRINT_ENABLED;
+
 
 public class RelaxedILP2 extends AbstractILP {
     public RelaxedILP2(){
@@ -182,7 +184,7 @@ public class RelaxedILP2 extends AbstractILP {
         //print alignment
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++) {
-                System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " + x[i][j].get(GRB.DoubleAttr.X));
+                if(PRINT_ENABLED) System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " + x[i][j].get(GRB.DoubleAttr.X));
             }
         }
 
@@ -190,14 +192,14 @@ public class RelaxedILP2 extends AbstractILP {
             for (int k = 0; k< nodesNet1; k++) {
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        System.out.println(y[i][k][j][l].get(GRB.StringAttr.VarName) + " " + y[i][k][j][l].get(GRB.DoubleAttr.X));
+                        if(PRINT_ENABLED) System.out.println(y[i][k][j][l].get(GRB.StringAttr.VarName) + " " + y[i][k][j][l].get(GRB.DoubleAttr.X));
                     }
                 }
             }
         }*/
 
-        //System.out.println(sum.get(GRB.StringAttr.VarName) + " " + sum.get(GRB.DoubleAttr.X));
-        //System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));
+        //if(PRINT_ENABLED) System.out.println(sum.get(GRB.StringAttr.VarName) + " " + sum.get(GRB.DoubleAttr.X));
+        //if(PRINT_ENABLED) System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));
 
         //Results
         Alignment.Builder builder = new Alignment.Builder();
