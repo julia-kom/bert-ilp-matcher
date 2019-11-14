@@ -78,7 +78,14 @@ public class RelaxedILP3 extends AbstractILP {
             for (int k = i; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = j; l < nodesNet2; l++) {
-                        behavior.addTerm(1.0/(minSize*minSize), y[i][k][j][l]);
+                        //by reducing the number of variables, the total sum gets lower too, therefore we fix it by weighting
+                        //every correct entry which is not on the diagonal twice (because of the symmetry of the matrix)
+                        //TODO somehow the result is not yet the same as in Relaxed1
+                        if(i!=k && j!=l) {
+                            behavior.addTerm(2.0 / ((minSize * minSize - minSize) / 2 + minSize), y[i][k][j][l]);
+                        }else{
+                            behavior.addTerm(1.0 / ((minSize * minSize - minSize) / 2 + minSize), y[i][k][j][l]);
+                        }
                     }
                 }
             }

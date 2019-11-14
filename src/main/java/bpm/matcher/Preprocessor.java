@@ -67,6 +67,11 @@ public class Preprocessor {
         if(t.getLabel().matches("t_[0-9]+")){
             return true;
         }
+
+        if(t.getLabel().equals("")){
+            return true;
+        }
+
         return false;
     }
 
