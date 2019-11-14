@@ -49,10 +49,10 @@ public class AggregatedEval {
             fp += e.getFP();
 
             // avg time
-            overallTimeAvg += (e.getBenchmark().getOverallTime() > 0) ? e.getBenchmark().getOverallTime():0;
-            lpTimeAvg += (e.getBenchmark().getLpTime() > 0) ? e.getBenchmark().getLpTime():0;
-            bpTimeAvg += (e.getBenchmark().getBPTime() > 0) ? e.getBenchmark().getBPTime():0;
-            labelSimTimeAvg += (e.getBenchmark().getLabelSimialrityTime() > 0) ? e.getBenchmark().getLabelSimialrityTime():0;
+            overallTimeAvg += (e.getBenchmark().getOverallTime() > 0) ? e.getBenchmark().getOverallTime()/evals.size():0;
+            lpTimeAvg += (e.getBenchmark().getLpTime() > 0) ? e.getBenchmark().getLpTime()/evals.size():0;
+            bpTimeAvg += (e.getBenchmark().getBPTime() > 0) ? e.getBenchmark().getBPTime()/evals.size():0;
+            labelSimTimeAvg += (e.getBenchmark().getLabelSimialrityTime() > 0) ? e.getBenchmark().getLabelSimialrityTime()/evals.size():0;
         }
 
         precisionMicro = Metrics.precision(this.tp,this.fp);
