@@ -48,5 +48,4 @@ eval-results/
 ##############################
 ## Jupyter Notebook
 ##############################
-src/python
-*.ipynb
+.ipynb_checkpoints
