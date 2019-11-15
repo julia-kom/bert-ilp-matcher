@@ -9,15 +9,13 @@ import gurobi.GRBException;
 import gurobi.GRBLinExpr;
 import gurobi.GRBVar;
 import org.jbpt.bp.RelSet;
-import org.jbpt.bp.RelSetType;
-import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
 
 import java.util.Arrays;
 import java.util.Set;
 
-import static bpm.matcher.Matcher.PRINT_ENABLED;
+import static bpm.matcher.Pipeline.PRINT_ENABLED;
 
 
 public class RelaxedILP2 extends AbstractILP {

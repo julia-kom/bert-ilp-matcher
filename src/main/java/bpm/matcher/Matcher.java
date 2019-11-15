@@ -11,8 +11,6 @@ public class Matcher {
         CBP // Causal Behavioral Profile
     }
 
-    public static boolean PRINT_ENABLED = false;
-
     /**
      * Input parser for a single matching task
      *
@@ -113,7 +111,7 @@ public class Matcher {
 
         // print commands
         if (line.hasOption("sys")) {
-            PRINT_ENABLED = true;
+            Pipeline.PRINT_ENABLED = true;
         }
 
         // parse similarityWeight
@@ -123,7 +121,7 @@ public class Matcher {
                 double s = Double.parseDouble(sString);
                 builder = builder.atSimilarityWeight(s);
             } catch (NumberFormatException numExp) {
-                if(PRINT_ENABLED) System.out.println("Parsing Failed: Number Input s " + numExp.getMessage());
+                if(Pipeline.PRINT_ENABLED) System.out.println("Parsing Failed: Number Input s " + numExp.getMessage());
             }
         }
 
@@ -134,7 +132,7 @@ public class Matcher {
                 double p = Double.parseDouble(pString);
                 builder = builder.atPostprocessThreshold(p);
             } catch (NumberFormatException numExp) {
-                if(PRINT_ENABLED) System.out.println("Parsing Failed: Number Input p " + numExp.getMessage());
+                if(Pipeline.PRINT_ENABLED) System.out.println("Parsing Failed: Number Input p " + numExp.getMessage());
                 System.exit(1);
             }
         }
@@ -154,7 +152,7 @@ public class Matcher {
                 throw new FileNotFoundException("Net 2 file not found under" + n2String);
             }
         } catch (FileNotFoundException fileExp) {
-            if(PRINT_ENABLED) System.out.println("Parsing Failed: Petri Net File not found:" + fileExp.getMessage());
+            if(Pipeline.PRINT_ENABLED) System.out.println("Parsing Failed: Petri Net File not found:" + fileExp.getMessage());
             System.exit(1);
             net1 = null;
             net2 = null;
@@ -178,7 +176,7 @@ public class Matcher {
         Result r = pip.run(net1, net2);
 
         //print
-        if(PRINT_ENABLED) System.out.println(r.toString());
+        if(Pipeline.PRINT_ENABLED) System.out.println(r.toString());
     }
 
 

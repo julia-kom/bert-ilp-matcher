@@ -55,8 +55,8 @@ public class AggregatedEval {
             labelSimTimeAvg += (e.getBenchmark().getLabelSimialrityTime() > 0) ? e.getBenchmark().getLabelSimialrityTime()/evals.size():0;
         }
 
-        precisionMicro = Metrics.precision(this.tp,this.fp);
-        recallMicro = Metrics.recall(this.tp,this.fn);
+        precisionMicro = Metrics.precision(this.tp,this.fp, this.fn);
+        recallMicro = Metrics.recall(this.tp,this.fn, this.fp);
         fscoreMicro = Metrics.fscore(this.tp, this.fp, this.fn);
     }
 

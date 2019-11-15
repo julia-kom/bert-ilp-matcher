@@ -3,14 +3,9 @@ package bpm.matcher;
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
 import bpm.evaluation.ExecutionTimer;
-import bpm.ilp.AbstractILP;
-import bpm.ilp.BasicILP;
-import bpm.ilp.RelaxedILP;
-import bpm.ilp.RelaxedILP2;
+import bpm.ilp.*;
 import bpm.similarity.Matrix;
 import bpm.similarity.Word;
-
-import gurobi.GRBException;
 
 import org.jbpt.bp.RelSet;
 import org.jbpt.bp.construct.BPCreatorNet;
@@ -20,12 +15,10 @@ import org.jbpt.petri.Transition;
 import org.jbpt.petri.io.PNMLSerializer;
 import org.apache.commons.lang3.NotImplementedException;
 
-import java.io.IOException;
 import java.sql.Timestamp;
 import java.io.File;
 import java.util.Set;
 
-import static bpm.matcher.Matcher.PRINT_ENABLED;
 import static java.lang.System.exit;
 
 
@@ -33,6 +26,7 @@ import static java.lang.System.exit;
  * Matching Pipeline. Note, use builder to construct.
  */
 public class Pipeline {
+    public static boolean PRINT_ENABLED = false;
     private boolean complexMatches;
     private boolean prematch;
     private double  similarityWeight;
@@ -173,6 +167,8 @@ public class Pipeline {
                 return  new RelaxedILP();
             case RELAXED2:
                 return new RelaxedILP2();
+            case RELAXED3:
+                return new RelaxedILP3();
             default:
                 throw new NotImplementedException("ILP you searched for is not in switch");
         }
@@ -304,6 +300,9 @@ public class Pipeline {
                     break;
                 case "Relaxed2":
                     this.ilp = AbstractILP.ILP.RELAXED2;
+                    break;
+                case "Relaxed3":
+                    this.ilp = AbstractILP.ILP.RELAXED3;
                     break;
 
                     default:

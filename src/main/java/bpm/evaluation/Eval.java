@@ -159,7 +159,7 @@ public class Eval {
         String corTP;
         String corFN;
         String corFP;
-        for(int i = 0; i < Math.min(tp,Math.min(fp,fn));i++){
+        for(int i = 0; i < Math.max(tp,Math.max(fp,fn));i++){
             corFN = "";
             corFP = "";
             corTP = "";
@@ -192,8 +192,8 @@ public class Eval {
         this.fp = this.fpCorrespondeces.size();
 
         // Scores
-        this.precision = Metrics.precision(this.tp, this.fp); // 1.0 * this.tp /(this.tp + this.fp);
-        this.recall = Metrics.recall(this.tp, this.fn); //1.0 * this.tp /(this.tp + this.fn);
+        this.precision = Metrics.precision(this.tp, this.fp, this.fn); // 1.0 * this.tp /(this.tp + this.fp);
+        this.recall = Metrics.recall(this.tp, this.fn, this.fp); //1.0 * this.tp /(this.tp + this.fn);
         this.fscore = Metrics.fscore(this.tp, this.fp, this.fn); // 2.0* this.precision*this.recall/(this.precision + this.recall);
     }
 
