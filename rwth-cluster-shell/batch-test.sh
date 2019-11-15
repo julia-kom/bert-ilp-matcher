@@ -1,10 +1,11 @@
 #!/usr/local_rwth/bin/zsh
 #SBATCH -t 0-01:00:00 # wallclock time
 
+#SBATCH --partition c18m #choose the partition (https://doc.itc.rwth-aachen.de/display/CC/Hardware+of+the+RWTH+Compute+Cluster)
 #SBATCH -N 1 1 #min max nodes needed
 #SBATCH -n 1 #number of tasks to be launched
-#SBATCH --mem-per-cpu= 1GB # Memory per CPU in MB
-#SBATCH --cpu-per-task=8 # CPU per task
+#SBATCH --mem-per-cpu= 10GB # Memory per CPU in MB
+#SBATCH --cpu-per-task=1 # CPU per task
 
 #set missing links
 module load MATH
