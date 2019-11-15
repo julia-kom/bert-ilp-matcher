@@ -29,7 +29,9 @@ public abstract class AbstractILP {
     public enum ILP{
         BASIC, //Basic 1:1 behavior and label matcher
         RELAXED, // 1:1 behavioral and label matcher, converted BASIC to an LP problem, where linking between x and y is split into two constraints => similarity score but slow LP
-        RELAXED2 // 1:1 behavioral and label matcher, converted BASIC to an LP problem, just by making all variables contineous. => no similarity score but fast LP.
+        RELAXED2, // 1:1 behavioral and label matcher, converted BASIC to an LP problem, just by making all variables contineous. => no similarity score but fast LP.
+        RELAXED3// 1:1 behavioral and label matcher, converted BASIC to an LP problem, where linking between x and y is split into two constraints => similarity score but slow LP, now use of symmetry of the matrix
+
     }
 
     /**

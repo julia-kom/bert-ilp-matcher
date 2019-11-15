@@ -3,10 +3,7 @@ package bpm.matcher;
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
 import bpm.evaluation.ExecutionTimer;
-import bpm.ilp.AbstractILP;
-import bpm.ilp.BasicILP;
-import bpm.ilp.RelaxedILP;
-import bpm.ilp.RelaxedILP2;
+import bpm.ilp.*;
 import bpm.similarity.Matrix;
 import bpm.similarity.Word;
 
@@ -173,6 +170,8 @@ public class Pipeline {
                 return  new RelaxedILP();
             case RELAXED2:
                 return new RelaxedILP2();
+            case RELAXED3:
+                return new RelaxedILP3();
             default:
                 throw new NotImplementedException("ILP you searched for is not in switch");
         }
@@ -304,6 +303,9 @@ public class Pipeline {
                     break;
                 case "Relaxed2":
                     this.ilp = AbstractILP.ILP.RELAXED2;
+                    break;
+                case "Relaxed3":
+                    this.ilp = AbstractILP.ILP.RELAXED3;
                     break;
 
                     default:

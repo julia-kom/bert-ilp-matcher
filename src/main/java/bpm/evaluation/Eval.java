@@ -159,7 +159,7 @@ public class Eval {
         String corTP;
         String corFN;
         String corFP;
-        for(int i = 0; i < Math.min(tp,Math.min(fp,fn));i++){
+        for(int i = 0; i < Math.max(tp,Math.max(fp,fn));i++){
             corFN = "";
             corFP = "";
             corTP = "";

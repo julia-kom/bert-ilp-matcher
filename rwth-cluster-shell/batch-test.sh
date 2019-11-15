@@ -1,5 +1,6 @@
 #!/usr/local_rwth/bin/zsh
 #SBATCH -t 0-01:00:00 # wallclock time
+
 #SBATCH -N 1 1 #min max nodes needed
 #SBATCH -n 1 #number of tasks to be launched
 #SBATCH --mem-per-cpu= 1GB # Memory per CPU in MB
