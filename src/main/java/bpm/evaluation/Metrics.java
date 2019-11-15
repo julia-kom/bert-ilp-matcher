@@ -28,8 +28,18 @@ public class Metrics {
      * @param fn
      * @return
      */
-    public static double recall(int tp, int fn){
-        return 1.0 * tp /(tp + fn);
+    public static double recall(int tp, int fn, int fp){
+        // rare case that the goldstandard has no matching
+        // https://github.com/dice-group/gerbil/wiki/Precision,-Recall-and-F1-measure
+        if(tp == 0 && fn == 0){
+            if(fp == 0) {
+                return 1.0; // goldstandard and matching hypothesis both state that there is no matching
+            }else{
+                return 0.0; // there is no matching in the goldstandard but the matching hypothesis got one inside
+            }
+        }else {
+            return 1.0 * tp / (tp + fn); //compute recall as usual
+        }
     }
 
     /**

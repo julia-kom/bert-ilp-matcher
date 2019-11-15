@@ -193,7 +193,7 @@ public class Eval {
 
         // Scores
         this.precision = Metrics.precision(this.tp, this.fp, this.fn); // 1.0 * this.tp /(this.tp + this.fp);
-        this.recall = Metrics.recall(this.tp, this.fn); //1.0 * this.tp /(this.tp + this.fn);
+        this.recall = Metrics.recall(this.tp, this.fn, this.fp); //1.0 * this.tp /(this.tp + this.fn);
         this.fscore = Metrics.fscore(this.tp, this.fp, this.fn); // 2.0* this.precision*this.recall/(this.precision + this.recall);
     }
 

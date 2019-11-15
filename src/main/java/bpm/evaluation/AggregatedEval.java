@@ -56,7 +56,7 @@ public class AggregatedEval {
         }
 
         precisionMicro = Metrics.precision(this.tp,this.fp, this.fn);
-        recallMicro = Metrics.recall(this.tp,this.fn);
+        recallMicro = Metrics.recall(this.tp,this.fn, this.fp);
         fscoreMicro = Metrics.fscore(this.tp, this.fp, this.fn);
     }
 
