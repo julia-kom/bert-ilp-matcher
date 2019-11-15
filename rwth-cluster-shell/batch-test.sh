@@ -6,7 +6,6 @@
 #SBATCH -n 1 #number of tasks to be launched
 #SBATCH --mem-per-cpu= 10GB # Memory per CPU in MB
 #SBATCH --cpu-per-task=1 # CPU per task
-#SBATCH --exclusive # make exclusive for benchmarking purpose
 
 #set missing links
 module load MATH
