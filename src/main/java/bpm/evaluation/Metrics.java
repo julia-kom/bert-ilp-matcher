@@ -50,6 +50,10 @@ public class Metrics {
      * @return
      */
     public static double fscore(int tp, int fp, int fn){
+        // https://github.com/dice-group/gerbil/wiki/Precision,-Recall-and-F1-measure
+        if(tp == 0 && fp == 0 && fp == 0){
+            return 1.0;
+        }
         return (2.0* tp) /(2.0*tp+ fn +fp);
     }
 
