@@ -15,7 +15,7 @@ import org.jbpt.petri.Transition;
 import java.util.Arrays;
 import java.util.Set;
 
-import static bpm.matcher.Matcher.PRINT_ENABLED;
+import static bpm.matcher.Pipeline.PRINT_ENABLED;
 
 
 public class RelaxedILP3 extends AbstractILP {

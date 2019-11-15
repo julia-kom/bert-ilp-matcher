@@ -8,14 +8,13 @@ import gurobi.GRBEnv;
 import gurobi.GRBException;
 import gurobi.GRBModel;
 import org.jbpt.bp.RelSet;
-import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Transition;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Set;
 
-import static bpm.matcher.Matcher.PRINT_ENABLED;
+import static bpm.matcher.Pipeline.PRINT_ENABLED;
 
 
 public abstract class AbstractILP {

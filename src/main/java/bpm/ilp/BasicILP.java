@@ -6,15 +6,13 @@ import bpm.alignment.Result;
 import bpm.similarity.Matrix;
 import gurobi.*;
 import org.jbpt.bp.RelSet;
-import org.jbpt.bp.RelSetType;
-import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
 
 import java.util.Arrays;
 import java.util.Set;
 
-import static bpm.matcher.Matcher.PRINT_ENABLED;
+import static bpm.matcher.Pipeline.PRINT_ENABLED;
 import static java.lang.Math.abs;
 
 

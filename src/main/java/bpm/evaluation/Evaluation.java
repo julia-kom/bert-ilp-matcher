@@ -19,6 +19,7 @@ public class Evaluation {
     public static void main(String[] args) {
         Option optComplexMatches = new Option("c", "complex-matches", false, "Run Matcher which detects complex matches (n:m, 1:n)");
         Option optRetrospectiveEval = new Option("r", "retrospective", false, "Run retrospective evaluation");
+        Option optSysPrint = new Option("sys", "system-print", false, "Run code with System println commands");
         Option optNetEval= new Option("ne", "net-eval", false, "Run petri net evaluation");
         Option optSimilarityWeight = Option.builder("s")
                 .required(false)
@@ -120,6 +121,7 @@ public class Evaluation {
         options.addOption(optRetrospectiveEval);
         options.addOption(optNetEval);
         options.addOption(optNetEvalProfile);
+        options.addOption(optSysPrint);
 
         //parse input
         CommandLine line;
@@ -142,6 +144,11 @@ public class Evaluation {
         // parse complexMatches
         if (line.hasOption("c")) {
             matcherBuilder = matcherBuilder.withComplexMatches();
+        }
+
+        // parse complexMatches
+        if (line.hasOption("sys")) {
+            bpm.matcher.Pipeline.PRINT_ENABLED = true;
         }
 
         // parse prematch

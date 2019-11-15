@@ -7,8 +7,6 @@ import bpm.ilp.*;
 import bpm.similarity.Matrix;
 import bpm.similarity.Word;
 
-import gurobi.GRBException;
-
 import org.jbpt.bp.RelSet;
 import org.jbpt.bp.construct.BPCreatorNet;
 import org.jbpt.petri.NetSystem;
@@ -17,12 +15,10 @@ import org.jbpt.petri.Transition;
 import org.jbpt.petri.io.PNMLSerializer;
 import org.apache.commons.lang3.NotImplementedException;
 
-import java.io.IOException;
 import java.sql.Timestamp;
 import java.io.File;
 import java.util.Set;
 
-import static bpm.matcher.Matcher.PRINT_ENABLED;
 import static java.lang.System.exit;
 
 
@@ -30,6 +26,7 @@ import static java.lang.System.exit;
  * Matching Pipeline. Note, use builder to construct.
  */
 public class Pipeline {
+    public static boolean PRINT_ENABLED = false;
     private boolean complexMatches;
     private boolean prematch;
     private double  similarityWeight;
