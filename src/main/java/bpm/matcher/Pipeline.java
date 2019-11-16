@@ -181,11 +181,12 @@ public class Pipeline {
      * @param net
      */
     private void checkPetriNetProperties(NetSystem net){
+        // TODO soundness
         if (!PetriNet.STRUCTURAL_CHECKS.isWorkflowNet(net)){
-            throw new IllegalArgumentException("net is not WF-net:" + net.getName());
+            throw new IllegalArgumentException("net is not WF-net:" + net.toString());
         }
         if(!PetriNet.STRUCTURAL_CHECKS.isExtendedFreeChoice(net)){
-            throw new IllegalArgumentException("net is not free choice:" + net.getName());
+            throw new IllegalArgumentException("net is not free choice:" + net.toString());
         }
 
         //TODO soundness incl 1 bounded.
