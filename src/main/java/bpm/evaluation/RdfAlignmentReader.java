@@ -44,7 +44,8 @@ public class RdfAlignmentReader implements Reader{
             Node n2 = new Node();
             String uri2 = c.getObject2().toString();
             n2.setId(uri2.substring(uri2.indexOf('#')+1, uri2.length()));
-            builder.add(n1,n2);
+            //builder.add(n1,n2);
+            builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(n1).addNodeFromNet2(n2).build());
         }
         return builder.build(file.getName());
     }
