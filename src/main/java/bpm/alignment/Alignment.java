@@ -93,6 +93,30 @@ public class Alignment {
     }
 
     /**
+     * Get all nodes of net1 involved in the alignment
+     * @return
+     */
+    public Set<Node> getAlignedNodesNet1(){
+        HashSet<Node> res = new HashSet<>();
+        for(Correspondence c : correspondences){
+            res.addAll(c.getNet1Nodes());
+        }
+        return res;
+    }
+
+    /**
+     * Get all nodes of net2 involved in the alignment
+     * @return
+     */
+    public Set<Node> getAlignedNodesNet2(){
+        HashSet<Node> res = new HashSet<>();
+        for(Correspondence c : correspondences){
+            res.addAll(c.getNet2Nodes());
+        }
+        return res;
+    }
+
+    /**
      * Get all correspondences
      * @return
      */
@@ -109,6 +133,37 @@ public class Alignment {
             s += c.toString();
         }
         return s;
+    }
+
+    /**
+     * Equal if both alignments contain the same mapped nodes.
+     * It doesnt matter if complex correspondences are realized via several simple
+     * correspondeces or via one correspondence
+     * @param o
+     * @return
+     */
+    @Override
+    public boolean equals(Object o){
+        if(!(o instanceof Alignment)){
+            return false;
+        }
+        Alignment a2 = (Alignment) o;
+        for (Node n1 : this.getAlignedNodesNet1()){
+            for(Node n2 : this.getAlignedNodesNet2()){
+                if(this.isMapped(n1,n2) && !a2.isMapped(n1,n2) || !this.isMapped(n1,n2) && a2.isMapped(n1,n2)){
+                    return false;
+                }
+            }
+        }
+
+        for (Node n1 : a2.getAlignedNodesNet1()){
+            for(Node n2 : a2.getAlignedNodesNet2()){
+                if(this.isMapped(n1,n2) && !a2.isMapped(n1,n2) || !this.isMapped(n1,n2) && a2.isMapped(n1,n2)){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 

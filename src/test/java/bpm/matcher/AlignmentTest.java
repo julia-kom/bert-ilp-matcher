@@ -240,4 +240,21 @@ public class AlignmentTest {
         Assert.assertTrue(c.equals(c));
         Assert.assertTrue(a.getCorrespondences().contains(c));
     }
+
+    @Test
+    public void equalityTest(){
+        Node p1n1 = new Node("n1");
+        p1n1.setId("p1n1");
+        Node p1n2 = new Node("n2");
+        p1n2.setId("p1n2");
+        Node p2n1 = new Node("n1");
+        p2n1.setId("p2n1");
+
+        Correspondence c = new Correspondence.Builder().addNodeFromNet1(p1n1).addNodeFromNet1(p1n2).addNodeFromNet2(p2n1).build();
+
+        Alignment a = new Alignment.Builder().addCorrespondence(c).build("test");
+        Alignment b = new Alignment.Builder().add(p1n1,p2n1).add(p1n2,p2n1).build("test");
+        Assert.assertTrue(a.equals(b));
+        Assert.assertTrue(b.equals(a));
+    }
 }
