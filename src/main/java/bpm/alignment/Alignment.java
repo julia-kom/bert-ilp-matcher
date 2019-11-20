@@ -35,6 +35,16 @@ public class Alignment {
         return true;
     }
 
+    public Alignment filter(double minLikelihood){
+        Alignment.Builder builder = new Alignment.Builder();
+        for(Correspondence c : correspondences){
+            if(c.getLikelihood() >= minLikelihood){
+                builder.addCorrespondence(c);
+            }
+        }
+        return builder.build(this.name);
+    }
+
     /**
      * Checks if two nodes are in correspondence relation
      * @param n1

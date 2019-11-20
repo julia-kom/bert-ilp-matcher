@@ -8,11 +8,11 @@ word=$2
 #start all birth jobs
 for stepsize in "${@:3}";
 do
-  sbatch batch-birth-test.sh --export=1=$stepsize,2=$ilp,3=$word
+  sbatch batch-birth-test.sh $stepsize $ilp $word
 done
 
 #start all uni jobs
 for stepsize in "${@:3}";
 do
-  sbatch batch-uni-test.sh --export=1=$stepsize,2=$ilp,3=$word
+  sbatch batch-uni-test.sh $stepsize $ilp $word
 done

@@ -12,6 +12,7 @@ import java.util.Set;
 public class Correspondence {
     private HashSet<Node> nodesNet1;
     private HashSet<Node> nodesNet2;
+    private double likelihood;
 
     /**
      * Use the Builder
@@ -61,6 +62,10 @@ public class Correspondence {
      */
     public void addNet2Node(Node n2) {
         nodesNet2.add(n2);
+    }
+
+    public double getLikelihood(){
+        return likelihood;
     }
 
     @Override
@@ -115,10 +120,16 @@ public class Correspondence {
     public static class Builder{
         private HashSet<Node> nodesNet1;
         private HashSet<Node> nodesNet2;
+        private double likelihood = 1.0;
 
         public Builder(){
             nodesNet1 = new HashSet<>();
             nodesNet2 = new HashSet<>();
+        }
+
+        public Builder  withLikelihood(double likelihood){
+            this.likelihood = likelihood;
+            return this;
         }
 
         /**
@@ -153,6 +164,7 @@ public class Correspondence {
             Correspondence c = new Correspondence();
             c.nodesNet1 = this.nodesNet1;
             c.nodesNet2 = this.nodesNet2;
+            c.likelihood = this.likelihood;
             return c;
         }
     }

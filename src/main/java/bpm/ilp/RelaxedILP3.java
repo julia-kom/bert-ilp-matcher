@@ -222,12 +222,9 @@ public class RelaxedILP3 extends AbstractILP {
         Alignment.Builder builder = new Alignment.Builder();
         for (int i = 0; i< nodesNet1; i++) {
             for (int j = 0; j < nodesNet2; j++) {
-                if( Math.abs(x[i][j].get(GRB.DoubleAttr.X)) > 0.7){
-                    //TODO test what works better!
-                    //builder.add(nodeNet1[i],nodeNet2[j]);
-                    builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(nodeNet1[i]).addNodeFromNet2(nodeNet2[j]).build());
-
-                }
+                //TODO test what works better!
+                //builder.add(nodeNet1[i],nodeNet2[j]);
+                builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(nodeNet1[i]).addNodeFromNet2(nodeNet2[j]).withLikelihood(x[i][j].get(GRB.DoubleAttr.X)).build());
             }
         }
         Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name));

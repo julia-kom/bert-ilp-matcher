@@ -168,10 +168,11 @@ public class Evaluation {
         }
 
         // parse postprocessThreshold
-        if (line.hasOption("p")) {
+        if (line.hasOption("pp")) {
             String pString = line.getOptionValue("pp");
             try {
                 double p = Double.parseDouble(pString);
+                evalBuilder = evalBuilder.atThreshold(p);
                 matcherBuilder = matcherBuilder.atPostprocessThreshold(p);
             } catch (NumberFormatException numExp) {
                 System.out.println("Parsing Failed: Number Input p " + numExp.getMessage());

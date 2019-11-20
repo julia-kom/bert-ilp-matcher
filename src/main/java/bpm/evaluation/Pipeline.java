@@ -36,6 +36,7 @@ public class Pipeline{
     private Path goldStandardPath;
     private Eval.Strategies evalStrat;
     private String logFolder = "";
+    private double postprocessingThreshold;
 
     public void run(){
 
@@ -145,7 +146,9 @@ public class Pipeline{
         }
         RdfAlignmentReader reader = new RdfAlignmentReader();
         Alignment goldstandard = reader.readAlignmentFrom(gs);
-        Eval eval = evaluate(result.getAlignment(),goldstandard);
+        Alignment matcherResult = result.getAlignment();
+        matcherResult = matcherResult.filter(postprocessingThreshold);
+        Eval eval = evaluate(matcherResult,goldstandard);
         eval.setBenchmark(timer);
         System.out.println(eval);
 
@@ -222,6 +225,7 @@ public class Pipeline{
                     try{
                         RdfAlignmentReader reader = new RdfAlignmentReader();
                         Alignment result = reader.readAlignmentFrom(f1);
+                        result = result.filter(postprocessingThreshold);
                         Alignment goldstandard = reader.readAlignmentFrom(f2);
                         evals.add(this.evaluate(result,goldstandard));
                     }catch(Exception e){
@@ -260,7 +264,9 @@ public class Pipeline{
     public String toString(){
         String res = "Batch: "+ Boolean.toString(this.batch) + "\n" +
                 "Retrospective: "+ Boolean.toString(this.retrospective) + "\n" +
-                "Eval Strategy:" + this.evalStrat.toString() + "\n";
+                "Eval Strategy:" + this.evalStrat.toString() + "\n" +
+                "Postprocessing Threshold: " + this.postprocessingThreshold+ "\n";
+
 
                 if(this.batch){
                     res +=  "Batch Path: " + this.batchPath.toString() + "\n" +
@@ -302,6 +308,7 @@ public class Pipeline{
         private File goldStandard;
         private Path goldStandardPath;
         private Eval.Strategies evalStrat = Eval.Strategies.BINARY;
+        private double postprecessingThreshold = 0;
 
         public Builder(){
             super();
@@ -420,7 +427,15 @@ public class Pipeline{
             return this;
         }
 
-
+        /**
+         * Set post processing threshold for the pipeline
+         * @param p
+         * @return
+         */
+        public Builder atThreshold(double p) {
+            this.postprecessingThreshold = p;
+            return this;
+        }
 
         /**
          * Build the Pipeline
@@ -445,6 +460,7 @@ public class Pipeline{
             pip.evalStrat = this.evalStrat;
             pip.netEval = this.netEval;
             pip.netProfile = this.netProfile;
+            pip.postprocessingThreshold = this.postprecessingThreshold;
 
             //tests
             if(pip.batch && pip.batchPath == null){
