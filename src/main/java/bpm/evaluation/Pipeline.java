@@ -4,6 +4,8 @@ import bpm.alignment.Alignment;
 import bpm.alignment.Result;
 import bpm.matcher.Matcher;
 import org.jbpt.petri.NetSystem;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -282,6 +284,33 @@ public class Pipeline{
                             "Gold Standard:" + this.goldStandard.toString() + "\n";
                 }
         return res;
+    }
+
+    public JSONObject toJSON() throws JSONException {
+        //Create Evaluation object
+        JSONObject jsonEval = new JSONObject();
+        jsonEval.put("batch",Boolean.toString(this.batch));
+        jsonEval.put("retrospective", Boolean.toString(this.retrospective));
+        jsonEval.put("eval-strat",this.evalStrat.toString());
+        if(this.batch){
+            jsonEval.put("batch-path", this.batchPath.toString());
+            jsonEval.put("gs-path", this.goldStandardPath.toString());
+        }else if(retrospective) {
+            jsonEval.put("gs-path", this.goldStandardPath.toString());
+            jsonEval.put("result-path", this.resultPath.toString());
+        }else if(netEval) {
+            jsonEval.put("reltional-profile", this.resultPath.toString());
+        }else{
+            jsonEval.put("net-1", this.net1.toString());
+            jsonEval.put("net-2", this.net2.toString());
+            jsonEval.put("gs", this.goldStandard.toString());
+        }
+
+        // Merge Evaluation and Matcher object to one JSON object
+        JSONObject json = new JSONObject();
+        json.put("matcher", this.matchingPipeline.toJSON());
+        json.put("evalaution",jsonEval);
+        return json;
     }
 
     public Path getLogPath(){

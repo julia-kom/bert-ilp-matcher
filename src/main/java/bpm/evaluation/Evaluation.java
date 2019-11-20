@@ -272,14 +272,12 @@ public class Evaluation {
 
         //Write Config to File
         try {
-            String config = "#####Evaluation Framework##### " + "\n" + evalPip.toString() +
-                    "#####Matcher Framework#####" + "\n" + matchingPip.toString();
             File f = new File(evalPip.getLogPath() + "/config.log");
             BufferedWriter writer = new BufferedWriter(new FileWriter(f));
-            writer.write(config);
+            writer.write(evalPip.toJSON().toString());
 
             writer.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Unable to write Evaluation/Matcher Config file: " + e.getMessage());
         }
 

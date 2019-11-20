@@ -14,6 +14,8 @@ import org.jbpt.petri.PetriNet;
 import org.jbpt.petri.Transition;
 import org.jbpt.petri.io.PNMLSerializer;
 import org.apache.commons.lang3.NotImplementedException;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.sql.Timestamp;
 import java.io.File;
@@ -205,10 +207,25 @@ public class Pipeline {
         return res;
     }
 
-
     /**
-     * Builder for class Pipeline
+     * Return JSON Object of the Pipeline
+     * @return
      */
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put("ilp", this.ilp.toString());
+        json.put("profile", this.profile.toString());
+        json.put("word-sim", this.wordSimilarity.toString());
+        json.put("complex matches", Boolean.toString(this.complexMatches));
+        json.put("prematch", Boolean.toString(this.prematch));
+        json.put("sim-weight", this.similarityWeight);
+        json.put("postprocessing-thresh", this.postprocessThreshold);
+        return json;
+    }
+
+        /**
+         * Builder for class Pipeline
+         */
     public static class Builder{
         protected boolean complexMatches = false;
         protected double  similarityWeight = 0.3;
