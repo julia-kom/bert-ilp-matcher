@@ -236,7 +236,7 @@ public class Pipeline{
             if(Boolean.valueOf(matcher.get("prematch").toString())){
                 builder.withComplexMatches();
             }
-            matchingPipeline = builder.Build();
+            this.matchingPipeline = builder.Build();
         }catch(Exception e){
             System.out.println("Reading Config file was not possible: \n" + e.toString());
         }

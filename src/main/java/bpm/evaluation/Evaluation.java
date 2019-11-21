@@ -258,6 +258,10 @@ public class Evaluation {
         evalBuilder.withMatcher(matchingPip);
         Pipeline evalPip = evalBuilder.build();
 
+
+        //run
+        evalPip.run();
+
         //Write Config to File
         try {
             File f = new File(evalPip.getLogPath() + "/config.log");
@@ -268,9 +272,6 @@ public class Evaluation {
         } catch (Exception e) {
             System.out.println("Unable to write Evaluation/Matcher Config file: " + e.getMessage());
         }
-
-        //run
-        evalPip.run();
     }
 
 }
