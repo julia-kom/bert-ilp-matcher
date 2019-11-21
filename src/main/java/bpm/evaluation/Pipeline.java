@@ -3,14 +3,13 @@ package bpm.evaluation;
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
 import bpm.matcher.Matcher;
+import org.json.simple.parser.JSONParser;
 import org.jbpt.petri.NetSystem;
 import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FilenameFilter;
-import java.io.IOException;
+
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
@@ -216,6 +215,30 @@ public class Pipeline{
 
         if(resultFiles.length == 0){
             throw new Error("Gold Standard Path is empty");
+        }
+
+        //read config file and set matcher parameters if possible
+        try{
+            File config = new File(resultPath +"/config.log");
+            FileReader reader = new FileReader(config);
+            JSONParser parser = new JSONParser();
+            JSONObject json = (JSONObject) parser.parse(reader);
+            JSONObject matcher = (JSONObject) json.get("matcher");
+            bpm.matcher.Pipeline.Builder builder = new bpm.matcher.Pipeline.Builder()
+                    .atPostprocessThreshold(Double.valueOf(matcher.get("postprocessing-thresh").toString()))
+                    .atSimilarityWeight(Double.valueOf(matcher.get("sim-weight").toString()))
+                    .withWordSimilarity(matcher.get("word-sim").toString())
+                    .withILP(matcher.get("ilp").toString());
+                    //TODO add with profile
+            if(Boolean.valueOf(matcher.get("complex matches").toString())){
+                builder.withComplexMatches();
+            }
+            if(Boolean.valueOf(matcher.get("prematch").toString())){
+                builder.withComplexMatches();
+            }
+            matchingPipeline = builder.Build();
+        }catch(Exception e){
+            System.out.println("Reading Config file was not possible: \n" + e.toString());
         }
 
 

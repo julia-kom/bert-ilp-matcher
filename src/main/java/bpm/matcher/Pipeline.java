@@ -15,7 +15,8 @@ import org.jbpt.petri.Transition;
 import org.jbpt.petri.io.PNMLSerializer;
 import org.apache.commons.lang3.NotImplementedException;
 import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
+
 
 import java.sql.Timestamp;
 import java.io.File;
@@ -283,23 +284,7 @@ public class Pipeline {
          * @return Builder
          */
         public Pipeline.Builder withWordSimilarity(String wordSim){
-            switch (wordSim){
-                case "Lin":
-                    this.wordSimilarity = Word.Similarities.LIN;
-                    break;
-                case "Levenshtein":
-                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN;
-                    break;
-                case "Jiang":
-                    this.wordSimilarity = Word.Similarities.JIANG;
-                case "Levenshtein-Lin-Max":
-                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
-                    break;
-                case "Levenshtein-Jiang-Max":
-                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN_JIANG_MAX;
-                    default:
-                        throw new IllegalArgumentException("Word Similarity Parameter not supported: " + wordSim);
-            }
+            this.wordSimilarity = Word.Similarities.valueOf(wordSim);
             return this;
         }
 
@@ -308,23 +293,7 @@ public class Pipeline {
          * @return
          */
         public Pipeline.Builder withILP(String sIlp){
-            switch(sIlp) {
-                case "Basic":
-                    this.ilp = AbstractILP.ILP.BASIC;
-                    break;
-                case "Relaxed":
-                    this.ilp = AbstractILP.ILP.RELAXED;
-                    break;
-                case "Relaxed2":
-                    this.ilp = AbstractILP.ILP.RELAXED2;
-                    break;
-                case "Relaxed3":
-                    this.ilp = AbstractILP.ILP.RELAXED3;
-                    break;
-
-                    default:
-                        throw new IllegalArgumentException("ilp argument is not valid: " +sIlp);
-            }
+            this.ilp = AbstractILP.ILP.valueOf(sIlp);
             return this;
         }
 
