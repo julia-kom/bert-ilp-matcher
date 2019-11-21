@@ -214,7 +214,7 @@ public class Pipeline{
         }
 
         if(resultFiles.length == 0){
-            throw new Error("Gold Standard Path is empty");
+            throw new Error("Result Path is empty");
         }
 
         //read config file and set matcher parameters if possible
@@ -549,9 +549,10 @@ public class Pipeline{
             }else{
                 pip.logFolder ="single-"+net1.getName()+"-"+net2.getName()+"-"+evalStrat.toString()+"-"+timestamp;
             }
-            //replace blanks in path name
+            //replace blanks : . in path name
             pip.logFolder = pip.logFolder.replace(" ", "-");
-
+            pip.logFolder = pip.logFolder.replace(":", "-");
+            pip.logFolder = pip.logFolder.replace(".", "-");
             File f = new File("eval-results/"+pip.logFolder);
             f.mkdirs();
 

@@ -1,11 +1,17 @@
 package bpm.evaluation;
 
 import bpm.alignment.Alignment;
+import bpm.ilp.RelaxedILP3;
+import bpm.matcher.Matcher;
 import org.jbpt.petri.Node;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -121,6 +127,39 @@ public class EvalTest {
         Assert.assertTrue(abs(aggEval.getRecallMacro() - (11.0/12)) < 0.0001);
         Assert.assertTrue(abs(aggEval.getPrecisionMicro() - (10.0/11)) < 0.0001);
         Assert.assertTrue(abs(aggEval.getRecallMicro() - (10.0/11)) < 0.0001);
+    }
+
+    @Test
+    public void retrospectiveTest() throws IOException {
+        File goldstandard = new File(getClass().getClassLoader().getResource("./goldstandard/birth").getFile());
+        File result = new File(getClass().getClassLoader().getResource("./eval-results/test1").getFile());
+        //run retrospecitve test
+        Pipeline pip = new Pipeline.Builder().withGoldStandard(goldstandard.toPath()).atThreshold(0.7).withResultPath(result.toPath()).withRetrospective().build();
+        pip.run();
+        Path logPath = pip.getLogPath();
+        File f =  new File(logPath+"/aggRetrospectiveResults.eval");
+        BufferedReader reader = new BufferedReader(new FileReader(f));
+        int lines = 0;
+        while (reader.readLine() != null) lines++;
+        reader.close();
+        Assert.assertTrue(lines == 4);
+    }
+
+    @Test
+    public void batchEvaluationTest() throws IOException {
+        File goldstandard = new File(getClass().getClassLoader().getResource("./goldstandard/birth").getFile());
+        File batch = new File(getClass().getClassLoader().getResource("./pnml/birth").getFile());
+        //run retrospecitve test
+        bpm.matcher.Pipeline matcher = new bpm.matcher.Pipeline.Builder().withILP("RELAXED3").Build();
+        Pipeline pip = new Pipeline.Builder().withGoldStandard(goldstandard.toPath()).atThreshold(0.7).withBatchPath(batch.toPath()).withBatch().withMatcher(matcher).atThreshold(0.7).build();
+        pip.run();
+        Path logPath = pip.getLogPath();
+        File f =  new File(logPath+"/aggResults.eval");
+        BufferedReader reader = new BufferedReader(new FileReader(f));
+        int lines = 0;
+        while (reader.readLine() != null) lines++;
+        reader.close();
+        Assert.assertTrue(lines == 4);
     }
 
 }
