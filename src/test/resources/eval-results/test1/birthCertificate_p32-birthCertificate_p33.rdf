@@ -1,0 +1,1461 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <onto1>
+    <Ontology rdf:about="null">
+      <location>null</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="null">
+      <location>null</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t1'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.23800937612693818</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t13'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t27'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t9'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t25'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t2'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.38759466282005073</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t28'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t11'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t18'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t14'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t3'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t29'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679804</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t4'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.32160115398485395</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t31'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t41'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t10'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t25'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t31'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t9'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.32160115398485395</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t13'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t15'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t29'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.32160115398485395</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t33'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t27'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t10'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t30'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t3'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.30840245221781465</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t28'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t21'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t58'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t35'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t30'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t18'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t14'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t28'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t10'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t15'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t29'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t25'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t27'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.2336098088712585</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t3'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.660800576992427</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t13'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t21'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.048395239812477425</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t33'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t31'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t35'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t54'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t9'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t40'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t29'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t40'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t27'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t40'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t4'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t40'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t11'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t40'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t14'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9516047601875224</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t40'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t10'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t40'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t18'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679804</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t40'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t9'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t40'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t3'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t40'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t1'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t40'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t13'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t40'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t2'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t9'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t1'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t13'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t29'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t27'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t10'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t14'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.01759826902271916</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t18'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t3'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t11'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t2'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.32160115398485395</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t25'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t4'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t38'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t28'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6124053371799489</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t57'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t17'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t53'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t21'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t53'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t25'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t53'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t28'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t53'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t33'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t53'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t27'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t53'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t35'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t53'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t9'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t53'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t18'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9560043274432023</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t53'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t31'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t53'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t29'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t53'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t30'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t15'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t29'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t9'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t31'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.4472051929318427</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t10'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t27'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t33'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t12'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t13'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t14'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t3'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t2'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t30'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t43'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t28'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t52'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t27'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t52'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t29'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t52'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t25'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t52'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t31'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t52'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t35'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t52'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t10'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t52'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t30'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t52'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t21'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9384060584204832</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t52'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t18'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.017598269022718993</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t52'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t28'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t52'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t9'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t52'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t33'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t33'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679804</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t27'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t13'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t1'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7443923548503427</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t18'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t3'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t31'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t25'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t29'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t11'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t9'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t14'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t4'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t2'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1984132708258202</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t46'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t28'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t42'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t1'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t42'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t11'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9736025964659213</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t42'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t2'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t42'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t4'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t42'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t28'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679804</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t42'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t9'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t42'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t13'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t29'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t28'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t35'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t15'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t14'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t10'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t31'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.4472051929318427</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t9'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t33'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t2'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t13'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t27'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t12'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.49560043274432025</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t3'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t59'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t30'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t35'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t31'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t29'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t30'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t15'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9340064911648008</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t3'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t11'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t27'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t33'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t13'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t28'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t9'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255681883</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t14'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t10'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t2'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t49'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t12'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t9'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1984132708258202</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t31'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07479264334655619</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t1'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t13'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t27'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t29'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t30'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t18'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t28'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t10'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t14'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t33'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t21'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t11'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t25'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t2'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t35'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004399567255679775</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://birthCertificate_p32#t51'/>
+      <entity2 rdf:resource='http://birthCertificate_p33#t4'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.660800576992427</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>
