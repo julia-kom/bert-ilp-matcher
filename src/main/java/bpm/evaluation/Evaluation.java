@@ -249,20 +249,9 @@ public class Evaluation {
         }
 
         if (line.hasOption("e")) {
-            switch (line.getOptionValue("e")) {
-                case "Binary":
-                    evalBuilder.withEvalStrat(Eval.Strategies.BINARY);
-                    break;
-                case "StrictBinary":
-                    evalBuilder.withEvalStrat(Eval.Strategies.STRICT_BINARY);
-                    break;
-                case "Probabilistically":
-                    evalBuilder.withEvalStrat(Eval.Strategies.PROBABILISTICALLY);
-                default:
-                    throw new IllegalArgumentException("Eval Strategy does not exist: " + line.getOptionValue("e"));
-            }
+            Eval.Strategies strat = Eval.Strategies.valueOf(line.getOptionValue("e"));
+            evalBuilder.withEvalStrat(strat);
         }
-
 
         //build
         bpm.matcher.Pipeline matchingPip = matcherBuilder.Build();

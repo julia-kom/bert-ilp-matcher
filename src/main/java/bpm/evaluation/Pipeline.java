@@ -135,7 +135,7 @@ public class Pipeline{
         String model2 = result.getAlignment().getName().substring(result.getAlignment().getName().indexOf('-')+1,result.getAlignment().getName().length()-5);
 
         //Write to file
-        File rdfFile = new File("eval-results/" + logFolder + "/"+result.getAlignment().getName()+".rdf");
+        File rdfFile = new File("eval-results/" + logFolder + "/"+model1 +"-"+model2+".rdf");
         rdfFile.getParentFile().mkdirs();
         rdfFile.createNewFile();
         rdfParser.writeAlignmentTo(rdfFile,result.getAlignment(), model1, model2);
@@ -549,6 +549,9 @@ public class Pipeline{
             }else{
                 pip.logFolder ="single-"+net1.getName()+"-"+net2.getName()+"-"+evalStrat.toString()+"-"+timestamp;
             }
+            //replace blanks in path name
+            pip.logFolder = pip.logFolder.replace(" ", "-");
+
             File f = new File("eval-results/"+pip.logFolder);
             f.mkdirs();
 

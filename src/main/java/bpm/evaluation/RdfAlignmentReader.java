@@ -45,7 +45,7 @@ public class RdfAlignmentReader implements Reader{
             String uri2 = c.getObject2().toString();
             n2.setId(uri2.substring(uri2.indexOf('#')+1, uri2.length()));
             //builder.add(n1,n2);
-            builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(n1).addNodeFromNet2(n2).build());
+            builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(n1).addNodeFromNet2(n2).withLikelihood(c.getStrength()).build());
         }
         return builder.build(file.getName());
     }
@@ -69,7 +69,7 @@ public class RdfAlignmentReader implements Reader{
         for(Correspondence c : alignment.getCorrespondences()){
             for(Node n1 : c.getNet1Nodes()){
                 for(Node n2 : c.getNet2Nodes()){
-                    ali.addAlignCell(n1.getId(),n2.getId(),"=", 1.0);
+                    ali.addAlignCell(n1.getId(),n2.getId(),"=", c.getLikelihood());
                 }
             }
         }
