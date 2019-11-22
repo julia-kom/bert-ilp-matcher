@@ -315,6 +315,7 @@ public class Pipeline{
         jsonEval.put("batch",Boolean.toString(this.batch));
         jsonEval.put("retrospective", Boolean.toString(this.retrospective));
         jsonEval.put("eval-strat",this.evalStrat.toString());
+        jsonEval.put("postprocessing-thresh", this.postprocessingThreshold);
         if(this.batch){
             jsonEval.put("batch-path", this.batchPath.toString());
             jsonEval.put("gs-path", this.goldStandardPath.toString());
