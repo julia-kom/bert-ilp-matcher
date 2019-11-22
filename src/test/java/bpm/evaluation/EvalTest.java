@@ -4,6 +4,10 @@ import bpm.alignment.Alignment;
 import bpm.ilp.RelaxedILP3;
 import bpm.matcher.Matcher;
 import org.jbpt.petri.Node;
+import org.json.JSONException;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -130,7 +134,7 @@ public class EvalTest {
     }
 
     @Test
-    public void retrospectiveTest() throws IOException {
+    public void retrospectiveTest() throws IOException, JSONException, ParseException {
         File goldstandard = new File(getClass().getClassLoader().getResource("./goldstandard/birth").getFile());
         File result = new File(getClass().getClassLoader().getResource("./eval-results/test1").getFile());
         //run retrospecitve test
@@ -142,7 +146,24 @@ public class EvalTest {
         int lines = 0;
         while (reader.readLine() != null) lines++;
         reader.close();
+
+        //test if aggResults are computed
         Assert.assertTrue(lines == 4);
+
+        // get json file of the unfiltered evaluation run
+        File config = new File(result +"/config.log");
+        FileReader reader2 = new FileReader(config);
+        JSONParser parser = new JSONParser();
+        JSONObject json = (JSONObject) parser.parse(reader2);
+        JSONObject matcher1 = (JSONObject) json.get("matcher");
+
+        // get the json file after the evaluation run
+        JSONObject matcher2 = (JSONObject) pip.toJSON().get("matcher");
+
+        //check if the matcher parts are equal
+        System.out.println(matcher1.toString());
+        System.out.println(matcher2.toString());
+        Assert.assertTrue(matcher1.equals(matcher2));
     }
 
     @Test

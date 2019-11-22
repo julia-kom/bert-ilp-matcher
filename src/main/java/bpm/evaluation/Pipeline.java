@@ -234,7 +234,7 @@ public class Pipeline{
                 builder.withComplexMatches();
             }
             if(Boolean.valueOf(matcher.get("prematch").toString())){
-                builder.withComplexMatches();
+                builder.withPreMatching();
             }
             this.matchingPipeline = builder.Build();
         }catch(Exception e){
@@ -322,7 +322,7 @@ public class Pipeline{
             jsonEval.put("gs-path", this.goldStandardPath.toString());
             jsonEval.put("result-path", this.resultPath.toString());
         }else if(netEval) {
-            jsonEval.put("reltional-profile", this.resultPath.toString());
+            jsonEval.put("relational-profile", this.resultPath.toString());
         }else{
             jsonEval.put("net-1", this.net1.toString());
             jsonEval.put("net-2", this.net2.toString());
@@ -332,7 +332,7 @@ public class Pipeline{
         // Merge Evaluation and Matcher object to one JSON object
         JSONObject json = new JSONObject();
         json.put("matcher", this.matchingPipeline.toJSON());
-        json.put("evalaution",jsonEval);
+        json.put("evaluation",jsonEval);
         return json;
     }
 
