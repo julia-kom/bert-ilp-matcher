@@ -80,7 +80,7 @@ public class Correspondence {
             s+= n2.getLabel() +"("+n2.getId()+");";
         }
         s = s.substring(0,s.length()-1);
-        s+="] \n";
+        s+="] "+ this.getLikelihood() +"\n";
         return s;
     }
 

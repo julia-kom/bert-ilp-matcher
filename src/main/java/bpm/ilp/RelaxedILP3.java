@@ -199,13 +199,13 @@ public class RelaxedILP3 extends AbstractILP {
         model.optimize();
 
         //print alignment
-        /*for (int i = 0; i< nodesNet1; i++){
+        for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++) {
                 if(PRINT_ENABLED) System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " + x[i][j].get(GRB.DoubleAttr.X));
             }
-        }*/
+        }
 
-        for (int i = 0; i< nodesNet1; i++){
+        /*for (int i = 0; i< nodesNet1; i++){
             for (int k = i; k< nodesNet1; k++) {
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = j; l < nodesNet2; l++) {
@@ -213,7 +213,7 @@ public class RelaxedILP3 extends AbstractILP {
                     }
                 }
             }
-        }
+        }*/
 
         //if(PRINT_ENABLED) System.out.println(sum.get(GRB.StringAttr.VarName) + " " + sum.get(GRB.DoubleAttr.X));
         //if(PRINT_ENABLED) System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));

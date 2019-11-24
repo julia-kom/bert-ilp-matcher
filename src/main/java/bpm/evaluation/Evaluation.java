@@ -55,11 +55,11 @@ public class Evaluation {
                 .hasArg(true)
                 .longOpt("word-sim")
                 .desc("Choose a used word similarity function, used inside the Bag-of-Words Label Similarity: \n " +
-                        "Lin: Lin Similarity \n" +
-                        "Levenshtein: Levenshtein Similarity \n" +
-                        "Jiang: Jiang Similarity \n" +
-                        "Levenshtein-Lin-Max: Maximum of Levenshtein and Lin Similarity \n" +
-                        "Levenshtein-Jiang-Max: Maximum of Levenshtein and Jiang Similarity")
+                        "LIN: Lin Similarity \n" +
+                        "LEVENSHTEIN: Levenshtein Similarity \n" +
+                        "JIANG: Jiang Similarity \n" +
+                        "LEVENSHTEIN-LIN-MAX: Maximum of Levenshtein and Lin Similarity \n" +
+                        "LEVENSHTEIN-JIANG-MAX: Maximum of Levenshtein and Jiang Similarity")
                 .build();
         Option optGoldStandard = Option.builder("gs")
                 .hasArg(true)
@@ -220,6 +220,12 @@ public class Evaluation {
         if (line.hasOption("nep")) {
             String n2String = line.getOptionValue("nep");
             evalBuilder = evalBuilder.withNetEvalProfile(n2String);
+        }
+
+        // word similarity
+        if (line.hasOption("w")) {
+            String n2String = line.getOptionValue("w");
+            matcherBuilder = matcherBuilder.withWordSimilarity(n2String);
         }
 
         // path that contains all nets to compare

@@ -125,6 +125,12 @@ public class Matcher {
             }
         }
 
+        // word similarity
+        if (line.hasOption("w")) {
+            String n2String = line.getOptionValue("w");
+            builder = builder.withWordSimilarity(n2String);
+        }
+
         // parse postprocessThreshold
         if (line.hasOption("pp")) {
             String pString = line.getOptionValue("pp");
@@ -168,6 +174,8 @@ public class Matcher {
                 throw new IllegalArgumentException("ilp argument null");
             }
         }
+
+
 
         //Build pipeline
         Pipeline pip = builder.Build();
