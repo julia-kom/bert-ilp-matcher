@@ -81,10 +81,10 @@ public class RelaxedILP3 extends AbstractILP {
                         //by reducing the number of variables, the total sum gets lower too, therefore we fix it by weighting
                         //every correct entry which is not on the diagonal twice (because of the symmetry of the matrix)
                         //TODO somehow the result is not yet the same as in Relaxed1
-                        if(i!=k && j!=l) {
-                            behavior.addTerm(2.0 / ((minSize * minSize - minSize) / 2 + minSize), y[i][k][j][l]);
+                        if(i!=k || j!=l) {
+                            behavior.addTerm(2.0 / (minSize * minSize ), y[i][k][j][l]);
                         }else{
-                            behavior.addTerm(1.0 / ((minSize * minSize - minSize) / 2 + minSize), y[i][k][j][l]);
+                            behavior.addTerm(1.0 / (minSize * minSize), y[i][k][j][l]);
                         }
                     }
                 }
@@ -107,34 +107,10 @@ public class RelaxedILP3 extends AbstractILP {
         //setup model
 
         // hint expressions
-        model.addConstr(obj,GRB.LESS_EQUAL,1.0, "objective hint");
-        model.addConstr(label,GRB.LESS_EQUAL,1.0, "objective hint");
-        model.addConstr(behavior,GRB.LESS_EQUAL,1.0, "objective hint");
+        //model.addConstr(obj,GRB.LESS_EQUAL,1.0, "objective hint");
+        //model.addConstr(label,GRB.LESS_EQUAL,1.0, "objective hint");
+        //model.addConstr(behavior,GRB.LESS_EQUAL,1.0, "objective hint");
 
-        /*GRBLinExpr conTest = new GRBLinExpr();
-        conTest.clear();
-        for (int i = 0; i< nodesNet1; i++){
-            for (int k = 0; k< nodesNet1; k++){
-                for (int j = 0; j < nodesNet2; j++) {
-                    for (int l = 0; l < nodesNet2; l++) {
-                        conTest.addTerm(1, y[i][k][j][l]);
-                    }
-                }
-            }
-        }
-        conTest.addTerm(-1, sum);
-        model.addConstr(conTest, GRB.EQUAL, 0.0, "Max Matches");
-
-
-        GRBLinExpr conTest2 = new GRBLinExpr();
-        for (int i = 0; i< nodesNet1; i++){
-            for (int j = 0; j < nodesNet2; j++) {
-                conTest2.addTerm(1, x[i][j]);
-            }
-        }
-        conTest2.addTerm(-1, sum_x);
-        model.addConstr(conTest2, GRB.EQUAL, 0.0, "Max Matches");
-        */
 
         // matching from at most one constraint
         for (int i = 0; i< nodesNet1; i++){
@@ -174,10 +150,10 @@ public class RelaxedILP3 extends AbstractILP {
                             con4.addTerm(-1, x[k][l]);
                             model.addConstr(con4, GRB.LESS_EQUAL, 0, "linking");
                         } else {
-                            GRBLinExpr con3 = new GRBLinExpr();
-                            con3.clear();
-                            con3.addTerm(1, y[i][k][j][l]);
-                            model.addConstr(con3, GRB.EQUAL, 0, "zero setter");
+                            GRBLinExpr con5 = new GRBLinExpr();
+                            con5.clear();
+                            con5.addTerm(1, y[i][k][j][l]);
+                            model.addConstr(con5, GRB.EQUAL, 0, "zero setter");
                         }
                     }
                 }

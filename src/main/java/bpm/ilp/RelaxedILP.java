@@ -99,9 +99,9 @@ public class RelaxedILP extends AbstractILP {
         //setup model
 
         // hint expressions
-        model.addConstr(obj,GRB.LESS_EQUAL,1.0, "objective hint");
-        model.addConstr(label,GRB.LESS_EQUAL,1.0, "objective hint");
-        model.addConstr(behavior,GRB.LESS_EQUAL,1.0, "objective hint");
+        // model.addConstr(obj,GRB.LESS_EQUAL,1.0, "objective hint");
+        // model.addConstr(label,GRB.LESS_EQUAL,1.0, "objective hint");
+        //model.addConstr(behavior,GRB.LESS_EQUAL,1.0, "objective hint");
 
         /*GRBLinExpr conTest = new GRBLinExpr();
         conTest.clear();
