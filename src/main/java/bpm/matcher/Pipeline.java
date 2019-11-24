@@ -166,6 +166,8 @@ public class Pipeline {
         switch(ilp) {
             case BASIC:
                 return new BasicILP();
+            case BASIC2:
+                return new BasicILP2();
             case RELAXED:
                 return  new RelaxedILP();
             case RELAXED2:
