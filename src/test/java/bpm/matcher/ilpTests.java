@@ -11,7 +11,7 @@ import static java.lang.Math.abs;
 
 public class ilpTests {
 
-    @Test
+    //@Test
     public void relaxed3Test(){
         File folder = new File(getClass().getClassLoader().getResource("./pnml/app_store/").getFile());
         for (double i = 0; i <= 1.0; i += 0.2) {
@@ -32,7 +32,7 @@ public class ilpTests {
         }
     }
 
-   // @Test
+    @Test
     public void maxSimTest(){
         File f1 = new File(getClass().getClassLoader().getResource("./pnml/app_store/app_purchase_comp1.pnml").getFile());
         File f2 = new File(getClass().getClassLoader().getResource("./pnml/app_store/app_purchase_comp1.pnml").getFile());
