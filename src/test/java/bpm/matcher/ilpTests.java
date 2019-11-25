@@ -11,24 +11,25 @@ import static java.lang.Math.abs;
 
 public class ilpTests {
 
-    //@Test
+    @Test
     public void relaxed3Test(){
-        Pipeline p1 = new Pipeline.Builder().withILP("RELAXED").Build();
-        Pipeline p2 = new Pipeline.Builder().withILP("RELAXED3").Build();
-        File f1 = new File(getClass().getClassLoader().getResource("./pnml/app_store/app_create_account_comp1.pnml").getFile());
-        File f2 = new File(getClass().getClassLoader().getResource("./pnml/app_store/app_purchase_comp1.pnml").getFile());
+        File folder = new File(getClass().getClassLoader().getResource("./pnml/app_store/").getFile());
+        for (double i = 0; i <= 1.0; i += 0.2) {
+            Pipeline p1 = new Pipeline.Builder().withILP("RELAXED").atSimilarityWeight(i).atPostprocessThreshold(0.0).Build();
+            Pipeline p2 = new Pipeline.Builder().withILP("RELAXED3").atSimilarityWeight(i).atPostprocessThreshold(0.0).Build();
+            for(File file1 : folder.listFiles()) {
+                for(File file2 : folder.listFiles()) {
+                    Result r1 = p1.run(file1, file2);
+                    Result r2 = p2.run(file1, file2);
 
-        Result r1 =  p1.run(f1,f2);
-        Result r2 = p2.run(f1,f2);
+                    //equal matching cant be done since sometimes multiple matchings with same max target value exist
+                    //Assert.assertTrue("i= "+ i+"\n" +file1.getName() + " - " +file2.getName() + ":" +r1.getAlignment().toString() + "\n" + r2.getAlignment().toString(), r1.getAlignment().equals(r2.getAlignment()));
 
-        System.out.println(r1.getAlignment().toString()+ "\n" +r2.getAlignment().toString());
-
-        //equal similarity
-        Assert.assertTrue(""+abs(r1.getSimilarity()- r2.getSimilarity()),abs(r1.getSimilarity() - r2.getSimilarity()) <0.001);
-
-        //equal matching
-        Assert.assertTrue(r1.getAlignment().toString()+ "\n" +r2.getAlignment().toString(),r1.getAlignment().equals(r2.getAlignment()));
-
+                    //equal similarity
+                    Assert.assertTrue("i= "+ i+"\n" +file1.getName() + " - " +file2.getName() + ":" + r1.getSimilarity() + "vs." + r2.getSimilarity(), abs(r1.getSimilarity() - r2.getSimilarity()) < 0.001);
+                }
+            }
+        }
     }
 
    // @Test
@@ -84,7 +85,7 @@ public class ilpTests {
 
     }
 
-    //@Test
+    @Test
     public void basic2Test(){
         File folder = new File(getClass().getClassLoader().getResource("./pnml/app_store/").getFile());
         for (double i = 0; i <= 1.0; i += 0.2) {
@@ -104,6 +105,7 @@ public class ilpTests {
             }
         }
     }
+
 
    // @Test
     public void quadraticTest(){

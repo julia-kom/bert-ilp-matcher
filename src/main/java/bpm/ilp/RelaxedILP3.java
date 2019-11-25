@@ -61,7 +61,7 @@ public class RelaxedILP3 extends AbstractILP {
         for (int i = 0; i< nodesNet1; i++){
             for (int k = i; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
-                    for (int l = j; l < nodesNet2; l++) {
+                    for (int l = 0; l < nodesNet2; l++) {
                         y[i][k][j][l] = model.addVar(0.0, 1.0, 0.0, GRB.CONTINUOUS, "y_" + i + "_" + k+"_"+j+"_"+l);
                     }
                 }
@@ -77,11 +77,11 @@ public class RelaxedILP3 extends AbstractILP {
         for (int i = 0; i< nodesNet1; i++){
             for (int k = i; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
-                    for (int l = j; l < nodesNet2; l++) {
+                    for (int l = 0; l < nodesNet2; l++) {
                         //by reducing the number of variables, the total sum gets lower too, therefore we fix it by weighting
                         //every correct entry which is not on the diagonal twice (because of the symmetry of the matrix)
                         //TODO somehow the result is not yet the same as in Relaxed1
-                        if(i!=k || j!=l) {
+                        if(i!=k && j!=l) {
                             behavior.addTerm(2.0 / (minSize * minSize ), y[i][k][j][l]);
                         }else{
                             behavior.addTerm(1.0 / (minSize * minSize), y[i][k][j][l]);
@@ -136,7 +136,7 @@ public class RelaxedILP3 extends AbstractILP {
         for (int i = 0; i< nodesNet1; i++){
             for (int k = i; k < nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++){
-                    for (int l = j; l < nodesNet2; l++) {
+                    for (int l = 0; l < nodesNet2; l++) {
                         if (relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]).equals(relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]))) {
                             GRBLinExpr con3 = new GRBLinExpr();
                             con3.clear();

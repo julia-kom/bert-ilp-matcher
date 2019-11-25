@@ -39,7 +39,6 @@ public class BasicILP extends AbstractILP {
         int nodesNet2 = nodeNet2.length;
         int minSize = Math.min(nodesNet1,nodesNet2);
 
-        model.set(GRB.DoubleParam.TimeLimit,1200);
 
 
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
@@ -159,7 +158,7 @@ public class BasicILP extends AbstractILP {
                             GRBLinExpr con3 = new GRBLinExpr();
                             con3.clear();
                             con3.addTerm(1, y[i][k][j][l]);
-                            model.addConstr(con3, GRB.EQUAL, 0, "zero setter");
+                            model.addConstr(con3, GRB.LESS_EQUAL, 0, "zero setter");
                         }
                     }
                 }
@@ -174,7 +173,7 @@ public class BasicILP extends AbstractILP {
             int j = Arrays.asList(nodeNet2).indexOf(n2);
             GRBLinExpr conPre = new GRBLinExpr();
             conPre.addTerm(1,x[i][j]);
-            model.addConstr(conPre, GRB.EQUAL, 1, "pre matched");
+            model.addConstr(conPre, GRB.GREATER_EQUAL, 1, "pre matched");
         }
 
 

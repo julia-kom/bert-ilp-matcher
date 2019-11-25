@@ -58,6 +58,67 @@ public abstract class AbstractILP {
 
         // Create empty model
         model = new GRBModel(env);
+
+        /*
+        The Threads parameter controls the number of threads used by the parallel MIP solver to solve the model.
+        The default is to use all cores in the machine. If you wish to leave some available for other activities,
+        adjust this parameter accordingly.
+         */
+        //model.set(GRB.IntParam.Threads, 11);
+
+        /*
+        The MIPFocus parameter allows you to modify your high-level solution strategy, depending on your goals.
+        By default, the Gurobi MIP solver strikes a balance between finding new feasible solutions and proving that
+        the current solution is optimal. If you are more interested in good quality feasible solutions, you can select
+        MIPFocus=1. If you believe the solver is having no trouble finding the optimal solution,
+        and wish to focus more attention on proving optimality, select MIPFocus=2.
+        If the best objective bound is moving very slowly (or not at all), you may want to try MIPFocus=3 to
+        focus on the bound.
+         */
+        model.set(GRB.IntParam.MIPFocus, 1);
+
+        /*
+        The MIP solver can change parameter settings in the middle of the search in order to adopt a strategy that
+        gives up on moving the best bound and instead devotes all of its effort towards finding better feasible
+        solutions. This parameter allows you to specify the time when the MIP solver switches to a solution
+        improvement strategy. For example, setting this parameter to 10 will cause the MIP solver to switch strategies
+        10 seconds after starting the optimization.
+         */
+        model.set(GRB.DoubleParam.ImproveStartTime, GRB.INFINITY);
+
+        /*
+        The MIP solver can change parameter settings in the middle of the search in order to adopt a strategy
+        that gives up on moving the best bound and instead devotes all of its effort towards finding better feasible
+        solutions. This parameter allows you to specify an optimality gap at which the MIP solver switches to
+        a solution improvement strategy. For example, setting this parameter to 0.1 will cause the MIP solver to
+        switch strategies once the relative optimality gap is smaller than 0.1.
+         */
+        model.set(GRB.DoubleParam.ImproveStartGap,0.0);
+
+        /*
+        The Gurobi MIP solver employs a wide range of cutting plane strategies. The aggressiveness of these strategies
+        can be controlled at a coarse level through the Cuts parameter, and at a finer grain through a further set of
+        cuts parameters (e.g., FlowCoverCuts, MIRCuts, etc.). Each cut parameter can be set to Aggressive (2),
+        Conservative (1), Automatic (-1), or None (0). The more specific parameters override the more general,
+        so for example setting MIRCuts to None (0) while also setting Cuts to Aggressive (2) would aggressively
+        generate all cut types, except MIR cuts which would not be generated. Very easy models can sometimes benefit
+        from turning cuts off, while extremely difficult models can benefit from turning them to their Aggressive setting.
+         */
+        model.set(GRB.IntParam.Cuts, -1);
+
+        /*
+        Controls the presolve level. A value of -1 corresponds to an automatic setting. Other options are off (0),
+        conservative (1), or aggressive (2). More aggressive application of presolve takes more time, but can sometimes
+        lead to a significantly tighter model.
+         */
+        model.set(GRB.IntParam.Presolve,-1);
+
+        /*
+        The PreSparsify parameter enables an algorithm that can sometimes significantly reduce the number of nonzero
+        values in the constraint matrix.
+         */
+        model.set(GRB.IntParam.PreSparsify,-1);
+
     }
 
     // todo maybe replace sim with a function pointer
