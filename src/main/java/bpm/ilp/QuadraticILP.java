@@ -4,10 +4,7 @@ import bpm.alignment.Alignment;
 import bpm.alignment.Correspondence;
 import bpm.alignment.Result;
 import bpm.similarity.Matrix;
-import gurobi.GRB;
-import gurobi.GRBException;
-import gurobi.GRBLinExpr;
-import gurobi.GRBVar;
+import gurobi.*;
 import org.jbpt.bp.RelSet;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
@@ -18,13 +15,15 @@ import java.util.Set;
 import static bpm.matcher.Pipeline.PRINT_ENABLED;
 
 
-public class BasicILP3 extends AbstractILP {
-    public BasicILP3(){
+public class QuadraticILP extends AbstractILP {
+    public QuadraticILP(){
 
     }
 
     /**
      * Compute the basic 1:1 ILP behavior/label simialrity match.
+     * Use Quadratic Constraint
+     *
      * @param relNet1 Profile of Net 1
      * @param relNet2 Profile of Net 2
      * @param net1 Net 1
@@ -40,8 +39,9 @@ public class BasicILP3 extends AbstractILP {
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
         int minSize = Math.min(nodesNet1,nodesNet2);
+        int maxMissmatches = minSize*minSize +1;
 
-
+        //matching variables
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
@@ -49,32 +49,20 @@ public class BasicILP3 extends AbstractILP {
             }
         }
 
-
-        GRBVar[][][][] y = new GRBVar[nodesNet1][nodesNet1][nodesNet2][nodesNet2];
-        for (int i = 0; i< nodesNet1; i++){
-            for (int k = 0; k< nodesNet1; k++){
-                for (int j = 0; j < nodesNet2; j++) {
-                    for (int l = 0; l < nodesNet2; l++) {
-                        y[i][k][j][l] = model.addVar(0.0, 1.0, 0.0, GRB.BINARY, "y_" + i + "_" + j+"_"+k+"_"+l);
-                    }
-                }
-            }
+        //counting variables
+        GRBVar[] y = new GRBVar[maxMissmatches];
+        for (int k = 0; k< maxMissmatches; k++){
+            y[k]= model.addVar(0.0, 1.0,0.0, GRB.BINARY, "y_"+k);
         }
 
-        //GRBVar sum = model.addVar(0.0, GRB.INFINITY, 0.0, GRB.CONTINUOUS, "sum_y");
-        //GRBVar sum_x = model.addVar(0.0, GRB.INFINITY, 0.0, GRB.CONTINUOUS, "sum_x");
+
 
         // Objective weighted between behavioral correspondance and label similarity
         // Behavioral part
         GRBLinExpr behavior = new GRBLinExpr();
-        for (int i = 0; i< nodesNet1; i++){
-            for (int k = 0; k< nodesNet1; k++){
-                for (int j = 0; j < nodesNet2; j++) {
-                    for (int l = 0; l < nodesNet2; l++) {
-                        behavior.addTerm(1.0/(minSize*minSize), y[i][k][j][l]);
-                    }
-                }
-            }
+        for (int k = 0; k< maxMissmatches; k++){
+            behavior.addTerm(k/(minSize*minSize), y[k]);
+
         }
 
         // Label Similarity Part
@@ -90,33 +78,6 @@ public class BasicILP3 extends AbstractILP {
 
         model.setObjective(obj, GRB.MAXIMIZE);
 
-        //setup model
-
-
-        /*GRBLinExpr conTest = new GRBLinExpr();
-        conTest.clear();
-        for (int i = 0; i< nodesNet1; i++){
-            for (int k = 0; k< nodesNet1; k++){
-                for (int j = 0; j < nodesNet2; j++) {
-                    for (int l = 0; l < nodesNet2; l++) {
-                        conTest.addTerm(1, y[i][k][j][l]);
-                    }
-                }
-            }
-        }
-        conTest.addTerm(-1, sum);
-        model.addConstr(conTest, GRB.EQUAL, 0.0, "Max Matches");
-
-
-        GRBLinExpr conTest2 = new GRBLinExpr();
-        for (int i = 0; i< nodesNet1; i++){
-            for (int j = 0; j < nodesNet2; j++) {
-                conTest2.addTerm(1, x[i][j]);
-            }
-        }
-        conTest2.addTerm(-1, sum_x);
-        model.addConstr(conTest2, GRB.EQUAL, 0.0, "Max Matches");
-        */
 
         // matching from at most one constraint
         for (int i = 0; i< nodesNet1; i++){
@@ -139,27 +100,32 @@ public class BasicILP3 extends AbstractILP {
         }
 
         // linking between similar entries in the F matrices and the mapping
+        GRBQuadExpr exp31 = new GRBQuadExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int k = 0; k < nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++){
                     for (int l = 0; l < nodesNet2; l++) {
                         if (relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]).equals(relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]))) {
-                            GRBLinExpr con3 = new GRBLinExpr();
-                            con3.clear();
-                            con3.addTerm(2, y[i][k][j][l]);
-                            con3.addTerm(-1, x[i][j]);
-                            con3.addTerm(-1, x[k][l]);
-                            model.addConstr(con3, GRB.LESS_EQUAL, 0, "linking");
-                        } else {
-                            GRBLinExpr con3 = new GRBLinExpr();
-                            con3.clear();
-                            con3.addTerm(1, y[i][k][j][l]);
-                            model.addConstr(con3, GRB.EQUAL, 0, "zero setter");
+                            exp31.addTerm(1,x[k][l],x[i][j]);
                         }
                     }
                 }
             }
         }
+        GRBLinExpr ex2  = new GRBLinExpr();
+        ex2.clear();
+        for (int k = 0; k< maxMissmatches; k++) {
+            ex2.addTerm(k,y[k]);
+        }
+        model.addQConstr(exp31, GRB.EQUAL, ex2,"Quadratic Constraint");
+
+
+        GRBLinExpr ex3  = new GRBLinExpr();
+        for (int k = 0; k< maxMissmatches; k++) {
+            ex3.addTerm(1,y[k]);
+        }
+        model.addConstr(1, GRB.EQUAL, ex3, "Only one y is 1");
+
 
         // add prematches
         for (Correspondence c: preAlignment.getCorrespondences()){

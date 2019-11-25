@@ -174,6 +174,8 @@ public class Pipeline {
                 return new RelaxedILP2();
             case RELAXED3:
                 return new RelaxedILP3();
+            case QUADRATIC:
+                return new QuadraticILP();
             default:
                 throw new NotImplementedException("ILP you searched for is not in switch");
         }

@@ -39,6 +39,8 @@ public class BasicILP extends AbstractILP {
         int nodesNet2 = nodeNet2.length;
         int minSize = Math.min(nodesNet1,nodesNet2);
 
+        model.set(GRB.DoubleParam.TimeLimit,1200);
+
 
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
         for (int i = 0; i< nodesNet1; i++){
@@ -89,6 +91,11 @@ public class BasicILP extends AbstractILP {
         model.setObjective(obj, GRB.MAXIMIZE);
 
         //setup model
+
+        // hint expressions
+        model.addConstr(obj,GRB.LESS_EQUAL,1.0, "objective hint");
+        model.addConstr(label,GRB.LESS_EQUAL,1.0, "objective hint");
+        model.addConstr(behavior,GRB.LESS_EQUAL,1.0, "objective hint");
 
 
         /*GRBLinExpr conTest = new GRBLinExpr();
@@ -202,7 +209,7 @@ public class BasicILP extends AbstractILP {
         for (int i = 0; i< nodesNet1; i++) {
             for (int j = 0; j < nodesNet2; j++) {
                 if( Math.abs(x[i][j].get(GRB.DoubleAttr.X) - 1.0) < 0.0001){
-                    builder.add(nodeNet1[i],nodeNet2[j]);
+                    builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(nodeNet1[i]).addNodeFromNet2(nodeNet2[j]).withLikelihood(matrix.between(nodeNet1[i],nodeNet2[j])).build());
                 }
             }
         }
