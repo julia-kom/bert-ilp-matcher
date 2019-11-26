@@ -149,7 +149,7 @@ public class Pipeline{
         Alignment goldstandard = reader.readAlignmentFrom(gs);
         Alignment matcherResult = result.getAlignment();
         matcherResult = matcherResult.filter(postprocessingThreshold);
-        Eval eval = evaluate(matcherResult,goldstandard);
+        Eval eval = evaluate(new Result(result.getSimilarity(),matcherResult),goldstandard);
         eval.setBenchmark(timer);
         System.out.println(eval);
 
@@ -252,7 +252,7 @@ public class Pipeline{
                         Alignment result = reader.readAlignmentFrom(f1);
                         result = result.filter(postprocessingThreshold);
                         Alignment goldstandard = reader.readAlignmentFrom(f2);
-                        evals.add(this.evaluate(result,goldstandard));
+                        evals.add(this.evaluate(new Result(0.0,result),goldstandard));
                     }catch(Exception e){
                         System.out.println("Evaluation of "+  f1.getName() + " to " + f2.getName() +
                                 "threw an Exception: " + e.getMessage());
@@ -273,7 +273,7 @@ public class Pipeline{
      * @param goldstandard
      * @return
      */
-    protected Eval evaluate(Alignment matcher, Alignment goldstandard){
+    protected Eval evaluate(Result matcher, Alignment goldstandard){
         switch(evalStrat){
             case BINARY:
                 return Eval.Builder.BinaryEvaluation(matcher,goldstandard);
