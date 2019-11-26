@@ -34,13 +34,17 @@ public abstract class AbstractILP {
         QUADRATIC //Quadratic formulation of the ILP
     }
 
+    public void init(File log, double similarityWeight) throws GRBException, IOException {
+        init(log,similarityWeight,GRB.INFINITY, GRB.INFINITY);
+    }
+
     /**
      * Init the ILP with a log file path and a similarity weight
      * @param log
      * @param similarityWeight
      * @throws GRBException
      */
-    public void init(File log, double similarityWeight) throws GRBException, IOException {
+    public void init(File log, double similarityWeight, double timeLimit, double nodeLimit) throws GRBException, IOException {
         // Set similarity weight
         this.similarityWeight = similarityWeight;
 
@@ -58,6 +62,12 @@ public abstract class AbstractILP {
 
         // Create empty model
         model = new GRBModel(env);
+
+        //set time limit. When solving MIP this does still result in an alignment
+        model.set(GRB.DoubleParam.TimeLimit, timeLimit);
+
+        // set node limit (for MIP only). Number of nodes to be
+        model.set(GRB.DoubleParam.NodeLimit, nodeLimit);
 
         /*
         The Threads parameter controls the number of threads used by the parallel MIP solver to solve the model.

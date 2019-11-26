@@ -100,6 +100,16 @@ public class Evaluation {
                 .build();
         Option optPreMatch = new Option("pm", "pre-match", false, "Run Prematcher before running the ILP, reducing runtime");
 
+        Option optTl = Option.builder("tl")
+                .hasArg(true)
+                .longOpt("ilp-time-limit")
+                .desc("Choose the time limit for the ILP in seconds.")
+                .build();
+        Option optNl = Option.builder("nl")
+                .hasArg(true)
+                .longOpt("ilp-node-limit")
+                .desc("Choose the node limit for the ILP in seconds.")
+                .build();
 
         //combine options
         Options options = new Options();
@@ -121,6 +131,8 @@ public class Evaluation {
         options.addOption(optNetEval);
         options.addOption(optNetEvalProfile);
         options.addOption(optSysPrint);
+        options.addOption(optTl);
+        options.addOption(optNl);
 
         //parse input
         CommandLine line;
@@ -162,7 +174,7 @@ public class Evaluation {
                 double s = Double.parseDouble(sString);
                 matcherBuilder = matcherBuilder.atSimilarityWeight(s);
             } catch (NumberFormatException numExp) {
-                System.out.println("Parsing Failed: Number Input s " + numExp.getMessage());
+                System.err.println("Parsing Failed: Number Input s " + numExp.getMessage());
             }
         }
 
@@ -174,7 +186,7 @@ public class Evaluation {
                 evalBuilder = evalBuilder.atThreshold(p);
                 matcherBuilder = matcherBuilder.atPostprocessThreshold(p);
             } catch (NumberFormatException numExp) {
-                System.out.println("Parsing Failed: Number Input p " + numExp.getMessage());
+                System.err.println("Parsing Failed: Number Input p " + numExp.getMessage());
                 System.exit(1);
             }
         }
@@ -259,6 +271,27 @@ public class Evaluation {
             evalBuilder.withEvalStrat(strat);
         }
 
+
+        if (line.hasOption("tl")) {
+            String sString = line.getOptionValue("tl");
+            try {
+                double s = Double.parseDouble(sString);
+                matcherBuilder = matcherBuilder.withILPTimeLimit(s);
+            } catch (NumberFormatException numExp) {
+                System.err.println("Parsing Failed: Time Limit " + numExp.getMessage());
+            }
+        }
+
+        if (line.hasOption("nl")) {
+            String sString = line.getOptionValue("nl");
+            try {
+                double s = Double.parseDouble(sString);
+                matcherBuilder= matcherBuilder.withILPNodeLimit(s);
+            } catch (NumberFormatException numExp) {
+                System.err.println("Parsing Failed: Time Limit " + numExp.getMessage());
+            }
+        }
+
         //build
         bpm.matcher.Pipeline matchingPip = matcherBuilder.Build();
         evalBuilder.withMatcher(matchingPip);
@@ -276,7 +309,7 @@ public class Evaluation {
 
             writer.close();
         } catch (Exception e) {
-            System.out.println("Unable to write Evaluation/Matcher Config file: " + e.getMessage());
+            System.err.println("Unable to write Evaluation/Matcher Config file: " + e.getMessage());
         }
     }
 

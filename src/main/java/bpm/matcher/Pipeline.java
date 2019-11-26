@@ -7,6 +7,7 @@ import bpm.ilp.*;
 import bpm.similarity.Matrix;
 import bpm.similarity.Word;
 
+import gurobi.GRB;
 import org.jbpt.bp.RelSet;
 import org.jbpt.bp.construct.BPCreatorNet;
 import org.jbpt.petri.NetSystem;
@@ -37,6 +38,8 @@ public class Pipeline {
     private Matcher.Profile profile;
     private AbstractILP.ILP ilp;
     private Word.Similarities wordSimilarity;
+    private double ilpTimeLimit;
+    private double ilpNodeLimit;
 
     /**
      * Empty Constructor for the Builder
@@ -118,7 +121,7 @@ public class Pipeline {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Result res;
         try {
-            ilp.init(new File("gurobi-logs/log-"+ timestamp+".log"), similarityWeight);
+            ilp.init(new File("gurobi-logs/log-"+ timestamp+".log"), similarityWeight,ilpTimeLimit,ilpNodeLimit);
             res = ilp.solve(relNet1, relNet2, reducedNet1, reducedNet2, simMatrix, preAlignment, net1.getName()+"-"+net2.getName());
         } catch (Exception e) {
             if(PRINT_ENABLED) System.out.println(e.getCause()+ ": " + e.getMessage());
@@ -232,13 +235,15 @@ public class Pipeline {
          * Builder for class Pipeline
          */
     public static class Builder{
-        protected boolean complexMatches = false;
-        protected double  similarityWeight = 0.3;
-        protected double  postprocessThreshold = 0.0;
-        protected AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
+        private boolean complexMatches = false;
+        private double  similarityWeight = 0.3;
+        private double  postprocessThreshold = 0.0;
+        private AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
         protected Matcher.Profile profile = Matcher.Profile.BP;
-        protected Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
-        protected boolean prematch = false;
+        private Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
+        private boolean prematch = false;
+        private double ilpTimeLimit = GRB.INFINITY;
+        private double ilpNodeLimit = GRB.INFINITY;
 
         /**
          * Create a Builder to define a Pipline Object.
@@ -317,6 +322,26 @@ public class Pipeline {
         }
 
         /**
+         * set the ILP time limit in seconds
+         * @param limit
+         * @return
+         */
+        public Pipeline.Builder withILPTimeLimit(double limit) {
+            this.ilpTimeLimit = limit;
+            return this;
+        }
+
+            /**
+             * set the ILP node limit in seconds
+             * @param limit
+             * @return
+             */
+            public Pipeline.Builder withILPNodeLimit(double limit) {
+                this.ilpNodeLimit = limit;
+                return this;
+            }
+
+        /**
          *Build a Pipeline with the previously assigned arguments.
          * @return Executable Pipeline
          */
@@ -329,6 +354,8 @@ public class Pipeline {
             pip.ilp = this.ilp;
             pip.wordSimilarity = this.wordSimilarity;
             pip.prematch = this.prematch;
+            pip.ilpNodeLimit = this.ilpNodeLimit;
+            pip.ilpTimeLimit = this.ilpTimeLimit;
             return pip;
         }
 
