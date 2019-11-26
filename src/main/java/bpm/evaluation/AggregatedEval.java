@@ -39,9 +39,9 @@ public class AggregatedEval {
         this.evals = evals;
         for(Eval e :evals){
             // macro
-            precisionMacro += e.getPrecision() / evals.size();
-            recallMacro += e.getRecall() / evals.size();
-            fscoreMacro += e.getFscore() / evals.size();
+            precisionMacro += e.getPrecision();
+            recallMacro += e.getRecall();
+            fscoreMacro += e.getFscore();
 
             // confusion values
             tp += e.getTP();
@@ -54,6 +54,10 @@ public class AggregatedEval {
             bpTimeAvg += (e.getBenchmark().getBPTime() > 0) ? e.getBenchmark().getBPTime()/evals.size():0;
             labelSimTimeAvg += (e.getBenchmark().getLabelSimialrityTime() > 0) ? e.getBenchmark().getLabelSimialrityTime()/evals.size():0;
         }
+
+        precisionMacro = precisionMacro / evals.size();
+        recallMacro = recallMacro/ evals.size();
+        fscoreMacro = precisionMacro*recallMacro *2 /(precisionMacro+recallMacro); // fscoreMacro/ evals.size();
 
         precisionMicro = Metrics.precision(this.tp,this.fp, this.fn);
         recallMicro = Metrics.recall(this.tp,this.fn, this.fp);
