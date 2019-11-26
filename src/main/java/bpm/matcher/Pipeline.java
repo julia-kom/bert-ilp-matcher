@@ -210,8 +210,10 @@ public class Pipeline {
                 "Label Similarity: " + this.wordSimilarity.toString() +"\n" +
                 "Complex Matches: " + Boolean.toString(this.complexMatches) + "\n" +
                 "Prematch: "+ Boolean.toString(this.prematch) + "\n" +
-                "Similarity Weight:" + this.similarityWeight + "\n" +
-                "Postprocessing Thresh:" +  this.postprocessThreshold + "\n";
+                "Similarity Weight: " + this.similarityWeight + "\n" +
+                "Postprocessing Thresh: " +  this.postprocessThreshold + "\n" +
+                "ILP node limit: " + this.ilpNodeLimit + "\n" +
+                "ILP time limit: " + this.ilpTimeLimit + "\n";
         return res;
     }
 
@@ -228,6 +230,8 @@ public class Pipeline {
         json.put("prematch", Boolean.toString(this.prematch));
         json.put("sim-weight", this.similarityWeight);
         json.put("postprocessing-thresh", this.postprocessThreshold);
+        json.put("ilp-time-limit", this.ilpTimeLimit);
+        json.put("ilp-node-limit", this.ilpNodeLimit);
         return json;
     }
 
