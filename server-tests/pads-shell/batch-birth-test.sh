@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #parameters: $1 weight, $2 ilp, $3 word-sim, $4 ilp-time-limit
 
 # run batch test for uni

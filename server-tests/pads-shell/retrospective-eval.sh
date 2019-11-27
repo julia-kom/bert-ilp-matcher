@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #$1 result paths, $2 goldstandard, $3 strategy ,$4...$n thresholds
 for thresh in "${@:4}";
 do
