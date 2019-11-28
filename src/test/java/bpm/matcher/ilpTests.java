@@ -40,14 +40,16 @@ public class ilpTests {
         //Behavior only test
         Pipeline p1 = new Pipeline.Builder().withILP("BASIC").atSimilarityWeight(1).Build();
         Pipeline p2 = new Pipeline.Builder().withILP("BASIC2").atSimilarityWeight(1).Build();
-        Pipeline p5 = new Pipeline.Builder().withILP("QUADRATIC").atSimilarityWeight(1).Build();
         Pipeline p3 = new Pipeline.Builder().withILP("RELAXED").atSimilarityWeight(1).Build();
         Pipeline p4 = new Pipeline.Builder().withILP("RELAXED3").atSimilarityWeight(1).Build();
+        Pipeline p5 = new Pipeline.Builder().withILP("QUADRATIC").atSimilarityWeight(1).Build();
+        Pipeline p6 = new Pipeline.Builder().withILP("RELAXED4").atSimilarityWeight(1).Build();
         Assert.assertTrue("BASIC Similarity is not 1: " + p1.run(f1,f2).getSimilarity(), abs(p1.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
         Assert.assertTrue("BASIC2 Similarity is not 1: " + p2.run(f1,f2).getSimilarity(), abs(p2.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
-        //Assert.assertTrue("RELAXED Similarity is not 1: " + p3.run(f1,f2).getSimilarity(), abs(p3.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
+        Assert.assertTrue("RELAXED Similarity is not 1: " + p3.run(f1,f2).getSimilarity(), abs(p3.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
         //Assert.assertTrue("RELAXED3 Similarity is not 1: " + p4.run(f1,f2).getSimilarity(),abs(p4.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
-        Assert.assertTrue("QUADRATIC Similarity is not 1: " + p5.run(f1,f2).getSimilarity(),abs(p5.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
+        //Assert.assertTrue("QUADRATIC Similarity is not 1: " + p5.run(f1,f2).getSimilarity(),abs(p5.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
+        //Assert.assertTrue("RELAXED4 Similarity is not 1: " + p6.run(f1,f2).getSimilarity(),abs(p6.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
 
         //Label only test
         p1 = new Pipeline.Builder().withILP("BASIC").atSimilarityWeight(0).Build();
@@ -55,11 +57,13 @@ public class ilpTests {
         p3 = new Pipeline.Builder().withILP("RELAXED").atSimilarityWeight(0).Build();
         p4 = new Pipeline.Builder().withILP("RELAXED3").atSimilarityWeight(0).Build();
         p5 = new Pipeline.Builder().withILP("QUADRATIC").atSimilarityWeight(0).Build();
+        p6 = new Pipeline.Builder().withILP("RELAXED4").atSimilarityWeight(0).Build();
         Assert.assertTrue("BASIC Similarity is not 1: " + p1.run(f1,f2).getSimilarity(), abs(p1.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
         Assert.assertTrue("BASIC2 Similarity is not 1: " + p2.run(f1,f2).getSimilarity(), abs(p2.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
-        //Assert.assertTrue("RELAXED Similarity is not 1: " + p3.run(f1,f2).getSimilarity(), abs(p3.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
-        //Assert.assertTrue("RELAXED3 Similarity is not 1: " + p4.run(f1,f2).getSimilarity(),abs(p4.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
+        Assert.assertTrue("RELAXED Similarity is not 1: " + p3.run(f1,f2).getSimilarity(), abs(p3.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
+        Assert.assertTrue("RELAXED3 Similarity is not 1: " + p4.run(f1,f2).getSimilarity(),abs(p4.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
         Assert.assertTrue("QUADRATIC Similarity is not 1: " + p5.run(f1,f2).getSimilarity(),abs(p5.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
+        Assert.assertTrue("RELAXED4 Similarity is not 1: " + p6.run(f1,f2).getSimilarity(),abs(p6.run(f1,f2).getSimilarity() -1.0) <= 0.0001);
 
 
     }

@@ -177,6 +177,8 @@ public class Pipeline {
                 return new RelaxedILP2();
             case RELAXED3:
                 return new RelaxedILP3();
+            case RELAXED4:
+                return new RelaxedILP4();
             case QUADRATIC:
                 return new QuadraticILP();
             default:
