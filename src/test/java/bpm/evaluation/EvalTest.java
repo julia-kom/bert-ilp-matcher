@@ -167,7 +167,7 @@ public class EvalTest {
         Assert.assertTrue(matcher1.equals(matcher2));
     }
 
-    @Test
+
     public void batchEvaluationTest() throws IOException {
         File goldstandard = new File(getClass().getClassLoader().getResource("./goldstandard/birth").getFile());
         File batch = new File(getClass().getClassLoader().getResource("./pnml/birth").getFile());
