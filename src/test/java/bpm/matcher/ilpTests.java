@@ -100,8 +100,8 @@ public class ilpTests {
                     Result r1 = p1.run(file1, file2);
                     Result r2 = p2.run(file1, file2);
 
-                    //equal matching
-                   // Assert.assertTrue("i= "+ i+"\n" +file1.getName() + " - " +file2.getName() + ":" +r1.getAlignment().toString() + "\n" + r2.getAlignment().toString(), r1.getAlignment().equals(r2.getAlignment()));
+                    //equal mixed similarity
+                    //Assert.assertTrue("i= "+ i+"\n" +file1.getName() + " - " +file2.getName() + ":" +r1.getAlignment().toString() + "\n" + r2.getAlignment().toString(), r1.getAlignment().equals(r2.getAlignment()));
 
                     //equal similarity
                     Assert.assertTrue("i= "+ i+"\n" +file1.getName() + " - " +file2.getName() + ":" + r1.getSimilarity() + "vs." + r2.getSimilarity(), abs(r1.getSimilarity() - r2.getSimilarity()) < 0.001);

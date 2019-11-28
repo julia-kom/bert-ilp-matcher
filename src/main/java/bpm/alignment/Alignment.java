@@ -35,6 +35,11 @@ public class Alignment {
         return true;
     }
 
+    /**
+     * fiter using label information only (no behavioral information for filtering used
+     * @param minLikelihood
+     * @return
+     */
     public Alignment filter(double minLikelihood){
         Alignment.Builder builder = new Alignment.Builder();
         for(Correspondence c : correspondences){
@@ -44,6 +49,8 @@ public class Alignment {
         }
         return builder.build(this.name);
     }
+
+
 
     /**
      * Checks if two nodes are in correspondence relation

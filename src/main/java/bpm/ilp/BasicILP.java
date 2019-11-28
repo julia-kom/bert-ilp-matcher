@@ -208,7 +208,19 @@ public class BasicILP extends AbstractILP {
         for (int i = 0; i< nodesNet1; i++) {
             for (int j = 0; j < nodesNet2; j++) {
                 if( Math.abs(x[i][j].get(GRB.DoubleAttr.X) - 1.0) < 0.0001){
-                    builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(nodeNet1[i]).addNodeFromNet2(nodeNet2[j]).withLikelihood(matrix.between(nodeNet1[i],nodeNet2[j])).build());
+
+                    //compute mixed likelihood
+                    double mixedLikelihood = 0.0;
+                    for (int k = 0; k< nodesNet1; k++){
+                        for (int l = 0; l< nodesNet2; l++){
+                            if (relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]).equals(relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]))) {
+                                mixedLikelihood += x[i][j].get(GRB.DoubleAttr.X) * x[k][l].get(GRB.DoubleAttr.X);
+                            }
+                        }
+                    }
+                    mixedLikelihood = mixedLikelihood *similarityWeight/minSize;
+                    mixedLikelihood += (1-similarityWeight) * matrix.between(nodeNet1[i],nodeNet2[j]);
+                    builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(nodeNet1[i]).addNodeFromNet2(nodeNet2[j]).withLikelihood(mixedLikelihood).build());
                 }
             }
         }
@@ -221,6 +233,8 @@ public class BasicILP extends AbstractILP {
 
         return res;
     }
+
+
 
 
 

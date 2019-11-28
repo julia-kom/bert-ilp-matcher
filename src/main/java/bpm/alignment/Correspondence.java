@@ -127,6 +127,11 @@ public class Correspondence {
             nodesNet2 = new HashSet<>();
         }
 
+        /**
+         * Set Likelihood (label based)
+         * @param likelihood
+         * @return
+         */
         public Builder  withLikelihood(double likelihood){
             this.likelihood = likelihood;
             return this;

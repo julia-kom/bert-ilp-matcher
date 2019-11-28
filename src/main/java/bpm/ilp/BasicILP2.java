@@ -72,7 +72,6 @@ public class BasicILP2 extends AbstractILP {
                     for (int l = 0; l < nodesNet2; l++) {
                         //by reducing the number of variables, the total sum gets lower too, therefore we fix it by weighting
                         //every correct entry which is not on the diagonal twice (because of the symmetry of the matrix)
-                        //TODO be sure that the results are the same as BASIC
                         if(i!=k && j!=l) {
                             behavior.addTerm(2.0 / (minSize *minSize) , y[i][k][j][l]);
                         }else {
@@ -185,7 +184,7 @@ public class BasicILP2 extends AbstractILP {
         //if(PRINT_ENABLED) System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));
 
         // create result
-        Alignment.Builder builder = new Alignment.Builder();
+        /*Alignment.Builder builder = new Alignment.Builder();
         for (int i = 0; i< nodesNet1; i++) {
             for (int j = 0; j < nodesNet2; j++) {
                 if( Math.abs(x[i][j].get(GRB.DoubleAttr.X) - 1.0) < 0.0001){
@@ -193,6 +192,30 @@ public class BasicILP2 extends AbstractILP {
                 }
             }
         }
+*/
+
+        Alignment.Builder builder = new Alignment.Builder();
+        for (int i = 0; i< nodesNet1; i++) {
+            for (int j = 0; j < nodesNet2; j++) {
+                if( Math.abs(x[i][j].get(GRB.DoubleAttr.X) - 1.0) < 0.0001){
+
+                    //compute mixed likelihood
+                    double mixedLikelihood = 0.0;
+                    for (int k =0; k< nodesNet1; k++){
+                        for (int l = 0; l< nodesNet2; l++){
+                            if (relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]).equals(relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]))) {
+                                mixedLikelihood += x[i][j].get(GRB.DoubleAttr.X) * x[k][l].get(GRB.DoubleAttr.X);
+                            }
+                        }
+                    }
+                    mixedLikelihood = mixedLikelihood *similarityWeight/minSize;
+                    mixedLikelihood += (1-similarityWeight) * matrix.between(nodeNet1[i],nodeNet2[j]);
+                    builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(nodeNet1[i]).addNodeFromNet2(nodeNet2[j]).withLikelihood(mixedLikelihood).build());
+                }
+            }
+        }
+
+
 
         Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name));
 
