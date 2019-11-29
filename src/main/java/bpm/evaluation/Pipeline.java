@@ -149,7 +149,7 @@ public class Pipeline{
         Alignment goldstandard = reader.readAlignmentFrom(gs);
         Alignment matcherResult = result.getAlignment();
         matcherResult = matcherResult.filter(postprocessingThreshold);
-        Eval eval = evaluate(new Result(result.getSimilarity(),matcherResult),goldstandard);
+        Eval eval = evaluate(new Result(result.getSimilarity(),matcherResult,result.getGAP()),goldstandard);
         eval.setBenchmark(timer);
         System.out.println(eval);
 
@@ -237,6 +237,7 @@ public class Pipeline{
                 builder.withPreMatching();
             }
             this.matchingPipeline = builder.Build();
+
         }catch(Exception e){
             System.out.println("Reading Config file was not possible: \n" + e.toString());
         }
@@ -252,7 +253,7 @@ public class Pipeline{
                         Alignment result = reader.readAlignmentFrom(f1);
                         result = result.filter(postprocessingThreshold);
                         Alignment goldstandard = reader.readAlignmentFrom(f2);
-                        evals.add(this.evaluate(new Result(0.0,result),goldstandard));
+                        evals.add(this.evaluate(new Result(0.0,result,0),goldstandard));
                     }catch(Exception e){
                         System.out.println("Evaluation of "+  f1.getName() + " to " + f2.getName() +
                                 "threw an Exception: " + e.getMessage());

@@ -219,7 +219,7 @@ public class RelaxedILP extends AbstractILP {
                 }
             }
         }
-        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name));
+        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name), -1);
         // Dispose of model and environment
         model.dispose();
         env.dispose();

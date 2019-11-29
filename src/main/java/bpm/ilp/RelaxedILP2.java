@@ -209,7 +209,7 @@ public class RelaxedILP2 extends AbstractILP {
                     builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(nodeNet1[i]).addNodeFromNet2(nodeNet2[j]).withLikelihood(x[i][j].get(GRB.DoubleAttr.X)).build());
                 }            }
         }
-        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name));
+        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name), -1);
 
         // Dispose of model and environment
         model.dispose();

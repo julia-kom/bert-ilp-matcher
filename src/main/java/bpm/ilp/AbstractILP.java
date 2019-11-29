@@ -122,7 +122,7 @@ public abstract class AbstractILP {
         conservative (1), or aggressive (2). More aggressive application of presolve takes more time, but can sometimes
         lead to a significantly tighter model.
          */
-        model.set(GRB.IntParam.Presolve,2);
+        model.set(GRB.IntParam.Presolve,-1);
 
         /*
         The PreSparsify parameter enables an algorithm that can sometimes significantly reduce the number of nonzero

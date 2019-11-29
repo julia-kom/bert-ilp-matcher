@@ -225,7 +225,7 @@ public class BasicILP extends AbstractILP {
             }
         }
 
-        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name));
+        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name), model.get(GRB.DoubleAttr.MIPGap));
 
         // Dispose of model and environment
         model.dispose();

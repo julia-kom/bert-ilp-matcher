@@ -47,15 +47,15 @@ public class EvalTest {
         Alignment gs2 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build("gs2"); // Exact match
 
         // precision = 3/4 , recall = 0
-        Eval e1 = Eval.Builder.BinaryEvaluation(new Result(0,match),gs1);
+        Eval e1 = Eval.Builder.BinaryEvaluation(new Result(0,match,0),gs1);
         Assert.assertTrue((abs(e1.getPrecision() - 0.75)) <0.0001 && (abs(e1.getRecall() -1.0)) <0.0001);
 
         // Full precision = 1, recall = 1, fscore = 1
-        Eval e2 = Eval.Builder.BinaryEvaluation(new Result(0,match),gs2);
+        Eval e2 = Eval.Builder.BinaryEvaluation(new Result(0,match,0),gs2);
         Assert.assertTrue((abs(e2.getPrecision() - 1.0)) <0.0001 && (abs(e2.getRecall()- 1.0)) <0.0001 && (abs(e2.getFscore()- 1.0)) <0.0001);
 
         // precision = 1, recall = 3/4
-        Eval e3 = Eval.Builder.BinaryEvaluation(new Result(0,gs1), match);
+        Eval e3 = Eval.Builder.BinaryEvaluation(new Result(0,gs1,0), match);
         Assert.assertTrue((abs(e3.getPrecision() - 1.0)) <0.0001 && (abs(e3.getRecall()- 0.75)) <0.0001);
     }
 
@@ -81,11 +81,11 @@ public class EvalTest {
         Alignment gs2 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build("gs2"); // Exact match
 
         // precision = 2/3 , recall = 2/3
-        Eval e1 = Eval.Builder.StrictBinaryEvaluation(new Result(0,match),gs1);
+        Eval e1 = Eval.Builder.StrictBinaryEvaluation(new Result(0,match,0),gs1);
         Assert.assertTrue((abs(e1.getPrecision() - (2.0/3))) <0.0001 && (abs(e1.getRecall() - (2.0/3))) <0.0001);
 
         // Full precision = 1, recall = 1, fscore = 1
-        Eval e2 = Eval.Builder.StrictBinaryEvaluation(new Result(0,match),gs2);
+        Eval e2 = Eval.Builder.StrictBinaryEvaluation(new Result(0,match,0),gs2);
         Assert.assertTrue((abs(e2.getPrecision() - 1.0)) <0.0001 && abs(e2.getRecall()- 1.0) <0.0001 && abs(e2.getFscore()- 1.0) <0.0001);
     }
 
@@ -115,11 +115,11 @@ public class EvalTest {
         Alignment gs2 = new Alignment.Builder().add(n1,n5).add(n2,n6).add(n3,n7).add(n4,n7).build("gs2"); // Exact match
 
         // precision = 3/4 , recall = 1
-        Eval e1 = Eval.Builder.BinaryEvaluation(new Result(0,match),gs1);
+        Eval e1 = Eval.Builder.BinaryEvaluation(new Result(0,match,0),gs1);
         // Full precision = 1, recall = 1, fscore = 1
-        Eval e2 = Eval.Builder.BinaryEvaluation(new Result(0,match),gs2);
+        Eval e2 = Eval.Builder.BinaryEvaluation(new Result(0,match,0),gs2);
         // precision = 1, recall = 3/4
-        Eval e3 = Eval.Builder.BinaryEvaluation(new Result(0,gs1), match);
+        Eval e3 = Eval.Builder.BinaryEvaluation(new Result(0,gs1,0), match);
 
         List<Eval> evals = new LinkedList<>();
         evals.add(e1);

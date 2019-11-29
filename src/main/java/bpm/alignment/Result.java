@@ -7,10 +7,12 @@ import java.util.Set;
 public class Result {
     private double similarity;
     private Alignment alignment;
+    private double gap;
 
-    public Result(double objective, Alignment alignment){
+    public Result(double objective, Alignment alignment, double gap){
         this.similarity = objective;
         this.alignment = alignment;
+        this.gap = gap;
     }
 
     public Alignment getAlignment() {
@@ -21,6 +23,8 @@ public class Result {
         return similarity;
     }
 
+    public double getGAP() { return gap; }
+
     @Override
     public String toString() {
         String s = "#######RESULTS###### \n" +
@@ -28,4 +32,5 @@ public class Result {
         s+= alignment.toString();
         return s;
     }
+
 }

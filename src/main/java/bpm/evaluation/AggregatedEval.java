@@ -200,11 +200,11 @@ public class AggregatedEval {
     public void toCSV(File file) throws IOException {
         FileWriter csvWriter = new FileWriter(file.getAbsolutePath());
         // column description
-        csvWriter.append("Name,").append("TP,").append("FP,").append("FN,").append("PRECISION,").append("RECALL,").append("FSCORE,").append("OVERALL TIME,").append("LP TIME,").append("LABEL-SIM TIME,").append("BP TIME,").append("SIMILARITY\n");
+        csvWriter.append("Name,").append("TP,").append("FP,").append("FN,").append("PRECISION,").append("RECALL,").append("FSCORE,").append("OVERALL TIME,").append("LP TIME,").append("LABEL-SIM TIME,").append("BP TIME,").append("SIMILARITY,").append("MIP GAP\n");
 
         // aggregated statistics
-        csvWriter.append("Aggregated (MACRO),").append(this.tp+",").append(this.fp+",").append(this.fn+",").append(this.precisionMacro+",").append(this.recallMacro+",").append(this.fscoreMacro+",").append(this.overallTimeAvg+",").append(this.lpTimeAvg+",").append(this.labelSimTimeAvg+",").append(this.bpTimeAvg+",").append("" + 0 + "\n");
-        csvWriter.append("Aggregated (MICRO),").append(this.tp+",").append(this.fp+",").append(this.fn+",").append(this.precisionMicro+",").append(this.recallMicro+",").append(this.fscoreMicro+",").append(this.overallTimeAvg+",").append(this.lpTimeAvg+",").append(this.labelSimTimeAvg+",").append(this.bpTimeAvg+",").append("" + 0 + "\n");
+        csvWriter.append("Aggregated (MACRO),").append(this.tp+",").append(this.fp+",").append(this.fn+",").append(this.precisionMacro+",").append(this.recallMacro+",").append(this.fscoreMacro+",").append(this.overallTimeAvg+",").append(this.lpTimeAvg+",").append(this.labelSimTimeAvg+",").append(this.bpTimeAvg+",").append("" + 0 +",").append("" + 0 + "\n");
+        csvWriter.append("Aggregated (MICRO),").append(this.tp+",").append(this.fp+",").append(this.fn+",").append(this.precisionMicro+",").append(this.recallMicro+",").append(this.fscoreMicro+",").append(this.overallTimeAvg+",").append(this.lpTimeAvg+",").append(this.labelSimTimeAvg+",").append(this.bpTimeAvg+",").append("" + 0 +",").append("" + 0 + "\n");
 
         // detailed statistics
         for(Eval e : evals){
@@ -212,7 +212,7 @@ public class AggregatedEval {
                          .append(e.getTP()+",").append(e.getFP()+",").append(e.getFN()+",").append(e.getPrecision()+",")
                          .append(e.getRecall()+",").append(e.getFscore()+",").append(e.getBenchmark().getOverallTime()+",")
                          .append(e.getBenchmark().getLpTime()+",").append(e.getBenchmark().getLabelSimialrityTime()+",")
-                         .append(e.getBenchmark().getBPTime()+",").append(e.getSimilarity()+"\n");
+                         .append(e.getBenchmark().getBPTime()+",").append(e.getSimilarity()+",").append(e.getGAP()+"\n");
             }
 
         //properly close everything

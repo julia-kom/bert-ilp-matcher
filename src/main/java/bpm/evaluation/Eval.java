@@ -49,6 +49,9 @@ public class Eval {
     //similarity score
     private double similarity = 0;
 
+    //MIP gap
+    private double gap = 0;
+
     private Eval(){
 
     }
@@ -59,6 +62,14 @@ public class Eval {
      */
     public int getTP(){
         return tp;
+    }
+
+    /**
+     * GEt GAP of MIP. If no MIP then return -1
+     * @return
+     */
+    public double getGAP(){
+        return gap;
     }
 
     /**
@@ -142,6 +153,7 @@ public class Eval {
                 "PRECISION: " + precision + "\n" +
                 "RECALL: " + recall + "\n" +
                 "FSCORE: " + fscore + "\n" +
+                "MIP GAP" + gap + "\n" +
                 timer.toString();
     }
 
@@ -154,13 +166,14 @@ public class Eval {
     public void toCSV(File file) throws IOException {
         FileWriter csvWriter = new FileWriter(file.getAbsolutePath());
         // column description
-        csvWriter.append("Name,").append("TP,").append("FP,").append("FN,").append("PRECISION,").append("RECALL,").append("FSCORE,").append("OVERALL TIME,").append("LP TIME,").append("LABEL-SIM TIME,").append("BP TIME\n");
+        csvWriter.append("Name,").append("TP,").append("FP,").append("FN,").append("PRECISION,").append("RECALL,").append("FSCORE,").append("OVERALL TIME,").append("LP TIME,").append("LABEL-SIM TIME,").append("BP TIME,").append("MIP GAP\n");
         // stats
         csvWriter.append(this.getName().replace(',',';').replace("\n"," ")+",")
                  .append(this.getTP()+",").append(this.getFP()+",").append(this.getFN()+",")
                  .append(this.getPrecision()+",").append(this.getRecall()+",").append(this.getFscore()+",")
                  .append(this.getBenchmark().getOverallTime()+",").append(this.getBenchmark().getLpTime()+",")
-                 .append(this.getBenchmark().getLabelSimialrityTime()+",").append(this.getBenchmark().getBPTime()+"\n");
+                 .append(this.getBenchmark().getLabelSimialrityTime()+",").append(this.getBenchmark().getBPTime()+",")
+                 .append(this.getGAP() + "\n");
 
         // tp,fp,fn correspondences:
         Iterator<String> tpIt = tpCorrespondeces.iterator();
@@ -219,6 +232,7 @@ public class Eval {
             Eval res = new Eval();
             res.name = matcher.getAlignment().getName();
             res.similarity = matcher.getSimilarity();
+            res.gap = matcher.getGAP();
 
             // fill the tpCorrespondeces, fpCorrespondeces,fnCorrespondeces
             //TP and FP Correspondences
