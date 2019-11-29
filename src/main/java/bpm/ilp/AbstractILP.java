@@ -86,7 +86,7 @@ public abstract class AbstractILP {
         If the best objective bound is moving very slowly (or not at all), you may want to try MIPFocus=3 to
         focus on the bound.
          */
-        model.set(GRB.IntParam.MIPFocus, 1);
+        model.set(GRB.IntParam.MIPFocus, 3);
 
         /*
         The MIP solver can change parameter settings in the middle of the search in order to adopt a strategy that
@@ -122,7 +122,7 @@ public abstract class AbstractILP {
         conservative (1), or aggressive (2). More aggressive application of presolve takes more time, but can sometimes
         lead to a significantly tighter model.
          */
-        model.set(GRB.IntParam.Presolve,-1);
+        model.set(GRB.IntParam.Presolve,2);
 
         /*
         The PreSparsify parameter enables an algorithm that can sometimes significantly reduce the number of nonzero
