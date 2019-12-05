@@ -228,7 +228,9 @@ public class Pipeline{
                     .atPostprocessThreshold(Double.valueOf(matcher.get("postprocessing-thresh").toString()))
                     .atSimilarityWeight(Double.valueOf(matcher.get("sim-weight").toString()))
                     .withWordSimilarity(matcher.get("word-sim").toString())
-                    .withILP(matcher.get("ilp").toString());
+                    .withILP(matcher.get("ilp").toString())
+                    .withILPNodeLimit(Double.valueOf(matcher.get("ilp-node-limit").toString()))
+                    .withILPTimeLimit(Double.valueOf(matcher.get("ilp-time-limit").toString()));
                     //TODO add with profile
             if(Boolean.valueOf(matcher.get("complex matches").toString())){
                 builder.withComplexMatches();
