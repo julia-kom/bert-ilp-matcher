@@ -49,3 +49,6 @@ eval-results/
 ## Jupyter Notebook
 ##############################
 .ipynb_checkpoints
+*.lp
+*.mps
+*.db
