@@ -39,7 +39,7 @@ public class QuadraticILP extends AbstractILP {
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
         int minSize = Math.min(nodesNet1,nodesNet2);
-        int maxMissmatches = minSize*minSize +1;
+        int maxMissmatches = minSize*minSize ;
 
         //matching variables
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
@@ -49,20 +49,19 @@ public class QuadraticILP extends AbstractILP {
             }
         }
 
-        //counting variables
-        GRBVar[] y = new GRBVar[maxMissmatches];
-        for (int k = 0; k< maxMissmatches; k++){
-            y[k]= model.addVar(0.0, 1.0,0.0, GRB.BINARY, "y_"+k);
-        }
-
-
-
         // Objective weighted between behavioral correspondance and label similarity
         // Behavioral part
-        GRBLinExpr behavior = new GRBLinExpr();
-        for (int k = 0; k< maxMissmatches; k++){
-            behavior.addTerm(k/(minSize*minSize), y[k]);
-
+        GRBQuadExpr behavior = new GRBQuadExpr();
+        for (int i = 0; i< nodesNet1; i++){
+            for (int k = 0; k < nodesNet1; k++){
+                for (int j = 0; j < nodesNet2; j++){
+                    for (int l = 0; l < nodesNet2; l++) {
+                        if (relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]).equals(relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]))) {
+                            behavior.addTerm(1.0/(minSize*minSize),x[k][l],x[i][j]);
+                        }
+                    }
+                }
+            }
         }
 
         // Label Similarity Part
@@ -72,11 +71,17 @@ public class QuadraticILP extends AbstractILP {
                 label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(minSize), x[i][j]);
             }
         }
-        GRBLinExpr obj = new GRBLinExpr();
+
+        GRBQuadExpr obj = new GRBQuadExpr();
         obj.multAdd(this.similarityWeight, behavior);
         obj.multAdd(1-this.similarityWeight, label);
 
         model.setObjective(obj, GRB.MAXIMIZE);
+
+        //model.addQConstr(obj,GRB.LESS_EQUAL,1.0, "limit");
+        //model.addConstr(label,GRB.LESS_EQUAL,1.0, "limit");
+        //model.addQConstr(behavior,GRB.LESS_EQUAL,1.0, "limit");
+
 
 
         // matching from at most one constraint
@@ -98,33 +103,6 @@ public class QuadraticILP extends AbstractILP {
             }
             model.addConstr(con2, GRB.LESS_EQUAL, 1.0, "Max Matches");
         }
-
-        // linking between similar entries in the F matrices and the mapping
-        GRBQuadExpr exp31 = new GRBQuadExpr();
-        for (int i = 0; i< nodesNet1; i++){
-            for (int k = 0; k < nodesNet1; k++){
-                for (int j = 0; j < nodesNet2; j++){
-                    for (int l = 0; l < nodesNet2; l++) {
-                        if (relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]).equals(relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]))) {
-                            exp31.addTerm(1,x[k][l],x[i][j]);
-                        }
-                    }
-                }
-            }
-        }
-        GRBLinExpr ex2  = new GRBLinExpr();
-        ex2.clear();
-        for (int k = 0; k< maxMissmatches; k++) {
-            ex2.addTerm(k,y[k]);
-        }
-        model.addQConstr(exp31, GRB.EQUAL, ex2,"Quadratic Constraint");
-
-
-        GRBLinExpr ex3  = new GRBLinExpr();
-        for (int k = 0; k< maxMissmatches; k++) {
-            ex3.addTerm(1,y[k]);
-        }
-        model.addConstr(1, GRB.EQUAL, ex3, "Only one y is 1");
 
 
         // add prematches
