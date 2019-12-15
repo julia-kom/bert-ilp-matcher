@@ -1,7 +1,7 @@
 package bpm.matcher;
 
+import bpm.alignment.Correspondence;
 import bpm.alignment.Result;
-import bpm.ilp.BasicILP2;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -111,7 +111,7 @@ public class ilpTests {
     }
 
 
-   // @Test
+    @Test
     public void quadraticTest(){
         File folder = new File(getClass().getClassLoader().getResource("./pnml/app_store/").getFile());
         for (double i = 0; i <= 1.0; i += 0.2) {
@@ -128,6 +128,22 @@ public class ilpTests {
                     //equal similarity
                     Assert.assertTrue("i= "+ i+"\n" +file1.getName() + " - " +file2.getName() + ":" + r1.getSimilarity() + "vs." + r2.getSimilarity(), abs(r1.getSimilarity() - r2.getSimilarity()) < 0.001);
                 }
+            }
+        }
+    }
+
+    @Test
+    public void similarityFunctionTest(){
+        Pipeline.PRINT_ENABLED = true;
+        File file1 = new File(getClass().getClassLoader().getResource("./pnml/test-files/test3nodes.pnml").getFile());
+        File file2 = new File(getClass().getClassLoader().getResource("./pnml/test-files/test2nodes.pnml").getFile());
+        for (double i = 0; i <= 1.0; i += 0.2) {
+            Pipeline p1 = new Pipeline.Builder().withILP("BASIC").atSimilarityWeight(i).atPostprocessThreshold(0.0).Build();
+            Result r1 = p1.run(file1, file1);
+
+            //As we compare two times the same model it should get perfect similarity on process and activity level
+            for (Correspondence c : r1.getAlignment().getCorrespondences()) {
+                Assert.assertTrue(c.toString() + " has no likelihood of 1: " + c.getLikelihood(), c.getLikelihood() >= 0.999);
             }
         }
     }
