@@ -171,6 +171,8 @@ public class Pipeline {
                 return new BasicILP();
             case BASIC2:
                 return new BasicILP2();
+            case BASIC3:
+                return new BasicILP3();
             case RELAXED:
                 return  new RelaxedILP();
             case RELAXED2:
