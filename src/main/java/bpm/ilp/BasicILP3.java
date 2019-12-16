@@ -101,30 +101,31 @@ public class BasicILP3 extends AbstractILP {
 
 
         // max 1 matching partner
+        GRBLinExpr con1 = new GRBLinExpr();
         for (int i = 0; i < nodesNet1; i++) {
             for (int j = 0; j < nodesNet2; j++) {
                 for (int k = 0; k < nodesNet1; k++) {
                     for (int l = 0; l < nodesNet2; l++) {
 
                         //Symmetry
-                        GRBLinExpr con = new GRBLinExpr();
-                        con.addTerm(1.0, y[i][k][j][l]);
-                        con.addTerm(-1.0, y[k][i][l][j]);
-                        model.addConstr(con, GRB.EQUAL, 0.0, "");
+                        con1.clear();
+                        con1.addTerm(1.0, y[i][k][j][l]);
+                        con1.addTerm(-1.0, y[k][i][l][j]);
+                        model.addConstr(con1, GRB.EQUAL, 0.0, "");
 
                         //equal constraint
                         for (int u = 0; u < nodesNet1; u++) {
                             for (int v = 0; v < nodesNet2; v++) {
                                 for (int w = 0; w < nodesNet2; w++) {
-                                    if (v != j) {
-                                        GRBLinExpr con1 = new GRBLinExpr();
+                                    /*if (v != j) {
+                                        con1.clear();
                                         con1.addTerm(1.0, y[i][k][j][l]);
                                         con1.addTerm(1.0, y[i][u][v][w]);
                                         model.addConstr(con1, GRB.LESS_EQUAL, 1.0, "");
-                                    }
+                                    }*/
 
                                     if (w != l) {
-                                        GRBLinExpr con1 = new GRBLinExpr();
+                                        con1.clear();
                                         con1.addTerm(1.0, y[i][k][j][l]);
                                         con1.addTerm(1.0, y[u][k][v][w]);
                                         model.addConstr(con1, GRB.LESS_EQUAL, 1.0, "");
@@ -134,18 +135,18 @@ public class BasicILP3 extends AbstractILP {
                         }
 
                         //equal constraint
-                        for (int u = 0; u < nodesNet1; u++) {
+                       for (int u = 0; u < nodesNet1; u++) {
                             for (int v = 0; v < nodesNet1; v++) {
                                 for (int w = 0; w < nodesNet2; w++) {
-                                    if (u != i) {
-                                        GRBLinExpr con1 = new GRBLinExpr();
+                                    /*if (u != i) {
+                                        con1.clear();
                                         con1.addTerm(1.0, y[i][v][j][l]);
                                         con1.addTerm(1.0, y[u][v][j][w]);
                                         model.addConstr(con1, GRB.LESS_EQUAL, 1.0, "");
-                                    }
+                                    }*/
 
-                                    if (v != k) {
-                                        GRBLinExpr con1 = new GRBLinExpr();
+                                   if (v != k) {
+                                        con1.clear();
                                         con1.addTerm(1.0, y[i][k][j][l]);
                                         con1.addTerm(1.0, y[u][v][w][l]);
                                         model.addConstr(con1, GRB.LESS_EQUAL, 1.0, "");
@@ -157,6 +158,7 @@ public class BasicILP3 extends AbstractILP {
                 }
             }
         }
+
 
 
 
