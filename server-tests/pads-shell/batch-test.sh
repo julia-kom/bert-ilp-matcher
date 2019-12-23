@@ -18,3 +18,9 @@ done
 #do
 # ./batch-uni-test.sh $stepsize $ilp $word $time
 #done
+
+#start all sap jobs
+for stepsize in "${@:3}";
+do
+ ./batch-sap-test.sh $stepsize $ilp $word $time
+done
