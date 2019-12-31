@@ -20,6 +20,8 @@ public class Evaluation {
         Option optRetrospectiveEval = new Option("r", "retrospective", false, "Run retrospective evaluation");
         Option optSysPrint = new Option("sys", "system-print", false, "Run code with System println commands");
         Option optNetEval= new Option("ne", "net-eval", false, "Run petri net evaluation");
+        Option optGSEval= new Option("gse", "gs-eval", false, "Run gold standard evaluation");
+
         Option optSimilarityWeight = Option.builder("s")
                 .required(false)
                 .hasArg(true)
@@ -133,6 +135,7 @@ public class Evaluation {
         options.addOption(optSysPrint);
         options.addOption(optTl);
         options.addOption(optNl);
+        options.addOption(optGSEval);
 
         //parse input
         CommandLine line;
@@ -226,6 +229,11 @@ public class Evaluation {
         // Perform Net Eval
         if (line.hasOption("ne")) {
             evalBuilder = evalBuilder.withNetEval();
+        }
+
+        // Perform Gold Standard Eval
+        if (line.hasOption("gse")) {
+            evalBuilder = evalBuilder.withGSEval();
         }
 
         // gold standard for single eval

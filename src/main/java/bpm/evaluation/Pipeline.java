@@ -38,6 +38,7 @@ public class Pipeline{
     private Eval.Strategies evalStrat;
     private String logFolder = "";
     private double postprocessingThreshold;
+    private boolean gsEval;
 
     public void run(){
 
@@ -73,8 +74,40 @@ public class Pipeline{
                 System.out.println("Flush not possible " + e.toString());
             }
 
-        // Run a batch test
-        }else if(batch) {
+        // Run a gold standard evaluation
+        }else if(gsEval){
+            AggregatedGoldstandardAnalysis gsAnalysis;
+            try {
+                gsAnalysis = new AggregatedGoldstandardAnalysis(new File("./eval-results/" + logFolder + "/goldstandard.eval"));
+            }catch(Exception e){
+                System.out.println("Goldstandard initialization not possible " + e.toString());
+                gsAnalysis = null;
+            }
+            // get files
+            File[] files =  goldStandardPath.toFile().listFiles(new FilenameFilter() {
+                public boolean accept(File dir, String name) {
+                    return name.toLowerCase().endsWith(".rdf");
+                }
+            });
+
+            // add to csv
+            RdfAlignmentReader reader = new RdfAlignmentReader();
+            for(File f : files){
+                try {
+                    Alignment a = reader.readAlignmentFrom(f);
+                    gsAnalysis.addGoldstandard(a);
+                }catch(Exception e){
+                    System.out.println("Analysis not possible for goldstandard " + f.getName() + e.toString());
+                }
+            }
+            try {
+                gsAnalysis.toCSV();
+            }catch(Exception e){
+                System.out.println("Flush not possible " + e.toString());
+            }
+
+        //run a batch evaluation
+        } else if(batch) {
             List<Eval> evals = batchEval();
             AggregatedEval aggregatedEval = new AggregatedEval(evals);
             try {
@@ -365,6 +398,7 @@ public class Pipeline{
         private Path goldStandardPath;
         private Eval.Strategies evalStrat = Eval.Strategies.BINARY;
         private double postprecessingThreshold = 0;
+        private boolean gsEval = false;
 
         public Builder(){
             super();
@@ -396,6 +430,15 @@ public class Pipeline{
         public Builder withNetEval(){
             this.netEval = true;
             return this;
+        }
+
+        /**
+         * Perform a gs test on given folder
+         * @return
+         */
+        public Builder withGSEval() {
+            this.gsEval = true;
+            return  this;
         }
 
         /**
@@ -517,17 +560,18 @@ public class Pipeline{
             pip.netEval = this.netEval;
             pip.netProfile = this.netProfile;
             pip.postprocessingThreshold = this.postprecessingThreshold;
+            pip.gsEval = this.gsEval;
 
             //tests
             if(pip.batch && pip.batchPath == null){
                 throw new IllegalArgumentException("When batch mode on, then -batchPath argument needed");
             }
 
-            if(!pip.batch && !retrospective && !netEval && (pip.net1 == null || pip.net2 == null)){
+            if(!pip.batch && !retrospective && !netEval && !gsEval && (pip.net1 == null || pip.net2 == null)){
                 throw new IllegalArgumentException("When single evaluation, then -net1, -net2 argument needed");
             }
 
-            if(!pip.batch && !retrospective  && !netEval && pip.goldStandard == null){
+            if(!pip.batch && !retrospective  && !netEval && !gsEval && pip.goldStandard == null){
                 throw new IllegalArgumentException("When single evaluation, then goldstandard file -g argument needed");
             }
 
@@ -543,6 +587,10 @@ public class Pipeline{
                 throw new IllegalArgumentException("When netEval mode on, then batch path and net profile must be given");
             }
 
+            if(pip.gsEval &&  pip.goldStandardPath == null){
+                throw new IllegalArgumentException("When gsEval mode on, then goldstandardPath must be given");
+            }
+
             // Define log folder where all log files are generated
             if(batch) {
                 pip.logFolder ="batch-"+batchPath.getFileName()+"-"+evalStrat.toString()+"-"+timestamp;
@@ -550,6 +598,8 @@ public class Pipeline{
                 pip.logFolder ="retrospective-"+resultPath.getFileName()+"-"+evalStrat.toString()+"-"+timestamp;
             }else if(netEval) {
                 pip.logFolder ="net-" +netProfile.toString()+"-"+timestamp;
+            }else if(gsEval) {
+                pip.logFolder ="goldstandard-" +goldStandardPath.getFileName()+"-"+timestamp;
             }else{
                 pip.logFolder ="single-"+net1.getName()+"-"+net2.getName()+"-"+evalStrat.toString()+"-"+timestamp;
             }
