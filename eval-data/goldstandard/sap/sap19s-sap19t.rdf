@@ -16,8 +16,8 @@
   </onto2>
   <map>
     <Cell>
-      <entity1 rdf:resource="http://sap/testcase19/source/n14"/>
-      <entity2 rdf:resource="http://sap/testcase19/target/n12"/>
+      <entity1 rdf:resource="http://sap19s#n14"/>
+      <entity2 rdf:resource="http://sap19t#n12"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>
@@ -25,8 +25,8 @@
 
   <map>
     <Cell>
-      <entity1 rdf:resource="http://sap/testcase19/source/n20"/>
-      <entity2 rdf:resource="http://sap/testcase19/target/n20"/>
+      <entity1 rdf:resource="http://sap19s#n20"/>
+      <entity2 rdf:resource="http://sap19t#n20"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>
@@ -34,8 +34,8 @@
 
   <map>
     <Cell>
-      <entity1 rdf:resource="http://sap/testcase19/source/n19"/>
-      <entity2 rdf:resource="http://sap/testcase19/target/n19"/>
+      <entity1 rdf:resource="http://sap19s#n19"/>
+      <entity2 rdf:resource="http://sap19t#n19"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>
@@ -43,8 +43,8 @@
 
   <map>
     <Cell>
-      <entity1 rdf:resource="http://sap/testcase19/source/n21"/>
-      <entity2 rdf:resource="http://sap/testcase19/target/n18"/>
+      <entity1 rdf:resource="http://sap19s#n21"/>
+      <entity2 rdf:resource="http://sap19t#n18"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>
@@ -52,8 +52,8 @@
 
   <map>
     <Cell>
-      <entity1 rdf:resource="http://sap/testcase19/source/n13"/>
-      <entity2 rdf:resource="http://sap/testcase19/target/n15"/>
+      <entity1 rdf:resource="http://sap19s#n13"/>
+      <entity2 rdf:resource="http://sap19t#n15"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>
@@ -61,8 +61,8 @@
 
   <map>
     <Cell>
-      <entity1 rdf:resource="http://sap/testcase19/source/n18"/>
-      <entity2 rdf:resource="http://sap/testcase19/target/n14"/>
+      <entity1 rdf:resource="http://sap19s#n18"/>
+      <entity2 rdf:resource="http://sap19t#n14"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>
@@ -70,8 +70,8 @@
 
   <map>
     <Cell>
-      <entity1 rdf:resource="http://sap/testcase19/source/n12"/>
-      <entity2 rdf:resource="http://sap/testcase19/target/n16"/>
+      <entity1 rdf:resource="http://sap19s#n12"/>
+      <entity2 rdf:resource="http://sap19t#n16"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>
@@ -79,8 +79,8 @@
 
   <map>
     <Cell>
-      <entity1 rdf:resource="http://sap/testcase19/source/n17"/>
-      <entity2 rdf:resource="http://sap/testcase19/target/n21"/>
+      <entity1 rdf:resource="http://sap19s#n17"/>
+      <entity2 rdf:resource="http://sap19t#n21"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>
@@ -88,8 +88,8 @@
 
   <map>
     <Cell>
-      <entity1 rdf:resource="http://sap/testcase19/source/n16"/>
-      <entity2 rdf:resource="http://sap/testcase19/target/n22"/>
+      <entity1 rdf:resource="http://sap19s#n16"/>
+      <entity2 rdf:resource="http://sap19t#n22"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>
@@ -97,8 +97,8 @@
 
   <map>
     <Cell>
-      <entity1 rdf:resource="http://sap/testcase19/source/n22"/>
-      <entity2 rdf:resource="http://sap/testcase19/target/n17"/>
+      <entity1 rdf:resource="http://sap19s#n22"/>
+      <entity2 rdf:resource="http://sap19t#n17"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>

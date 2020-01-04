@@ -1,2 +1,280 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<pnml><net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel"><name><text>Petri net converted from C-EPC imported from target-model.epml [Reduced]</text></name><page id="n0"><name><text/></name><place id="n1"><name><text>Goods receipts to be settled automatically</text></name><toolspecific tool="ProM" version="6.4" localNodeID="020679e5-ff17-4b35-95a3-c70659ded904"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><place id="n2"><name><text> --&gt; </text></name><toolspecific tool="ProM" version="6.4" localNodeID="06c0dac6-c800-45af-9efa-86c3e1af8f1a"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics><initialMarking><text>1</text></initialMarking></place><place id="n3"><name><text/></name><toolspecific tool="ProM" version="6.4" localNodeID="d977a255-58b2-4e38-9ca6-58b247ea3865"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><place id="n4"><name><text>Invoice posted --&gt; </text></name><toolspecific tool="ProM" version="6.4" localNodeID="b149c690-adc8-4d0e-aa1c-64e9dba56398"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><place id="n5"><name><text>Payment must be effected</text></name><toolspecific tool="ProM" version="6.4" localNodeID="87779a31-a0e1-45ce-a35c-557ba52f4857"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><place id="n6"><name><text>Invoicing plans require settlement</text></name><toolspecific tool="ProM" version="6.4" localNodeID="fa7c8515-bca8-4962-b3f2-fc2cd1f141ed"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><transition id="n7"><name><text>Evaluated Receipt Settlement (ERS)</text></name><toolspecific tool="ProM" version="6.4" activity="Evaluated Receipt Settlement (ERS)" localNodeID="a7f97e02-d258-4688-99e2-e37255cd00c4"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n8"><name><text>t1</text></name><toolspecific tool="ProM" version="6.4" activity="t1" localNodeID="94cf47e6-7ea9-4936-a1bf-93f38e0b1322"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n9"><name><text>Invoice Processing with Reference</text></name><toolspecific tool="ProM" version="6.4" activity="Invoice Processing with Reference" localNodeID="5980b767-0659-47c4-a510-e0a75f6915af"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n10"><name><text>Invoice Overview</text></name><toolspecific tool="ProM" version="6.4" activity="Invoice Overview" localNodeID="82b4e738-3f9c-4ad3-9e87-871eef270648"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n11"><name><text>Invoice Release</text></name><toolspecific tool="ProM" version="6.4" activity="Invoice Release" localNodeID="49adcc36-23a1-4a2b-b1d5-992ca5cc6e7b"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n12"><name><text>t2</text></name><toolspecific tool="ProM" version="6.4" activity="t2" localNodeID="4350e120-1970-4be8-aef1-6da5d88d82c4"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n13"><name><text>Invoicing Plan Settlement</text></name><toolspecific tool="ProM" version="6.4" activity="Invoicing Plan Settlement" localNodeID="be1cba3b-d2e9-400b-9315-77fbc421137d"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><arc id="arc14" source="n2" target="n8"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="e6aca818-393d-43e5-94db-0b97ee16deed"/><arctype><text>normal</text></arctype></arc><arc id="arc15" source="n10" target="n4"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="08e5ab2f-f1a1-47e9-b369-145670006243"/><arctype><text>normal</text></arctype></arc><arc id="arc16" source="n11" target="n5"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="adbfccb6-ff2c-4773-a38b-46ce924bc040"/><arctype><text>normal</text></arctype></arc><arc id="arc17" source="n13" target="n4"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="44f1bc3b-66b2-48ce-a8ff-eb5858037249"/><arctype><text>normal</text></arctype></arc><arc id="arc18" source="n8" target="n1"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="79992a80-9b9b-43c0-875d-9e81fe9ede2f"/><arctype><text>normal</text></arctype></arc><arc id="arc19" source="n12" target="n6"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="eed31cab-afbe-48b4-9070-4a4e0cffa2ae"/><arctype><text>normal</text></arctype></arc><arc id="arc20" source="n2" target="n9"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="00aad1a4-a116-4010-a97e-c2619fb135bb"/><arctype><text>normal</text></arctype></arc><arc id="arc21" source="n3" target="n10"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="76e4a5eb-8dfe-4407-b74e-186dfa02158d"/><arctype><text>normal</text></arctype></arc><arc id="arc22" source="n4" target="n11"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="43c09881-d319-4089-8af9-c1c96bffaebf"/><arctype><text>normal</text></arctype></arc><arc id="arc23" source="n6" target="n13"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="5b55bd25-7d84-45b8-aebe-e4b782f5cedd"/><arctype><text>normal</text></arctype></arc><arc id="arc24" source="n1" target="n7"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="972c1ebe-f303-4583-b514-89941ed547be"/><arctype><text>normal</text></arctype></arc><arc id="arc25" source="n9" target="n3"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="36a0802f-16a9-4361-b8b5-cc95825f57e8"/><arctype><text>normal</text></arctype></arc><arc id="arc26" source="n2" target="n12"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="ec086e43-cfd5-4849-ab6e-8dba198cfa4e"/><arctype><text>normal</text></arctype></arc><arc id="arc27" source="n7" target="n4"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="2375a9d1-75e9-4a57-83f9-0663b10440ad"/><arctype><text>normal</text></arctype></arc></page><finalmarkings/></net></pnml>
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>Petri net converted from C-EPC imported from target-model.epml [Reduced]</text>
+    </name>
+    <page id="n0">
+      <name>
+        <text/>
+      </name>
+      <place id="n1">
+        <name>
+          <text>Goods receipts to be settled automatically</text>
+        </name>
+        <toolspecific localNodeID="020679e5-ff17-4b35-95a3-c70659ded904" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n2">
+        <name>
+          <text> --&gt; </text>
+        </name>
+        <toolspecific localNodeID="06c0dac6-c800-45af-9efa-86c3e1af8f1a" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n3">
+        <name>
+          <text/>
+        </name>
+        <toolspecific localNodeID="d977a255-58b2-4e38-9ca6-58b247ea3865" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n4">
+        <name>
+          <text>Invoice posted --&gt; </text>
+        </name>
+        <toolspecific localNodeID="b149c690-adc8-4d0e-aa1c-64e9dba56398" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n5">
+        <name>
+          <text>Payment must be effected</text>
+        </name>
+        <toolspecific localNodeID="87779a31-a0e1-45ce-a35c-557ba52f4857" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n6">
+        <name>
+          <text>Invoicing plans require settlement</text>
+        </name>
+        <toolspecific localNodeID="fa7c8515-bca8-4962-b3f2-fc2cd1f141ed" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <transition id="n7">
+        <name>
+          <text>Evaluated Receipt Settlement (ERS)</text>
+        </name>
+        <toolspecific activity="Evaluated Receipt Settlement (ERS)" localNodeID="a7f97e02-d258-4688-99e2-e37255cd00c4" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n8">
+        <name>
+          <text>t1</text>
+        </name>
+        <toolspecific activity="t1" localNodeID="94cf47e6-7ea9-4936-a1bf-93f38e0b1322" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n9">
+        <name>
+          <text>Invoice Processing with Reference</text>
+        </name>
+        <toolspecific activity="Invoice Processing with Reference" localNodeID="5980b767-0659-47c4-a510-e0a75f6915af" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n10">
+        <name>
+          <text>Invoice Overview</text>
+        </name>
+        <toolspecific activity="Invoice Overview" localNodeID="82b4e738-3f9c-4ad3-9e87-871eef270648" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n11">
+        <name>
+          <text>Invoice Release</text>
+        </name>
+        <toolspecific activity="Invoice Release" localNodeID="49adcc36-23a1-4a2b-b1d5-992ca5cc6e7b" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n12">
+        <name>
+          <text>t2</text>
+        </name>
+        <toolspecific activity="t2" localNodeID="4350e120-1970-4be8-aef1-6da5d88d82c4" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n13">
+        <name>
+          <text>Invoicing Plan Settlement</text>
+        </name>
+        <toolspecific activity="Invoicing Plan Settlement" localNodeID="be1cba3b-d2e9-400b-9315-77fbc421137d" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <arc id="arc14" source="n2" target="n8">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="e6aca818-393d-43e5-94db-0b97ee16deed" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc15" source="n10" target="n4">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="08e5ab2f-f1a1-47e9-b369-145670006243" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc16" source="n11" target="n5">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="adbfccb6-ff2c-4773-a38b-46ce924bc040" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc17" source="n13" target="n4">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="44f1bc3b-66b2-48ce-a8ff-eb5858037249" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc18" source="n8" target="n1">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="79992a80-9b9b-43c0-875d-9e81fe9ede2f" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc19" source="n12" target="n6">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="eed31cab-afbe-48b4-9070-4a4e0cffa2ae" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc20" source="n2" target="n9">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="00aad1a4-a116-4010-a97e-c2619fb135bb" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc21" source="n3" target="n10">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="76e4a5eb-8dfe-4407-b74e-186dfa02158d" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc22" source="n4" target="n11">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="43c09881-d319-4089-8af9-c1c96bffaebf" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc23" source="n6" target="n13">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="5b55bd25-7d84-45b8-aebe-e4b782f5cedd" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc24" source="n1" target="n7">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="972c1ebe-f303-4583-b514-89941ed547be" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc25" source="n9" target="n3">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="36a0802f-16a9-4361-b8b5-cc95825f57e8" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc26" source="n2" target="n12">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="ec086e43-cfd5-4849-ab6e-8dba198cfa4e" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc27" source="n7" target="n4">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="2375a9d1-75e9-4a57-83f9-0663b10440ad" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+    </page>
+    <finalmarkings/>
+  </net>
+</pnml>

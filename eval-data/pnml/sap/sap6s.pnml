@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml>
    <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
       <name>
@@ -78,10 +78,7 @@
             <name>
                <text>Task Functions on Information System</text>
             </name>
-            <toolspecific activity="Task Functions on Information System"
-                          localNodeID="77c68c6a-8650-4550-b89c-8e949caa85f6"
-                          tool="ProM"
-                          version="6.4"/>
+            <toolspecific activity="Task Functions on Information System" localNodeID="77c68c6a-8650-4550-b89c-8e949caa85f6" tool="ProM" version="6.4"/>
             <graphics>
                <position x="17.5" y="15.0"/>
                <dimension x="25.0" y="20.0"/>
@@ -92,10 +89,7 @@
             <name>
                <text>Information System (EC-EIS)</text>
             </name>
-            <toolspecific activity="Information System (EC-EIS)"
-                          localNodeID="2acbe045-fbdc-4ae8-9df0-c364714f1bce"
-                          tool="ProM"
-                          version="6.4"/>
+            <toolspecific activity="Information System (EC-EIS)" localNodeID="2acbe045-fbdc-4ae8-9df0-c364714f1bce" tool="ProM" version="6.4"/>
             <graphics>
                <position x="17.5" y="15.0"/>
                <dimension x="25.0" y="20.0"/>
@@ -106,10 +100,7 @@
             <name>
                <text>Task Functions on Tools</text>
             </name>
-            <toolspecific activity="Task Functions on Tools"
-                          localNodeID="c478cab9-3bc6-4b1b-82d8-f23c6662177c"
-                          tool="ProM"
-                          version="6.4"/>
+            <toolspecific activity="Task Functions on Tools" localNodeID="c478cab9-3bc6-4b1b-82d8-f23c6662177c" tool="ProM" version="6.4"/>
             <graphics>
                <position x="17.5" y="15.0"/>
                <dimension x="25.0" y="20.0"/>
@@ -120,8 +111,7 @@
             <name>
                <text>Tools</text>
             </name>
-            <toolspecific activity="Tools" localNodeID="071c8fe0-6d43-47a8-8960-185d65b891d5" tool="ProM"
-                          version="6.4"/>
+            <toolspecific activity="Tools" localNodeID="071c8fe0-6d43-47a8-8960-185d65b891d5" tool="ProM" version="6.4"/>
             <graphics>
                <position x="17.5" y="15.0"/>
                <dimension x="25.0" y="20.0"/>
@@ -132,9 +122,7 @@
             <name>
                <text>Basic settings</text>
             </name>
-            <toolspecific activity="Basic settings" localNodeID="fc9b1162-03d9-4f20-8cb5-78f989aefa92"
-                          tool="ProM"
-                          version="6.4"/>
+            <toolspecific activity="Basic settings" localNodeID="fc9b1162-03d9-4f20-8cb5-78f989aefa92" tool="ProM" version="6.4"/>
             <graphics>
                <position x="17.5" y="15.0"/>
                <dimension x="25.0" y="20.0"/>
@@ -145,9 +133,7 @@
             <name>
                <text>Data transfer</text>
             </name>
-            <toolspecific activity="Data transfer" localNodeID="1c2f6f25-95de-473b-8039-0877ab37090c"
-                          tool="ProM"
-                          version="6.4"/>
+            <toolspecific activity="Data transfer" localNodeID="1c2f6f25-95de-473b-8039-0877ab37090c" tool="ProM" version="6.4"/>
             <graphics>
                <position x="17.5" y="15.0"/>
                <dimension x="25.0" y="20.0"/>
@@ -158,9 +144,7 @@
             <name>
                <text>Data modeling</text>
             </name>
-            <toolspecific activity="Data modeling" localNodeID="ec7ffb82-86b2-450b-a51d-d41ad0121955"
-                          tool="ProM"
-                          version="6.4"/>
+            <toolspecific activity="Data modeling" localNodeID="ec7ffb82-86b2-450b-a51d-d41ad0121955" tool="ProM" version="6.4"/>
             <graphics>
                <position x="17.5" y="15.0"/>
                <dimension x="25.0" y="20.0"/>
@@ -171,9 +155,7 @@
             <name>
                <text>Data basis</text>
             </name>
-            <toolspecific activity="Data basis" localNodeID="ad2bebde-1c44-4cc7-a5d7-7c2e322ed7fd"
-                          tool="ProM"
-                          version="6.4"/>
+            <toolspecific activity="Data basis" localNodeID="ad2bebde-1c44-4cc7-a5d7-7c2e322ed7fd" tool="ProM" version="6.4"/>
             <graphics>
                <position x="17.5" y="15.0"/>
                <dimension x="25.0" y="20.0"/>

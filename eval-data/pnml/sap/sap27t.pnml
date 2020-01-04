@@ -1,2 +1,117 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<pnml><net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel"><name><text>Petri net converted from C-EPC imported from target-model.epml [Reduced]</text></name><page id="n0"><name><text/></name><place id="n1"><name><text/></name><toolspecific tool="ProM" version="6.4" localNodeID="f78c562e-9992-4126-9ad2-b5e5111ecbcf"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><place id="n2"><name><text>Quotation reason occurred</text></name><toolspecific tool="ProM" version="6.4" localNodeID="4bd9fdb2-9376-4d88-a061-fd378df7fb79"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics><initialMarking><text>1</text></initialMarking></place><place id="n3"><name><text/></name><toolspecific tool="ProM" version="6.4" localNodeID="5f10512c-77cd-439b-9199-6e07a2a8f41a"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><transition id="n4"><name><text>Customer Quotation Processing</text></name><toolspecific tool="ProM" version="6.4" activity="Customer Quotation Processing" localNodeID="60e2bf86-1c40-46d5-9b45-9087eceb6779"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n5"><name><text>Sales Order Processing</text></name><toolspecific tool="ProM" version="6.4" activity="Sales Order Processing" localNodeID="a2bd2cfd-7806-418e-960d-65168ed5c8ab"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><arc id="arc6" source="n2" target="n4"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="7450b373-4532-459d-96f6-50b21bb78241"/><arctype><text>normal</text></arctype></arc><arc id="arc7" source="n1" target="n5"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="ff7400d5-01a4-4918-97d7-fce90d51033a"/><arctype><text>normal</text></arctype></arc><arc id="arc8" source="n4" target="n1"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="a583301d-0fd6-48dd-a689-d55b97a12573"/><arctype><text>normal</text></arctype></arc><arc id="arc9" source="n5" target="n3"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="74657ffa-c7e9-4fc5-91e3-caf6247556de"/><arctype><text>normal</text></arctype></arc></page><finalmarkings><marking><place idref="n1"><text>0</text></place><place idref="n2"><text>0</text></place><place idref="n3"><text>1</text></place></marking></finalmarkings></net></pnml>
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>Petri net converted from C-EPC imported from target-model.epml [Reduced]</text>
+    </name>
+    <page id="n0">
+      <name>
+        <text/>
+      </name>
+      <place id="n1">
+        <name>
+          <text/>
+        </name>
+        <toolspecific localNodeID="f78c562e-9992-4126-9ad2-b5e5111ecbcf" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n2">
+        <name>
+          <text>Quotation reason occurred</text>
+        </name>
+        <toolspecific localNodeID="4bd9fdb2-9376-4d88-a061-fd378df7fb79" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n3">
+        <name>
+          <text/>
+        </name>
+        <toolspecific localNodeID="5f10512c-77cd-439b-9199-6e07a2a8f41a" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <transition id="n4">
+        <name>
+          <text>Customer Quotation Processing</text>
+        </name>
+        <toolspecific activity="Customer Quotation Processing" localNodeID="60e2bf86-1c40-46d5-9b45-9087eceb6779" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n5">
+        <name>
+          <text>Sales Order Processing</text>
+        </name>
+        <toolspecific activity="Sales Order Processing" localNodeID="a2bd2cfd-7806-418e-960d-65168ed5c8ab" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <arc id="arc6" source="n2" target="n4">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="7450b373-4532-459d-96f6-50b21bb78241" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc7" source="n1" target="n5">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="ff7400d5-01a4-4918-97d7-fce90d51033a" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc8" source="n4" target="n1">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="a583301d-0fd6-48dd-a689-d55b97a12573" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc9" source="n5" target="n3">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="74657ffa-c7e9-4fc5-91e3-caf6247556de" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="n1">
+          <text>0</text>
+        </place>
+        <place idref="n2">
+          <text>0</text>
+        </place>
+        <place idref="n3">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

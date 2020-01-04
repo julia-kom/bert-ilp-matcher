@@ -1,2 +1,75 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<pnml><net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel"><name><text>Petri net converted from C-EPC imported from source-model.epml [Reduced]</text></name><page id="n0"><name><text/></name><place id="n1"><name><text>Shipment is Complete</text></name><toolspecific tool="ProM" version="6.4" localNodeID="dc938c42-1caa-4005-9ce8-b5c550ad36b1"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><place id="n2"><name><text>Delivery is relevant for shipment --&gt; </text></name><toolspecific tool="ProM" version="6.4" localNodeID="00771c70-5078-4c9b-b58e-74f8990542b0"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics><initialMarking><text>1</text></initialMarking></place><transition id="n3"><name><text>Transportation Planning and Processing</text></name><toolspecific tool="ProM" version="6.4" activity="Transportation Planning and Processing" localNodeID="d4b0e205-f507-446e-8b7b-80f50bb1ca0d"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><arc id="arc4" source="n2" target="n3"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="19cda21f-d5ee-4f6c-904b-af0f69ac62d4"/><arctype><text>normal</text></arctype></arc><arc id="arc5" source="n3" target="n1"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="696f8e91-0846-4c6e-8432-3c052bd50f29"/><arctype><text>normal</text></arctype></arc></page><finalmarkings><marking><place idref="n1"><text>1</text></place><place idref="n2"><text>0</text></place></marking></finalmarkings></net></pnml>
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>Petri net converted from C-EPC imported from source-model.epml [Reduced]</text>
+    </name>
+    <page id="n0">
+      <name>
+        <text/>
+      </name>
+      <place id="n1">
+        <name>
+          <text>Shipment is Complete</text>
+        </name>
+        <toolspecific localNodeID="dc938c42-1caa-4005-9ce8-b5c550ad36b1" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n2">
+        <name>
+          <text>Delivery is relevant for shipment --&gt; </text>
+        </name>
+        <toolspecific localNodeID="00771c70-5078-4c9b-b58e-74f8990542b0" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <transition id="n3">
+        <name>
+          <text>Transportation Planning and Processing</text>
+        </name>
+        <toolspecific activity="Transportation Planning and Processing" localNodeID="d4b0e205-f507-446e-8b7b-80f50bb1ca0d" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <arc id="arc4" source="n2" target="n3">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="19cda21f-d5ee-4f6c-904b-af0f69ac62d4" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc5" source="n3" target="n1">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="696f8e91-0846-4c6e-8432-3c052bd50f29" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="n1">
+          <text>1</text>
+        </place>
+        <place idref="n2">
+          <text>0</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

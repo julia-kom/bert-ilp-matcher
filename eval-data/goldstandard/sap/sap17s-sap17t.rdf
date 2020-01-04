@@ -16,8 +16,8 @@
   </onto2>
   <map>
     <Cell>
-      <entity1 rdf:resource="http://sap/testcase17/source/n3"/>
-      <entity2 rdf:resource="http://sap/testcase17/target/n18"/>
+      <entity1 rdf:resource="http://sap17s#n3"/>
+      <entity2 rdf:resource="http://sap17t#n18"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>

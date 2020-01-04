@@ -64,6 +64,7 @@ public class Pipeline {
      */
     public Result run(File fileNet1, File fileNet2, ExecutionTimer timer){
         //parse the two petri nets
+        System.out.println("########"+fileNet1.getName()+ " to " +fileNet2.getName()+"#########");
         if(PRINT_ENABLED) System.out.println("##### Start Parsing #####");
         NetSystem net1 = parseFile(fileNet1);
         net1.setName(fileNet1.getName());

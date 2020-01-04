@@ -1,2 +1,385 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<pnml><net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel"><name><text>Petri net converted from C-EPC imported from target-model.epml [Reduced]</text></name><page id="n0"><name><text/></name><place id="n1"><name><text>Scheduling agreement schedule/ SA release created Transmission of Scheduling Agreements</text></name><toolspecific tool="ProM" version="6.4" localNodeID="21df6396-db31-40f7-9086-5f1c053aec98"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><place id="n2"><name><text>IDoc received</text></name><toolspecific tool="ProM" version="6.4" localNodeID="8bcc9bc9-a114-4adc-a913-f20a2a93acd3"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><place id="n3"><name><text>Purchase requisition released for purchase order</text></name><toolspecific tool="ProM" version="6.4" localNodeID="3e3b3750-350f-4ee3-9cdd-ca13a99283e7"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics><initialMarking><text>1</text></initialMarking></place><place id="n4"><name><text>Purchasing document released Transmission of Purchase Orders</text></name><toolspecific tool="ProM" version="6.4" localNodeID="78f65526-2d29-4c8d-9bb3-a81cabd7b375"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><place id="n5"><name><text/></name><toolspecific tool="ProM" version="6.4" localNodeID="d1757918-5e92-4aac-b1e5-8c1115040695"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><place id="n6"><name><text/></name><toolspecific tool="ProM" version="6.4" localNodeID="2bd5ca4d-8e33-419f-aa5c-f88f59ad5430"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><place id="n7"><name><text>Purchase order created Release of Purchase Orders</text></name><toolspecific tool="ProM" version="6.4" localNodeID="95d4ca86-91dc-4775-b71d-612f7d6f3eac"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><place id="n8"><name><text>Inbound delivery entered</text></name><toolspecific tool="ProM" version="6.4" localNodeID="01ff651b-5c90-4fe9-b259-291eec301228"/><graphics><position x="11.25" y="11.25"/><dimension x="12.5" y="12.5"/></graphics></place><transition id="n9"><name><text>Transmission of Scheduling Agreements</text></name><toolspecific tool="ProM" version="6.4" activity="Transmission of Scheduling Agreements" localNodeID="dc005e97-3e4b-432e-8de3-a0b78dc0faac"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n10"><name><text>t1</text></name><toolspecific tool="ProM" version="6.4" activity="t1" localNodeID="c293d54d-94c9-447e-8416-be33e0eaceba"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n11"><name><text>Release of Purchase Orders</text></name><toolspecific tool="ProM" version="6.4" activity="Release of Purchase Orders" localNodeID="44cd8e77-c4eb-4b28-9e6b-d05739ffb2c6"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n12"><name><text>Delivery and Acknowledgment Expediter</text></name><toolspecific tool="ProM" version="6.4" activity="Delivery and Acknowledgment Expediter" localNodeID="03fdd0d2-c7cc-40ff-954c-b49c970a9e2f"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n13"><name><text>Transmission of Purchase Orders</text></name><toolspecific tool="ProM" version="6.4" activity="Transmission of Purchase Orders" localNodeID="0ca83f6e-f9d4-492f-9999-f7f9dfaa96f0"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n14"><name><text>Purchase Order Processing</text></name><toolspecific tool="ProM" version="6.4" activity="Purchase Order Processing" localNodeID="7d55fc37-9ac2-4ff7-96ee-673d45e78562"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n15"><name><text>Inbound EDI Processing</text></name><toolspecific tool="ProM" version="6.4" activity="Inbound EDI Processing" localNodeID="42e4e955-1bb7-446f-8c2a-2e6228a0eb31"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n16"><name><text>Scheduling Agreement Delivery Schedule</text></name><toolspecific tool="ProM" version="6.4" activity="Scheduling Agreement Delivery Schedule" localNodeID="79b3a897-1afe-43e6-9a1c-ff2c155be6bc"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><transition id="n17"><name><text>Processing of Shipping Notifications/ Confirmations</text></name><toolspecific tool="ProM" version="6.4" activity="Processing of Shipping Notifications/ Confirmations" localNodeID="e6c0aeb3-0216-4594-893b-d440e7e0fbfa"/><graphics><position x="17.5" y="15.0"/><dimension x="25.0" y="20.0"/><fill color="#FFFFFF"/></graphics></transition><arc id="arc18" source="n1" target="n9"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="3ab1ebe4-e326-439e-abc4-8b4181255a62"/><arctype><text>normal</text></arctype></arc><arc id="arc19" source="n7" target="n11"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="5b90a51f-5dce-4188-b573-7457c3c3d82e"/><arctype><text>normal</text></arctype></arc><arc id="arc20" source="n10" target="n2"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="1360eb3e-53f4-4402-ba14-d5b7540cdffd"/><arctype><text>normal</text></arctype></arc><arc id="arc21" source="n12" target="n6"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="a92d6813-b2e2-4dda-937b-db76d6df6024"/><arctype><text>normal</text></arctype></arc><arc id="arc22" source="n2" target="n15"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="1e33206e-faa8-4706-99f5-205f9be564ad"/><arctype><text>normal</text></arctype></arc><arc id="arc23" source="n3" target="n10"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="25ba2aa4-34bf-419c-a01f-bd23b8534375"/><arctype><text>normal</text></arctype></arc><arc id="arc24" source="n4" target="n13"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="df2d5ca8-51f2-4a61-8cf8-61a1b1d234de"/><arctype><text>normal</text></arctype></arc><arc id="arc25" source="n16" target="n1"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="197ef0be-9651-42db-add7-528705f68401"/><arctype><text>normal</text></arctype></arc><arc id="arc26" source="n6" target="n17"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="41be29ff-f9d2-439d-81f4-2d0e49138616"/><arctype><text>normal</text></arctype></arc><arc id="arc27" source="n17" target="n8"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="76abbfce-a8c1-468c-b0d4-1e672e486d30"/><arctype><text>normal</text></arctype></arc><arc id="arc28" source="n14" target="n7"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="99dfbff1-37a6-4019-9ecc-b7a296823dfd"/><arctype><text>normal</text></arctype></arc><arc id="arc29" source="n13" target="n5"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="5d888188-15cb-4aa9-9cac-38082c907507"/><arctype><text>normal</text></arctype></arc><arc id="arc30" source="n3" target="n14"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="2b1b3ad3-6a8f-4648-952b-258c734b8fee"/><arctype><text>normal</text></arctype></arc><arc id="arc31" source="n15" target="n6"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="49ef03ca-e6db-432f-afbe-692ea138bd47"/><arctype><text>normal</text></arctype></arc><arc id="arc32" source="n11" target="n4"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="70229c0c-81e8-4b03-927e-efd28faa15e5"/><arctype><text>normal</text></arctype></arc><arc id="arc33" source="n9" target="n5"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="03c24423-af68-4a34-904d-ff114f6ffe5b"/><arctype><text>normal</text></arctype></arc><arc id="arc34" source="n5" target="n12"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="3c4f4ca2-14a0-49a7-87e1-00f296a340b3"/><arctype><text>normal</text></arctype></arc><arc id="arc35" source="n3" target="n16"><name><text>1</text></name><toolspecific tool="ProM" version="6.4" localNodeID="8fa7d203-4f9d-4b22-a582-17d373eb682c"/><arctype><text>normal</text></arctype></arc></page><finalmarkings><marking><place idref="n1"><text>0</text></place><place idref="n2"><text>0</text></place><place idref="n3"><text>0</text></place><place idref="n4"><text>0</text></place><place idref="n5"><text>0</text></place><place idref="n6"><text>0</text></place><place idref="n7"><text>0</text></place><place idref="n8"><text>1</text></place></marking></finalmarkings></net></pnml>
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>Petri net converted from C-EPC imported from target-model.epml [Reduced]</text>
+    </name>
+    <page id="n0">
+      <name>
+        <text/>
+      </name>
+      <place id="n1">
+        <name>
+          <text>Scheduling agreement schedule/ SA release created Transmission of Scheduling Agreements</text>
+        </name>
+        <toolspecific localNodeID="21df6396-db31-40f7-9086-5f1c053aec98" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n2">
+        <name>
+          <text>IDoc received</text>
+        </name>
+        <toolspecific localNodeID="8bcc9bc9-a114-4adc-a913-f20a2a93acd3" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n3">
+        <name>
+          <text>Purchase requisition released for purchase order</text>
+        </name>
+        <toolspecific localNodeID="3e3b3750-350f-4ee3-9cdd-ca13a99283e7" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n4">
+        <name>
+          <text>Purchasing document released Transmission of Purchase Orders</text>
+        </name>
+        <toolspecific localNodeID="78f65526-2d29-4c8d-9bb3-a81cabd7b375" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n5">
+        <name>
+          <text/>
+        </name>
+        <toolspecific localNodeID="d1757918-5e92-4aac-b1e5-8c1115040695" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n6">
+        <name>
+          <text/>
+        </name>
+        <toolspecific localNodeID="2bd5ca4d-8e33-419f-aa5c-f88f59ad5430" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n7">
+        <name>
+          <text>Purchase order created Release of Purchase Orders</text>
+        </name>
+        <toolspecific localNodeID="95d4ca86-91dc-4775-b71d-612f7d6f3eac" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n8">
+        <name>
+          <text>Inbound delivery entered</text>
+        </name>
+        <toolspecific localNodeID="01ff651b-5c90-4fe9-b259-291eec301228" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <transition id="n9">
+        <name>
+          <text>Transmission of Scheduling Agreements</text>
+        </name>
+        <toolspecific activity="Transmission of Scheduling Agreements" localNodeID="dc005e97-3e4b-432e-8de3-a0b78dc0faac" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n10">
+        <name>
+          <text>t1</text>
+        </name>
+        <toolspecific activity="t1" localNodeID="c293d54d-94c9-447e-8416-be33e0eaceba" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n11">
+        <name>
+          <text>Release of Purchase Orders</text>
+        </name>
+        <toolspecific activity="Release of Purchase Orders" localNodeID="44cd8e77-c4eb-4b28-9e6b-d05739ffb2c6" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n12">
+        <name>
+          <text>Delivery and Acknowledgment Expediter</text>
+        </name>
+        <toolspecific activity="Delivery and Acknowledgment Expediter" localNodeID="03fdd0d2-c7cc-40ff-954c-b49c970a9e2f" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n13">
+        <name>
+          <text>Transmission of Purchase Orders</text>
+        </name>
+        <toolspecific activity="Transmission of Purchase Orders" localNodeID="0ca83f6e-f9d4-492f-9999-f7f9dfaa96f0" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n14">
+        <name>
+          <text>Purchase Order Processing</text>
+        </name>
+        <toolspecific activity="Purchase Order Processing" localNodeID="7d55fc37-9ac2-4ff7-96ee-673d45e78562" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n15">
+        <name>
+          <text>Inbound EDI Processing</text>
+        </name>
+        <toolspecific activity="Inbound EDI Processing" localNodeID="42e4e955-1bb7-446f-8c2a-2e6228a0eb31" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n16">
+        <name>
+          <text>Scheduling Agreement Delivery Schedule</text>
+        </name>
+        <toolspecific activity="Scheduling Agreement Delivery Schedule" localNodeID="79b3a897-1afe-43e6-9a1c-ff2c155be6bc" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n17">
+        <name>
+          <text>Processing of Shipping Notifications/ Confirmations</text>
+        </name>
+        <toolspecific activity="Processing of Shipping Notifications/ Confirmations" localNodeID="e6c0aeb3-0216-4594-893b-d440e7e0fbfa" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <arc id="arc18" source="n1" target="n9">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="3ab1ebe4-e326-439e-abc4-8b4181255a62" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc19" source="n7" target="n11">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="5b90a51f-5dce-4188-b573-7457c3c3d82e" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc20" source="n10" target="n2">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="1360eb3e-53f4-4402-ba14-d5b7540cdffd" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc21" source="n12" target="n6">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="a92d6813-b2e2-4dda-937b-db76d6df6024" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc22" source="n2" target="n15">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="1e33206e-faa8-4706-99f5-205f9be564ad" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc23" source="n3" target="n10">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="25ba2aa4-34bf-419c-a01f-bd23b8534375" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc24" source="n4" target="n13">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="df2d5ca8-51f2-4a61-8cf8-61a1b1d234de" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc25" source="n16" target="n1">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="197ef0be-9651-42db-add7-528705f68401" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc26" source="n6" target="n17">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="41be29ff-f9d2-439d-81f4-2d0e49138616" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc27" source="n17" target="n8">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="76abbfce-a8c1-468c-b0d4-1e672e486d30" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc28" source="n14" target="n7">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="99dfbff1-37a6-4019-9ecc-b7a296823dfd" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc29" source="n13" target="n5">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="5d888188-15cb-4aa9-9cac-38082c907507" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc30" source="n3" target="n14">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="2b1b3ad3-6a8f-4648-952b-258c734b8fee" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc31" source="n15" target="n6">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="49ef03ca-e6db-432f-afbe-692ea138bd47" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc32" source="n11" target="n4">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="70229c0c-81e8-4b03-927e-efd28faa15e5" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc33" source="n9" target="n5">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="03c24423-af68-4a34-904d-ff114f6ffe5b" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc34" source="n5" target="n12">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="3c4f4ca2-14a0-49a7-87e1-00f296a340b3" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc35" source="n3" target="n16">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="8fa7d203-4f9d-4b22-a582-17d373eb682c" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="n1">
+          <text>0</text>
+        </place>
+        <place idref="n2">
+          <text>0</text>
+        </place>
+        <place idref="n3">
+          <text>0</text>
+        </place>
+        <place idref="n4">
+          <text>0</text>
+        </place>
+        <place idref="n5">
+          <text>0</text>
+        </place>
+        <place idref="n6">
+          <text>0</text>
+        </place>
+        <place idref="n7">
+          <text>0</text>
+        </place>
+        <place idref="n8">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>
