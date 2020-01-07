@@ -58,6 +58,8 @@ public class Pipeline{
                 }
             });
 
+            //todo get names
+
             // add to csv
             for(File f : files){
                 NetSystem net1 = parseFile(f);
@@ -89,6 +91,7 @@ public class Pipeline{
                     return name.toLowerCase().endsWith(".rdf");
                 }
             });
+
 
             // add to csv
             RdfAlignmentReader reader = new RdfAlignmentReader();

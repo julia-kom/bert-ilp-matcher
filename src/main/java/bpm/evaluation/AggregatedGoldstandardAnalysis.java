@@ -2,6 +2,7 @@ package bpm.evaluation;
 
 import bpm.alignment.Alignment;
 import bpm.alignment.Correspondence;
+import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 
 import java.io.File;
@@ -19,7 +20,7 @@ public class AggregatedGoldstandardAnalysis {
      */
     public AggregatedGoldstandardAnalysis(File file) throws IOException {
         csvWriter = new FileWriter(file.getAbsolutePath());
-        csvWriter.append("Nets, correspondences, simple, complex");
+        csvWriter.append("Nets, correspondences, simple, complex, trivial");
         csvWriter.append("\n");
     }
 
@@ -33,12 +34,75 @@ public class AggregatedGoldstandardAnalysis {
      * @param alignment
      * @throws IOException
      */
-    public void addGoldstandard(Alignment alignment) throws IOException {
-        AggregatedGoldstandardAnalysis.GoldstandardAnalysis analysis = new AggregatedGoldstandardAnalysis.GoldstandardAnalysis(alignment);
+    public void addGoldstandard(Alignment alignment, NetSystem net1, NetSystem net2) throws IOException {
+        AggregatedGoldstandardAnalysis.GoldstandardAnalysis analysis = new AggregatedGoldstandardAnalysis.GoldstandardAnalysis(alignment, net1, net2);
 
         // transition stats
         csvWriter.append(analysis.name.replace(',', ';').replace("\n", " ") + ",").
-                append(analysis.correspondences + ",").append(analysis.simple+ ",").append(analysis.complex + "\n");
+                append(analysis.correspondences + ",").append(analysis.simple+ ",").append(analysis.complex + ",").append(analysis.trivial + "\n");
+    }
+
+    public int getTrivialCorrespondences(Alignment alignment, NetSystem n1, NetSystem n2){
+        int count = 0;
+        for(Correspondence c : alignment.getCorrespondences()){
+
+            //check if direct or indirect complex correspondece
+            if(c.isComplexCorrespondence()) {
+                continue;
+            }
+            Node node1 = c.getNet1Nodes().iterator().next();
+            Node node2 = c.getNet2Nodes().iterator().next();
+            if(alignment.getCorrespondenceOfNode(node1).size() != 1 || alignment.getCorrespondenceOfNode(node2).size() != 1){
+                continue;
+            }
+
+            //fetch actual label net1 (as this is not stored in the goldstandard)
+            String labelNode1 = "";
+            for (Node n : n1.getNodes()){
+                if(n.getId().equals(node1.getId())){
+                    labelNode1 = n.getLabel();
+                }
+            }
+
+            //fetch actual label net2 (as this is not stored in the goldstandard)
+            String labelNode2 = "";
+            for (Node n : n2.getNodes()){
+                if(n.getId().equals(node2.getId())){
+                    labelNode2 = n.getLabel();
+                }
+            }
+
+            //test if labels are equal
+            if(!labelNode1.equals(labelNode2)){
+                continue;
+            }
+
+            //test if label is used for several transitions
+            int tmp = 0;
+            for(Node n : n1.getNodes()){
+                if(n.getLabel().equals(labelNode1)){
+                    tmp++;
+                }
+            }
+            if(tmp > 1){
+                continue;
+            }
+
+            tmp = 0;
+            for(Node n : n2.getNodes()){
+                if(n.getLabel().equals(labelNode2)){
+                    tmp++;
+                }
+            }
+            if(tmp > 1){
+                continue;
+            }
+
+            //if nothing failed before. Congrats it is a trivial correspondence.
+            count++;
+
+        }
+        return count;
     }
 
     /**
@@ -56,8 +120,9 @@ public class AggregatedGoldstandardAnalysis {
         int correspondences;
         int simple = 0;
         int complex = 0;
+        int trivial = 0;
 
-        private GoldstandardAnalysis(Alignment alignment) {
+        private GoldstandardAnalysis(Alignment alignment, NetSystem net1, NetSystem net2) {
             name = alignment.getName();
             correspondences = alignment.getCorrespondences().size();
 
@@ -91,6 +156,11 @@ public class AggregatedGoldstandardAnalysis {
                     simple++;
                 }
             }
+
+
+            trivial = getTrivialCorrespondences(alignment,net1, net2);
         }
     }
+
+
 }
