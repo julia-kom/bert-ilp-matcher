@@ -14,6 +14,7 @@ import java.util.Set;
 
 public class AggregatedNetAnalysis{
     FileWriter csvWriter;
+    Set<NetAnalysis> netAnalyses = new HashSet<>();
 
     /**
      * Create an empty aggregated net analysis in the parameter file
@@ -39,11 +40,12 @@ public class AggregatedNetAnalysis{
      */
     public void addNet(NetSystem net, RelSet profile) throws IOException {
         NetAnalysis analysis = new NetAnalysis(net,profile);
-
+        netAnalyses.add(analysis);
         // transition stats
         csvWriter.append(analysis.name.replace(',', ';').replace("\n", " ") + ",").
-                append(analysis.nSilentTransitions + ",").append(analysis.nNonSilentTransitions + ",").append(analysis.nNonSilentTransitions + ",");
+                append(analysis.nSilentTransitions + ",").append(analysis.nNonSilentTransitions + ",");
 
+        //todo this assumes that its always traversed in the same order. true??
         // Profile Stats
         for (RelSetType t : RelSetType.values()) {
             csvWriter.append(getNumberOfRelations(t, net, profile)+ ",");
@@ -76,9 +78,26 @@ public class AggregatedNetAnalysis{
      * @throws IOException
      */
     public void toCSV() throws IOException {
+        //compute averages
+        this.addAverage();
         //properly close everything
         csvWriter.flush();
         csvWriter.close();
+    }
+
+    private void addAverage() throws IOException {
+        int sumSilentTransitions = 0;
+        int sumNonSilentTransitions = 0;
+        for(NetAnalysis netAnalysis : netAnalyses){
+            sumNonSilentTransitions += netAnalysis.nNonSilentTransitions;
+            sumSilentTransitions += netAnalysis.nSilentTransitions;
+        }
+        double avgNonSilentTransitions = (1.0 * sumNonSilentTransitions) / netAnalyses.size();
+        double avgSilentTransitions = (1.0 * sumSilentTransitions) / netAnalyses.size();
+
+        csvWriter.append("AVERAGES:,").append(avgSilentTransitions + ",").append(avgNonSilentTransitions + ",");
+
+
     }
 
 
