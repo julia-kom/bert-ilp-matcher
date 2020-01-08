@@ -33,7 +33,7 @@
 		<map>
 			<Cell>
 				<entity1 rdf:resource="http://Hohenheim#n79"/>
-				<entity2 rdf:resource="http://IIS_Erlangen#n131"/>
+				<entity2 rdf:resource="http://IIS_Erlangen#131"/>
 				<relation>=</relation>
 				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
 			</Cell>

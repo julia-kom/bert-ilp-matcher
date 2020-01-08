@@ -17,7 +17,7 @@
 		<map>
 			<Cell>
 				<entity1 rdf:resource="http://Hohenheim#n113"/>
-				<entity2 rdf:resource="http://Wuerzburg#n72"/>
+				<entity2 rdf:resource="http://Wuerzburg#n84"/>
 				<relation>=</relation>
 				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
 			</Cell>
@@ -25,7 +25,7 @@
 		<map>
 			<Cell>
 				<entity1 rdf:resource="http://Hohenheim#n130"/>
-				<entity2 rdf:resource="http://Wuerzburg#n50"/>
+				<entity2 rdf:resource="http://Wuerzburg#n90"/>
 				<relation>=</relation>
 				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
 			</Cell>
@@ -33,7 +33,7 @@
 		<map>
 			<Cell>
 				<entity1 rdf:resource="http://Hohenheim#n146"/>
-				<entity2 rdf:resource="http://Wuerzburg#n82"/>
+				<entity2 rdf:resource="http://Wuerzburg#n86"/>
 				<relation>=</relation>
 				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
 			</Cell>
@@ -41,7 +41,7 @@
 		<map>
 			<Cell>
 				<entity1 rdf:resource="http://Hohenheim#n86"/>
-				<entity2 rdf:resource="http://Wuerzburg#n59"/>
+				<entity2 rdf:resource="http://Wuerzburg#n104"/>
 				<relation>=</relation>
 				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
 			</Cell>

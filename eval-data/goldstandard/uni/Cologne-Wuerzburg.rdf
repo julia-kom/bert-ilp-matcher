@@ -17,7 +17,7 @@
   <map>
     <Cell>
       <entity1 rdf:resource="http://Cologne#n39"/>
-      <entity2 rdf:resource="http://Wuerzburg#n82"/>
+      <entity2 rdf:resource="http://Wuerzburg#n86"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>
@@ -25,7 +25,7 @@
   <map>
     <Cell>
       <entity1 rdf:resource="http://Cologne#n63"/>
-      <entity2 rdf:resource="http://Wuerzburg#n50"/>
+      <entity2 rdf:resource="http://Wuerzburg#n90"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>
@@ -33,7 +33,7 @@
   <map>
     <Cell>
       <entity1 rdf:resource="http://Cologne#n54"/>
-      <entity2 rdf:resource="http://Wuerzburg#n67"/>
+      <entity2 rdf:resource="http://Wuerzburg#n78"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>
