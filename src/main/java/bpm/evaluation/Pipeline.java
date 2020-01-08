@@ -58,8 +58,6 @@ public class Pipeline{
                 }
             });
 
-            //todo get names
-
             // add to csv
             for(File f : files){
                 NetSystem net1 = parseFile(f);
@@ -97,8 +95,19 @@ public class Pipeline{
             RdfAlignmentReader reader = new RdfAlignmentReader();
             for(File f : files){
                 try {
+                    //get alignment
                     Alignment a = reader.readAlignmentFrom(f);
-                    gsAnalysis.addGoldstandard(a);
+
+                    //extract net-names
+                    String model1Name = f.getName().substring(0,f.getName().indexOf('-'));
+                    File f1 = new File("."+batchPath+"/"+model1Name+".pnml");
+                    NetSystem net1 = parseFile(f1);
+                    String model2Name = f.getName().substring(f.getName().indexOf('-')+1,f.getName().length()-4);
+                    File f2 = new File("."+ batchPath+"/"+model2Name+".pnml");
+                    NetSystem net2 = parseFile(f2);
+
+                    // add to goldstandard analysis
+                    gsAnalysis.addGoldstandard(a, net1, net2);
                 }catch(Exception e){
                     System.out.println("Analysis not possible for goldstandard " + f.getName() + e.toString());
                 }
@@ -590,8 +599,8 @@ public class Pipeline{
                 throw new IllegalArgumentException("When netEval mode on, then batch path and net profile must be given");
             }
 
-            if(pip.gsEval &&  pip.goldStandardPath == null){
-                throw new IllegalArgumentException("When gsEval mode on, then goldstandardPath must be given");
+            if(pip.gsEval &&  (pip.goldStandardPath == null || pip.batchPath == null)){
+                throw new IllegalArgumentException("When gsEval mode on, then goldstandardPath and batchPath must be given");
             }
 
             // Define log folder where all log files are generated
