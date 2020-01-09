@@ -2,7 +2,6 @@ package bpm.matcher;
 
 import bpm.alignment.Alignment;
 import bpm.similarity.Matrix;
-import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Transition;
 
 import java.util.HashSet;
@@ -55,7 +54,13 @@ public class Preprocessor {
         return result;
     }
 
-    private static boolean isTau(Transition t){
+    /**
+     * Checks if transition is tau.
+     * Tau if either: empty label, id == label, t_??, t??, tr_??, tr??, MESSAGE_??
+     * @param t
+     * @return
+     */
+    public static boolean isTau(Transition t){
         // silent
         if(t.isSilent()){
             return true;
@@ -68,6 +73,27 @@ public class Preprocessor {
         if(t.getLabel().matches("t_[0-9]+")){
             return true;
         }
+
+        // name is t??
+        if(t.getLabel().matches("t[0-9]+")){
+            return true;
+        }
+
+        //if label is tr??
+        if(t.getLabel().matches("tr[0-9]+")){
+            return true;
+        }
+
+        //empty label
+        if(t.getLabel().equals("")){
+            return true;
+        }
+
+        // empty intermediate events (MESSAGE_??) are like tau transitions
+        if(t.getLabel().equals("MESSAGE_") || t.getLabel().matches("MESSAGE_[0-9]+")){
+            return true;
+        }
+
         return false;
     }
 

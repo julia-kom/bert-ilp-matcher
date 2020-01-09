@@ -74,9 +74,14 @@ public class LabelSimilarity {
             sum2+=max2;
         }
 
-        //System.out.println("A: " + label1 + ", B: " + label2 + ":" +(sum1+sum2)/(bag1.size() + bag2.size()));
+        //if(PRINT_ENABLED) System.out.println("A: " + label1 + ", B: " + label2 + ":" +(sum1+sum2)/(bag1.size() + bag2.size()));
         //aggregate
-        return (sum1+sum2)/(bag1.size() + bag2.size());
+        //special case when two empty labels are compared/or the label contained stopwords only:
+        if(bag1.size() == 0 && bag2.size() == 0) {
+            return 1.0;
+        }else {
+            return (sum1 + sum2) / (bag1.size() + bag2.size());
+        }
     }
 
     private static HashSet<String> loadStopWords(){
@@ -164,7 +169,7 @@ public class LabelSimilarity {
                 w = it.next();
                 if (STOPWORDS.contains(w)){
                     it.remove();
-                    //System.out.println("Stopword Removed: " + w);
+                    //if(PRINT_ENABLED) System.out.println("Stopword Removed: " + w);
                 }
             }
         }

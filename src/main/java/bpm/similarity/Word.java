@@ -40,7 +40,12 @@ public class Word {
      */
     public static double JiangSimilarity(String s1, String s2){
         WS4JConfiguration.getInstance().setMFS(false);
-        return WS4J.runJCN(s1,s2);
+        Double res = WS4J.runJCN(s1,s2);
+        // in case that two words are exactly the same, we devide by 0, resulting in a score larger than 1
+        if(res > 1.0){
+            return 1.0;
+        }
+        return res;
     }
 
 

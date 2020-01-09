@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class BPPlusTest {
 
-    @Test
+    //@Test
     public void testBPPlus(){
         NetSystem net1 = new NetSystem();
         Transition t1 = new Transition();

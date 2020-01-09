@@ -9,13 +9,13 @@ import gurobi.GRBException;
 import gurobi.GRBLinExpr;
 import gurobi.GRBVar;
 import org.jbpt.bp.RelSet;
-import org.jbpt.bp.RelSetType;
-import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
 
 import java.util.Arrays;
 import java.util.Set;
+
+import static bpm.matcher.Pipeline.PRINT_ENABLED;
 
 
 public class RelaxedILP extends AbstractILP {
@@ -47,7 +47,7 @@ public class RelaxedILP extends AbstractILP {
 
 
         model.set(GRB.IntParam.Crossover,0);
-        //model.set(GRB.DoubleParam.TimeLimit,60);
+        model.set(GRB.DoubleParam.TimeLimit,600);
 
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
         for (int i = 0; i< nodesNet1; i++){
@@ -99,9 +99,9 @@ public class RelaxedILP extends AbstractILP {
         //setup model
 
         // hint expressions
-        model.addConstr(obj,GRB.LESS_EQUAL,1.0, "objective hint");
-        model.addConstr(label,GRB.LESS_EQUAL,1.0, "objective hint");
-        model.addConstr(behavior,GRB.LESS_EQUAL,1.0, "objective hint");
+        // model.addConstr(obj,GRB.LESS_EQUAL,1.0, "objective hint");
+        // model.addConstr(label,GRB.LESS_EQUAL,1.0, "objective hint");
+        //model.addConstr(behavior,GRB.LESS_EQUAL,1.0, "objective hint");
 
         /*GRBLinExpr conTest = new GRBLinExpr();
         conTest.clear();
@@ -191,35 +191,35 @@ public class RelaxedILP extends AbstractILP {
         model.optimize();
 
         //print alignment
-        /*for (int i = 0; i< nodesNet1; i++){
+        for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++) {
-                System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " + x[i][j].get(GRB.DoubleAttr.X));
+                if(PRINT_ENABLED) System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " + x[i][j].get(GRB.DoubleAttr.X));
             }
-        }*/
-
-        /*for (int i = 0; i< nodesNet1; i++){
+        }
+        for (int i = 0; i< nodesNet1; i++){
             for (int k = 0; k< nodesNet1; k++) {
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        System.out.println(y[i][k][j][l].get(GRB.StringAttr.VarName) + " " + y[i][k][j][l].get(GRB.DoubleAttr.X));
+                        if(PRINT_ENABLED) System.out.println(y[i][k][j][l].get(GRB.StringAttr.VarName) + " " + y[i][k][j][l].get(GRB.DoubleAttr.X));
                     }
                 }
             }
-        }*/
-
-        //System.out.println(sum.get(GRB.StringAttr.VarName) + " " + sum.get(GRB.DoubleAttr.X));
-        //System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));
+        }
+        //if(PRINT_ENABLED) System.out.println(sum.get(GRB.StringAttr.VarName) + " " + sum.get(GRB.DoubleAttr.X));
+        //if(PRINT_ENABLED) System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));
 
         //Create Results
         Alignment.Builder builder = new Alignment.Builder();
         for (int i = 0; i< nodesNet1; i++) {
             for (int j = 0; j < nodesNet2; j++) {
-                if( Math.abs(x[i][j].get(GRB.DoubleAttr.X)) > 0.7){
-                    builder.add(nodeNet1[i],nodeNet2[j]);
+                if (x[i][j].get(GRB.DoubleAttr.X) >= 0.0001){
+                    //TODO test what works better!
+                    //builder.add(nodeNet1[i],nodeNet2[j]);
+                    builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(nodeNet1[i]).addNodeFromNet2(nodeNet2[j]).withLikelihood(x[i][j].get(GRB.DoubleAttr.X)).build());
                 }
             }
         }
-        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name));
+        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name), -1);
         // Dispose of model and environment
         model.dispose();
         env.dispose();

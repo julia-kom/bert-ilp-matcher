@@ -12,6 +12,8 @@ import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.Assert.assertTrue;
 
@@ -46,21 +48,8 @@ public class AlignmentReaderTest
         File file = folder.newFile("rdf-read-write-test.rdf");
         reader.writeAlignmentTo(file,a,"m1","m2");
         Alignment a2 = reader.readAlignmentFrom(file);
-        boolean same = true;
-        for(Correspondence c : a.getCorrespondences()){
-            if(!a2.contains(c)){
-                same = false;
-                break;
-            }
-        }
-        for(Correspondence c : a2.getCorrespondences()){
-            if(!a.contains(c)){
-                same = false;
-                break;
-            }
-        }
 
-        Assert.assertTrue(same);
+        Assert.assertTrue(a.equals(a2));
     }
 
 

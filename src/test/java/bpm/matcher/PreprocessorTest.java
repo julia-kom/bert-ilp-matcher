@@ -2,14 +2,21 @@ package bpm.matcher;
 
 import bpm.alignment.Alignment;
 import bpm.alignment.Correspondence;
+import bpm.alignment.Result;
 import bpm.similarity.Matrix;
+import org.jbpt.bp.RelSet;
+import org.jbpt.bp.RelSetType;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Transition;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
+
+import static bpm.matcher.Pipeline.createProfile;
+import static java.lang.Math.abs;
 
 public class PreprocessorTest {
     @Test
@@ -87,5 +94,34 @@ public class PreprocessorTest {
         a = Preprocessor.prematch(net1.getTransitions(), net2.getTransitions(), sim);
         Assert.assertTrue(a.getCorrespondences().size() == 0);
 
+    }
+
+    @Test
+    public void ProfileSymmetryTest(){
+        File folder = new File(getClass().getClassLoader().getResource("./pnml/app_store/").getFile());
+        for(File file1 : folder.listFiles()) {
+            NetSystem net1 = Pipeline.parseFile(file1);
+            net1.setName(file1.getName());
+            RelSet relNet1 = createProfile(net1, Matcher.Profile.BP);
+            for(Transition t1 : net1.getTransitions()){
+                for(Transition t2 : net1.getTransitions()){
+                    switch(relNet1.getRelationForEntities(t1,t2)){
+                        case Exclusive:
+                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).equals(RelSetType.Exclusive));
+                            break;
+                        case Interleaving:
+                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).equals(RelSetType.Interleaving));
+                            break;
+                        case Order:
+                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).equals(RelSetType.ReverseOrder));
+                            break;
+                        case ReverseOrder:
+                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).equals(RelSetType.Order));
+                            break;
+                    }
+
+                }
+            }
+        }
     }
 }

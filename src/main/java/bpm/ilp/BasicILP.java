@@ -6,14 +6,13 @@ import bpm.alignment.Result;
 import bpm.similarity.Matrix;
 import gurobi.*;
 import org.jbpt.bp.RelSet;
-import org.jbpt.bp.RelSetType;
-import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
 
 import java.util.Arrays;
 import java.util.Set;
 
+import static bpm.matcher.Pipeline.PRINT_ENABLED;
 import static java.lang.Math.abs;
 
 
@@ -39,6 +38,7 @@ public class BasicILP extends AbstractILP {
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
         int minSize = Math.min(nodesNet1,nodesNet2);
+
 
 
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
@@ -90,6 +90,11 @@ public class BasicILP extends AbstractILP {
         model.setObjective(obj, GRB.MAXIMIZE);
 
         //setup model
+
+        // hint expressions
+        model.addConstr(obj,GRB.LESS_EQUAL,1.0, "objective hint");
+        model.addConstr(label,GRB.LESS_EQUAL,1.0, "objective hint");
+        model.addConstr(behavior,GRB.LESS_EQUAL,1.0, "objective hint");
 
 
         /*GRBLinExpr conTest = new GRBLinExpr();
@@ -153,7 +158,7 @@ public class BasicILP extends AbstractILP {
                             GRBLinExpr con3 = new GRBLinExpr();
                             con3.clear();
                             con3.addTerm(1, y[i][k][j][l]);
-                            model.addConstr(con3, GRB.EQUAL, 0, "zero setter");
+                            model.addConstr(con3, GRB.LESS_EQUAL, 0, "zero setter");
                         }
                     }
                 }
@@ -168,7 +173,7 @@ public class BasicILP extends AbstractILP {
             int j = Arrays.asList(nodeNet2).indexOf(n2);
             GRBLinExpr conPre = new GRBLinExpr();
             conPre.addTerm(1,x[i][j]);
-            model.addConstr(conPre, GRB.EQUAL, 1, "pre matched");
+            model.addConstr(conPre, GRB.GREATER_EQUAL, 1, "pre matched");
         }
 
 
@@ -179,7 +184,7 @@ public class BasicILP extends AbstractILP {
 
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++) {
-                System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " +
+                if(PRINT_ENABLED) System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " +
                         x[i][j].get(GRB.DoubleAttr.X) +": "+nodeNet1[i].getLabel()+ "("+nodeNet1[i].getId()+")"
                         +" - "+ nodeNet2[j].getLabel()+ "("+nodeNet2[j].getId()+")");
             }
@@ -189,26 +194,38 @@ public class BasicILP extends AbstractILP {
             for (int k = 0; k< nodesNet1; k++) {
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        System.out.println(y[i][k][j][l].get(GRB.StringAttr.VarName) + " " + y[i][k][j][l].get(GRB.DoubleAttr.X));
+                        if(PRINT_ENABLED) System.out.println(y[i][k][j][l].get(GRB.StringAttr.VarName) + " " + y[i][k][j][l].get(GRB.DoubleAttr.X));
                     }
                 }
             }
         }*/
 
-        //System.out.println(sum.get(GRB.StringAttr.VarName) + " " + sum.get(GRB.DoubleAttr.X));
-        //System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));
+        //if(PRINT_ENABLED) System.out.println(sum.get(GRB.StringAttr.VarName) + " " + sum.get(GRB.DoubleAttr.X));
+        //if(PRINT_ENABLED) System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));
 
         // create result
         Alignment.Builder builder = new Alignment.Builder();
         for (int i = 0; i< nodesNet1; i++) {
             for (int j = 0; j < nodesNet2; j++) {
                 if( Math.abs(x[i][j].get(GRB.DoubleAttr.X) - 1.0) < 0.0001){
-                    builder.add(nodeNet1[i],nodeNet2[j]);
+
+                    //compute mixed likelihood
+                    double mixedLikelihood = 0.0;
+                    for (int k = 0; k< nodesNet1; k++){
+                        for (int l = 0; l< nodesNet2; l++){
+                            if (relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]).equals(relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]))) {
+                                mixedLikelihood += x[i][j].get(GRB.DoubleAttr.X) * x[k][l].get(GRB.DoubleAttr.X);
+                            }
+                        }
+                    }
+                    mixedLikelihood = mixedLikelihood *similarityWeight/minSize;
+                    mixedLikelihood += (1-similarityWeight) * matrix.between(nodeNet1[i],nodeNet2[j]);
+                    builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(nodeNet1[i]).addNodeFromNet2(nodeNet2[j]).withLikelihood(mixedLikelihood).build());
                 }
             }
         }
 
-        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name));
+        Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name), model.get(GRB.DoubleAttr.MIPGap));
 
         // Dispose of model and environment
         model.dispose();
@@ -216,6 +233,8 @@ public class BasicILP extends AbstractILP {
 
         return res;
     }
+
+
 
 
 

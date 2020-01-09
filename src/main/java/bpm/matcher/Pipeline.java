@@ -2,15 +2,12 @@ package bpm.matcher;
 
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
-import bpm.ilp.AbstractILP;
-import bpm.ilp.BasicILP;
-import bpm.ilp.RelaxedILP;
-import bpm.ilp.RelaxedILP2;
+import bpm.evaluation.ExecutionTimer;
+import bpm.ilp.*;
 import bpm.similarity.Matrix;
 import bpm.similarity.Word;
 
-import gurobi.GRBException;
-
+import gurobi.GRB;
 import org.jbpt.bp.RelSet;
 import org.jbpt.bp.construct.BPCreatorNet;
 import org.jbpt.petri.NetSystem;
@@ -18,8 +15,10 @@ import org.jbpt.petri.PetriNet;
 import org.jbpt.petri.Transition;
 import org.jbpt.petri.io.PNMLSerializer;
 import org.apache.commons.lang3.NotImplementedException;
+import org.json.JSONException;
+import org.json.simple.JSONObject;
 
-import java.io.IOException;
+
 import java.sql.Timestamp;
 import java.io.File;
 import java.util.Set;
@@ -31,6 +30,7 @@ import static java.lang.System.exit;
  * Matching Pipeline. Note, use builder to construct.
  */
 public class Pipeline {
+    public static boolean PRINT_ENABLED = false;
     private boolean complexMatches;
     private boolean prematch;
     private double  similarityWeight;
@@ -38,6 +38,8 @@ public class Pipeline {
     private Matcher.Profile profile;
     private AbstractILP.ILP ilp;
     private Word.Similarities wordSimilarity;
+    private double ilpTimeLimit;
+    private double ilpNodeLimit;
 
     /**
      * Empty Constructor for the Builder
@@ -51,93 +53,105 @@ public class Pipeline {
      * @param fileNet2 petri net file path 2 in PNML format
      */
     public Result run(File fileNet1, File fileNet2){
+       return run(fileNet1,fileNet2,new ExecutionTimer());
+    }
+
+    /**
+     * Run the timed matching pipeline for the given two petri nets.
+     * @param fileNet1 petri net file path 1 in PNML format
+     * @param fileNet2 petri net file path 2 in PNML format
+     * @param timer timer object which is updated while execution (call by reference)
+     */
+    public Result run(File fileNet1, File fileNet2, ExecutionTimer timer){
         //parse the two petri nets
-        System.out.println("##### Start Parsing #####");
+        System.out.println("########"+fileNet1.getName()+ " to " +fileNet2.getName()+"#########");
+        if(PRINT_ENABLED) System.out.println("##### Start Parsing #####");
         NetSystem net1 = parseFile(fileNet1);
         net1.setName(fileNet1.getName());
         NetSystem net2 = parseFile(fileNet2);
         net2.setName(fileNet2.getName());
-        System.out.println("##### Parsing Complete #####");
+        if(PRINT_ENABLED) System.out.println("##### Parsing Complete #####");
 
         //  wf-net and free choice check
-        System.out.println("##### Start Check Up #####");
+        if(PRINT_ENABLED) System.out.println("##### Start Check Up #####");
         checkPetriNetProperties(net1);
         checkPetriNetProperties(net2);
-        System.out.println("##### Check Up Complete #####");
-
+        if(PRINT_ENABLED) System.out.println("##### Check Up Complete #####");
         // Create Profile
-        System.out.println("##### Start Creating Profiles #####");
-        RelSet relNet1 = createProfile(net1);
+        if(PRINT_ENABLED) System.out.println("##### Start Creating Profiles #####");
+        timer.startBPTime();
+        RelSet relNet1 = createProfile(net1, this.profile);
         //System.out.print("Net 1" +relNet1.toString());
-        RelSet relNet2 = createProfile(net2);
+        RelSet relNet2 = createProfile(net2, this.profile);
         //System.out.print("Net 2" +relNet1.toString());
-        System.out.println("##### Creating Profiles Complete #####");
+        timer.stopBPTime();
+        if(PRINT_ENABLED) System.out.println("##### Creating Profiles Complete #####");
 
         // Preprocess ignore taus
-        System.out.println("##### Start Preprocessing Tau Transitions#####");
+        if(PRINT_ENABLED) System.out.println("##### Start Preprocessing Tau Transitions#####");
         Set<Transition> reducedNet1 = Preprocessor.reduceTauTransitions(net1.getTransitions());
         Set<Transition> reducedNet2 = Preprocessor.reduceTauTransitions(net2.getTransitions());
-        System.out.println("##### Complete Preprocessing Tau Transitions#####");
+        if(PRINT_ENABLED) System.out.println("##### Complete Preprocessing Tau Transitions#####");
 
         // Create Label Similarity Matrix
-        System.out.println("##### Start Creating Similarity Matrix #####");
+        if(PRINT_ENABLED) System.out.println("##### Start Creating Similarity Matrix #####");
+        timer.startLabelSimilarityTime();
         Matrix simMatrix = new Matrix.Builder()
                 .withWordSimilarity(this.wordSimilarity)
                 .build(reducedNet1,reducedNet2);
-        System.out.println("##### Creating Similarity Matrix Complete #####");
+        timer.stopLabelSimilarityTime();
+        if(PRINT_ENABLED) System.out.println("##### Creating Similarity Matrix Complete #####");
+
 
         // Preprocess ignore taus and prematch
-        System.out.println("##### Start Prematch #####");
+        if(PRINT_ENABLED) System.out.println("##### Start Prematch #####");
         Alignment preAlignment;
         if(prematch){
             preAlignment = Preprocessor.prematch(reducedNet1,reducedNet2,simMatrix);
-            System.out.println("Prematched " + preAlignment.getCorrespondences().size() + " Pairs of Transitions.");
+            if(PRINT_ENABLED) System.out.println("Prematched " + preAlignment.getCorrespondences().size() + " Pairs of Transitions.");
         }else{
-            System.out.println("Prematching is disabled.");
+            if(PRINT_ENABLED) System.out.println("Prematching is disabled.");
             preAlignment = new Alignment.Builder().build("empty prematch");
         }
-        System.out.println("##### Preprocessing Complete #####");
+        if(PRINT_ENABLED) System.out.println("##### Preprocessing Complete #####");
 
         // Run ILP
-        System.out.println("##### Start ILP #####");
+        if(PRINT_ENABLED) System.out.println("##### Start ILP #####");
+        timer.startLpTime();
         AbstractILP ilp = getILP();
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Result res;
         try {
-            ilp.init(new File("gurobi-logs/log-"+ timestamp+".log"), similarityWeight);
+            ilp.init(new File("gurobi-logs/log-"+ timestamp+".log"), similarityWeight,ilpTimeLimit,ilpNodeLimit);
             res = ilp.solve(relNet1, relNet2, reducedNet1, reducedNet2, simMatrix, preAlignment, net1.getName()+"-"+net2.getName());
         } catch (Exception e) {
-            System.out.println(e.getCause()+ ": " + e.getMessage());
+            if(PRINT_ENABLED) System.out.println(e.getCause()+ ": " + e.getMessage());
             exit(1);
             res = null;
         }
-        System.out.println("##### ILP Complete #####");
-
+        timer.stopLpTime();
+        if(PRINT_ENABLED) System.out.println("##### ILP Complete #####");
 
         //Postprocess
 
-        System.out.println(res.toString());
+        if(PRINT_ENABLED) System.out.println(res.toString());
 
         //Return
         return res;
     }
 
-    private PNMLSerializer serializer = null;
     /**
      * Parses a PNML file to a NetSystem
      * @param f file path of the petri net in PNML format
      * @return NetSystem
      */
-    private NetSystem parseFile(File f){
-        if (serializer == null){
-            serializer = new PNMLSerializer();
-        }else{
-            serializer.clear();
-        }
+    public static NetSystem parseFile(File f){
+        PNMLSerializer serializer = new PNMLSerializer();
         return serializer.parse(f.getAbsolutePath());
     }
 
-    private RelSet createProfile(NetSystem net){
+    //TODO Transfer to abstract profile if exists
+    public static RelSet createProfile(NetSystem net, Matcher.Profile profile){
         RelSet r;
         switch(profile){
             case BP:
@@ -156,10 +170,20 @@ public class Pipeline {
         switch(ilp) {
             case BASIC:
                 return new BasicILP();
+            case BASIC2:
+                return new BasicILP2();
+            case BASIC3:
+                return new BasicILP3();
             case RELAXED:
                 return  new RelaxedILP();
             case RELAXED2:
                 return new RelaxedILP2();
+            case RELAXED3:
+                return new RelaxedILP3();
+            case RELAXED4:
+                return new RelaxedILP4();
+            case QUADRATIC:
+                return new QuadraticILP();
             default:
                 throw new NotImplementedException("ILP you searched for is not in switch");
         }
@@ -191,23 +215,44 @@ public class Pipeline {
                 "Label Similarity: " + this.wordSimilarity.toString() +"\n" +
                 "Complex Matches: " + Boolean.toString(this.complexMatches) + "\n" +
                 "Prematch: "+ Boolean.toString(this.prematch) + "\n" +
-                "Similarity Weight:" + this.similarityWeight + "\n" +
-                "Postprocessing Thresh:" +  this.postprocessThreshold + "\n";
+                "Similarity Weight: " + this.similarityWeight + "\n" +
+                "Postprocessing Thresh: " +  this.postprocessThreshold + "\n" +
+                "ILP node limit: " + this.ilpNodeLimit + "\n" +
+                "ILP time limit: " + this.ilpTimeLimit + "\n";
         return res;
     }
 
-
     /**
-     * Builder for class Pipeline
+     * Return JSON Object of the Pipeline
+     * @return
      */
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put("ilp", this.ilp.toString());
+        json.put("profile", this.profile.toString());
+        json.put("word-sim", this.wordSimilarity.toString());
+        json.put("complex matches", Boolean.toString(this.complexMatches));
+        json.put("prematch", Boolean.toString(this.prematch));
+        json.put("sim-weight", this.similarityWeight);
+        json.put("postprocessing-thresh", this.postprocessThreshold);
+        json.put("ilp-time-limit", this.ilpTimeLimit);
+        json.put("ilp-node-limit", this.ilpNodeLimit);
+        return json;
+    }
+
+        /**
+         * Builder for class Pipeline
+         */
     public static class Builder{
-        protected boolean complexMatches = false;
-        protected double  similarityWeight = 0.3;
-        protected double  postprocessThreshold = 0.0;
-        protected AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
+        private boolean complexMatches = false;
+        private double  similarityWeight = 0.3;
+        private double  postprocessThreshold = 0.0;
+        private AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
         protected Matcher.Profile profile = Matcher.Profile.BP;
-        protected Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
-        protected boolean prematch = false;
+        private Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
+        private boolean prematch = false;
+        private double ilpTimeLimit = GRB.INFINITY;
+        private double ilpNodeLimit = GRB.INFINITY;
 
         /**
          * Create a Builder to define a Pipline Object.
@@ -257,23 +302,7 @@ public class Pipeline {
          * @return Builder
          */
         public Pipeline.Builder withWordSimilarity(String wordSim){
-            switch (wordSim){
-                case "Lin":
-                    this.wordSimilarity = Word.Similarities.LIN;
-                    break;
-                case "Levenshtein":
-                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN;
-                    break;
-                case "Jiang":
-                    this.wordSimilarity = Word.Similarities.JIANG;
-                case "Levenshtein-Lin-Max":
-                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
-                    break;
-                case "Levenshtein-Jiang-Max":
-                    this.wordSimilarity = Word.Similarities.LEVENSHTEIN_JIANG_MAX;
-                    default:
-                        throw new IllegalArgumentException("Word Similarity Parameter not supported: " + wordSim);
-            }
+            this.wordSimilarity = Word.Similarities.valueOf(wordSim);
             return this;
         }
 
@@ -282,20 +311,7 @@ public class Pipeline {
          * @return
          */
         public Pipeline.Builder withILP(String sIlp){
-            switch(sIlp) {
-                case "Basic":
-                    this.ilp = AbstractILP.ILP.BASIC;
-                    break;
-                case "Relaxed":
-                    this.ilp = AbstractILP.ILP.RELAXED;
-                    break;
-                case "Relaxed2":
-                    this.ilp = AbstractILP.ILP.RELAXED2;
-                    break;
-
-                    default:
-                        throw new IllegalArgumentException("ilp argument is not valid: " +sIlp);
-            }
+            this.ilp = AbstractILP.ILP.valueOf(sIlp);
             return this;
         }
 
@@ -315,6 +331,26 @@ public class Pipeline {
         }
 
         /**
+         * set the ILP time limit in seconds
+         * @param limit
+         * @return
+         */
+        public Pipeline.Builder withILPTimeLimit(double limit) {
+            this.ilpTimeLimit = limit;
+            return this;
+        }
+
+            /**
+             * set the ILP node limit in seconds
+             * @param limit
+             * @return
+             */
+            public Pipeline.Builder withILPNodeLimit(double limit) {
+                this.ilpNodeLimit = limit;
+                return this;
+            }
+
+        /**
          *Build a Pipeline with the previously assigned arguments.
          * @return Executable Pipeline
          */
@@ -327,6 +363,8 @@ public class Pipeline {
             pip.ilp = this.ilp;
             pip.wordSimilarity = this.wordSimilarity;
             pip.prematch = this.prematch;
+            pip.ilpNodeLimit = this.ilpNodeLimit;
+            pip.ilpTimeLimit = this.ilpTimeLimit;
             return pip;
         }
 

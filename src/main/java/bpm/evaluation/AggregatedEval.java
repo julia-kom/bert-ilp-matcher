@@ -21,6 +21,13 @@ public class AggregatedEval {
     private double recallMacro = 0;
     private double fscoreMacro = 0;
 
+    // Avg Time
+    private long overallTimeAvg = 0;
+    private long lpTimeAvg = 0;
+    private long bpTimeAvg = 0;
+    private long labelSimTimeAvg = 0;
+
+
     // store the evals
     private List<Eval> evals = new LinkedList<>();
 
@@ -32,18 +39,28 @@ public class AggregatedEval {
         this.evals = evals;
         for(Eval e :evals){
             // macro
-            precisionMacro += e.getPrecision() / evals.size();
-            recallMacro += e.getRecall() / evals.size();
-            fscoreMacro += e.getFscore() / evals.size();
+            precisionMacro += e.getPrecision();
+            recallMacro += e.getRecall();
+            fscoreMacro += e.getFscore();
 
             // confusion values
             tp += e.getTP();
             fn += e.getFN();
             fp += e.getFP();
+
+            // avg time
+            overallTimeAvg += (e.getBenchmark().getOverallTime() > 0) ? e.getBenchmark().getOverallTime()/evals.size():0;
+            lpTimeAvg += (e.getBenchmark().getLpTime() > 0) ? e.getBenchmark().getLpTime()/evals.size():0;
+            bpTimeAvg += (e.getBenchmark().getBPTime() > 0) ? e.getBenchmark().getBPTime()/evals.size():0;
+            labelSimTimeAvg += (e.getBenchmark().getLabelSimialrityTime() > 0) ? e.getBenchmark().getLabelSimialrityTime()/evals.size():0;
         }
 
-        precisionMicro = Metrics.precision(this.tp,this.fp);
-        recallMicro = Metrics.recall(this.tp,this.fp);
+        precisionMacro = precisionMacro / evals.size();
+        recallMacro = recallMacro/ evals.size();
+        fscoreMacro = precisionMacro*recallMacro *2 /(precisionMacro+recallMacro); // fscoreMacro/ evals.size();
+
+        precisionMicro = Metrics.precision(this.tp,this.fp, this.fn);
+        recallMicro = Metrics.recall(this.tp,this.fn, this.fp);
         fscoreMicro = Metrics.fscore(this.tp, this.fp, this.fn);
     }
 
@@ -120,6 +137,38 @@ public class AggregatedEval {
     }
 
     /**
+     * get BP Time AVG (Wallclock)
+     * @return
+     */
+    public long getBpTimeAvg() {
+        return bpTimeAvg;
+    }
+
+    /**
+     * get Label Sim Time AVG (Wallclock)
+     * @return
+     */
+    public long getLabelSimTimeAvg() {
+        return labelSimTimeAvg;
+    }
+
+    /**
+     * get overall time AVG (wallclock)
+     * @return
+     */
+    public long getOverallTimeAvg() {
+        return overallTimeAvg;
+    }
+
+    /**
+     * get Lp time AVG (wallclock)
+     * @return
+     */
+    public long getLpTimeAvg() {
+        return lpTimeAvg;
+    }
+
+    /**
      * Evalaution to String
      * @return
      */
@@ -134,7 +183,11 @@ public class AggregatedEval {
                 "RECALL (MACRO): " + recallMacro + "\n" +
                 "RECALL (MICRO): " + recallMicro + "\n" +
                 "FSCORE (MACRO): " + fscoreMacro + "\n" +
-                "FSCORE (MICRO): " + fscoreMicro + "\n";
+                "FSCORE (MICRO): " + fscoreMicro + "\n" +
+                "OVERALL TIME (AVG): "  + this.overallTimeAvg + "\n" +
+                "LP TIME (AVG): " + this.lpTimeAvg + "\n" +
+                "LABEL SIMILARITY TIME (AVG): " + this.labelSimTimeAvg + "\n" +
+                "RELATIONAL PROFILE TIME (AVG): " + this.bpTimeAvg + "\n";
     }
 
     /**
@@ -147,15 +200,19 @@ public class AggregatedEval {
     public void toCSV(File file) throws IOException {
         FileWriter csvWriter = new FileWriter(file.getAbsolutePath());
         // column description
-        csvWriter.append("Name,").append("TP,").append("FP,").append("FN,").append("PRECISION,").append("RECALL,").append("FSCORE\n");
+        csvWriter.append("Name,").append("TP,").append("FP,").append("FN,").append("PRECISION,").append("RECALL,").append("FSCORE,").append("OVERALL TIME,").append("LP TIME,").append("LABEL-SIM TIME,").append("BP TIME,").append("SIMILARITY,").append("MIP GAP\n");
 
         // aggregated statistics
-        csvWriter.append("Aggregated (MACRO),").append(this.tp+",").append(this.fp+",").append(this.fn+",").append(this.precisionMacro+",").append(this.recallMacro+",").append(this.fscoreMacro+"\n");
-        csvWriter.append("Aggregated (MICRO),").append(this.tp+",").append(this.fp+",").append(this.fn+",").append(this.precisionMicro+",").append(this.recallMicro+",").append(this.fscoreMicro+"\n");
+        csvWriter.append("Aggregated (MACRO),").append(this.tp+",").append(this.fp+",").append(this.fn+",").append(this.precisionMacro+",").append(this.recallMacro+",").append(this.fscoreMacro+",").append(this.overallTimeAvg+",").append(this.lpTimeAvg+",").append(this.labelSimTimeAvg+",").append(this.bpTimeAvg+",").append("" + 0 +",").append("" + 0 + "\n");
+        csvWriter.append("Aggregated (MICRO),").append(this.tp+",").append(this.fp+",").append(this.fn+",").append(this.precisionMicro+",").append(this.recallMicro+",").append(this.fscoreMicro+",").append(this.overallTimeAvg+",").append(this.lpTimeAvg+",").append(this.labelSimTimeAvg+",").append(this.bpTimeAvg+",").append("" + 0 +",").append("" + 0 + "\n");
 
         // detailed statistics
         for(Eval e : evals){
-                csvWriter.append(e.getName().replace(',',';').replace("\n"," ")+",").append(e.getTP()+",").append(e.getFP()+",").append(e.getFN()+",").append(e.getPrecision()+",").append(e.getRecall()+",").append(e.getFscore()+"\n");
+                csvWriter.append(e.getName().replace(',',';').replace("\n"," ")+",")
+                         .append(e.getTP()+",").append(e.getFP()+",").append(e.getFN()+",").append(e.getPrecision()+",")
+                         .append(e.getRecall()+",").append(e.getFscore()+",").append(e.getBenchmark().getOverallTime()+",")
+                         .append(e.getBenchmark().getLpTime()+",").append(e.getBenchmark().getLabelSimialrityTime()+",")
+                         .append(e.getBenchmark().getBPTime()+",").append(e.getSimilarity()+",").append(e.getGAP()+"\n");
             }
 
         //properly close everything

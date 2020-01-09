@@ -2,12 +2,10 @@ package bpm.profile;
 
 import com.iise.shudi.exroru.RefinedOrderingRelation;
 import com.iise.shudi.exroru.RefinedOrderingRelationsMatrix;
-import com.iise.shudi.exroru.Relation;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
 
-import java.util.Collection;
 import java.util.List;
 
 /**

@@ -54,6 +54,18 @@ public class Matcher {
                         "Relaxed2: 1:1 Matcher with LP. Qucik but only matching.")
                 .build();
 
+        Option optTl = Option.builder("tl")
+                .hasArg(true)
+                .longOpt("ilp-time-limit")
+                .desc("Choose the time limit for the ILP in seconds.")
+                .build();
+
+        Option optNl = Option.builder("nl")
+                .hasArg(true)
+                .longOpt("ilp-node-limit")
+                .desc("Choose the node limit for the ILP in seconds.")
+                .build();
+
         Option wordSim = Option.builder("w")
                 .hasArg(true)
                 .longOpt("word-sim")
@@ -66,6 +78,8 @@ public class Matcher {
                 .build();
 
         Option optPreMatch = new Option("pm", "pre-match", false, "Run Prematcher before running the ILP, reducing runtime");
+        Option optPrint= new Option("sys", "sys-print", false, "Enable System out print commands");
+
 
 
         //combine options
@@ -78,6 +92,9 @@ public class Matcher {
         options.addOption(optPathNet1);
         options.addOption(optPathNet2);
         options.addOption(optPreMatch);
+        options.addOption(optPrint);
+        options.addOption(optTl);
+        options.addOption(optNl);
 
 
         //parse input
@@ -106,6 +123,34 @@ public class Matcher {
             builder = builder.withPreMatching();
         }
 
+        // print commands
+        if (line.hasOption("sys")) {
+            Pipeline.PRINT_ENABLED = true;
+        }
+
+        // parse ilpTimeLimit
+        if (line.hasOption("tl")) {
+            String sString = line.getOptionValue("tl");
+            try {
+                double s = Double.parseDouble(sString);
+                builder = builder.withILPTimeLimit(s);
+            } catch (NumberFormatException numExp) {
+                 System.err.println("Parsing Failed: Time Limit " + numExp.getMessage());
+            }
+        }
+
+
+        // parse ilpNodeLimit
+        if (line.hasOption("nl")) {
+            String sString = line.getOptionValue("nl");
+            try {
+                double s = Double.parseDouble(sString);
+                builder = builder.withILPNodeLimit(s);
+            } catch (NumberFormatException numExp) {
+                System.err.println("Parsing Failed: Time Limit " + numExp.getMessage());
+            }
+        }
+
         // parse similarityWeight
         if (line.hasOption("s")) {
             String sString = line.getOptionValue("s");
@@ -113,8 +158,14 @@ public class Matcher {
                 double s = Double.parseDouble(sString);
                 builder = builder.atSimilarityWeight(s);
             } catch (NumberFormatException numExp) {
-                System.out.println("Parsing Failed: Number Input s " + numExp.getMessage());
+                System.err.println("Parsing Failed: Number Input s " + numExp.getMessage());
             }
+        }
+
+        // word similarity
+        if (line.hasOption("w")) {
+            String n2String = line.getOptionValue("w");
+            builder = builder.withWordSimilarity(n2String);
         }
 
         // parse postprocessThreshold
@@ -124,7 +175,7 @@ public class Matcher {
                 double p = Double.parseDouble(pString);
                 builder = builder.atPostprocessThreshold(p);
             } catch (NumberFormatException numExp) {
-                System.out.println("Parsing Failed: Number Input p " + numExp.getMessage());
+                System.err.println("Parsing Failed: Number Input p " + numExp.getMessage());
                 System.exit(1);
             }
         }
@@ -144,7 +195,7 @@ public class Matcher {
                 throw new FileNotFoundException("Net 2 file not found under" + n2String);
             }
         } catch (FileNotFoundException fileExp) {
-            System.out.println("Parsing Failed: Petri Net File not found:" + fileExp.getMessage());
+            System.err.println("Parsing Failed: Petri Net File not found:" + fileExp.getMessage());
             System.exit(1);
             net1 = null;
             net2 = null;
@@ -161,6 +212,8 @@ public class Matcher {
             }
         }
 
+
+
         //Build pipeline
         Pipeline pip = builder.Build();
 
@@ -168,7 +221,7 @@ public class Matcher {
         Result r = pip.run(net1, net2);
 
         //print
-        System.out.println(r.toString());
+        if(Pipeline.PRINT_ENABLED) System.out.println(r.toString());
     }
 
 

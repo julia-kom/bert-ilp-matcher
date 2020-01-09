@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>Petri net converted from C-EPC imported from source-model.epml [Reduced]</text>
+    </name>
+    <page id="n0">
+      <name>
+        <text/>
+      </name>
+      <place id="n1">
+        <name>
+          <text>Shipping unit is to be created --&gt; Packing Processing</text>
+        </name>
+        <toolspecific localNodeID="05f42681-3fa1-4d38-a7fe-ba6b850a67ad" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n2">
+        <name>
+          <text>Picking needs to be carried out --&gt; Picking</text>
+        </name>
+        <toolspecific localNodeID="5ee855a5-88e7-41de-a955-a3d3d3385e2e" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n3">
+        <name>
+          <text>Material withdrawal is to be posted</text>
+        </name>
+        <toolspecific localNodeID="803dd3cf-aa9c-4eed-b935-f573c06646dc" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n4">
+        <name>
+          <text>Delivery without reference is to be created</text>
+        </name>
+        <toolspecific localNodeID="a9c527df-c247-49e2-9159-5e26d80e3441" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <transition id="n5">
+        <name>
+          <text>Packing Processing</text>
+        </name>
+        <toolspecific activity="Packing Processing" localNodeID="6e56dcb6-a0db-45ad-a272-9c3cd7ad21b7" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n6">
+        <name>
+          <text>Picking</text>
+        </name>
+        <toolspecific activity="Picking" localNodeID="8433acc3-e489-43d7-a777-404fbd26517a" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n7">
+        <name>
+          <text>Delivery Processing</text>
+        </name>
+        <toolspecific activity="Delivery Processing" localNodeID="2ee89729-a0ac-43b3-a062-081381a4c956" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <arc id="arc8" source="n6" target="n1">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="f374c3e9-4bd3-4f94-b9a2-39011bd497f1" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc9" source="n1" target="n5">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="6e595cde-1a87-490d-b448-bbc9a9260c7f" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc10" source="n4" target="n7">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="236d4efb-81d7-4a63-a11f-76571192794e" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc11" source="n2" target="n6">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="26d04196-0862-48f8-b066-bfd60e1969cb" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc12" source="n5" target="n3">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="24747910-3c49-42e4-9ce6-89644ae151ba" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc13" source="n7" target="n2">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="5ea33459-0e8c-4272-b78b-37b1de22fefa" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="n1">
+          <text>0</text>
+        </place>
+        <place idref="n2">
+          <text>0</text>
+        </place>
+        <place idref="n3">
+          <text>1</text>
+        </place>
+        <place idref="n4">
+          <text>0</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>
