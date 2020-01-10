@@ -31,7 +31,7 @@ public class AlphaRelations extends AbstractProfile {
     //TODO write this.
     @Override
     public String toString(){
-        return "";
+        return "No String Representation possible";
     }
 
     @Override
@@ -59,7 +59,7 @@ public class AlphaRelations extends AbstractProfile {
      *
      * Idea check all transitions which are directly following. If one of the transitions is tau check the
      * follow up transitions of that tau transition too.
-     * Break at already visited transitions to prevent infinite loops
+     * Break at already visited transitions to prevent infinite loops.
      *
      * @param n1
      * @param n2

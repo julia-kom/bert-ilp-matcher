@@ -85,9 +85,9 @@ public class Pipeline {
         if(PRINT_ENABLED) System.out.println("##### Start Creating Profiles #####");
         timer.startBPTime();
         AbstractProfile relNet1 = createProfile(net1, this.profile);
-        System.out.print("Net 1" +relNet1.toString());
+        //System.out.print("Net 1" +relNet1.toString());
         AbstractProfile relNet2 = createProfile(net2, this.profile);
-        System.out.print("Net 2" +relNet1.toString());
+        //System.out.print("Net 2" +relNet1.toString());
         timer.stopBPTime();
         if(PRINT_ENABLED) System.out.println("##### Creating Profiles Complete #####");
 
