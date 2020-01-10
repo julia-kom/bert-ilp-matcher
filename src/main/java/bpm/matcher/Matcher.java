@@ -1,6 +1,7 @@
 package bpm.matcher;
 
 import bpm.alignment.Result;
+import bpm.profile.AbstractProfile;
 import org.apache.commons.cli.*;
 import java.io.*;
 
@@ -39,6 +40,11 @@ public class Matcher {
                 .hasArg(true)
                 .longOpt("net-2")
                 .desc("Sound, free-choice WF net 2")
+                .build();
+        Option optProfile = Option.builder("p")
+                .hasArg(true)
+                .longOpt("profile")
+                .desc("Relational Profile to use: BP, BPP, ARP")
                 .build();
 
         Option ilp = Option.builder("i")
@@ -90,6 +96,7 @@ public class Matcher {
         options.addOption(optPrint);
         options.addOption(optTl);
         options.addOption(optNl);
+        options.addOption(optProfile);
 
 
         //parse input
@@ -145,6 +152,17 @@ public class Matcher {
                 System.err.println("Parsing Failed: Time Limit " + numExp.getMessage());
             }
         }
+
+        // parse profile
+        if (line.hasOption("p")) {
+            String sString = line.getOptionValue("p");
+            try {
+                builder = builder.withProfile(AbstractProfile.Profile.valueOf(sString));
+            } catch (NumberFormatException numExp) {
+                System.err.println("Parsing Failed: Time Limit " + numExp.getMessage());
+            }
+        }
+
 
         // parse similarityWeight
         if (line.hasOption("s")) {

@@ -7,6 +7,7 @@ import org.jbpt.bp.construct.RelSetCreator;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.PetriNet;
+import org.jbpt.petri.Transition;
 import org.jbpt.petri.behavior.ConcurrencyRelation;
 
 import java.util.Collection;
@@ -19,7 +20,6 @@ public class AlphaRelations extends AbstractProfile {
     public AlphaRelations(NetSystem net){
         if(creator == null){
             creator = new AlphaCreatorNet();
-            relations.setLookAhead(1);
         }
         relations = creator.deriveRelationSet(net);
     }
@@ -66,6 +66,7 @@ public class AlphaRelations extends AbstractProfile {
 
         private AlphaCreatorNet() {
 
+
         }
 
         public BehaviouralProfile<NetSystem, Node> deriveRelationSet(NetSystem pn) {
@@ -108,25 +109,47 @@ public class AlphaRelations extends AbstractProfile {
                      * Check all cases for two distinct nodes of the net
                      */
                     //todo change conditions. That is the only thing to change! Only thing new: check if direct neighbors i.e. only tau transitions are on a path from source to target.
-                    else if (PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n1,n2) && PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n2,n1)) {
-                        super.setMatrixEntry(matrix,index1,index2,RelSetType.Interleaving);
-                    }
-                    else if (concurrencyRelation.areConcurrent(index1,index2)) {
-                        super.setMatrixEntry(matrix,index1,index2,RelSetType.Interleaving);
-                    }
-                    else if (!concurrencyRelation.areConcurrent(index1,index2) && !PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n1,n2) && !PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n2,n1)) {
+                    else if(directlyFollows(pn,n1,n2) || directlyFollows(pn,n2,n1)){
+                        if (PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n1,n2) && PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n2,n1)) {
+                            super.setMatrixEntry(matrix,index1,index2,RelSetType.Interleaving);
+                        }
+                        else if (concurrencyRelation.areConcurrent(index1,index2)) {
+                            super.setMatrixEntry(matrix,index1,index2,RelSetType.Interleaving);
+                        }
+                        else if (!concurrencyRelation.areConcurrent(index1,index2) && !PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n1,n2) && !PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n2,n1)) {
+                            super.setMatrixEntry(matrix,index1,index2,RelSetType.Exclusive);
+                        }
+                        else if (PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n1,n2) && !PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n2,n1)) {
+                            super.setMatrixEntryOrder(matrix,index1,index2);
+                        }
+                        else if (PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n2,n1) && !PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n1,n2)) {
+                            super.setMatrixEntryOrder(matrix,index2,index1);
+                        }
+                    }else{
                         super.setMatrixEntry(matrix,index1,index2,RelSetType.Exclusive);
-                    }
-                    else if (PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n1,n2) && !PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n2,n1)) {
-                        super.setMatrixEntryOrder(matrix,index1,index2);
-                    }
-                    else if (PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n2,n1) && !PetriNet.DIRECTED_GRAPH_ALGORITHMS.hasPath(pn,n1,n2)) {
-                        super.setMatrixEntryOrder(matrix,index2,index1);
                     }
                 }
             }
 
             return profile;
+        }
+
+        /**
+         * Returns true if two transitions are directly following each other
+         * Or there is a path of only tau transitions between these transitions.
+         * @param net
+         * @param n1
+         * @param n2
+         * @return
+         */
+        private boolean directlyFollows(NetSystem net, Node n1, Node n2){
+            if(n1 instanceof Transition && n2 instanceof Transition) {
+                //todo deal with tau transitions on the way from n1 to n2
+
+                // transition -> place -> transition
+                return net.getDirectPredecessors(net.getDirectPredecessors(n1)).contains(n2);
+            }
+            return false;
         }
     }
 

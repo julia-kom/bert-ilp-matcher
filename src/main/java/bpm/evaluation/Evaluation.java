@@ -1,5 +1,6 @@
 package bpm.evaluation;
 
+import bpm.profile.AbstractProfile;
 import org.apache.commons.cli.*;
 
 import java.io.BufferedWriter;
@@ -95,10 +96,10 @@ public class Evaluation {
                         "StrictBinary: Only exact matches account as true positives \n" +
                         "Probabilistically: Acc. to \"Probabilistic Evaluation of Process Model Matching Techniques\" ")
                 .build();
-        Option optNetEvalProfile = Option.builder("nep")
+        Option optNetEvalProfile = Option.builder("p")
                 .hasArg(true)
-                .longOpt("net-eval-profile")
-                .desc("Profile for net evaluation")
+                .longOpt("profile")
+                .desc("Profile for matching/net evaluation")
                 .build();
         Option optPreMatch = new Option("pm", "pre-match", false, "Run Prematcher before running the ILP, reducing runtime");
 
@@ -237,10 +238,16 @@ public class Evaluation {
         }
 
         // gold standard for single eval
-        if (line.hasOption("nep")) {
-            String n2String = line.getOptionValue("nep");
-            evalBuilder = evalBuilder.withNetEvalProfile(n2String);
+        if (line.hasOption("p")) {
+            try{
+                String sString = line.getOptionValue("p");
+                evalBuilder = evalBuilder.withNetEvalProfile(sString);
+                matcherBuilder =matcherBuilder.withProfile(AbstractProfile.Profile.valueOf(sString));
+            } catch (NumberFormatException numExp) {
+                System.err.println("Parsing Failed: Time Limit " + numExp.getMessage());
+            }
         }
+
 
         // word similarity
         if (line.hasOption("w")) {
