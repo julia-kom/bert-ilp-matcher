@@ -21,7 +21,7 @@ public class BPPlus extends AbstractProfile {
 
 
     @Override
-    public Relation getRelationBetween(Node n1, Node n2) {
+    public Relation getRelationForEntities(Node n1, Node n2) {
         List<String> tName1 = rorm.gettName();
 
         //when package is updated change to id
@@ -102,7 +102,7 @@ public class BPPlus extends AbstractProfile {
         String res = "";
         for(Transition t1 : net.getTransitions()){
             for(Transition t2 : net.getTransitions()){
-                res += " | " + this.getRelationBetween(t1,t2);
+                res += " | " + this.getRelationForEntities(t1,t2);
             }
             res += "| \n";
         }

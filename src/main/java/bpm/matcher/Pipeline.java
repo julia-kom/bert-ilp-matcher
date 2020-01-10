@@ -4,6 +4,10 @@ import bpm.alignment.Alignment;
 import bpm.alignment.Result;
 import bpm.evaluation.ExecutionTimer;
 import bpm.ilp.*;
+import bpm.profile.AbstractProfile;
+import bpm.profile.AlphaRelations;
+import bpm.profile.BP;
+import bpm.profile.BPPlus;
 import bpm.similarity.Matrix;
 import bpm.similarity.Word;
 
@@ -35,7 +39,7 @@ public class Pipeline {
     private boolean prematch;
     private double  similarityWeight;
     private double  postprocessThreshold;
-    private Matcher.Profile profile;
+    private AbstractProfile.Profile profile;
     private AbstractILP.ILP ilp;
     private Word.Similarities wordSimilarity;
     private double ilpTimeLimit;
@@ -80,9 +84,9 @@ public class Pipeline {
         // Create Profile
         if(PRINT_ENABLED) System.out.println("##### Start Creating Profiles #####");
         timer.startBPTime();
-        RelSet relNet1 = createProfile(net1, this.profile);
+        AbstractProfile relNet1 = createProfile(net1, this.profile);
         //System.out.print("Net 1" +relNet1.toString());
-        RelSet relNet2 = createProfile(net2, this.profile);
+        AbstractProfile relNet2 = createProfile(net2, this.profile);
         //System.out.print("Net 2" +relNet1.toString());
         timer.stopBPTime();
         if(PRINT_ENABLED) System.out.println("##### Creating Profiles Complete #####");
@@ -150,16 +154,18 @@ public class Pipeline {
         return serializer.parse(f.getAbsolutePath());
     }
 
-    //TODO Transfer to abstract profile if exists
-    public static RelSet createProfile(NetSystem net, Matcher.Profile profile){
-        RelSet r;
+    public static AbstractProfile createProfile(NetSystem net, AbstractProfile.Profile profile){
+        AbstractProfile r;
         switch(profile){
             case BP:
-                BPCreatorNet creator = BPCreatorNet.getInstance();
-                r = creator.deriveRelationSet(net);
+                r = new BP(net);
                 break;
-            case CBP:
-                throw new UnsupportedOperationException("Causal BP not yet implemented");
+            case BPP:
+                r = new BPPlus(net);
+                break;
+            case ARP:
+                r = new AlphaRelations(net);
+                break;
             default:
                 throw new UnsupportedOperationException("Operator not yet implemented: " + profile.toString());
         }
@@ -248,7 +254,7 @@ public class Pipeline {
         private double  similarityWeight = 0.3;
         private double  postprocessThreshold = 0.0;
         private AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
-        protected Matcher.Profile profile = Matcher.Profile.BP;
+        protected AbstractProfile.Profile profile = AbstractProfile.Profile.BP;
         private Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
         private boolean prematch = false;
         private double ilpTimeLimit = GRB.INFINITY;
@@ -320,7 +326,7 @@ public class Pipeline {
          * @param p a profile of type Match.Profile
          * @return Builder
          */
-        public Pipeline.Builder withProfile(Matcher.Profile p){
+        public Pipeline.Builder withProfile(AbstractProfile.Profile p){
             this.profile = p;
             return this;
         }

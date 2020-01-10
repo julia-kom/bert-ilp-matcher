@@ -2,7 +2,7 @@ package bpm.evaluation;
 
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
-import bpm.matcher.Matcher;
+import bpm.profile.AbstractProfile;
 import org.json.simple.parser.JSONParser;
 import org.jbpt.petri.NetSystem;
 import org.json.JSONException;
@@ -27,7 +27,7 @@ public class Pipeline{
     //Evaluation specific options
     private boolean batch;
     private boolean netEval;
-    private Matcher.Profile netProfile;
+    private AbstractProfile.Profile netProfile;
     private boolean retrospective;
     private Path resultPath;
     private Path batchPath;
@@ -401,7 +401,7 @@ public class Pipeline{
         private boolean batch = false;
         private boolean retrospective = false;
         private boolean netEval = false;
-        private Matcher.Profile netProfile;
+        private AbstractProfile.Profile netProfile;
         private Path resultPath;
         private Path batchPath;
         private File net1;
@@ -459,16 +459,19 @@ public class Pipeline{
          * @return
          */
         public Builder withNetEvalProfile(String profile){
-            Matcher.Profile p;
+            AbstractProfile.Profile p;
             switch(profile){
                 case "BP":
-                    p = Matcher.Profile.BP;
+                    p = AbstractProfile.Profile.BP;
                     break;
-                case "CBP":
-                    p = Matcher.Profile.CBP;
+                case "BPP":
+                    p = AbstractProfile.Profile.BPP;
+                    break;
+                case "ARP":
+                    p = AbstractProfile.Profile.ARP;
                     break;
                 default:
-                    throw new IllegalArgumentException("ilp argument is not valid: " +profile);
+                    throw new IllegalArgumentException("relational profile argument is not valid: " +profile);
             }
             this.netProfile = p;
             return this;

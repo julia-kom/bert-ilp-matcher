@@ -16,7 +16,7 @@ public class BP extends AbstractProfile {
     }
 
     @Override
-    public Relation getRelationBetween(Node n1, Node n2) {
+    public Relation getRelationForEntities(Node n1, Node n2) {
         RelSetType rel = relations.getRelationForEntities(n1, n2);
         switch(rel){
             case Order:

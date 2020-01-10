@@ -1,7 +1,7 @@
 package bpm.evaluation;
 
 import bpm.matcher.Preprocessor;
-import org.jbpt.bp.RelSet;
+import bpm.profile.AbstractProfile;
 import org.jbpt.bp.RelSetType;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Transition;
@@ -38,7 +38,7 @@ public class AggregatedNetAnalysis{
      * @param profile
      * @throws IOException
      */
-    public void addNet(NetSystem net, RelSet profile) throws IOException {
+    public void addNet(NetSystem net, AbstractProfile profile) throws IOException {
         NetAnalysis analysis = new NetAnalysis(net,profile);
         netAnalyses.add(analysis);
         // transition stats
@@ -47,7 +47,7 @@ public class AggregatedNetAnalysis{
 
         //todo this assumes that its always traversed in the same order. true??
         // Profile Stats
-        for (RelSetType t : RelSetType.values()) {
+        for (AbstractProfile.Relation t : AbstractProfile.Relation.values()) {
             csvWriter.append(getNumberOfRelations(t, net, profile)+ ",");
         }
         csvWriter.append("\n");
@@ -60,11 +60,11 @@ public class AggregatedNetAnalysis{
      * @param profile
      * @return
      */
-    private int getNumberOfRelations(RelSetType rel, NetSystem net, RelSet profile){
+    private int getNumberOfRelations(AbstractProfile.Relation rel, NetSystem net, AbstractProfile profile){
         int n = 0;
         for (Transition t1 :net.getTransitions()){
             for(Transition t2 : net.getTransitions()){
-                RelSetType r = profile.getRelationForEntities(t1,t2);
+                AbstractProfile.Relation r = profile.getRelationForEntities(t1,t2);
                 if(r.equals(rel)){
                    n++;
                 }
@@ -105,9 +105,9 @@ public class AggregatedNetAnalysis{
         String name;
         int nSilentTransitions = 0;
         int nNonSilentTransitions = 0;
-        RelSet profile;
+        AbstractProfile profile;
 
-        private NetAnalysis(NetSystem net, RelSet profile) {
+        private NetAnalysis(NetSystem net, AbstractProfile profile) {
             // Analyze Transitions
             Set<Transition> transitions = net.getTransitions();
             Iterator<Transition> iterator = transitions.iterator();

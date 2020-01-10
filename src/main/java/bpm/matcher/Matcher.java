@@ -6,11 +6,6 @@ import java.io.*;
 
 public class Matcher {
 
-    public enum Profile{
-        BP, // Behavioral Profile
-        CBP // Causal Behavioral Profile
-    }
-
     /**
      * Input parser for a single matching task
      *

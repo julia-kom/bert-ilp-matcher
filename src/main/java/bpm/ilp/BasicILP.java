@@ -3,9 +3,9 @@ package bpm.ilp;
 import bpm.alignment.Alignment;
 import bpm.alignment.Correspondence;
 import bpm.alignment.Result;
+import bpm.profile.AbstractProfile;
 import bpm.similarity.Matrix;
 import gurobi.*;
-import org.jbpt.bp.RelSet;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
 
@@ -31,7 +31,7 @@ public class BasicILP extends AbstractILP {
      * @throws GRBException
      */
     @Override
-    public Result solve(RelSet relNet1, RelSet relNet2, Set<Transition> net1, Set<Transition> net2, Matrix matrix, Alignment preAlignment, String name) throws GRBException {
+    public Result solve(AbstractProfile relNet1, AbstractProfile relNet2, Set<Transition> net1, Set<Transition> net2, Matrix matrix, Alignment preAlignment, String name) throws GRBException {
         //setup variables
         Node[] nodeNet1 =  net1.toArray(new Node[net1.size()]);
         Node[] nodeNet2 =  net2.toArray(new Node[net2.size()]);
