@@ -1,5 +1,6 @@
 package bpm.profile;
 
+import bpm.matcher.Preprocessor;
 import org.jbpt.bp.BehaviouralProfile;
 import org.jbpt.bp.RelSetType;
 import org.jbpt.bp.construct.AbstractRelSetCreator;
@@ -10,7 +11,7 @@ import org.jbpt.petri.PetriNet;
 import org.jbpt.petri.Transition;
 import org.jbpt.petri.behavior.ConcurrencyRelation;
 
-import java.util.Collection;
+import java.util.*;
 
 public class AlphaRelations extends AbstractProfile {
 
@@ -137,22 +138,52 @@ public class AlphaRelations extends AbstractProfile {
         /**
          * Returns true if two transitions are directly following each other
          * Or there is a path of only tau transitions between these transitions.
+         *
+         * Idea check all transitions which are directly following. If one of the transitions is tau check the
+         * follow up transitions of that tau transition too.
+         * Break at already visited transitions to prevent infinite loops
+         *
          * @param net
          * @param n1
          * @param n2
          * @return
          */
-        private boolean directlyFollows(NetSystem net, Node n1, Node n2){
-            if(n1 instanceof Transition && n2 instanceof Transition) {
-                //todo deal with tau transitions on the way from n1 to n2
-
-                // transition -> place -> transition
-                return net.getDirectPredecessors(net.getDirectPredecessors(n1)).contains(n2);
+        private boolean directlyFollows(NetSystem net, Node n1, Node n2) {
+            // places relation is irrelevant
+            if (!(n1 instanceof Transition && n2 instanceof Transition)) {
+                return false;
             }
+
+            //tau transitions relation is irrelevant
+            if (Preprocessor.isTau((Transition) n1) || Preprocessor.isTau((Transition) n2)) {
+                return false;
+            }
+            Set<Transition> visited = new HashSet<>();
+            LinkedList<Transition> pending = new LinkedList<>();
+            pending.add((Transition) n1);
+            while (!pending.isEmpty()) {
+                // get first from linked list and put it into visited list
+                Transition current = pending.poll();
+                visited.add(current);
+
+                //fetch directly following transitions
+                Set<Transition> following = net.getPostsetTransitions(net.getPostset(current));
+
+                // check if n2 is found in the follow-up set
+                if (following.contains((Transition) n2)) {
+                    return true;
+                }
+
+                // add tau transitions in the follow up set to the pending set
+                for (Transition t : following) {
+                    if (Preprocessor.isTau(t) && !visited.contains(t)) {
+                        pending.add(t);
+                    }
+                }
+            }
+
             return false;
         }
     }
-
-
-
 }
+
