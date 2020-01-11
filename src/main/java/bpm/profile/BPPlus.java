@@ -23,17 +23,19 @@ public class BPPlus extends AbstractProfile {
 
     @Override
     public Relation getRelationForEntities(Node n1, Node n2) {
-        List<String> tName1 = rorm.gettName();
 
-        //when package is updated change to id
-        //todo
-        int i1 = tName1.indexOf(n1.getLabel());
-        int i2 = tName1.indexOf(n2.getLabel());
 
+        // convert Id to row/column number in the relational matrix
+        List<String> tId1 = rorm.gettId();
+        int i1 = tId1.indexOf(n1.getId());
+        int i2 = tId1.indexOf(n2.getId());
+
+        // fetch base relations
         RefinedOrderingRelation causalRel = rorm.getCausalMatrix()[i1][i2];
         RefinedOrderingRelation invCausalRel = rorm.getInverseCausalMatrix()[i1][i2];
         RefinedOrderingRelation concurrentRel = rorm.getConcurrentMatrix()[i1][i2];
 
+        // derive matrix entry from base relations
         if(causalRel.getRelation() != com.iise.shudi.exroru.Relation.NEVER) {
             if(causalRel.isAdjacency()){
                 return Relation.BPP_DIRECT_CAUSAL;
