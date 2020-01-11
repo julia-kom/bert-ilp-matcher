@@ -114,9 +114,14 @@
           <version>8.0.0</version>
       </dependency>
 
+      <!-- Exroru for BPP, is part of the local .m2 repo. Jar file to install can be found in /libs/ExRORU.jar
+           WITH BELOW MAVEN PACKAGE OPTIONS:
+           install:install-file -Dfile=libs/ExRORU.jar -DgroupId=com.iise.shudi -Dversion=1.0 -Dpackaging=jar -DartifactId=exroru
+           Exroru uses an adaption of the JBPT Lib, which is why the package org.jbpt.petri.unfolding is renamed to
+           org.jbpt.petri.unfoldingadapted in the ExRoru package -->
       <dependency>
-          <groupId>com.iise.shudi.exroru</groupId>
-          <artifactId>ExRORUBPP-dev</artifactId>
+          <groupId>com.iise.shudi</groupId>
+          <artifactId>exroru</artifactId>
           <version>1.0</version>
       </dependency>
 

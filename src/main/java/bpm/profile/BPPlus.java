@@ -15,6 +15,7 @@ public class BPPlus extends AbstractProfile {
     RefinedOrderingRelationsMatrix rorm;
     NetSystem net;
     public BPPlus(NetSystem net){
+
         rorm = new RefinedOrderingRelationsMatrix(net);
         this.net = net;
     }
@@ -25,6 +26,7 @@ public class BPPlus extends AbstractProfile {
         List<String> tName1 = rorm.gettName();
 
         //when package is updated change to id
+        //todo
         int i1 = tName1.indexOf(n1.getLabel());
         int i2 = tName1.indexOf(n2.getLabel());
 

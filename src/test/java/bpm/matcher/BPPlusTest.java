@@ -5,6 +5,7 @@ import bpm.profile.BPPlus;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Place;
 import org.jbpt.petri.Transition;
+import org.jbpt.petri.unfolding.Condition;
 import org.junit.Assert;
 
 public class BPPlusTest {
@@ -20,6 +21,7 @@ public class BPPlusTest {
         t2.setName("t2");
         net1.addTransition(t1);
         net1.addTransition(t2);
+
 
         Place p1 = new Place("p1");
         Place p2 = new Place("p2");
