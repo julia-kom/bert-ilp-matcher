@@ -10,6 +10,10 @@ import java.util.List;
 
 /**
  * Wrapper Class for BP+
+ * This class wrapps the actual paper implementation of "BP+: An Improved Behavioral Profile Metric for Process Models"
+ * The implementation was extended in the following way:
+ *  - The package name of the changed jbpt package org.jbpt.petri.unfold was renamed so it is compatible with this project
+ *  - Transitions are no longer addressed via their lables but their ID to allow for multiple same labeled transitions inside one net.
  */
 public class BPPlus extends AbstractProfile {
     RefinedOrderingRelationsMatrix rorm;
@@ -23,7 +27,6 @@ public class BPPlus extends AbstractProfile {
 
     @Override
     public Relation getRelationForEntities(Node n1, Node n2) {
-
 
         // convert Id to row/column number in the relational matrix
         List<String> tId1 = rorm.gettId();
@@ -92,7 +95,7 @@ public class BPPlus extends AbstractProfile {
             (r1 == Relation.BPP_REVERSE_DIRECT_CAUSAL && r2 == Relation.BPP_SOMETIMES_CONCURRENT) ||
             (r2 == Relation.BPP_REVERSE_DIRECT_CAUSAL && r1 == Relation.BPP_SOMETIMES_CONCURRENT)){
         return 0.49;
-    }else if((r1 == Relation.BPP_INDIRECT_CAUSAL && r2 == Relation.BPP_SOMETIMES_CONCURRENT) ||
+        }else if((r1 == Relation.BPP_INDIRECT_CAUSAL && r2 == Relation.BPP_SOMETIMES_CONCURRENT) ||
             (r2 == Relation.BPP_INDIRECT_CAUSAL && r1 == Relation.BPP_SOMETIMES_CONCURRENT) ||
             (r1 == Relation.BPP_REVERSE_INDIRECT_CAUSAL && r2 == Relation.BPP_SOMETIMES_CONCURRENT) ||
             (r2 == Relation.BPP_REVERSE_INDIRECT_CAUSAL && r1 == Relation.BPP_SOMETIMES_CONCURRENT)){

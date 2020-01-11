@@ -7,20 +7,24 @@ import org.jbpt.petri.Place;
 import org.jbpt.petri.Transition;
 import org.jbpt.petri.unfolding.Condition;
 import org.junit.Assert;
+import org.junit.Test;
 
 public class BPPlusTest {
 
-    //@Test
+    @Test
     public void testBPPlus(){
         NetSystem net1 = new NetSystem();
         Transition t1 = new Transition();
         t1.setId("t1");
         t1.setName("t1");
+        t1.setLabel("Transition 1");
         Transition t2 = new Transition();
         t2.setId("t2");
         t2.setName("t2");
+        t2.setLabel("Transition 2");
         net1.addTransition(t1);
         net1.addTransition(t2);
+
 
 
         Place p1 = new Place("p1");
