@@ -1,5 +1,7 @@
 package bpm.profile;
 
+import bpm.alignment.Alignment;
+import bpm.alignment.Result;
 import org.jbpt.bp.BehaviouralProfile;
 import org.jbpt.bp.RelSetType;
 import org.jbpt.bp.construct.BPCreatorNet;
@@ -31,6 +33,12 @@ public class BP extends AbstractProfile {
                 return Relation.NONE;
         }
         return null;
+    }
+
+    @Override
+    public Result filterTemporaryTransitions(Result result) {
+        // no temporary transitions were added, therefore nothing needs to be removed
+        return result;
     }
 
     @Override

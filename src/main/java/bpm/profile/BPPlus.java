@@ -1,12 +1,19 @@
 package bpm.profile;
 
+import bpm.alignment.Alignment;
+import bpm.alignment.Correspondence;
+import bpm.alignment.Result;
 import com.iise.shudi.exroru.RefinedOrderingRelation;
 import com.iise.shudi.exroru.RefinedOrderingRelationsMatrix;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
 
+import java.util.Iterator;
 import java.util.List;
+
+import static com.iise.shudi.exroru.RefinedOrderingRelationsMatrix.NEW_TE;
+import static com.iise.shudi.exroru.RefinedOrderingRelationsMatrix.NEW_TS;
 
 /**
  * Wrapper Class for BP+
@@ -18,8 +25,12 @@ import java.util.List;
 public class BPPlus extends AbstractProfile {
     RefinedOrderingRelationsMatrix rorm;
     NetSystem net;
-    public BPPlus(NetSystem net){
 
+    /**
+     * Extends the petri net by one transition in the front (NEW_TS) and one in the back (NEW_TE)
+     * @param net
+     */
+    public BPPlus(NetSystem net){
         rorm = new RefinedOrderingRelationsMatrix(net);
         this.net = net;
     }
@@ -114,6 +125,41 @@ public class BPPlus extends AbstractProfile {
             res += "| \n";
         }
         return res;
+    }
+
+    /**
+     * Filters out those correspondences which contain at least one temporary transition
+     * @param result
+     * @return
+     */
+    @Override
+    public Result filterTemporaryTransitions(Result result){
+        Alignment alignment = result.getAlignment();
+        Iterator<Correspondence> iterator = alignment.getCorrespondences().iterator();
+
+        while(iterator.hasNext()){
+            boolean containsArtificalTransition = false;
+            Correspondence c = iterator.next();
+            //remove if NEW_TS or NEW_TE is part of the correspondence (net one)
+            for(Node n : c.getNet1Nodes()){
+                if(n.getLabel().equals(NEW_TS) || n.getLabel().equals(NEW_TE) ){
+                    containsArtificalTransition = true;
+                    continue;
+                }
+            }
+            //same for net two
+            for(Node n : c.getNet2Nodes()){
+                if(n.getLabel().equals(NEW_TS) || n.getLabel().equals(NEW_TE)){
+                    containsArtificalTransition = true;
+                    continue;
+                }
+            }
+
+            if(containsArtificalTransition){
+                iterator.remove();
+            }
+        }
+        return new Result(result.getSimilarity(), alignment, result.getGAP());
     }
 
 }

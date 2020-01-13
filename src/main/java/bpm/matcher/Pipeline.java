@@ -137,6 +137,9 @@ public class Pipeline {
         if(PRINT_ENABLED) System.out.println("##### ILP Complete #####");
 
         //Postprocess
+        if(PRINT_ENABLED) System.out.println("##### Start Postprocessing #####");
+        res = relNet1.filterTemporaryTransitions(res);
+        if(PRINT_ENABLED) System.out.println("##### Postprocessing Complete #####");
 
         if(PRINT_ENABLED) System.out.println(res.toString());
 

@@ -1,5 +1,7 @@
 package bpm.profile;
 
+import bpm.alignment.Alignment;
+import bpm.alignment.Result;
 import bpm.matcher.Preprocessor;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
@@ -28,10 +30,22 @@ public class AlphaRelations extends AbstractProfile {
         }
     }
 
-    //TODO write this.
+    @Override
+    public Result filterTemporaryTransitions(Result res) {
+        // no temporary transitions were added, therefore nothing needs to be removed
+        return res;
+    }
+
     @Override
     public String toString(){
-        return "No String Representation possible";
+        String res = "";
+        for(Transition t1 : net.getTransitions()){
+            for(Transition t2 : net.getTransitions()){
+                res += " | " + this.getRelationForEntities(t1,t2);
+            }
+            res += "| \n";
+        }
+        return res;
     }
 
     @Override
