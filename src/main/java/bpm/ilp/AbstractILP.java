@@ -28,11 +28,13 @@ public abstract class AbstractILP {
     public enum ILP{
         BASIC, //Basic 1:1 behavior and label matcher
         BASIC2, //Basic 1:1 behavior and label matcher with reduced number of variables
-        BASIC3, // Remove X variable
+        BASIC3, // Remove X variable compeletly
+        BASIC4, // Create Y variables for those pairs of relations only, which are equal. This is the minimum possible number of y variables
+        BASIC5, // As BASIC 2 but pull the identification function into the target + use non binary system for relational similarity.
         RELAXED, // WRONG 1:1 behavioral and label matcher, converted BASIC to an LP problem, where linking between x and y is split into two constraints => similarity score but slow LP
         RELAXED2, // WRONG 1:1 behavioral and label matcher, converted BASIC to an LP problem, just by making all variables contineous. => no similarity score but fast LP.
         RELAXED3, // WRONG 1:1 behavioral and label matcher, converted BASIC to an LP problem, where linking between x and y is split into two constraints => similarity score but slow LP, now use of symmetry of the matrix
-        RELAXED4, // 1:1 behavioral and label matcher, converted BASIC to an LP problem, where linking between x and y is split into two constraints => similarity score but slow LP addionally we constraint the y values per match.
+        RELAXED4, // WRONG 1:1 behavioral and label matcher, converted BASIC to an LP problem, where linking between x and y is split into two constraints => similarity score but slow LP addionally we constraint the y values per match.
         QUADRATIC //Quadratic formulation of the ILP
     }
 

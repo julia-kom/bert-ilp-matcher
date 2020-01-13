@@ -25,8 +25,12 @@ public class BasicILP4 extends AbstractILP {
 
     /**
      * Compute the basic 1:1 ILP behavior/label simialrity match.
-     * Additionally we reduce the number of variables. On Y variables for exact same relations are constructed. This isthe ILP with lowest number of varibales.
+     * Additionally we reduce the number of variables. On Y variables for exact same relations are constructed. T
+     * This isthe ILP with lowest number of varibales. If two relations are not equal, then they dont get a variable.
      * property of the matrix
+     * The identification for similar behavioral relation is now not encoded in y directly anymore.
+     * y describes if s is matched to t and s' is matched to t'. The information that the relation between both is equal/similar
+     * comes in the target function into play!
      * @param relNet1 Profile of Net 1
      * @param relNet2 Profile of Net 2
      * @param net1 Net 1

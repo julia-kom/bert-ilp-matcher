@@ -16,7 +16,8 @@ import java.util.Set;
 
 import static bpm.matcher.Pipeline.PRINT_ENABLED;
 
-
+//This ILP system is too large to actually set it up in most cases.
+@Deprecated
 public class BasicILP3 extends AbstractILP {
     public BasicILP3() {
 

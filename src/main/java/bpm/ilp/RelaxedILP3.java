@@ -17,7 +17,8 @@ import java.util.Set;
 
 import static bpm.matcher.Pipeline.PRINT_ENABLED;
 
-
+// not usable results
+@Deprecated
 public class RelaxedILP3 extends AbstractILP {
     public RelaxedILP3(){
 

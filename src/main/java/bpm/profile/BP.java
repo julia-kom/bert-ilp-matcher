@@ -45,6 +45,10 @@ public class BP extends AbstractProfile {
     public double getRelationSimilarity(Relation r1, Relation r2) {
         if (r1 == r2) {
             return 1.0;
+        }else if(r1.equals(Relation.BP_ORDER) || (r1.equals(Relation.BP_REVERSE_ORDER) && r2.equals(Relation.BP_INTERLEAVING))){
+            return 0.5; // when it is order instead of interleaving we can argue that half of the assumption is true
+        }else if(r1.equals(Relation.BP_INTERLEAVING) && (r2.equals(Relation.BP_ORDER) || r2.equals(Relation.BP_REVERSE_ORDER))){
+            return 0.5; // when it is order instead of interleaving we can argue that half of the assumption is true
         }else {
             return 0.0;
         }

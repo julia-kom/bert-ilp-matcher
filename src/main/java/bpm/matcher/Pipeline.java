@@ -12,8 +12,6 @@ import bpm.similarity.Matrix;
 import bpm.similarity.Word;
 
 import gurobi.GRB;
-import org.jbpt.bp.RelSet;
-import org.jbpt.bp.construct.BPCreatorNet;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.PetriNet;
 import org.jbpt.petri.Transition;
@@ -183,6 +181,10 @@ public class Pipeline {
                 return new BasicILP2();
             case BASIC3:
                 return new BasicILP3();
+            case BASIC4:
+                return new BasicILP4();
+            case BASIC5:
+                return new BasicILP5();
             case RELAXED:
                 return  new RelaxedILP();
             case RELAXED2:

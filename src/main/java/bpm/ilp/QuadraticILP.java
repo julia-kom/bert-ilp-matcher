@@ -14,7 +14,8 @@ import java.util.Set;
 
 import static bpm.matcher.Pipeline.PRINT_ENABLED;
 
-
+//too slow
+@Deprecated
 public class QuadraticILP extends AbstractILP {
     public QuadraticILP(){
 

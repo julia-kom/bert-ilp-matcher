@@ -19,7 +19,8 @@ import static bpm.matcher.Pipeline.PRINT_ENABLED;
 
 
 /**
- * This is the implementation with the identification funktion inside the garget function directly.
+ * This is the implementation with the identification funktion inside the target function directly.
+ * We make use of the relational similarity score and do not onyl rely on equal realtions!
  */
 public class BasicILP5 extends AbstractILP {
     public BasicILP5(){
@@ -30,6 +31,11 @@ public class BasicILP5 extends AbstractILP {
      * Compute the basic 1:1 ILP behavior/label simialrity match.
      * Additionally we reduce the number of variables by factor 2 by taking advantage of the similarity
      * property of the matrix
+     * The identification for similar behavioral relation is now not encoded in y directly anymore.
+     * y describes if s is matched to t and s' is matched to t'. The information that the relation between both is equal/similar
+     * comes in the target function into play!
+     * Addtionally we do not only regard the question "equal relation or not", but use the weighting defined in
+     * AbstractRelationalProfile.getRelationSimilarity
      * @param relNet1 Profile of Net 1
      * @param relNet2 Profile of Net 2
      * @param net1 Net 1
@@ -73,13 +79,18 @@ public class BasicILP5 extends AbstractILP {
             for (int k = i; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        if (relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]).equals(relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]))) {
+                        // compute the relational similarity
+                        AbstractProfile.Relation rel1 = relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]);
+                        AbstractProfile.Relation rel2 = relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]);
+                        double relSim = relNet1.getRelationSimilarity(rel1,rel2);
+                        // when relational sim is zero we dont add it to the target function
+                        if(relSim > 0) {
                             //by reducing the number of variables, the total sum gets lower too, therefore we fix it by weighting
                             //every correct entry which is not on the diagonal twice (because of the symmetry of the matrix)
                             if (i != k && j != l) {
-                                behavior.addTerm(2.0 / (minSize * minSize), y[i][k][j][l]);
+                                behavior.addTerm(2.0 * relSim / (minSize * minSize), y[i][k][j][l]);
                             } else {
-                                behavior.addTerm(1.0 / (minSize * minSize), y[i][k][j][l]);
+                                behavior.addTerm(1.0 * relSim / (minSize * minSize), y[i][k][j][l]);
                             }
                         }
                     }

@@ -113,6 +113,26 @@ public class ilpTests {
         }
     }
 
+    @Test
+    public void basic4Test(){
+        File folder = new File(getClass().getClassLoader().getResource("./pnml/app_store/").getFile());
+        for (double i = 0; i <= 1.0; i += 0.2) {
+            Pipeline p1 = new Pipeline.Builder().withILP("BASIC").atSimilarityWeight(i).atPostprocessThreshold(0.0).Build();
+            Pipeline p2 = new Pipeline.Builder().withILP("BASIC4").atSimilarityWeight(i).atPostprocessThreshold(0.0).Build();
+            for(File file1 : folder.listFiles()) {
+                for(File file2 : folder.listFiles()) {
+                    Result r1 = p1.run(file1, file2);
+                    Result r2 = p2.run(file1, file2);
+
+                    //equal mixed similarity
+                    //Assert.assertTrue("i= "+ i+"\n" +file1.getName() + " - " +file2.getName() + ":" +r1.getAlignment().toString() + "\n" + r2.getAlignment().toString(), r1.getAlignment().equals(r2.getAlignment()));
+
+                    //equal similarity
+                    Assert.assertTrue("i= "+ i+"\n" +file1.getName() + " - " +file2.getName() + ":" + r1.getSimilarity() + "vs." + r2.getSimilarity(), abs(r1.getSimilarity() - r2.getSimilarity()) < 0.001);
+                }
+            }
+        }
+    }
 
     //@Test
     public void quadraticTest(){
