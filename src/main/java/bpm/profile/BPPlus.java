@@ -11,6 +11,7 @@ import org.jbpt.petri.Transition;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import static com.iise.shudi.exroru.RefinedOrderingRelationsMatrix.NEW_TE;
 import static com.iise.shudi.exroru.RefinedOrderingRelationsMatrix.NEW_TS;
@@ -35,6 +36,34 @@ public class BPPlus extends AbstractProfile {
         this.net = net;
     }
 
+    /**
+     * Returns that node which is artificially added by BP+ to guarantee uniqueness property of the profile
+     * @return
+     */
+    public Transition getArtificialInitialTransition(){
+        Set<Transition> transitions = net.getTransitions();
+        for( Transition t : transitions){
+            if(t.getLabel().equals(NEW_TS)){
+                return t;
+            }
+        }
+        throw new Error("No artificial initial transition in net " + net.getName());
+    }
+
+    /**
+     * Returns that node which is artificially added by BP+ to guarentee uniquness property of the profile
+     * @return
+     */
+    public Transition getArtificialFinalTransition(){
+        Set<Transition> transitions = net.getTransitions();
+        for( Transition t : transitions){
+            if(t.getLabel().equals(NEW_TE)){
+                return t;
+            }
+        }
+        throw new Error("No artificial final transition in net " + net.getName());
+    }
+
 
     @Override
     public Relation getRelationForEntities(Node n1, Node n2) {
@@ -46,7 +75,7 @@ public class BPPlus extends AbstractProfile {
 
         // fetch base relations
         RefinedOrderingRelation causalRel = rorm.getCausalMatrix()[i1][i2];
-        RefinedOrderingRelation invCausalRel = rorm.getInverseCausalMatrix()[i1][i2];
+        RefinedOrderingRelation invCausalRel = rorm.getCausalMatrix()[i2][i1];
         RefinedOrderingRelation concurrentRel = rorm.getConcurrentMatrix()[i1][i2];
 
         // derive matrix entry from base relations
