@@ -75,7 +75,8 @@ public class BPPlus extends AbstractProfile {
 
         // fetch base relations
         RefinedOrderingRelation causalRel = rorm.getCausalMatrix()[i1][i2];
-        RefinedOrderingRelation invCausalRel = rorm.getCausalMatrix()[i2][i1];
+        RefinedOrderingRelation reverseCausalRel = rorm.getInverseCausalMatrix()[i2][i1]; // TODO this is a workaround as adjacency relation is not properly included in the inversecausal relation. In RefinedOrderingRelationClass switch key and value in line 674
+        RefinedOrderingRelation invCausalRel = rorm.getInverseCausalMatrix()[i1][i2];
         RefinedOrderingRelation concurrentRel = rorm.getConcurrentMatrix()[i1][i2];
 
         // derive matrix entry from base relations
@@ -86,7 +87,7 @@ public class BPPlus extends AbstractProfile {
                 return Relation.BPP_INDIRECT_CAUSAL;
             }
         }else if(invCausalRel.getRelation() != com.iise.shudi.exroru.Relation.NEVER){
-            if(invCausalRel.isAdjacency()){
+            if(invCausalRel.isAdjacency() || reverseCausalRel.isAdjacency() ){
                 return Relation.BPP_REVERSE_DIRECT_CAUSAL;
             }else{
                 return Relation.BPP_REVERSE_INDIRECT_CAUSAL;
@@ -99,7 +100,7 @@ public class BPPlus extends AbstractProfile {
                 return Relation.BPP_ALWAYS_CONCURRENT;
             }
         }
-        return Relation.BPP_CONFLICT; // todo NONE or CONFLICT  ????? CONFLICT NOT EXPLICITLY DEFINED IN CODE.
+        return Relation.BPP_CONFLICT;
     }
 
     /**
