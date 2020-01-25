@@ -5,9 +5,12 @@ import bpm.alignment.Correspondence;
 import bpm.alignment.Result;
 import com.iise.shudi.exroru.RefinedOrderingRelation;
 import com.iise.shudi.exroru.RefinedOrderingRelationsMatrix;
+import com.iise.shudi.exroru.Relation;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
+import org.jbpt.petri.unfoldingBPP.CompletePrefixUnfoldingSetup;
+import org.jbpt.petri.unfoldingBPP.order.AdequateOrderType;
 
 import java.util.Iterator;
 import java.util.List;
@@ -32,7 +35,13 @@ public class BPPlus extends AbstractProfile {
      * @param net
      */
     public BPPlus(NetSystem net){
-        rorm = new RefinedOrderingRelationsMatrix(net);
+        RefinedOrderingRelation.IMPORTANCE = false;
+        CompletePrefixUnfoldingSetup cpu = new CompletePrefixUnfoldingSetup();
+        cpu.SAFE_OPTIMIZATION = true; // not that this parameter would change anything
+        cpu.ADEQUATE_ORDER = AdequateOrderType.ESPARZA_FOR_SAFE_SYSTEMS;
+
+        rorm = new RefinedOrderingRelationsMatrix(net,cpu);
+
         this.net = net;
     }
 

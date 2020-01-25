@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<pnml>
+  <net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>Petri net converted from C-EPC imported from target-model.epml [Reduced]</text>
+    </name>
+    <page id="n0">
+      <name>
+        <text/>
+      </name>
+      <place id="n1">
+        <name>
+          <text>Delivery is relevant for shipment --&gt; </text>
+        </name>
+        <toolspecific localNodeID="bb53af90-9583-49f0-aa9b-b05872cea472" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n2">
+        <name>
+          <text>Shipment costs per item are calculated</text>
+        </name>
+        <toolspecific localNodeID="c032028e-056e-4fb1-a139-7db8b3573fbb" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n3">
+        <name>
+          <text>Shipment is Complete --&gt; </text>
+        </name>
+        <toolspecific localNodeID="d853ef8c-d30c-4e31-ae47-7030d636b62e" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n4">
+        <name>
+          <text>Shipment is relevant for freight --&gt; </text>
+        </name>
+        <toolspecific localNodeID="09e745ca-180d-4e40-aa54-8707061150d7" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+      </place>
+      <place id="n5">
+        <name>
+          <text>start</text>
+        </name>
+        <toolspecific localNodeID="e87c72fa-456b-4144-85e7-c55bc2aa8204" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="11.25" y="11.25"/>
+          <dimension x="12.5" y="12.5"/>
+        </graphics>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <transition id="n6">
+        <name>
+          <text>t1</text>
+        </name>
+        <toolspecific activity="t1" localNodeID="8de2b829-0f9f-4e0e-bbd2-0232aa32c3f7" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n7">
+        <name>
+          <text>Shipment Cost Calculation and Settlement</text>
+        </name>
+        <toolspecific activity="Shipment Cost Calculation and Settlement" localNodeID="0060b70b-fc8d-4ceb-8814-359001e16b36" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <transition id="n8">
+        <name>
+          <text>Transportation Planning and Processing</text>
+        </name>
+        <toolspecific activity="Transportation Planning and Processing" localNodeID="99b715ff-edc5-431b-ab37-00ed519c2a99" tool="ProM" version="6.4"/>
+        <graphics>
+          <position x="17.5" y="15.0"/>
+          <dimension x="25.0" y="20.0"/>
+          <fill color="#FFFFFF"/>
+        </graphics>
+      </transition>
+      <arc id="arc9" source="n7" target="n3">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="a2a3185a-720d-414f-a963-98f157157c51" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc10" source="n8" target="n2">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="76d38658-10a9-4e81-8ceb-b19222195b60" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc11" source="n6" target="n1">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="4ee34464-5cf5-4a8b-b3eb-df6c288209f8" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc12" source="n5" target="n6">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="6c71dbc7-2d27-42dc-bc69-1ee5ab6fbb4f" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc13" source="n3" target="n8">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="1acc2797-598e-4ff9-9d53-77cff1279f40" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc14" source="n1" target="n7">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="57df3030-9d04-429a-a98b-42f6094e25f1" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc15" source="n6" target="n4">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="da03de10-71a4-4a09-8017-1432c03e1f47" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+      <arc id="arc16" source="n4" target="n8">
+        <name>
+          <text>1</text>
+        </name>
+        <toolspecific localNodeID="a7d6f0e5-d846-4534-ad8e-718ace0eeafb" tool="ProM" version="6.4"/>
+        <arctype>
+          <text>normal</text>
+        </arctype>
+      </arc>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="n1">
+          <text>0</text>
+        </place>
+        <place idref="n2">
+          <text>1</text>
+        </place>
+        <place idref="n3">
+          <text>0</text>
+        </place>
+        <place idref="n4">
+          <text>0</text>
+        </place>
+        <place idref="n5">
+          <text>0</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>
