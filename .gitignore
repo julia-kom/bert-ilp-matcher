@@ -52,3 +52,5 @@ eval-results/
 *.lp
 *.mps
 *.db
+WordNet-3.0/
+evidence.db
