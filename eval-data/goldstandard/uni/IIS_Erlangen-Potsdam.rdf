@@ -41,7 +41,7 @@
   <map>
     <Cell>
       <entity1 rdf:resource="http://IIS_Erlangen#n141"/>
-      <entity2 rdf:resource="http://Potsdam#sid-2134BCB7-AA6C-4D36-98BD-96A11AA724F7"/>
+      <entity2 rdf:resource="http://Potsdam#n122"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
     </Cell>
@@ -128,7 +128,7 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource="http://IIS_Erlangen#sid-A212088C-053D-4D7B-B952-B396934B4817"/>
+      <entity1 rdf:resource="http://IIS_Erlangen#n131"/>
       <entity2 rdf:resource="http://Potsdam#n190"/>
       <relation>=</relation>
       <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
