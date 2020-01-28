@@ -47,3 +47,5 @@ eval-results/
 *.ipynb
 *.lp
 *.mps
+WordNet-3.0/
+evidence.db
