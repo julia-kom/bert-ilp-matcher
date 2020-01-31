@@ -2,6 +2,7 @@ package bpm.matcher;
 
 import bpm.profile.AbstractProfile;
 import bpm.profile.BPPlus;
+import bpm.profile.BPPlusOwn;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Place;
 import org.jbpt.petri.Transition;
@@ -12,6 +13,8 @@ import org.junit.Test;
 import java.io.File;
 
 public class BPPlusTest {
+
+
 
     @Test
     public void testBPPlus(){
@@ -43,9 +46,16 @@ public class BPPlusTest {
         net1.addEdge(t1,p2);
         net1.addEdge(p2,t2);
         net1.addEdge(t2,p3);
-        BPPlus plus = new BPPlus(net1);
+        BPPlusOwn plus = new BPPlusOwn(net1);
+
+
+
+
         // Problem here: The compiled jar and the project use different versions of the same class + probably different compiler verisions (BP+ 1.8, this 1.7)
         Assert.assertSame(plus.getRelationForEntities(t1,t2), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t1,t1), AbstractProfile.Relation.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t2,t2), AbstractProfile.Relation.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t2,t2), AbstractProfile.Relation.BPP_REVERSE_DIRECT_CAUSAL);
     }
 
 
@@ -70,18 +80,18 @@ public class BPPlusTest {
 
         Transition t4 = new Transition();
         t4.setId("t4");
-        t4.setName("");
-        t4.setLabel("");
+        t4.setName("D");
+        t4.setLabel("D");
 
         Transition t5 = new Transition();
         t5.setId("t5");
-        t5.setName("");
-        t5.setLabel("");
+        t5.setName("E");
+        t5.setLabel("E");
 
         Transition t6 = new Transition();
         t6.setId("t6");
-        t6.setName("");
-        t6.setLabel("");
+        t6.setName("F");
+        t6.setLabel("F");
 
 
 
@@ -122,7 +132,7 @@ public class BPPlusTest {
         net1.addEdge(t3,p5);
 
 
-        BPPlus plus = new BPPlus(net1);
+        BPPlusOwn plus = new BPPlusOwn(net1);
 
         // nodes in the net
         Assert.assertSame(plus.getRelationForEntities(t1,t2), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
@@ -210,7 +220,7 @@ public class BPPlusTest {
         net1.addEdge(p3,t4);
         net1.addEdge(t4,p2);
 
-        BPPlus plus = new BPPlus(net1);
+        BPPlusOwn plus = new BPPlusOwn(net1);
         Assert.assertSame(plus.getRelationForEntities(t1,t1), AbstractProfile.Relation.BPP_CONFLICT);
         Assert.assertSame(plus.getRelationForEntities(t1,t2), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
         Assert.assertSame(plus.getRelationForEntities(t1,t3), AbstractProfile.Relation.BPP_INDIRECT_CAUSAL);
@@ -294,7 +304,7 @@ public class BPPlusTest {
         net1.addEdge(t4,p6);
 
 
-        BPPlus plus = new BPPlus(net1);
+        BPPlusOwn plus = new BPPlusOwn(net1);
         Assert.assertSame(plus.getRelationForEntities(t1,t1), AbstractProfile.Relation.BPP_CONFLICT);
         Assert.assertSame(plus.getRelationForEntities(t1,t2), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
         Assert.assertSame(plus.getRelationForEntities(t1,t3), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);

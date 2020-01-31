@@ -52,13 +52,13 @@ public class AlphaRelations extends AbstractProfile {
     public Relation getRelationForEntities(Node n1, Node n2) {
         // Implementation is similar to BP but this time, with directly follows instead of eventually follows as ground.
         ConcurrencyRelation concurrencyRelation = new ConcurrencyRelation(net);
-        if(concurrencyRelation.areConcurrent(n1,n2) || (directlyFollows(n1,n2) && directlyFollows(n2,n1))){
+        if(concurrencyRelation.areConcurrent(n1,n2) || (directlyFollows(n1,n2,net) && directlyFollows(n2,n1,net))){
             //either two transitions are concurrent or they are in a 1-loop
             return Relation.ALPHA_INTERLEAVING;
-        }else if(directlyFollows(n1,n2) && !directlyFollows(n2,n1)) {
+        }else if(directlyFollows(n1,n2,net) && !directlyFollows(n2,n1,net)) {
             //n1 can follow n2 but n2 never follow n1
             return Relation.ALPHA_ORDER;
-        }else if(!directlyFollows(n1,n2) && directlyFollows(n2,n1)) {
+        }else if(!directlyFollows(n1,n2,net) && directlyFollows(n2,n1,net)) {
             //n2 can follow n1 but never the other way around
             return Relation.ALPHA_REVERSE_ORDER;
         }else{
@@ -79,7 +79,7 @@ public class AlphaRelations extends AbstractProfile {
      * @param n2
      * @return
      */
-    private boolean directlyFollows( Node n1, Node n2) {
+     static boolean directlyFollows(Node n1, Node n2, NetSystem net) {
         // places relation is irrelevant
         if (!(n1 instanceof Transition && n2 instanceof Transition)) {
             return false;
