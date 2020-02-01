@@ -4,10 +4,7 @@ import bpm.alignment.Alignment;
 import bpm.alignment.Result;
 import bpm.evaluation.ExecutionTimer;
 import bpm.ilp.*;
-import bpm.profile.AbstractProfile;
-import bpm.profile.AlphaRelations;
-import bpm.profile.BP;
-import bpm.profile.BPPlus;
+import bpm.profile.*;
 import bpm.similarity.Matrix;
 import bpm.similarity.Word;
 
@@ -162,7 +159,7 @@ public class Pipeline {
                 r = new BP(net);
                 break;
             case BPP:
-                r = new BPPlus(net);
+                r = new BPPlusOwn(net);
                 break;
             case ARP:
                 r = new AlphaRelations(net);

@@ -21,6 +21,7 @@ public class BPPlusOwn extends AbstractProfile {
 
     private NetSystem net;
     private HashMap<Node, HashSet<Node>> preSet = new HashMap<>(); // contains the pre set of each transition
+    private TransitiveClosure reachabilty;
     private Transition ARTIFICIAL_START = new Transition("ARTIFICIAL-START");
     private Transition ARTIFICIAL_END = new Transition("ARTIFICIAL-END");
 
@@ -30,8 +31,8 @@ public class BPPlusOwn extends AbstractProfile {
      */
     public BPPlusOwn(NetSystem net){
         this.net = net;
-
         addArtificalStartEndTransitions();
+        this.reachabilty  = new ReflexiveTransitiveClosure(net);
         computePre();
     }
 
@@ -95,6 +96,10 @@ public class BPPlusOwn extends AbstractProfile {
     private boolean areConcurrent(Node n1, Node n2){
         Set<Node> leCmPre = getLeCmPre(n1, n2);
 
+        /*if(leCmPre.size() == 0){
+            return false;
+        }*/
+
         //nodes are not equal
         if(n1.equals(n2)){
             return false;
@@ -115,8 +120,13 @@ public class BPPlusOwn extends AbstractProfile {
     }
 
     private boolean areConflict(Node n1, Node n2){
-        Set<Node> leCmPre = getLeCmPre(n1, n2);
 
+        //n1#n1 if not in a loop
+        if(n1.equals(n2) && inLoop(n1,n1)){
+            return true;
+        }
+
+        Set<Node> leCmPre = getLeCmPre(n1, n2);
         // lcPre subset of Places
         boolean onlyP = true;
         for (Node n : leCmPre){
@@ -150,7 +160,6 @@ public class BPPlusOwn extends AbstractProfile {
      * Compute the Pre Set of the net
      */
     private void computePre(){
-        TransitiveClosure reachabilty = new ReflexiveTransitiveClosure(net);
         for(Node n1 : net.getNodes()){
             HashSet<Node> preN1 = new HashSet<>();
             for(Node n2 : net.getNodes()) {
@@ -160,7 +169,7 @@ public class BPPlusOwn extends AbstractProfile {
             }
             preSet.put(n1,preN1);
         }
-        System.out.print(reachabilty.toString());
+        //System.out.print(reachabilty.toString());
     }
 
 
@@ -186,7 +195,8 @@ public class BPPlusOwn extends AbstractProfile {
     private Set<Node> getLeCmPre(Set<Node> nodes){
         HashSet<Node> leCmPre = new HashSet<>(nodes);
         for(Node n : nodes){
-            Set<Node> nPre = getPre(n);
+            Set<Node> nPre = new HashSet<>(getPre(n));
+            nPre.remove(n);
             leCmPre.removeAll(nPre);
         }
         return leCmPre;
@@ -210,7 +220,8 @@ public class BPPlusOwn extends AbstractProfile {
      * @return
      */
     private boolean inLoop( Node t1, Node t2){
-        boolean loop = getPre(t1).contains(t2) && getPre(t2).contains(t1);
+        //boolean loop = getPre(t1).contains(t2) && getPre(t2).contains(t1);
+        boolean loop = reachabilty.hasPath(t1,t2) && reachabilty.hasPath(t2,t1);
         return loop;
     }
 
