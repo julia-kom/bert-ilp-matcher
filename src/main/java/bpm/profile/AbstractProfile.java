@@ -36,6 +36,9 @@ public abstract class AbstractProfile {
         ALPHA_EXCLUSIVE,
         ALPHA_INTERLEAVING,
         ALPHA_REVERSE_ORDER,
+        LOG_DIRECTLY_FOLLOWS,
+        LOG_EVENTUALLY_FOLLOWS
+        ;
     }
 
     HashMap<ImmutablePair<Node,Node>,Relation> computedRelations = new HashMap<>();
@@ -43,6 +46,8 @@ public abstract class AbstractProfile {
     public abstract Relation getRelationForEntities(Node n1, Node n2);
 
     public abstract double getRelationSimilarity(Relation r1, Relation r2);
+
+    public abstract double getRelationSimilarity(Relation r1, Relation r2, Node n1, Node n2, Node m1, Node m2);
 
     public abstract Result filterTemporaryTransitions(Result result);
 

@@ -112,6 +112,12 @@ public class BPPlus extends AbstractProfile {
         return Relation.BPP_CONFLICT;
     }
 
+    @Override
+    public double getRelationSimilarity(Relation r1, Relation r2, Node n1, Node n2) {
+        return getRelationSimilarity(r1,r2);
+    }
+
+
     /**
      * Matching Penalty for BP+ acc to "BP+: An Improved Behavioral Profile Metric for Process Models"
      * @param r1 Relation 1
