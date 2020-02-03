@@ -2,8 +2,11 @@ package bpm.profile;
 
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.jbpt.petri.Node;
 
+import java.util.HashMap;
+import java.util.HashSet;
 
 
 public abstract class AbstractProfile {
@@ -34,6 +37,8 @@ public abstract class AbstractProfile {
         ALPHA_INTERLEAVING,
         ALPHA_REVERSE_ORDER,
     }
+
+    HashMap<ImmutablePair<Node,Node>,Relation> computedRelations = new HashMap<>();
 
     public abstract Relation getRelationForEntities(Node n1, Node n2);
 

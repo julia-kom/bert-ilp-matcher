@@ -3,6 +3,7 @@ package bpm.profile;
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
 import bpm.matcher.Preprocessor;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.PetriNet;
@@ -14,9 +15,16 @@ import java.util.*;
 public class AlphaRelations extends AbstractProfile {
 
     private NetSystem net;
+    private HashMap<Transition, HashSet<Transition>> directlyFollows = new HashMap<>(); // contains the directly follows set of each transition
+    private ConcurrencyRelation concurrencyRelation;
 
     public AlphaRelations(NetSystem net){
         if (!PetriNet.STRUCTURAL_CHECKS.isWorkflowNet(net)) throw new IllegalArgumentException();
+        this.concurrencyRelation = new ConcurrencyRelation(net);
+        for(Transition t : net.getTransitions()){
+            directlyFollows.put(t,computeDirectlyFollows(t,net));
+        }
+
         this.net = net;
     }
 
@@ -50,20 +58,26 @@ public class AlphaRelations extends AbstractProfile {
 
     @Override
     public Relation getRelationForEntities(Node n1, Node n2) {
-        // Implementation is similar to BP but this time, with directly follows instead of eventually follows as ground.
-        ConcurrencyRelation concurrencyRelation = new ConcurrencyRelation(net);
-        if(concurrencyRelation.areConcurrent(n1,n2) || (directlyFollows(n1,n2,net) && directlyFollows(n2,n1,net))){
-            //either two transitions are concurrent or they are in a 1-loop
-            return Relation.ALPHA_INTERLEAVING;
-        }else if(directlyFollows(n1,n2,net) && !directlyFollows(n2,n1,net)) {
-            //n1 can follow n2 but n2 never follow n1
-            return Relation.ALPHA_ORDER;
-        }else if(!directlyFollows(n1,n2,net) && directlyFollows(n2,n1,net)) {
-            //n2 can follow n1 but never the other way around
-            return Relation.ALPHA_REVERSE_ORDER;
-        }else{
-            return Relation.ALPHA_EXCLUSIVE;
+        ImmutablePair<Node,Node> nodePair = new ImmutablePair<>(n1,n2);
+        if(super.computedRelations.containsKey(nodePair)){
+            return computedRelations.get(nodePair);
         }
+        Relation rel;
+        if(concurrencyRelation.areConcurrent(n1,n2) || (directlyFollows.get(n1).contains(n2) && directlyFollows.get(n2).contains(n1))){
+            //either two transitions are concurrent or they are in a 1-loop
+            rel =  Relation.ALPHA_INTERLEAVING;
+        }else if(directlyFollows.get(n1).contains(n2) && !directlyFollows.get(n2).contains(n1)) {
+            //n1 can follow n2 but n2 never follow n1
+            rel = Relation.ALPHA_ORDER;
+        }else if(!directlyFollows.get(n1).contains(n2) && directlyFollows.get(n2).contains(n1)) {
+            //n2 can follow n1 but never the other way around
+            rel = Relation.ALPHA_REVERSE_ORDER;
+        }else {
+            rel = Relation.ALPHA_EXCLUSIVE;
+        }
+        super.computedRelations.put(nodePair,rel);
+        return rel;
+
     }
 
 
@@ -77,6 +91,7 @@ public class AlphaRelations extends AbstractProfile {
      *
      * @param n1
      * @param n2
+     * @param net
      * @return
      */
      static boolean directlyFollows(Node n1, Node n2, NetSystem net) {
@@ -115,6 +130,52 @@ public class AlphaRelations extends AbstractProfile {
 
         return false;
     }
+
+
+    /**
+     * Computes the directly follows set of transitions for each transition in net
+     * If there is a path of only tau transitions between these transitions then this is added too
+     *
+     * @param n1
+     * @param net
+     * @return
+     */
+    private HashSet<Transition> computeDirectlyFollows(Node n1, NetSystem net) {
+        // places relation is irrelevant
+        if (!(n1 instanceof Transition)) {
+            return new HashSet<>();
+        }
+
+        //tau transitions relation is irrelevant
+        if (Preprocessor.isTau((Transition) n1)) {
+            return new HashSet<>();
+        }
+        HashSet<Transition> directlyFollowing = new HashSet<>();
+        HashSet<Transition> visited = new HashSet<>();
+        LinkedList<Transition> pending = new LinkedList<>();
+        pending.add((Transition) n1);
+        while (!pending.isEmpty()) {
+            // get first from linked list and put it into visited list
+            Transition current = pending.poll();
+            visited.add(current);
+
+            //fetch directly following transitions
+            Set<Transition> tmpFollowing = net.getPostsetTransitions(net.getPostset(current));
+
+            // add tau transitions in the follow up set to the pending set
+            for (Transition t : tmpFollowing) {
+                if (Preprocessor.isTau(t) && !visited.contains(t)) {
+                    pending.add(t);
+                }else{
+                    directlyFollowing.addAll(tmpFollowing);
+                }
+
+            }
+        }
+
+        return directlyFollowing;
+    }
+
 
 }
 

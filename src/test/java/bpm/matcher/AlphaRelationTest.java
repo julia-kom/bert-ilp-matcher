@@ -9,6 +9,8 @@ import org.jbpt.petri.Transition;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.File;
+
 
 public class AlphaRelationTest {
     @Test
@@ -364,6 +366,27 @@ public class AlphaRelationTest {
 
         Assert.assertSame(alpha.getRelationForEntities(t2,t5), AbstractProfile.Relation.ALPHA_ORDER);
         Assert.assertSame(alpha.getRelationForEntities(t4,t5), AbstractProfile.Relation.ALPHA_ORDER);
+    }
+
+
+    @Test
+    public void failedSAP(){
+        File f1 = new File(getClass().getClassLoader().getResource("./pnml/sap/sap12s.pnml").getFile());
+        File f2 = new File(getClass().getClassLoader().getResource("./pnml/sap/sap12t.pnml").getFile());
+
+        //Behavior only test
+        Pipeline p1 = new Pipeline.Builder().withILP("BASIC").atSimilarityWeight(0.3).withILPTimeLimit(1).withProfile(AbstractProfile.Profile.ARP).Build();
+        p1.run(f1,f2);
+    }
+
+    @Test
+    public void failedUni(){
+        File f1 = new File(getClass().getClassLoader().getResource("./pnml/uni/Cologne.pnml").getFile());
+        File f2 = new File(getClass().getClassLoader().getResource("./pnml/uni/Wuerzburg.pnml").getFile());
+
+        //Behavior only test
+        Pipeline p1 = new Pipeline.Builder().withILP("BASIC").atSimilarityWeight(0.3).withILPTimeLimit(1).withProfile(AbstractProfile.Profile.ARP).Build();
+        p1.run(f1,f2);
     }
 
 }
