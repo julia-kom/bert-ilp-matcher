@@ -16,7 +16,9 @@ public abstract class AbstractProfile {
     public enum Profile{
         BP, // Behavioral Profile
         BPP, // Causal Behavioral Profile
-        ARP // Alpha Relational Profile
+        ARP, // Alpha Relational Profile
+        LOG_DF, // Log based Directly Follows
+        LOG_EF // Log based Eventually follows
     }
 
     public enum Relation{
@@ -38,7 +40,6 @@ public abstract class AbstractProfile {
         ALPHA_REVERSE_ORDER,
         LOG_DIRECTLY_FOLLOWS,
         LOG_EVENTUALLY_FOLLOWS
-        ;
     }
 
     HashMap<ImmutablePair<Node,Node>,Relation> computedRelations = new HashMap<>();

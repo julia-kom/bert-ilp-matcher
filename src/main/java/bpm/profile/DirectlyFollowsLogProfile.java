@@ -1,22 +1,18 @@
 package bpm.profile;
 
-import bpm.alignment.Result;
 import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
 
-import java.util.HashMap;
-
 import static bpm.profile.AlphaRelations.directlyFollows;
 
 public class DirectlyFollowsLogProfile extends EventuallyFollowsLogProfile{
-    HashMap<Transition,Integer> transitionFrequency;
-    HashMap<ImmutablePair<Transition,Transition>, Integer> followFrequency;
 
-    public DirectlyFollowsLogProfile(NetSystem net){
-        calculateFrequencies();
+    public DirectlyFollowsLogProfile(NetSystem net, XLog log){
+        super(net,log);
     }
 
 
@@ -51,14 +47,17 @@ public class DirectlyFollowsLogProfile extends EventuallyFollowsLogProfile{
             for(XTrace trace : log){
                 int i;
                 for(i = 0; i<trace.size()-1; i++){
+                    //create dummy transitions. Note that equals() is implemented based on ID only
+                    Transition t1 = new Transition(trace.get(i).getID().toString());
+                    Transition t2 = new Transition(trace.get(i+1).getID().toString());
                     //update transition freq
-                    transitionFrequency.put(trace.get(i),transitionFrequency.get(trace.get(i)));
+                    transitionFrequency.put(t1,transitionFrequency.get(t1));
                     //update follow freq
-                    ImmutablePair edge = new ImmutablePair<Transition, Transition>(trace.get(i),trace.get(i+1));
+                    ImmutablePair edge = new ImmutablePair<Transition, Transition>(t1,t2);
                     followFrequency.put(edge,followFrequency.get(edge)+1);
                 }
-                transitionFrequency.put(trace.get(i),transitionFrequency.get(trace.get(i))+1);
-
+                Transition tLast = new Transition(trace.get(trace.size()-1).toString());
+                transitionFrequency.put(tLast,transitionFrequency.get(tLast)+1);
             }
         }
 

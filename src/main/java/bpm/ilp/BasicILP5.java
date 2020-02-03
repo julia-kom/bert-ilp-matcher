@@ -21,6 +21,7 @@ import static bpm.matcher.Pipeline.PRINT_ENABLED;
 /**
  * This is the implementation with the identification funktion inside the target function directly.
  * We make use of the relational similarity score and do not onyl rely on equal realtions!
+ * ONLY this can handle the Log based approach!
  */
 public class BasicILP5 extends AbstractILP {
     public BasicILP5(){
@@ -82,7 +83,7 @@ public class BasicILP5 extends AbstractILP {
                         // compute the relational similarity
                         AbstractProfile.Relation rel1 = relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]);
                         AbstractProfile.Relation rel2 = relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]);
-                        double relSim = relNet1.getRelationSimilarity(rel1,rel2);
+                        double relSim = relNet1.getRelationSimilarity(rel1,rel2, nodeNet1[i], nodeNet1[k],nodeNet2[j], nodeNet2[l]);
                         // when relational sim is zero we dont add it to the target function
                         if(relSim > 0) {
                             //by reducing the number of variables, the total sum gets lower too, therefore we fix it by weighting
@@ -213,8 +214,13 @@ public class BasicILP5 extends AbstractILP {
                     double mixedLikelihood = 0.0;
                     for (int k =0; k< nodesNet1; k++){
                         for (int l = 0; l< nodesNet2; l++){
-                            if (relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]).equals(relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]))) {
-                                mixedLikelihood += x[i][j].get(GRB.DoubleAttr.X) * x[k][l].get(GRB.DoubleAttr.X);
+                            // compute the relational similarity
+                            AbstractProfile.Relation rel1 = relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]);
+                            AbstractProfile.Relation rel2 = relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]);
+                            double relSim = relNet1.getRelationSimilarity(rel1,rel2, nodeNet1[i], nodeNet1[k],nodeNet2[j], nodeNet2[l]);
+                            // when relational sim is zero we dont add it to the target function
+                            if(relSim  > 0) {
+                                  mixedLikelihood += relSim *x[i][j].get(GRB.DoubleAttr.X) * x[k][l].get(GRB.DoubleAttr.X);
                             }
                         }
                     }

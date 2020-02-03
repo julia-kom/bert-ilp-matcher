@@ -163,7 +163,6 @@ public class Pipeline {
                 break;
             case ARP:
                 r = new AlphaRelations(net);
-                break;
             default:
                 throw new UnsupportedOperationException("Operator not yet implemented: " + profile.toString());
         }

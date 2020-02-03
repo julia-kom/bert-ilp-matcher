@@ -2,14 +2,11 @@ package bpm.profile;
 
 import bpm.alignment.Result;
 import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
-import org.deckfour.xes.in.XesXmlParser;
-import sun.nio.ch.Net;
 
 import java.util.HashMap;
 
@@ -79,7 +76,7 @@ public class EventuallyFollowsLogProfile extends AbstractProfile{
             // Add a 1 if s and t are in a directly follows relation s > t
             for(Transition s : net.getTransitions()){
                 for(Transition t : net.getTransitions()){
-                    if(directlyFollows(s,t,net)) {
+                    if(directlyFollows(s,t,net)) { //TODO change to eventually follows
                         this.transitionFrequency.put(t, 1);
                     }
                 }
@@ -90,16 +87,18 @@ public class EventuallyFollowsLogProfile extends AbstractProfile{
             for(XTrace trace : log){
                 int i;
                 for(i = 0; i<trace.size()-1; i++){
+                    Transition t1 = new Transition(trace.get(i).getID().toString());
                     //update transition frequency
-                    transitionFrequency.put(trace.get(i), transitionFrequency.get(trace.get(i)));
+                    transitionFrequency.put(t1, transitionFrequency.get(t1));
                     for(int j = i+1; j<trace.size();j++) {
+                        Transition t2 = new Transition(trace.get(i+1).getID().toString());
                         //update edge frequency
-                        ImmutablePair edge = new ImmutablePair<Transition, Transition>(trace.get(i), trace.get(j));
+                        ImmutablePair edge = new ImmutablePair<Transition, Transition>(t1, t2);
                         followFrequency.put(edge, followFrequency.get(edge) + 1);
                     }
                 }
-                transitionFrequency.put(trace.get(i),transitionFrequency.get(trace.get(i))+1);
-
+                Transition tLast = new Transition(trace.get(trace.size()-1).toString());
+                transitionFrequency.put(tLast,transitionFrequency.get(tLast)+1);
             }
         }
 

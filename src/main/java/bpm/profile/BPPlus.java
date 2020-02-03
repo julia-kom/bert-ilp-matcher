@@ -113,7 +113,7 @@ public class BPPlus extends AbstractProfile {
     }
 
     @Override
-    public double getRelationSimilarity(Relation r1, Relation r2, Node n1, Node n2) {
+    public double getRelationSimilarity(Relation r1, Relation r2, Node n1, Node n2, Node m1, Node m2) {
         return getRelationSimilarity(r1,r2);
     }
 
