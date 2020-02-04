@@ -12,11 +12,19 @@ import java.util.HashMap;
 
 import static bpm.profile.AlphaRelations.directlyFollows;
 
+
 public class EventuallyFollowsLogProfile extends AbstractProfile{
+
+    public static final String LOG_ID_ATTRIBUTE = "action_code";
+
     NetSystem net;
     XLog log;
-    HashMap<Transition,Integer> transitionFrequency;
-    HashMap<ImmutablePair<Transition,Transition>, Integer> followFrequency;
+    HashMap<Transition,Integer> transitionFrequency = new HashMap<>();
+    HashMap<ImmutablePair<Transition,Transition>, Integer> followFrequency = new HashMap<>();
+
+    public EventuallyFollowsLogProfile(){
+
+    }
 
     public EventuallyFollowsLogProfile(NetSystem net, XLog log){
         this.log = log;
@@ -73,7 +81,8 @@ public class EventuallyFollowsLogProfile extends AbstractProfile{
             for(Transition s : net.getTransitions()){
                 for(Transition t : net.getTransitions()){
                     if(directlyFollows(s,t,net)) { //TODO change to eventually follows
-                        this.transitionFrequency.put(t, 1);
+                        ImmutablePair<Transition,Transition> edge = new ImmutablePair(s,t);
+                        this.followFrequency.put(edge, 1);
                     }
                 }
             }
@@ -83,21 +92,40 @@ public class EventuallyFollowsLogProfile extends AbstractProfile{
             for(XTrace trace : log){
                 int i;
                 for(i = 0; i<trace.size()-1; i++){
-                    Transition t1 = new Transition(trace.get(i).getID().toString());
+                    Transition t1 = new Transition(trace.get(i).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
+                    t1.setId(trace.get(i).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
                     //update transition frequency
-                    transitionFrequency.put(t1, transitionFrequency.get(t1));
+                    transitionFrequency.put(t1, getTransitionFrequency(t1) + 1);
                     for(int j = i+1; j<trace.size();j++) {
-                        Transition t2 = new Transition(trace.get(i+1).getID().toString());
+                        Transition t2 = new Transition(trace.get(j).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
+                        t2.setId(trace.get(j).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
                         //update edge frequency
                         ImmutablePair edge = new ImmutablePair<Transition, Transition>(t1, t2);
-                        followFrequency.put(edge, followFrequency.get(edge) + 1);
+                        followFrequency.put(edge, getFollowsFrequency(edge) + 1);
                     }
                 }
-                Transition tLast = new Transition(trace.get(trace.size()-1).toString());
-                transitionFrequency.put(tLast,transitionFrequency.get(tLast)+1);
+                Transition tLast = new Transition(trace.get(trace.size()-1).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
+                tLast.setId(trace.get(trace.size()-1).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
+                transitionFrequency.put(tLast,getTransitionFrequency(tLast) + 1);
             }
         }
 
+    }
+
+     int getTransitionFrequency(Transition t){
+        if(transitionFrequency.containsKey(t)){
+            return transitionFrequency.get(t);
+        }else{
+            return 0;
+        }
+    }
+
+    int getFollowsFrequency(ImmutablePair edge){
+        if(followFrequency.containsKey(edge)){
+            return followFrequency.get(edge);
+        }else{
+            return 0;
+        }
     }
 
 
@@ -114,7 +142,7 @@ public class EventuallyFollowsLogProfile extends AbstractProfile{
         ImmutablePair edge = new ImmutablePair<>(n1,n2);
 
         // if no entry was found
-        if(!followFrequency.containsKey(edge) && !transitionFrequency.containsKey(n1)){
+        if(!followFrequency.containsKey(edge) || !transitionFrequency.containsKey(n1)){
             return 0;
         }
 

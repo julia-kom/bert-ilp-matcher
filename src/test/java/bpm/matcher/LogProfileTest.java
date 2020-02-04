@@ -3,10 +3,7 @@ package bpm.matcher;
 import bpm.profile.DirectlyFollowsLogProfile;
 import bpm.profile.EventuallyFollowsLogProfile;
 import org.deckfour.xes.factory.XFactoryNaiveImpl;
-import org.deckfour.xes.id.XID;
-import org.deckfour.xes.model.XEvent;
-import org.deckfour.xes.model.XLog;
-import org.deckfour.xes.model.XTrace;
+import org.deckfour.xes.model.*;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Place;
 import org.jbpt.petri.Transition;
@@ -14,52 +11,54 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import static bpm.profile.AlphaRelations.directlyFollows;
+
 public class LogProfileTest {
-    private XLog log1;
-    private XLog log2;
+    private static XLog log1;
+    private static XLog log2;
 
-    private NetSystem model1;
-    private NetSystem model2;
+    private static NetSystem model1;
+    private static NetSystem model2;
 
-    Transition t1 = new Transition("t1");
-    Transition t2 = new Transition("t2");
-    Transition t3 = new Transition("t3");
-    Transition t4 = new Transition("t4");
-    Transition t5 = new Transition("t5");
-    Transition t6 = new Transition("t6");
-    Transition t7 = new Transition("t7");
-    Transition t8 = new Transition("t8");
-    Transition t9 = new Transition("t9");
-    Transition t10 = new Transition("t10");
+    static Transition t1 = new Transition("t1","Transition 1");
+    static Transition t2 = new Transition("t2","Transition 2");
+    static Transition t3 = new Transition("t3","Transition 3");
+    static Transition t4 = new Transition("t4","Transition 4");
+    static Transition t5 = new Transition("t5","Transition 5");
+    static Transition t6 = new Transition("t6","Transition 6");
+    static Transition t7 = new Transition("t7","Transition 7");
+    static Transition t8 = new Transition("t8","Transition 8");
+    static Transition t9 = new Transition("t9","Transition 9");
+    static Transition t10 = new Transition("t10","Transition 10");
 
-    Place p1 = new Place();
-    Place p2 = new Place();
-    Place p3 = new Place();
-    Place p4 = new Place();
-    Place p5 = new Place();
-    Place p6 = new Place();
-    Place p7 = new Place();
-    Place p8 = new Place();
-    Place p9 = new Place();
-    Place p10 = new Place();
-    Place p11 = new Place();
-    Place p12 = new Place();
+    static Place p1 = new Place();
+    static Place p2 = new Place();
+    static Place p3 = new Place();
+    static Place p4 = new Place();
+    static Place p5 = new Place();
+    static Place p6 = new Place();
+    static Place p7 = new Place();
+    static Place p8 = new Place();
+    static Place p9 = new Place();
+    static Place p10 = new Place();
+    static Place p11 = new Place();
+    static Place p12 = new Place();
 
     @BeforeClass
-    private void createArtificialLogs(){
+    public static void createArtificialLogs(){
+       XEvent e1 = createEvent("t1");
+       XEvent e2 = createEvent("t2");
+       XEvent e3 = createEvent("t3");
+       XEvent e4 = createEvent("t4");
+       XEvent e5 = createEvent("t5");
+       XEvent e6 = createEvent("t6");
+       XEvent e7 = createEvent("t7");
+       XEvent e8 = createEvent("t8");
+       XEvent e9 = createEvent("t9");
+       XEvent e10 = createEvent("t10");
+
 
        XFactoryNaiveImpl factory = new XFactoryNaiveImpl();
-       XEvent e1 = factory.createEvent(XID.parse("t1"), null);
-       XEvent e2 = factory.createEvent(XID.parse("t2"), null);
-       XEvent e3 = factory.createEvent(XID.parse("t3"), null);
-       XEvent e4 = factory.createEvent(XID.parse("t4"), null);
-       XEvent e5 = factory.createEvent(XID.parse("t5"), null);
-       XEvent e6 = factory.createEvent(XID.parse("t6"), null);
-       XEvent e7 = factory.createEvent(XID.parse("t7"), null);
-       XEvent e8 = factory.createEvent(XID.parse("t8"), null);
-       XEvent e9 = factory.createEvent(XID.parse("t9"), null);
-       XEvent e10 = factory.createEvent(XID.parse("t10"), null);
-
        XTrace t1 = factory.createTrace();
        t1.insertOrdered(e1);
        t1.insertOrdered(e2);
@@ -90,15 +89,25 @@ public class LogProfileTest {
         t3.insertOrdered(e10);
 
         //LOG2: <e1,e2,e3,e6>^39
-        log1 = factory.createLog();
+        log2 = factory.createLog();
         for (int i = 0; i < 39; i++) {
             log2.add(t3);
         }
     }
 
     @BeforeClass
-    private void createArtificialModels(){
+    public static void createArtificialModels(){
 
+        t1.setId("t1");
+        t2.setId("t2");
+        t3.setId("t3");
+        t4.setId("t4");
+        t5.setId("t5");
+        t6.setId("t6");
+        t7.setId("t7");
+        t8.setId("t8");
+        t9.setId("t9");
+        t10.setId("t10");
 
         model1 = new NetSystem();
 
@@ -162,18 +171,139 @@ public class LogProfileTest {
 
 
     @Test
-    public void eventuallyFollowsTest(){
+    public  void eventuallyFollowsTest(){
         EventuallyFollowsLogProfile profile = new EventuallyFollowsLogProfile(model1,log1);
-        //Assert.assertTrue(profile.getRelationSimilarity());
-
-
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t1).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t2).getFrequency() -0.8) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t4).getFrequency() -0.2) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t3).getFrequency() -0.8) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t5).getFrequency() -0.2) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t6).getFrequency() -1.0) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t1).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t2).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t3).getFrequency() -1.0) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t4).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t5).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t6).getFrequency() -1.0) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t2).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t3).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t4).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t5).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t6).getFrequency() -1.0) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t1).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t2).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t3).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t4).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t5).getFrequency() -1.0) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t6).getFrequency() -1.0) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t1).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t2).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t3).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t4).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t5).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t6).getFrequency() -1.0) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t6).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t5).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t3).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t1).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t2).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t4).getFrequency()) < 0.0001);
     }
+
+
 
     @Test
     public void directlyFollowsTest(){
         DirectlyFollowsLogProfile profile = new DirectlyFollowsLogProfile(model1,log1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t1).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t2).getFrequency() -0.8) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t4).getFrequency() -0.2) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t3).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t5).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t6).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t1).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t2).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t3).getFrequency() -1.0) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t4).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t5).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t6).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t2).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t3).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t4).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t5).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t6).getFrequency() -1.0) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t1).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t2).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t3).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t4).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t5).getFrequency() -1.0) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t1).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t2).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t3).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t4).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t5).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t6).getFrequency() -1.0) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t6).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t5).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t3).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t1).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t2).getFrequency()) < 0.0001);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t4).getFrequency()) < 0.0001);
 
     }
+
+    @Test
+    public void compareTest(){
+        DirectlyFollowsLogProfile profile1 = new DirectlyFollowsLogProfile(model1,log1);
+        DirectlyFollowsLogProfile profile2 = new DirectlyFollowsLogProfile(model2,log2);
+
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t6), profile2.getRelationForEntities(t7,t10))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t2), profile2.getRelationForEntities(t7,t8))==0.8);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t4), profile2.getRelationForEntities(t7,t8))==0.2);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t2,t4), profile2.getRelationForEntities(t7,t8))==0);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t5,t6), profile2.getRelationForEntities(t7,t8))==1.0);
+
+    }
+
+
+    @Test
+    public void LogNoLogDirectlyFollowsTest(){
+        DirectlyFollowsLogProfile profile1 = new DirectlyFollowsLogProfile(model1,log1);
+        DirectlyFollowsLogProfile profile2 = new DirectlyFollowsLogProfile(model2,null);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t6), profile2.getRelationForEntities(t7,t10))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t2), profile2.getRelationForEntities(t7,t8))==0.8);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t4), profile2.getRelationForEntities(t7,t8))==0.2);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t2,t4), profile2.getRelationForEntities(t7,t8))==0);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t5,t6), profile2.getRelationForEntities(t7,t8))==1.0);
+
+        profile1 = new DirectlyFollowsLogProfile(model1,null);
+        profile2 = new DirectlyFollowsLogProfile(model2,log2);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t6), profile2.getRelationForEntities(t7,t10))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t2), profile2.getRelationForEntities(t7,t8))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t4), profile2.getRelationForEntities(t7,t8))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t2,t4), profile2.getRelationForEntities(t7,t8))==0);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t5,t6), profile2.getRelationForEntities(t7,t8))==1.0);
+    }
+
+    @Test
+    public void NoLogNoLogDirectlyFollowsTest(){
+        DirectlyFollowsLogProfile profile1 = new DirectlyFollowsLogProfile(model1,null);
+        DirectlyFollowsLogProfile profile2 = new DirectlyFollowsLogProfile(model2,null);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t6), profile2.getRelationForEntities(t7,t10))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t2), profile2.getRelationForEntities(t7,t8))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t4), profile2.getRelationForEntities(t7,t8))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t2,t4), profile2.getRelationForEntities(t7,t8))==0);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t5,t6), profile2.getRelationForEntities(t7,t8))==1.0);
+    }
+
+    private static XEvent createEvent(String name){
+        XFactoryNaiveImpl factory = new XFactoryNaiveImpl();
+        XAttribute a = factory.createAttributeLiteral("action_code",name,null);
+        XAttributeMap map = factory.createAttributeMap();
+        map.put("action_code",a);
+        return factory.createEvent(map);
+    }
+
 
 
 }

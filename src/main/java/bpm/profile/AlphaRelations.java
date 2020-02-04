@@ -94,7 +94,7 @@ public class AlphaRelations extends AbstractProfile {
      * @param net
      * @return
      */
-     static boolean directlyFollows(Node n1, Node n2, NetSystem net) {
+     public static boolean directlyFollows(Node n1, Node n2, NetSystem net) {
         // places relation is irrelevant
         if (!(n1 instanceof Transition && n2 instanceof Transition)) {
             return false;

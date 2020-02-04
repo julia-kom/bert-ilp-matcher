@@ -12,7 +12,10 @@ import static bpm.profile.AlphaRelations.directlyFollows;
 public class DirectlyFollowsLogProfile extends EventuallyFollowsLogProfile{
 
     public DirectlyFollowsLogProfile(NetSystem net, XLog log){
-        super(net,log);
+        super();
+        this.log = log;
+        this.net = net;
+        calculateFrequencies();
     }
 
     @Override
@@ -38,7 +41,8 @@ public class DirectlyFollowsLogProfile extends EventuallyFollowsLogProfile{
             for(Transition s : net.getTransitions()){
                 for(Transition t : net.getTransitions()){
                     if(directlyFollows(s,t,net)) {
-                        this.transitionFrequency.put(t, 1);
+                        ImmutablePair<Transition,Transition> edge = new ImmutablePair(s,t);
+                        this.followFrequency.put(edge, 1);
                     }
                 }
             }
@@ -49,16 +53,19 @@ public class DirectlyFollowsLogProfile extends EventuallyFollowsLogProfile{
                 int i;
                 for(i = 0; i<trace.size()-1; i++){
                     //create dummy transitions. Note that equals() is implemented based on ID only
-                    Transition t1 = new Transition(trace.get(i).getID().toString());
-                    Transition t2 = new Transition(trace.get(i+1).getID().toString());
+                    Transition t1 = new Transition(trace.get(i).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
+                    t1.setId(trace.get(i).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
+                    Transition t2 = new Transition(trace.get(i+1).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
+                    t2.setId(trace.get(i+1).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
                     //update transition freq
-                    transitionFrequency.put(t1,transitionFrequency.get(t1));
+                    transitionFrequency.put(t1,getTransitionFrequency(t1)+1);
                     //update follow freq
                     ImmutablePair edge = new ImmutablePair<Transition, Transition>(t1,t2);
-                    followFrequency.put(edge,followFrequency.get(edge)+1);
+                    followFrequency.put(edge,getFollowsFrequency(edge) + 1);
                 }
-                Transition tLast = new Transition(trace.get(trace.size()-1).toString());
-                transitionFrequency.put(tLast,transitionFrequency.get(tLast)+1);
+                Transition tLast = new Transition(trace.get(trace.size()-1).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
+                tLast.setId(trace.get(trace.size()-1).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
+                transitionFrequency.put(tLast,getTransitionFrequency(tLast)+1);
             }
         }
 
