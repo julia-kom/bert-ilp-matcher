@@ -4,13 +4,14 @@ import bpm.alignment.Result;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
+import org.jbpt.bp.BehaviouralProfile;
+import org.jbpt.bp.RelSetType;
+import org.jbpt.bp.construct.BPCreatorNet;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
-
 import java.util.HashMap;
-
-import static bpm.profile.AlphaRelations.directlyFollows;
+import java.util.HashSet;
 
 
 public class EventuallyFollowsLogProfile extends AbstractProfile{
@@ -61,12 +62,12 @@ public class EventuallyFollowsLogProfile extends AbstractProfile{
 
     @Override
     public Result filterTemporaryTransitions(Result result) {
-        // nothing added, therfore nothing to filter out
+        // nothing added, therefore nothing to filter out
         return result;
     }
 
     /**
-     * Calculates the freuquencies (attributes) from the given log
+     * Calculates the frequencies (attributes) from the given log
      */
     private void calculateFrequencies(){
         //if no log information, then the frequency is always 1 if directly follows relation is satisfied in the model
@@ -77,10 +78,17 @@ public class EventuallyFollowsLogProfile extends AbstractProfile{
                 this.transitionFrequency.put(t,1);
             }
 
-            // Add a 1 if s and t are in a directly follows relation s > t
+            // Add a 1 if s and t are in a eventually follows relation s > t (help of BP implementation)
+            BPCreatorNet creator = BPCreatorNet.getInstance();
+            BehaviouralProfile<NetSystem, Node> relations = creator.deriveRelationSet(net);
+            // if it is in order, or interleaving, then eventually follows relation is satisfied.
+            HashSet<RelSetType> eventuallyFollows = new HashSet<RelSetType>();
+            eventuallyFollows.add(RelSetType.Order);
+            eventuallyFollows.add(RelSetType.Interleaving);
+
             for(Transition s : net.getTransitions()){
                 for(Transition t : net.getTransitions()){
-                    if(directlyFollows(s,t,net)) { //TODO change to eventually follows
+                    if(eventuallyFollows.contains(relations.getRelationForEntities(s,t))) { //if in eventually follows relation
                         ImmutablePair<Transition,Transition> edge = new ImmutablePair(s,t);
                         this.followFrequency.put(edge, 1);
                     }

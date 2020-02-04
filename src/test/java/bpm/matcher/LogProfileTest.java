@@ -11,7 +11,6 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static bpm.profile.AlphaRelations.directlyFollows;
 
 public class LogProfileTest {
     private static XLog log1;
@@ -122,7 +121,6 @@ public class LogProfileTest {
         model1.addPlace(p2);
         model1.addPlace(p3);
         model1.addPlace(p4);
-        model1.addPlace(p5);
         model1.addPlace(p6);
         model1.addPlace(p7);
 
@@ -292,6 +290,40 @@ public class LogProfileTest {
         Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t6), profile2.getRelationForEntities(t7,t10))==1);
         Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t2), profile2.getRelationForEntities(t7,t8))==1);
         Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t4), profile2.getRelationForEntities(t7,t8))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t2,t4), profile2.getRelationForEntities(t7,t8))==0);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t5,t6), profile2.getRelationForEntities(t7,t8))==1.0);
+    }
+
+    @Test
+    public void LogNoLogEventualyFollowsTest(){
+        EventuallyFollowsLogProfile profile1 = new EventuallyFollowsLogProfile(model1,log1);
+        EventuallyFollowsLogProfile profile2 = new EventuallyFollowsLogProfile(model2,null);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t6), profile2.getRelationForEntities(t7,t10))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t2), profile2.getRelationForEntities(t7,t8))==0.8);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t4), profile2.getRelationForEntities(t7,t8))==0.2);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t3), profile2.getRelationForEntities(t7,t8))==0.8);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t5), profile2.getRelationForEntities(t7,t8))==0.2);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t2,t4), profile2.getRelationForEntities(t7,t8))==0);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t5,t6), profile2.getRelationForEntities(t7,t8))==1.0);
+
+        profile1 = new EventuallyFollowsLogProfile(model1,null);
+        profile2 = new EventuallyFollowsLogProfile(model2,log2);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t6), profile2.getRelationForEntities(t7,t10))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t2), profile2.getRelationForEntities(t7,t8))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t4), profile2.getRelationForEntities(t7,t8))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t3), profile2.getRelationForEntities(t7,t8))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t5), profile2.getRelationForEntities(t7,t8))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t2,t4), profile2.getRelationForEntities(t7,t8))==0);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t5,t6), profile2.getRelationForEntities(t7,t8))==1.0);
+    }
+
+    @Test
+    public void NoLogNoLogEventuallyFollowsTest(){
+        EventuallyFollowsLogProfile profile1 = new EventuallyFollowsLogProfile(model1,null);
+        EventuallyFollowsLogProfile profile2 = new EventuallyFollowsLogProfile(model2,null);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t6), profile2.getRelationForEntities(t7,t10))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t2), profile2.getRelationForEntities(t7,t8))==1);
+        Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t1,t4), profile2.getRelationForEntities(t7,t9))==1);
         Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t2,t4), profile2.getRelationForEntities(t7,t8))==0);
         Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t5,t6), profile2.getRelationForEntities(t7,t8))==1.0);
     }
