@@ -9,7 +9,7 @@ import org.jbpt.petri.Transition;
 
 import static bpm.profile.AlphaRelations.directlyFollows;
 
-public class DirectlyFollowsLogProfile extends EventuallyFollowsLogProfile{
+public class DirectlyFollowsLogProfile extends AbstractLogProfile{
 
     public DirectlyFollowsLogProfile(NetSystem net, XLog log){
         super();

@@ -335,7 +335,4 @@ public class LogProfileTest {
         map.put("action_code",a);
         return factory.createEvent(map);
     }
-
-
-
 }
