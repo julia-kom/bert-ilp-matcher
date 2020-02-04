@@ -9,6 +9,8 @@ import bpm.similarity.Matrix;
 import bpm.similarity.Word;
 
 import gurobi.GRB;
+import org.deckfour.xes.in.XUniversalParser;
+import org.deckfour.xes.model.XLog;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.PetriNet;
 import org.jbpt.petri.Transition;
@@ -20,6 +22,7 @@ import org.json.simple.JSONObject;
 
 import java.sql.Timestamp;
 import java.io.File;
+import java.util.Collection;
 import java.util.Set;
 
 import static java.lang.System.exit;
@@ -40,6 +43,8 @@ public class Pipeline {
     private double ilpTimeLimit;
     private double ilpNodeLimit;
 
+    public static final XLog DUMMY_LOG = null;
+
     /**
      * Empty Constructor for the Builder
      */
@@ -49,10 +54,21 @@ public class Pipeline {
     /**
      * Run the matching pipeline for the given two petri nets.
      * @param fileNet1 petri net file path 1 in PNML format
+     * @param fileLog1 log file path 1 of petri net 1 in  XES format
+     * @param fileNet2 petri net file path 2 in PNML format
+     * @param fileLog2 log file path 2 of petri net 2 in  XES format
+     */
+    public Result run(File fileNet1, File fileLog1, File fileNet2, File fileLog2){
+       return run(fileNet1, fileLog1, fileNet2, fileLog2, new ExecutionTimer());
+    }
+
+    /**
+     * Run the matching pipeline for the given two petri nets.
+     * @param fileNet1 petri net file path 1 in PNML format
      * @param fileNet2 petri net file path 2 in PNML format
      */
     public Result run(File fileNet1, File fileNet2){
-       return run(fileNet1,fileNet2,new ExecutionTimer());
+        return run(fileNet1, null,fileNet2, null, new ExecutionTimer());
     }
 
     /**
@@ -61,15 +77,29 @@ public class Pipeline {
      * @param fileNet2 petri net file path 2 in PNML format
      * @param timer timer object which is updated while execution (call by reference)
      */
-    public Result run(File fileNet1, File fileNet2, ExecutionTimer timer){
+    public Result run(File fileNet1, File fileLog1, File fileNet2, File fileLog2, ExecutionTimer timer){
         //parse the two petri nets
         System.out.println("########"+fileNet1.getName()+ " to " +fileNet2.getName()+"#########");
-        if(PRINT_ENABLED) System.out.println("##### Start Parsing #####");
+
+        //parse log files
+        if(PRINT_ENABLED) System.out.println("##### Start Log Parsing #####");
+            XLog log1 = parseLog(fileLog1);
+            XLog log2 = parseLog(fileLog2);
+        if(PRINT_ENABLED) System.out.println("##### Log Parsing Complete #####");
+
+        if(PRINT_ENABLED) System.out.println("##### Start Net Parsing #####");
         NetSystem net1 = parseFile(fileNet1);
         net1.setName(fileNet1.getName());
         NetSystem net2 = parseFile(fileNet2);
         net2.setName(fileNet2.getName());
-        if(PRINT_ENABLED) System.out.println("##### Parsing Complete #####");
+
+        if(PRINT_ENABLED) System.out.println("##### Net Parsing Complete #####");
+
+
+        // test if netsystems transitions are all in the log
+        if(PRINT_ENABLED) System.out.println("##### Start Log Check Up #####");
+        //TODO
+        if(PRINT_ENABLED) System.out.println("##### Log Checkup Complete #####");
 
         //  wf-net and free choice check
         if(PRINT_ENABLED) System.out.println("##### Start Check Up #####");
@@ -79,9 +109,9 @@ public class Pipeline {
         // Create Profile
         if(PRINT_ENABLED) System.out.println("##### Start Creating Profiles #####");
         timer.startBPTime();
-        AbstractProfile relNet1 = createProfile(net1, this.profile);
+        AbstractProfile relNet1 = createProfile(net1, this.profile, log1);
         //System.out.print("Net 1" +relNet1.toString());
-        AbstractProfile relNet2 = createProfile(net2, this.profile);
+        AbstractProfile relNet2 = createProfile(net2, this.profile, log2);
         //System.out.print("Net 2" +relNet1.toString());
         timer.stopBPTime();
         if(PRINT_ENABLED) System.out.println("##### Creating Profiles Complete #####");
@@ -152,7 +182,35 @@ public class Pipeline {
         return serializer.parse(f.getAbsolutePath());
     }
 
-    public static AbstractProfile createProfile(NetSystem net, AbstractProfile.Profile profile){
+    /**
+     * Parses a XES file to a XLog file
+     * @param f
+     * @return
+     */
+    public static XLog parseLog(File f){
+        // no log file given
+        if(f == null){
+            return DUMMY_LOG;
+        }
+
+        XUniversalParser parser = new XUniversalParser();
+        Collection<XLog> collection;
+        try {
+            collection = parser.parse(f);
+        }catch(Exception e){
+            throw new Error("File " + f.toString() + " is not possible to parse as XES" + e.getStackTrace());
+        }
+
+        // non or more than one log found in directory
+        if(collection.size() != 1){
+            throw new Error("Under path " +f.toString() + " " + collection.size() + "!= 1 Logs were found" );
+        }
+        // return only log of collection
+        return collection.iterator().next();
+    }
+
+
+    public static AbstractProfile createProfile(NetSystem net, AbstractProfile.Profile profile, XLog log){
         AbstractProfile r;
         switch(profile){
             case BP:
@@ -163,6 +221,13 @@ public class Pipeline {
                 break;
             case ARP:
                 r = new AlphaRelations(net);
+                break;
+            case LOG_DF:
+                r = new DirectlyFollowsLogProfile(net,log);
+                break;
+            case LOG_EF:
+                r = new EventuallyFollowsLogProfile(net,log);
+                break;
             default:
                 throw new UnsupportedOperationException("Operator not yet implemented: " + profile.toString());
         }

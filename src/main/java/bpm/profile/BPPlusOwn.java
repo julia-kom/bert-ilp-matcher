@@ -58,29 +58,31 @@ public class BPPlusOwn extends AbstractProfile {
         //Causality
         if(areCausal(n1,n2)){
             if(directlyFollows(n1,n2,net)){
-                return Relation.BPP_DIRECT_CAUSAL;
+                return new Relation(Relation.RelationType.BPP_DIRECT_CAUSAL);
             }else{
-                return Relation.BPP_INDIRECT_CAUSAL;
+                return new Relation(Relation.RelationType.BPP_INDIRECT_CAUSAL);
             }
         //Reverse Causality
         }else if(areReverseCausal(n1,n2)){
             if(directlyFollows(n2,n1,net)){
-                return Relation.BPP_REVERSE_DIRECT_CAUSAL;
+                return new Relation(Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
             }else{
-                return Relation.BPP_REVERSE_INDIRECT_CAUSAL;
+                return new Relation(Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL);
             }
         //Concurrent
         }else if(areConcurrent(n1,n2)){
             if(!conflictWithTau(n1,n2)){
-                return Relation.BPP_ALWAYS_CONCURRENT;
+                return new Relation(Relation.RelationType.BPP_ALWAYS_CONCURRENT);
             }else{
-                return Relation.BPP_SOMETIMES_CONCURRENT;
+                return new Relation(Relation.RelationType.BPP_SOMETIMES_CONCURRENT);
             }
         //Conflict
         }else if(areConflict(n1,n2)){
-            return Relation.BPP_CONFLICT;
+            return new Relation(Relation.RelationType.BPP_CONFLICT);
         }
-        return Relation.NONE;
+
+        return new Relation(Relation.RelationType.NONE);
+
     }
 
 
@@ -260,50 +262,45 @@ public class BPPlusOwn extends AbstractProfile {
 
     }
 
-
-    @Override
-    public double getRelationSimilarity(Relation r1, Relation r2, Node n1, Node n2, Node m1, Node m2) {
-        return getRelationSimilarity(r1,r2);
-    }
-
-
     /**
      * Matching Penalty for BP+ acc to "BP+: An Improved Behavioral Profile Metric for Process Models"
-     * @param r1 Relation 1
-     * @param r2 Relation 2
+     * @param rel1 Relation 1
+     * @param rel2 Relation 2
      * @return double similarity of the two relations
      */
     @Override
-    public double getRelationSimilarity(Relation r1, Relation r2) {
+    public double getRelationSimilarity(Relation rel1, Relation rel2) {
+        Relation.RelationType r1 = rel1.getType();
+        Relation.RelationType r2 = rel2.getType();
         if(r1 == r2){
             return 1.0;
-        }else if((r1 == Relation.BPP_DIRECT_CAUSAL && r2 == Relation.BPP_INDIRECT_CAUSAL) ||
-                (r2 == Relation.BPP_DIRECT_CAUSAL && r1 == Relation.BPP_INDIRECT_CAUSAL) ||
-                (r1 == Relation.BPP_REVERSE_DIRECT_CAUSAL && r2 == Relation.BPP_REVERSE_INDIRECT_CAUSAL) ||
-                (r2 == Relation.BPP_REVERSE_DIRECT_CAUSAL && r1 == Relation.BPP_REVERSE_INDIRECT_CAUSAL)){
+        }else if((r1 == Relation.RelationType.BPP_DIRECT_CAUSAL && r2 == Relation.RelationType.BPP_INDIRECT_CAUSAL) ||
+                (r2 == Relation.RelationType.BPP_DIRECT_CAUSAL && r1 == Relation.RelationType.BPP_INDIRECT_CAUSAL) ||
+                (r1 == Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL && r2 == Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL) ||
+                (r2 == Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL && r1 == Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL)){
             return 0.75;
-        }else if((r1 == Relation.BPP_DIRECT_CAUSAL && r2 == Relation.BPP_ALWAYS_CONCURRENT) ||
-                (r2 == Relation.BPP_DIRECT_CAUSAL && r1 == Relation.BPP_ALWAYS_CONCURRENT) ||
-                (r1 == Relation.BPP_REVERSE_DIRECT_CAUSAL && r2 == Relation.BPP_ALWAYS_CONCURRENT) ||
-                (r2 == Relation.BPP_REVERSE_DIRECT_CAUSAL && r1 == Relation.BPP_ALWAYS_CONCURRENT)){
+        }else if((r1 == Relation.RelationType.BPP_DIRECT_CAUSAL && r2 == Relation.RelationType.BPP_ALWAYS_CONCURRENT) ||
+                (r2 == Relation.RelationType.BPP_DIRECT_CAUSAL && r1 == Relation.RelationType.BPP_ALWAYS_CONCURRENT) ||
+                (r1 == Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL && r2 == Relation.RelationType.BPP_ALWAYS_CONCURRENT) ||
+                (r2 == Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL && r1 == Relation.RelationType.BPP_ALWAYS_CONCURRENT)){
             return 0.5;
-        }else if((r1 == Relation.BPP_INDIRECT_CAUSAL && r2 == Relation.BPP_ALWAYS_CONCURRENT) ||
-                (r2 == Relation.BPP_INDIRECT_CAUSAL && r1 == Relation.BPP_ALWAYS_CONCURRENT) ||
-                (r1 == Relation.BPP_REVERSE_INDIRECT_CAUSAL && r2 == Relation.BPP_ALWAYS_CONCURRENT) ||
-                (r2 == Relation.BPP_REVERSE_INDIRECT_CAUSAL && r1 == Relation.BPP_ALWAYS_CONCURRENT)){
+        }else if((r1 == Relation.RelationType.BPP_INDIRECT_CAUSAL && r2 == Relation.RelationType.BPP_ALWAYS_CONCURRENT) ||
+                (r2 == Relation.RelationType.BPP_INDIRECT_CAUSAL && r1 == Relation.RelationType.BPP_ALWAYS_CONCURRENT) ||
+                (r1 == Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL && r2 == Relation.RelationType.BPP_ALWAYS_CONCURRENT) ||
+                (r2 == Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL && r1 == Relation.RelationType.BPP_ALWAYS_CONCURRENT)){
             return 0.25;
-        }else if((r1 == Relation.BPP_ALWAYS_CONCURRENT && r2 == Relation.BPP_SOMETIMES_CONCURRENT) ||
-                (r2 == Relation.BPP_ALWAYS_CONCURRENT && r1 == Relation.BPP_SOMETIMES_CONCURRENT)){
+        }else if((r1 == Relation.RelationType.BPP_ALWAYS_CONCURRENT && r2 == Relation.RelationType.BPP_SOMETIMES_CONCURRENT) ||
+                (r2 == Relation.RelationType.BPP_ALWAYS_CONCURRENT && r1 == Relation.RelationType.BPP_SOMETIMES_CONCURRENT)){
             return 0.9;
-        }else if((r1 == Relation.BPP_DIRECT_CAUSAL && r2 == Relation.BPP_SOMETIMES_CONCURRENT) ||
-            (r2 == Relation.BPP_DIRECT_CAUSAL && r1 == Relation.BPP_SOMETIMES_CONCURRENT) ||
-            (r1 == Relation.BPP_REVERSE_DIRECT_CAUSAL && r2 == Relation.BPP_SOMETIMES_CONCURRENT) ||
-            (r2 == Relation.BPP_REVERSE_DIRECT_CAUSAL && r1 == Relation.BPP_SOMETIMES_CONCURRENT)){
+        }else if((r1 == Relation.RelationType.BPP_DIRECT_CAUSAL && r2 == Relation.RelationType.BPP_SOMETIMES_CONCURRENT) ||
+            (r2 == Relation.RelationType.BPP_DIRECT_CAUSAL && r1 == Relation.RelationType.BPP_SOMETIMES_CONCURRENT) ||
+            (r1 == Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL && r2 == Relation.RelationType.BPP_SOMETIMES_CONCURRENT) ||
+            (r2 == Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL && r1 == Relation.RelationType.BPP_SOMETIMES_CONCURRENT)){
         return 0.49;
-        }else if((r1 == Relation.BPP_INDIRECT_CAUSAL && r2 == Relation.BPP_SOMETIMES_CONCURRENT) ||
-            (r2 == Relation.BPP_INDIRECT_CAUSAL && r1 == Relation.BPP_SOMETIMES_CONCURRENT) ||
-            (r1 == Relation.BPP_REVERSE_INDIRECT_CAUSAL && r2 == Relation.BPP_SOMETIMES_CONCURRENT) ||
-            (r2 == Relation.BPP_REVERSE_INDIRECT_CAUSAL && r1 == Relation.BPP_SOMETIMES_CONCURRENT)){
+        }else if((r1 == Relation.RelationType.BPP_INDIRECT_CAUSAL && r2 == Relation.RelationType.BPP_SOMETIMES_CONCURRENT) ||
+            (r2 == Relation.RelationType.BPP_INDIRECT_CAUSAL && r1 == Relation.RelationType.BPP_SOMETIMES_CONCURRENT) ||
+            (r1 == Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL && r2 == Relation.RelationType.BPP_SOMETIMES_CONCURRENT) ||
+            (r2 == Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL && r1 == Relation.RelationType.BPP_SOMETIMES_CONCURRENT)){
         return 0.24;
     }
         return 0.0;

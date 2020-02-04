@@ -2,6 +2,7 @@ package bpm.evaluation;
 
 import bpm.matcher.Preprocessor;
 import bpm.profile.AbstractProfile;
+import bpm.profile.Relation;
 import org.jbpt.bp.RelSetType;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Transition;
@@ -47,7 +48,7 @@ public class AggregatedNetAnalysis{
 
         //todo this assumes that its always traversed in the same order. true??
         // Profile Stats
-        for (AbstractProfile.Relation t : AbstractProfile.Relation.values()) {
+        for (Relation.RelationType t : Relation.RelationType.values()) {
             csvWriter.append(getNumberOfRelations(t, net, profile)+ ",");
         }
         csvWriter.append("\n");
@@ -60,12 +61,12 @@ public class AggregatedNetAnalysis{
      * @param profile
      * @return
      */
-    private int getNumberOfRelations(AbstractProfile.Relation rel, NetSystem net, AbstractProfile profile){
+    private int getNumberOfRelations(Relation.RelationType rel, NetSystem net, AbstractProfile profile){
         int n = 0;
         for (Transition t1 :net.getTransitions()){
             for(Transition t2 : net.getTransitions()){
-                AbstractProfile.Relation r = profile.getRelationForEntities(t1,t2);
-                if(r.equals(rel)){
+                Relation r = profile.getRelationForEntities(t1,t2);
+                if(r.getType().equals(rel)){
                    n++;
                 }
             }

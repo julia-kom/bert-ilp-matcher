@@ -1,6 +1,5 @@
 package bpm.profile;
 
-import bpm.alignment.Alignment;
 import bpm.alignment.Result;
 import bpm.matcher.Preprocessor;
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -31,16 +30,11 @@ public class AlphaRelations extends AbstractProfile {
 
     @Override
     public double getRelationSimilarity(Relation r1, Relation r2) {
-        if (r1 == r2) {
+        if (r1.getType() == r2.getType()) {
             return 1.0;
         }else {
             return 0.0;
         }
-    }
-
-    @Override
-    public double getRelationSimilarity(Relation r1, Relation r2, Node n1, Node n2, Node m1, Node m2) {
-        return getRelationSimilarity(r1,r2);
     }
 
     @Override
@@ -67,21 +61,22 @@ public class AlphaRelations extends AbstractProfile {
         if(super.computedRelations.containsKey(nodePair)){
             return computedRelations.get(nodePair);
         }
-        Relation rel;
+        Relation.RelationType rel;
         if(concurrencyRelation.areConcurrent(n1,n2) || (directlyFollows.get(n1).contains(n2) && directlyFollows.get(n2).contains(n1))){
             //either two transitions are concurrent or they are in a 1-loop
-            rel =  Relation.ALPHA_INTERLEAVING;
+            rel =  Relation.RelationType.ALPHA_INTERLEAVING;
         }else if(directlyFollows.get(n1).contains(n2) && !directlyFollows.get(n2).contains(n1)) {
             //n1 can follow n2 but n2 never follow n1
-            rel = Relation.ALPHA_ORDER;
+            rel = Relation.RelationType.ALPHA_ORDER;
         }else if(!directlyFollows.get(n1).contains(n2) && directlyFollows.get(n2).contains(n1)) {
             //n2 can follow n1 but never the other way around
-            rel = Relation.ALPHA_REVERSE_ORDER;
+            rel = Relation.RelationType.ALPHA_REVERSE_ORDER;
         }else {
-            rel = Relation.ALPHA_EXCLUSIVE;
+            rel = Relation.RelationType.ALPHA_EXCLUSIVE;
         }
-        super.computedRelations.put(nodePair,rel);
-        return rel;
+        Relation res = new Relation(rel);
+        super.computedRelations.put(nodePair,res);
+        return res;
 
     }
 

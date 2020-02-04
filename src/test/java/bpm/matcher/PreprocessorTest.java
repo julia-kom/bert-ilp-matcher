@@ -2,9 +2,8 @@ package bpm.matcher;
 
 import bpm.alignment.Alignment;
 import bpm.profile.AbstractProfile;
+import bpm.profile.Relation;
 import bpm.similarity.Matrix;
-import org.jbpt.bp.RelSet;
-import org.jbpt.bp.RelSetType;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Transition;
 import org.junit.Assert;
@@ -101,21 +100,22 @@ public class PreprocessorTest {
         for(File file1 : folder.listFiles()) {
             NetSystem net1 = Pipeline.parseFile(file1);
             net1.setName(file1.getName());
-            AbstractProfile relNet1 = createProfile(net1, AbstractProfile.Profile.BP);
+            AbstractProfile relNet1 = createProfile(net1, AbstractProfile.Profile.BP, null);
             for(Transition t1 : net1.getTransitions()){
                 for(Transition t2 : net1.getTransitions()){
-                    switch(relNet1.getRelationForEntities(t1,t2)){
+                    Relation r = relNet1.getRelationForEntities(t1,t2);
+                    switch(r.getType()){
                         case BP_EXCLUSIVE:
-                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).equals(AbstractProfile.Relation.BP_EXCLUSIVE));
+                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).getType().equals(Relation.RelationType.BP_EXCLUSIVE));
                             break;
                         case BP_INTERLEAVING:
-                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).equals(AbstractProfile.Relation.BP_EXCLUSIVE));
+                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).getType().equals(Relation.RelationType.BP_EXCLUSIVE));
                             break;
                         case BP_ORDER:
-                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).equals(AbstractProfile.Relation.BP_REVERSE_ORDER));
+                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).getType().equals(Relation.RelationType.BP_REVERSE_ORDER));
                             break;
                         case BP_REVERSE_ORDER:
-                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).equals(AbstractProfile.Relation.BP_ORDER));
+                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).getType().equals(Relation.RelationType.BP_ORDER));
                             break;
                     }
 

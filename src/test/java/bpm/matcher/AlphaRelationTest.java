@@ -3,6 +3,7 @@ package bpm.matcher;
 import bpm.profile.AbstractProfile;
 
 import bpm.profile.AlphaRelations;
+import bpm.profile.Relation;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Place;
 import org.jbpt.petri.Transition;
@@ -57,9 +58,9 @@ public class AlphaRelationTest {
         net1.putTokens(p1,1);
 
         AlphaRelations alpha = new AlphaRelations(net1);
-        Assert.assertSame(alpha.getRelationForEntities(t1,t2), AbstractProfile.Relation.ALPHA_ORDER);
-        Assert.assertSame(alpha.getRelationForEntities(t2,t3), AbstractProfile.Relation.ALPHA_ORDER);
-        Assert.assertSame(alpha.getRelationForEntities(t1,t3), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t2).getType(), Relation.RelationType.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t2,t3).getType(), Relation.RelationType.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t3).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
     }
 
     @Test
@@ -118,10 +119,10 @@ public class AlphaRelationTest {
         net1.putTokens(p1,1);
 
         AlphaRelations alpha = new AlphaRelations(net1);
-        Assert.assertSame(alpha.getRelationForEntities(t1,t2), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
-        Assert.assertSame(alpha.getRelationForEntities(t2,t3), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
-        Assert.assertSame(alpha.getRelationForEntities(t1,t3), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
-        Assert.assertSame(alpha.getRelationForEntities(t1,t4), AbstractProfile.Relation.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t2).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t2,t3).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t3).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t4).getType(), Relation.RelationType.ALPHA_ORDER);
     }
 
 
@@ -179,18 +180,18 @@ public class AlphaRelationTest {
 
         AlphaRelations alpha = new AlphaRelations(net1);
 
-        Assert.assertSame(alpha.getRelationForEntities(t1,t2), AbstractProfile.Relation.ALPHA_ORDER);
-        Assert.assertSame(alpha.getRelationForEntities(t2,t3), AbstractProfile.Relation.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t2).getType(), Relation.RelationType.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t2,t3).getType(), Relation.RelationType.ALPHA_ORDER);
 
-        Assert.assertSame(alpha.getRelationForEntities(t2,t4), AbstractProfile.Relation.ALPHA_INTERLEAVING);
-        Assert.assertSame(alpha.getRelationForEntities(t4,t2), AbstractProfile.Relation.ALPHA_INTERLEAVING);
+        Assert.assertSame(alpha.getRelationForEntities(t2,t4).getType(), Relation.RelationType.ALPHA_INTERLEAVING);
+        Assert.assertSame(alpha.getRelationForEntities(t4,t2).getType(), Relation.RelationType.ALPHA_INTERLEAVING);
 
-        Assert.assertSame(alpha.getRelationForEntities(t1,t4), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
-        Assert.assertSame(alpha.getRelationForEntities(t1,t3), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
-        Assert.assertSame(alpha.getRelationForEntities(t4,t3), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t4).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t3).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t4,t3).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
 
-        Assert.assertSame(alpha.getRelationForEntities(t2,t2), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
-        Assert.assertSame(alpha.getRelationForEntities(t4,t4), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t2,t2).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t4,t4).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
     }
 
     @Test
@@ -258,21 +259,21 @@ public class AlphaRelationTest {
 
         AlphaRelations alpha = new AlphaRelations(net1);
 
-        Assert.assertSame(alpha.getRelationForEntities(t1,t2), AbstractProfile.Relation.ALPHA_ORDER);
-        Assert.assertSame(alpha.getRelationForEntities(t2,t3), AbstractProfile.Relation.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t2).getType(), Relation.RelationType.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t2,t3).getType(), Relation.RelationType.ALPHA_ORDER);
 
-        Assert.assertSame(alpha.getRelationForEntities(t2,t4), AbstractProfile.Relation.ALPHA_ORDER);
-        Assert.assertSame(alpha.getRelationForEntities(t4,t5), AbstractProfile.Relation.ALPHA_ORDER);
-        Assert.assertSame(alpha.getRelationForEntities(t5,t2), AbstractProfile.Relation.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t2,t4).getType(), Relation.RelationType.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t4,t5).getType(), Relation.RelationType.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t5,t2).getType(), Relation.RelationType.ALPHA_ORDER);
 
-        Assert.assertSame(alpha.getRelationForEntities(t1,t4), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
-        Assert.assertSame(alpha.getRelationForEntities(t1,t5), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t4).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t5).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
 
-        Assert.assertSame(alpha.getRelationForEntities(t1,t3), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
-        Assert.assertSame(alpha.getRelationForEntities(t4,t3), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t3).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t4,t3).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
 
-        Assert.assertSame(alpha.getRelationForEntities(t2,t2), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
-        Assert.assertSame(alpha.getRelationForEntities(t4,t4), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t2,t2).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t4,t4).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
     }
 
     @Test
@@ -353,19 +354,19 @@ public class AlphaRelationTest {
 
         AlphaRelations alpha = new AlphaRelations(net1);
 
-        Assert.assertSame(alpha.getRelationForEntities(t1,t2), AbstractProfile.Relation.ALPHA_ORDER);
-        Assert.assertSame(alpha.getRelationForEntities(t1,t3), AbstractProfile.Relation.ALPHA_ORDER);
-        Assert.assertSame(alpha.getRelationForEntities(t1,t4), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
-        Assert.assertSame(alpha.getRelationForEntities(t1,t5), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t2).getType(), Relation.RelationType.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t3).getType(), Relation.RelationType.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t4).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t1,t5).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
 
-        Assert.assertSame(alpha.getRelationForEntities(t2,t3), AbstractProfile.Relation.ALPHA_INTERLEAVING);
-        Assert.assertSame(alpha.getRelationForEntities(t2,t4), AbstractProfile.Relation.ALPHA_INTERLEAVING);
+        Assert.assertSame(alpha.getRelationForEntities(t2,t3).getType(), Relation.RelationType.ALPHA_INTERLEAVING);
+        Assert.assertSame(alpha.getRelationForEntities(t2,t4).getType(), Relation.RelationType.ALPHA_INTERLEAVING);
 
-        Assert.assertSame(alpha.getRelationForEntities(t2,t5), AbstractProfile.Relation.ALPHA_ORDER);
-        Assert.assertSame(alpha.getRelationForEntities(t3,t5), AbstractProfile.Relation.ALPHA_EXCLUSIVE);
+        Assert.assertSame(alpha.getRelationForEntities(t2,t5).getType(), Relation.RelationType.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t3,t5).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
 
-        Assert.assertSame(alpha.getRelationForEntities(t2,t5), AbstractProfile.Relation.ALPHA_ORDER);
-        Assert.assertSame(alpha.getRelationForEntities(t4,t5), AbstractProfile.Relation.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t2,t5).getType(), Relation.RelationType.ALPHA_ORDER);
+        Assert.assertSame(alpha.getRelationForEntities(t4,t5).getType(), Relation.RelationType.ALPHA_ORDER);
     }
 
 

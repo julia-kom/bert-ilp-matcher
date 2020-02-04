@@ -41,6 +41,18 @@ public class Matcher {
                 .longOpt("net-2")
                 .desc("Sound, free-choice WF net 2")
                 .build();
+        Option optPathLog1 = Option.builder("l1")
+                .required(false)
+                .hasArg(true)
+                .longOpt("log-1")
+                .desc("Sound, free-choice WF net 1")
+                .build();
+        Option optPathLog2 = Option.builder("l2")
+                .required(false)
+                .hasArg(true)
+                .longOpt("log-2")
+                .desc("Sound, free-choice WF net 2")
+                .build();
         Option optProfile = Option.builder("p")
                 .hasArg(true)
                 .longOpt("profile")
@@ -92,6 +104,8 @@ public class Matcher {
         options.addOption(wordSim);
         options.addOption(optPathNet1);
         options.addOption(optPathNet2);
+        options.addOption(optPathLog1);
+        options.addOption(optPathLog2);
         options.addOption(optPreMatch);
         options.addOption(optPrint);
         options.addOption(optTl);
@@ -193,6 +207,17 @@ public class Matcher {
             }
         }
 
+        //parse ILP
+        if (line.hasOption("i")) {
+            String sIlp = line.getOptionValue("i");
+            if(sIlp != null) {
+                builder.withILP(sIlp);
+            }else{
+                throw new IllegalArgumentException("ilp argument null");
+            }
+        }
+
+
         // parse petri net 1 and 2
         File net1;
         File net2;
@@ -215,23 +240,37 @@ public class Matcher {
 
         }
 
-        //parse ILP
-        if (line.hasOption("i")) {
-            String sIlp = line.getOptionValue("i");
-            if(sIlp != null) {
-                builder.withILP(sIlp);
-            }else{
-                throw new IllegalArgumentException("ilp argument null");
+
+        // parse log net 1 and 2 (those are optional. If given and a profile that can handle those is
+        // chosen they will be used. Otherwise not
+        File log1;
+        File log2;
+        String log1String = line.getOptionValue("l1");
+        String log2String = line.getOptionValue("l2");
+        try {
+            log1 = new File(n1String);
+            if (!log1.exists()) {
+                throw new FileNotFoundException("Net 1 file not found under" + log1String);
             }
+        } catch (FileNotFoundException fileExp) {
+            //if no log given, then we work without a log
+            log1 = null;
         }
-
-
+        try {
+            log2 = new File(n2String);
+            if (!log2.exists()) {
+                throw new FileNotFoundException("Net 2 file not found under" + log2String);
+            }
+        } catch (FileNotFoundException fileExp) {
+            //if no log given, then we work without a log
+            log2 = null;
+        }
 
         //Build pipeline
         Pipeline pip = builder.Build();
 
         //run files
-        Result r = pip.run(net1, net2);
+        Result r = pip.run(net1, log1, net2, log2);
 
         //print
         if(Pipeline.PRINT_ENABLED) System.out.println(r.toString());

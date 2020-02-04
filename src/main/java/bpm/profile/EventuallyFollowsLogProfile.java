@@ -28,19 +28,15 @@ public class EventuallyFollowsLogProfile extends AbstractProfile{
     // So comparison of equals
     @Override
     public Relation getRelationForEntities(Node n1, Node n2) {
-        return Relation.LOG_EVENTUALLY_FOLLOWS;
+        double freq = relativeFollowFrequencies(n1,n2);
+        Relation r = new Relation(Relation.RelationType.LOG_EVENTUALLY_FOLLOWS, freq);
+        return r;
     }
 
     @Override
-    public double getRelationSimilarity(Relation r1, Relation r2) {
-        System.err.println("Get relation needs to be called with node information to calculate similarity");
-        return -1;
-    }
-
-    @Override
-    public double getRelationSimilarity(Relation r1, Relation r2, Node n1, Node n2, Node m1, Node m2){
-       double nRelativeFreq = relativeFollowFrequencies(n1,n2);
-       double mRelativeFreq = relativeFollowFrequencies(m1,m2);
+    public double getRelationSimilarity(Relation r1, Relation r2){
+       double nRelativeFreq = r1.getFrequency();
+       double mRelativeFreq = r2.getFrequency();
 
         //min-max-sim: min(mRelativeFreq, nRelativeFreq)/min(mRelativeFreq, nRelativeFreq)
         double min = Math.min(nRelativeFreq,mRelativeFreq);
@@ -111,7 +107,7 @@ public class EventuallyFollowsLogProfile extends AbstractProfile{
      * @param n2
      * @return
      */
-    private double relativeFollowFrequencies(Node n1, Node n2){
+     double relativeFollowFrequencies(Node n1, Node n2){
         if(!(n1 instanceof Transition) || !(n2 instanceof Transition)){
             return 0;
         }

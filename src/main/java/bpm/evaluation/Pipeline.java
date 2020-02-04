@@ -63,7 +63,7 @@ public class Pipeline{
                 NetSystem net1 = parseFile(f);
                 net1.setName(f.getName());
                 try {
-                    netAnalysis.addNet(net1, createProfile(net1, netProfile));
+                    netAnalysis.addNet(net1, createProfile(net1, netProfile,null)); // todo add log
                 }catch(Exception e){
                     System.out.println("Analysis not possible for net " + f.getName() + e.toString());
                 }
@@ -167,7 +167,7 @@ public class Pipeline{
         timer.startOverallTime();
 
         // Compute Alignment
-        Result result = matchingPipeline.run(n1,n2,timer);
+        Result result = matchingPipeline.run(n1,null,n2, null,timer); //TODO add log
 
         // Stop timer
         timer.stopOverallTime();
@@ -275,8 +275,8 @@ public class Pipeline{
                     .withWordSimilarity(matcher.get("word-sim").toString())
                     .withILP(matcher.get("ilp").toString())
                     .withILPNodeLimit(Double.valueOf(matcher.get("ilp-node-limit").toString()))
-                    .withILPTimeLimit(Double.valueOf(matcher.get("ilp-time-limit").toString()));
-                    //TODO add with profile
+                    .withILPTimeLimit(Double.valueOf(matcher.get("ilp-time-limit").toString()))
+                    .withProfile(AbstractProfile.Profile.valueOf(matcher.get("profile").toString()));
             if(Boolean.valueOf(matcher.get("complex matches").toString())){
                 builder.withComplexMatches();
             }

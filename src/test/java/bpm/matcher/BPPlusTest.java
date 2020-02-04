@@ -1,12 +1,11 @@
 package bpm.matcher;
 
 import bpm.profile.AbstractProfile;
-import bpm.profile.BPPlus;
 import bpm.profile.BPPlusOwn;
+import bpm.profile.Relation;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Place;
 import org.jbpt.petri.Transition;
-import org.jbpt.petri.unfolding.Condition;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -48,10 +47,10 @@ public class BPPlusTest {
         net1.addEdge(t2,p3);
         BPPlusOwn plus = new BPPlusOwn(net1);
 
-        Assert.assertSame(plus.getRelationForEntities(t1,t2), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t1,t1), AbstractProfile.Relation.BPP_CONFLICT);
-        Assert.assertSame(plus.getRelationForEntities(t2,t2), AbstractProfile.Relation.BPP_CONFLICT);
-        Assert.assertSame(plus.getRelationForEntities(t2,t1), AbstractProfile.Relation.BPP_REVERSE_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t1,t2).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t1,t1).getType(), Relation.RelationType.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t2,t2).getType(), Relation.RelationType.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t2,t1).getType(), Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
     }
 
 
@@ -107,34 +106,34 @@ public class BPPlusTest {
         BPPlusOwn plus = new BPPlusOwn(net1);
 
         // nodes in the net
-        Assert.assertSame(plus.getRelationForEntities(t1,t2), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t1,t3), AbstractProfile.Relation.BPP_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t2,t3), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t2,t1), AbstractProfile.Relation.BPP_REVERSE_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t3,t1), AbstractProfile.Relation.BPP_REVERSE_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t3,t2), AbstractProfile.Relation.BPP_REVERSE_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t1,t1), AbstractProfile.Relation.BPP_CONFLICT);
-        Assert.assertSame(plus.getRelationForEntities(t2,t2), AbstractProfile.Relation.BPP_CONFLICT);
-        Assert.assertSame(plus.getRelationForEntities(t3,t3), AbstractProfile.Relation.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t1,t2).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t1,t3).getType(), Relation.RelationType.BPP_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t2,t3).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t2,t1).getType(), Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t3,t1).getType(), Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t3,t2).getType(), Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t1,t1).getType(), Relation.RelationType.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t2,t2).getType(), Relation.RelationType.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t3,t3).getType(), Relation.RelationType.BPP_CONFLICT);
 
         // artificial nodes
         Transition ts = plus.getArtificialInitialTransition();
         Transition te = plus.getArtificialFinalTransition();
-        Assert.assertSame(plus.getRelationForEntities(ts,t1), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(ts,t2), AbstractProfile.Relation.BPP_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(ts,t3), AbstractProfile.Relation.BPP_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(ts,te), AbstractProfile.Relation.BPP_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t1,ts), AbstractProfile.Relation.BPP_REVERSE_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t2,ts), AbstractProfile.Relation.BPP_REVERSE_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t3,ts), AbstractProfile.Relation.BPP_REVERSE_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(te,ts), AbstractProfile.Relation.BPP_REVERSE_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(ts,t1).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(ts,t2).getType(), Relation.RelationType.BPP_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(ts,t3).getType(), Relation.RelationType.BPP_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(ts,te).getType(), Relation.RelationType.BPP_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t1,ts).getType(), Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t2,ts).getType(), Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t3,ts).getType(), Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(te,ts).getType(), Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL);
 
-        Assert.assertSame(plus.getRelationForEntities(te,t1), AbstractProfile.Relation.BPP_REVERSE_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(te,t2), AbstractProfile.Relation.BPP_REVERSE_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(te,t3), AbstractProfile.Relation.BPP_REVERSE_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t1,te), AbstractProfile.Relation.BPP_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t2,te), AbstractProfile.Relation.BPP_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t3,te), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(te,t1).getType(), Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(te,t2).getType(), Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(te,t3).getType(), Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t1,te).getType(), Relation.RelationType.BPP_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t2,te).getType(), Relation.RelationType.BPP_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t3,te).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
     }
 
    // @Test
@@ -193,25 +192,25 @@ public class BPPlusTest {
         net1.addEdge(t4,p2);
 
         BPPlusOwn plus = new BPPlusOwn(net1);
-        Assert.assertSame(plus.getRelationForEntities(t1,t1), AbstractProfile.Relation.BPP_CONFLICT);
-        Assert.assertSame(plus.getRelationForEntities(t1,t2), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t1,t3), AbstractProfile.Relation.BPP_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t1,t4), AbstractProfile.Relation.BPP_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t1,t1).getType(), Relation.RelationType.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t1,t2).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t1,t3).getType(), Relation.RelationType.BPP_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t1,t4).getType(), Relation.RelationType.BPP_INDIRECT_CAUSAL);
 
-        Assert.assertSame(plus.getRelationForEntities(t2,t1), AbstractProfile.Relation.BPP_REVERSE_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t2,t2), AbstractProfile.Relation.BPP_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t2,t3), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t2,t4), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t2,t1).getType(), Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t2,t2).getType(), Relation.RelationType.BPP_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t2,t3).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t2,t4).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
 
-        Assert.assertSame(plus.getRelationForEntities(t3,t1), AbstractProfile.Relation.BPP_REVERSE_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t3,t2), AbstractProfile.Relation.BPP_REVERSE_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t3,t3), AbstractProfile.Relation.BPP_CONFLICT);
-        Assert.assertSame(plus.getRelationForEntities(t3,t4), AbstractProfile.Relation.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t3,t1).getType(), Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t3,t2).getType(), Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t3,t3).getType(), Relation.RelationType.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t3,t4).getType(), Relation.RelationType.BPP_CONFLICT);
 
-        Assert.assertSame(plus.getRelationForEntities(t4,t1), AbstractProfile.Relation.BPP_REVERSE_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t4,t2), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t4,t3), AbstractProfile.Relation.BPP_CONFLICT); // ?
-        Assert.assertSame(plus.getRelationForEntities(t4,t4), AbstractProfile.Relation.BPP_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t4,t1).getType(), Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t4,t2).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t4,t3).getType(), Relation.RelationType.BPP_CONFLICT); // ?
+        Assert.assertSame(plus.getRelationForEntities(t4,t4).getType(), Relation.RelationType.BPP_INDIRECT_CAUSAL);
 
     }
 
@@ -277,24 +276,24 @@ public class BPPlusTest {
 
 
         BPPlusOwn plus = new BPPlusOwn(net1);
-        Assert.assertSame(plus.getRelationForEntities(t1,t1), AbstractProfile.Relation.BPP_CONFLICT);
-        Assert.assertSame(plus.getRelationForEntities(t1,t2), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t1,t3), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t1,t4), AbstractProfile.Relation.BPP_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t1,t1).getType(), Relation.RelationType.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t1,t2).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t1,t3).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t1,t4).getType(), Relation.RelationType.BPP_INDIRECT_CAUSAL);
 
-        Assert.assertSame(plus.getRelationForEntities(t2,t1), AbstractProfile.Relation.BPP_REVERSE_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t2,t2), AbstractProfile.Relation.BPP_CONFLICT);
-        Assert.assertSame(plus.getRelationForEntities(t2,t3), AbstractProfile.Relation.BPP_ALWAYS_CONCURRENT);
-        Assert.assertSame(plus.getRelationForEntities(t2,t4), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t2,t1).getType(), Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t2,t2).getType(), Relation.RelationType.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t2,t3).getType(), Relation.RelationType.BPP_ALWAYS_CONCURRENT);
+        Assert.assertSame(plus.getRelationForEntities(t2,t4).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
 
-        Assert.assertSame(plus.getRelationForEntities(t3,t1), AbstractProfile.Relation.BPP_REVERSE_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t3,t2), AbstractProfile.Relation.BPP_ALWAYS_CONCURRENT);
-        Assert.assertSame(plus.getRelationForEntities(t3,t3), AbstractProfile.Relation.BPP_CONFLICT);
-        Assert.assertSame(plus.getRelationForEntities(t3,t4), AbstractProfile.Relation.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t3,t1).getType(), Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t3,t2).getType(), Relation.RelationType.BPP_ALWAYS_CONCURRENT);
+        Assert.assertSame(plus.getRelationForEntities(t3,t3).getType(), Relation.RelationType.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t3,t4).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
 
-        Assert.assertSame(plus.getRelationForEntities(t4,t1), AbstractProfile.Relation.BPP_REVERSE_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t4,t2), AbstractProfile.Relation.BPP_REVERSE_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t4,t4), AbstractProfile.Relation.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t4,t1).getType(), Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t4,t2).getType(), Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t4,t4).getType(), Relation.RelationType.BPP_CONFLICT);
     }
 
 

@@ -15,10 +15,11 @@ public class DirectlyFollowsLogProfile extends EventuallyFollowsLogProfile{
         super(net,log);
     }
 
-
     @Override
     public Relation getRelationForEntities(Node n1, Node n2) {
-        return Relation.LOG_DIRECTLY_FOLLOWS;
+        double freq = relativeFollowFrequencies(n1,n2);
+        Relation r = new Relation(Relation.RelationType.LOG_DIRECTLY_FOLLOWS, freq);
+        return r;
     }
 
     /**
