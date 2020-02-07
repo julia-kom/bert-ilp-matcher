@@ -1,0 +1,1696 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file has been generated with the OpenXES library. It conforms -->
+<!-- to the XML serialization of the XES standard for log storage and -->
+<!-- management. -->
+<!-- XES standard version: 1.0 -->
+<!-- OpenXES library version: 1.0RC7 -->
+<!-- OpenXES is available from http://www.openxes.org/ -->
+<log xes.version="1.0" xes.features="nested-attributes" openxes.version="1.0RC7">
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="registreren datum besluit vergunningvrij"/>
+			<string key="concept:name" value="14_VRIJ_030_3"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-08-28 11:38:35"/>
+			<string key="action_code" value="14_VRIJ_030_3"/>
+			<string key="activityNameEN" value="record date of decision no permit required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-07T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="genereren beschikking vergunningvrij"/>
+			<string key="concept:name" value="14_VRIJ_030_4"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-08-28 11:38:34"/>
+			<string key="action_code" value="14_VRIJ_030_4"/>
+			<string key="activityNameEN" value="generating decision no permit required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-28T11:35:17.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="invoeren verzenddatum brief vergunningvrij"/>
+			<string key="concept:name" value="14_VRIJ_060_2"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-08-28 11:38:34"/>
+			<string key="action_code" value="14_VRIJ_060_2"/>
+			<string key="activityNameEN" value="enter senddate letter no permit required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-28T11:35:20.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="brief vergunningvrij genereren"/>
+			<string key="concept:name" value="14_VRIJ_060_1"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-08-28 11:38:34"/>
+			<string key="action_code" value="14_VRIJ_060_1"/>
+			<string key="activityNameEN" value="generate letter no permit required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-28T11:35:20.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2012-08-28 11:38:35"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<date key="planned" value="2012-08-29T11:34:39.000+02:00"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-28T11:38:01.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_011"/>
+			<string key="question" value="Vergunningvrij"/>
+			<string key="dateFinished" value="2012-08-28 11:38:35"/>
+			<string key="action_code" value="14_VRIJ_011"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<date key="planned" value="2012-08-29T11:38:01.000+02:00"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-28T11:38:03.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="aanmaken besluit vergunningvrij"/>
+			<string key="concept:name" value="14_VRIJ_030_1"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-08-28 11:38:35"/>
+			<string key="action_code" value="14_VRIJ_030_1"/>
+			<string key="activityNameEN" value="create decision no permit required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-28T11:38:03.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="besluitdatum voorafgaand aan beschikking"/>
+			<string key="concept:name" value="14_VRIJ_030_2"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2012-08-28 11:38:35"/>
+			<string key="action_code" value="14_VRIJ_030_2"/>
+			<string key="activityNameEN" value="decision date prior to decision"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-28T11:38:08.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="fase activiteit vergunningvrij"/>
+			<string key="concept:name" value="14_VRIJ_055"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-08-28 11:38:35"/>
+			<string key="action_code" value="14_VRIJ_055"/>
+			<string key="activityNameEN" value="phase activity no permit required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-28T11:38:15.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="genereren beschikking vergunningvrij"/>
+			<string key="concept:name" value="14_VRIJ_030_4"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-08-28 11:38:34"/>
+			<string key="action_code" value="14_VRIJ_030_4"/>
+			<string key="activityNameEN" value="generating decision no permit required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-28T11:38:15.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="brief vergunningvrij genereren"/>
+			<string key="concept:name" value="14_VRIJ_060_1"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-08-28 11:38:34"/>
+			<string key="action_code" value="14_VRIJ_060_1"/>
+			<string key="activityNameEN" value="generate letter no permit required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-28T11:38:29.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="invoeren verzenddatum brief vergunningvrij"/>
+			<string key="concept:name" value="14_VRIJ_060_2"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-08-28 11:38:34"/>
+			<string key="action_code" value="14_VRIJ_060_2"/>
+			<string key="activityNameEN" value="enter senddate letter no permit required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-28T11:38:29.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="invoeren verzenddatum brief vergunningvrij"/>
+			<string key="concept:name" value="14_VRIJ_060_3"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-08-28 11:38:35"/>
+			<string key="action_code" value="14_VRIJ_060_3"/>
+			<string key="activityNameEN" value="enter senddate letter no permit required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-28T11:38:30.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="4634935"/>
+			<string key="org:resource" value="4634935"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-02-21 11:36:09"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<date key="planned" value="2013-02-22T11:28:17.000+01:00"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-02-21T11:33:36.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2011-07-12 18:32:33"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-12T18:06:54.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="brief vergunningvrij of meldingplichtig genereren"/>
+			<string key="concept:name" value="14_VRIJ_020_1"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2011-07-12 18:32:32"/>
+			<string key="action_code" value="14_VRIJ_020_1"/>
+			<string key="activityNameEN" value="create letter no permit or only notification required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-12T18:06:56.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="invoeren verzenddatum brief vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_020_2"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2011-07-12 18:32:32"/>
+			<string key="action_code" value="14_VRIJ_020_2"/>
+			<string key="activityNameEN" value="enter senddate letter no permit or only notification required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-12T18:06:56.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="fase procedure afgebroken"/>
+			<string key="concept:name" value="14_VRIJ_035"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2011-07-12 18:32:33"/>
+			<string key="action_code" value="14_VRIJ_035"/>
+			<string key="activityNameEN" value="phase procedure aborted"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-12T18:06:58.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-14 10:06:49"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-14T10:06:41.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-06 09:10:37"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-06T09:09:45.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-21 15:58:12"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-21T15:58:03.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-21 16:31:00"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-21T16:30:53.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-29 09:06:00"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-20T09:37:57.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-19 12:05:51"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-27T12:01:28.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-22 11:15:17"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-22T11:15:07.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-23 13:43:38"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-23T13:43:24.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-23 14:55:30"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-23T14:53:03.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-05 11:29:17"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-05T11:27:18.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-28 09:55:35"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-28T09:54:50.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-04 14:19:37"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-04T14:18:08.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-28 15:23:41"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-28T15:22:18.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-02 15:24:17"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-02T15:22:56.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-30 16:56:30"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-30T16:52:55.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-07-25 11:23:19"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-26T17:58:23.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-04 12:17:43"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-04T12:15:36.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-05 11:42:33"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-05T11:42:04.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-13 09:08:29"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-13T09:07:57.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-05 12:13:52"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-05T12:13:38.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-07 10:03:58"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-07T10:00:05.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-11 11:41:46"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-11T11:39:50.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-08 08:52:38"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-08T08:50:54.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-25 16:00:16"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-25T15:59:55.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-12 13:50:09"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-12T13:50:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-12 15:57:16"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-12T15:56:14.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-12 17:25:47"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-12T17:24:21.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-14 12:11:04"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-14T12:09:26.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-14 14:51:25"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-14T14:50:26.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-14 15:25:03"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-14T15:20:22.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-18 14:26:54"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-18T14:25:18.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-21 10:54:12"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-21T10:52:35.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-19 11:34:00"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-19T11:33:18.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-04 12:38:24"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-04T12:27:38.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-21 11:28:21"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-21T11:23:33.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-19 14:57:11"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-19T14:51:33.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-19 15:50:30"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-19T15:48:29.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-20 15:33:52"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-20T15:22:47.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-21 08:45:22"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-21T08:43:07.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-26 14:16:31"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-26T14:15:47.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-03 08:56:41"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-03T08:56:24.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-03 16:06:36"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-03T16:02:12.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-12 10:40:32"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-12T10:40:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-06-06 10:12:58"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-14T11:50:22.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-16 19:15:01"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-16T19:06:33.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-22 13:24:53"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-22T13:20:51.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-09 10:28:50"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-09T10:22:33.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-30 11:20:30"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-30T11:09:57.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-30 15:28:18"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-30T15:28:08.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-30 16:34:03"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-30T16:33:55.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-07 09:56:18"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-07T09:54:59.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-07 10:26:22"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-07T10:16:29.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-07 11:46:46"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-07T11:46:33.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-09 11:54:20"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-09T11:52:57.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-09 09:58:26"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-09T09:54:18.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-14 09:35:02"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-14T09:32:48.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-20 09:12:11"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-20T09:09:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-21 10:37:01"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-21T10:33:41.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-29 11:16:32"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-29T11:16:30.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-05-16 09:25:16"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-29T13:16:37.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-03 15:15:03"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-03T15:14:21.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-05 10:18:19"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-05T10:18:04.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-09 12:20:01"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-09T12:19:51.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-13 11:55:49"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-13T11:55:28.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-18 09:23:48"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-18T09:23:40.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-18 10:20:47"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-18T10:14:54.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-18 13:53:25"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-18T12:52:41.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-05 10:42:39"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-09T11:55:38.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-24 09:49:01"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-24T09:46:50.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-24 13:03:23"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-24T12:56:49.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-26 10:25:48"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-26T09:32:27.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-09 11:52:26"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-09T11:49:51.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-09 13:59:24"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-09T10:48:37.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-28 11:22:49"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-28T11:20:57.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-28 12:16:40"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-28T12:16:25.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-05 08:21:55"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-01T15:14:14.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-01 11:05:09"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-01T11:02:10.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-02 10:13:13"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-02T09:59:59.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="invoeren verzenddatum brief vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_020_2"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-01-17 11:48:17"/>
+			<string key="action_code" value="14_VRIJ_020_2"/>
+			<string key="activityNameEN" value="enter senddate letter no permit or only notification required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-02T00:00:00.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2012-01-17 11:48:17"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-17T11:47:31.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="fase activiteit meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_015"/>
+			<string key="question" value="Vergunningvrij"/>
+			<string key="dateFinished" value="2012-01-17 11:48:17"/>
+			<string key="action_code" value="14_VRIJ_015"/>
+			<string key="activityNameEN" value="phase only notification required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-17T11:47:34.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="brief vergunningvrij of meldingplichtig genereren"/>
+			<string key="concept:name" value="14_VRIJ_020_1"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-01-17 11:48:17"/>
+			<string key="action_code" value="14_VRIJ_020_1"/>
+			<string key="activityNameEN" value="create letter no permit or only notification required"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-17T11:47:41.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="fase procedure afgebroken"/>
+			<string key="concept:name" value="14_VRIJ_030"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-01-17 11:48:17"/>
+			<string key="action_code" value="14_VRIJ_030"/>
+			<string key="activityNameEN" value="phase procedure aborted"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-17T11:48:07.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-04 11:43:35"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-04T11:09:35.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-07 10:08:13"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-07T10:06:27.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-10 12:13:16"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-10T12:12:21.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-10 16:30:48"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-10T16:16:26.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-15 14:41:25"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-15T14:41:04.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-15 17:48:10"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-15T17:47:43.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-21 11:06:24"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-21T10:44:38.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-25 11:01:41"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-25T10:42:52.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="staken BAG objecten onderzoek"/>
+			<string key="concept:name" value="14_VRIJ_170"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2014-12-01 00:00:00"/>
+			<string key="action_code" value="14_VRIJ_170"/>
+			<string key="activityNameEN" value="cancel BAG objects research"/>
+			<date key="planned" value="2014-12-02T13:12:26.000+01:00"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-12-01T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_010"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2012-03-28 09:36:30"/>
+			<string key="action_code" value="14_VRIJ_010"/>
+			<string key="activityNameEN" value="no permit needed or only notification needed"/>
+			<date key="planned" value="2012-03-29T09:10:37.000+02:00"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-28T09:10:54.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="fase activiteit meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_015"/>
+			<string key="question" value="Vergunningvrij"/>
+			<string key="dateFinished" value="2012-03-28 09:36:30"/>
+			<string key="action_code" value="14_VRIJ_015"/>
+			<string key="activityNameEN" value="phase only notification required"/>
+			<date key="planned" value="2012-03-29T09:10:54.000+02:00"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-28T09:11:01.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="invoeren verzenddatum brief vergunningvrij of meldingplichtig"/>
+			<string key="concept:name" value="14_VRIJ_020_2"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-03-28 09:36:28"/>
+			<string key="action_code" value="14_VRIJ_020_2"/>
+			<string key="activityNameEN" value="enter senddate letter no permit or only notification required"/>
+			<date key="planned" value="2012-03-29T09:11:49.000+02:00"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-28T09:11:49.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="brief vergunningvrij of meldingplichtig genereren"/>
+			<string key="concept:name" value="14_VRIJ_020_1"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-03-28 09:36:28"/>
+			<string key="action_code" value="14_VRIJ_020_1"/>
+			<string key="activityNameEN" value="create letter no permit or only notification required"/>
+			<date key="planned" value="2012-03-29T09:11:01.000+02:00"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-28T09:11:49.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560521"/>
+			<string key="activityNameNL" value="fase procedure afgebroken"/>
+			<string key="concept:name" value="14_VRIJ_030"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-03-28 09:36:30"/>
+			<string key="action_code" value="14_VRIJ_030"/>
+			<string key="activityNameEN" value="phase procedure aborted"/>
+			<string key="subprocess" value="14_VRIJ"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-28T09:11:54.000+02:00"/>
+		</event>
+	</trace>
+</log>

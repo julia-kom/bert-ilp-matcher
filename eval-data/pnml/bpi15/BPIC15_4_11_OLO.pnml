@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="c070e429-7f31-4da7-b885-726ec7e35682" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5836</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5837</text>
+        </name>
+      </place>
+      <transition id="11_OLO_100+complete">
+        <name>
+          <text>message change status</text>
+        </name>
+      </transition>
+      <arc id="ea9eca83-a2cb-42f7-bde7-47f20c4f5e8e" source="11_OLO_100+complete" target="n2"/>
+      <arc id="7cd9fca0-e979-4085-9bf9-5ec13f5f9359" source="n1" target="11_OLO_100+complete"/>
+    </page>
+  </net>
+</pnml>

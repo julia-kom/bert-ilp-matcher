@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="558819b7-906a-47a4-8b83-28e0323df80b" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5233</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5234</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>middle 5235</text>
+        </name>
+      </place>
+      <transition id="09_AH_I_010+complete">
+        <name>
+          <text>article 34  WABO applies</text>
+        </name>
+      </transition>
+      <transition id="n5"/>
+      <transition id="n6"/>
+      <arc id="2088085c-83ba-4466-b3e0-8066f906732a" source="n1" target="09_AH_I_010+complete"/>
+      <arc id="c1903925-e96a-415d-bff6-52a0d033db56" source="n5" target="n1"/>
+      <arc id="766d98eb-e371-4d7a-9015-97d836a52104" source="n3" target="n6"/>
+      <arc id="e8b69db2-015a-4fe6-a33b-23b6a548011f" source="09_AH_I_010+complete" target="n3"/>
+      <arc id="52172f8c-31d8-4ae6-b4b5-eb8a2f15d1a5" source="n3" target="n5"/>
+      <arc id="56187f80-4979-41fc-86a5-91d1ce3944e8" source="n6" target="n2"/>
+    </page>
+  </net>
+</pnml>

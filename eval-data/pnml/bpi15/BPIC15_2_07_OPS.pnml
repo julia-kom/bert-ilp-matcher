@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="d86647be-89f6-4874-8344-705ebb28a626" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5202</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5203</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 5204</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>sink 5205</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>sink 5206</text>
+        </name>
+      </place>
+      <place id="n6">
+        <name>
+          <text>sink 5207</text>
+        </name>
+      </place>
+      <place id="n7">
+        <name>
+          <text>sink 5208</text>
+        </name>
+      </place>
+      <place id="n8">
+        <name>
+          <text>sink 5209</text>
+        </name>
+      </place>
+      <place id="n9">
+        <name>
+          <text>sink 5210</text>
+        </name>
+      </place>
+      <place id="n10">
+        <name>
+          <text>sink 5211</text>
+        </name>
+      </place>
+      <place id="n12">
+        <name>
+          <text>sink 5213</text>
+        </name>
+      </place>
+      <place id="n11">
+        <name>
+          <text>sink 5212</text>
+        </name>
+      </place>
+      <place id="n13">
+        <name>
+          <text>sink 5214</text>
+        </name>
+      </place>
+      <transition id="07_OPS_060_0+complete">
+        <name>
+          <text>create suspension competent authority</text>
+        </name>
+      </transition>
+      <transition id="07_OPS_075+complete">
+        <name>
+          <text>phase procedure term resumed</text>
+        </name>
+      </transition>
+      <transition id="07_OPS_080_0+complete">
+        <name>
+          <text>create continuation letter</text>
+        </name>
+      </transition>
+      <transition id="07_OPS_080_2+complete">
+        <name>
+          <text>enter senddate continuation</text>
+        </name>
+      </transition>
+      <transition id="07_OPS_055+complete">
+        <name>
+          <text>phase procedure term suspended</text>
+        </name>
+      </transition>
+      <transition id="07_OPS_020+complete">
+        <name>
+          <text>reason for suspension found</text>
+        </name>
+      </transition>
+      <transition id="n30"/>
+      <transition id="07_OPS_070+complete">
+        <name>
+          <text>continuation term to decision</text>
+        </name>
+      </transition>
+      <transition id="n32"/>
+      <transition id="07_OPS_071+complete">
+        <name>
+          <text>date continuation term to decision</text>
+        </name>
+      </transition>
+      <transition id="07_OPS_060_2+complete">
+        <name>
+          <text>enter senddate suspension by competent authority</text>
+        </name>
+      </transition>
+      <transition id="n20"/>
+      <transition id="n22"/>
+      <transition id="n14"/>
+      <transition id="n24"/>
+      <transition id="07_OPS_080_1+complete">
+        <name>
+          <text>send continuation letter</text>
+        </name>
+      </transition>
+      <transition id="n16"/>
+      <transition id="n18"/>
+      <transition id="07_OPS_010+complete">
+        <name>
+          <text>suspend term</text>
+        </name>
+      </transition>
+      <transition id="n28"/>
+      <transition id="07_OPS_051+complete">
+        <name>
+          <text>start date suspension competent authority</text>
+        </name>
+      </transition>
+      <transition id="07_OPS_060_1+complete">
+        <name>
+          <text>send suspension by competent authority</text>
+        </name>
+      </transition>
+      <transition id="07_OPS_050+complete">
+        <name>
+          <text>register suspension by competent authority</text>
+        </name>
+      </transition>
+      <arc id="3e6cbf36-089c-4f56-b42e-5761fa1cfd1b" source="n11" target="n32"/>
+      <arc id="01809ae5-6550-4df6-837b-1dd63d67c694" source="n3" target="n16"/>
+      <arc id="9020b9de-2e89-4170-a01b-5357c11862ed" source="n7" target="n24"/>
+      <arc id="8a578e23-13fd-4fbb-975f-0725077964f1" source="07_OPS_060_2+complete" target="n8"/>
+      <arc id="f8cfac18-f283-46fe-aeb8-27cc6fae5551" source="n32" target="n2"/>
+      <arc id="2b24689d-90f8-4ba9-88d4-ef72fd255972" source="07_OPS_051+complete" target="n6"/>
+      <arc id="764bc821-b017-46ee-bff3-ef77036b317b" source="07_OPS_060_1+complete" target="n9"/>
+      <arc id="f298435e-66fd-4398-9f93-ff2eeeea5da5" source="07_OPS_055+complete" target="n7"/>
+      <arc id="01f13ebc-ffc5-4a16-8c84-a6ae61fad3f0" source="n28" target="n10"/>
+      <arc id="7292dca4-be8d-430c-b52e-52865805f696" source="n10" target="n30"/>
+      <arc id="fd25b2fa-37b9-4156-aee7-a340ee972fd3" source="n1" target="07_OPS_010+complete"/>
+      <arc id="d57743c9-15af-4497-ac7d-d7e2b3f9d43c" source="07_OPS_080_2+complete" target="n12"/>
+      <arc id="056576e5-03ab-498e-9ea6-9b932feb8de5" source="n6" target="07_OPS_055+complete"/>
+      <arc id="4909e3a4-4a06-4574-9d17-8edcb095b96d" source="n13" target="07_OPS_075+complete"/>
+      <arc id="4a66cca7-f8e8-40ce-8aaf-aae85bad6388" source="n18" target="n5"/>
+      <arc id="8008bb89-1ade-4fab-b35c-b6599dfa1c41" source="n10" target="07_OPS_071+complete"/>
+      <arc id="99bfcfeb-cc93-4248-828d-a09273d03399" source="n9" target="07_OPS_060_2+complete"/>
+      <arc id="4c49fc50-e3a8-42ec-8b41-5b23e6a21d5c" source="n8" target="n28"/>
+      <arc id="d83ad2d4-9ee2-48f6-8261-c11442278dc6" source="07_OPS_060_0+complete" target="n8"/>
+      <arc id="1fa967d6-3fa3-49fb-8579-803fb05a743e" source="07_OPS_010+complete" target="n3"/>
+      <arc id="2abb3e9f-db75-4edc-9cf6-2e01293b2c14" source="n4" target="n18"/>
+      <arc id="2a694e6c-26d5-4f5a-81f1-408c406c1c3b" source="n20" target="n6"/>
+      <arc id="9323f514-2648-4f98-be95-339e5ddad319" source="n1" target="n14"/>
+      <arc id="bb3d35f6-9afc-477b-8e62-61eb138b147e" source="n12" target="07_OPS_080_1+complete"/>
+      <arc id="0666976a-af63-4f90-8f10-dc33a3a4c51c" source="n22" target="n7"/>
+      <arc id="3fa30e62-92cb-4bcc-a9f0-d4772ba3c9b2" source="n11" target="07_OPS_080_0+complete"/>
+      <arc id="87211004-7ffa-47d9-937b-114b65b2be85" source="n16" target="n4"/>
+      <arc id="6a133211-dbb4-49c5-86df-0d0c6978ecab" source="n5" target="n20"/>
+      <arc id="d95b0612-6279-4057-a216-64b7d60273ac" source="n14" target="n3"/>
+      <arc id="4b1fb0cd-ef20-4d75-acf6-34e77b233adb" source="07_OPS_080_0+complete" target="n13"/>
+      <arc id="5d693cb2-d6fd-45a5-b5a5-2ad64b0c2fe9" source="n24" target="n8"/>
+      <arc id="b8637751-dc02-465e-b6f1-7e5ff8440b8d" source="n11" target="07_OPS_080_2+complete"/>
+      <arc id="8567c0ac-1679-4713-8bed-7634309d3d7a" source="n7" target="07_OPS_060_0+complete"/>
+      <arc id="0022e35f-c6be-4ba5-9d27-3ecb21747303" source="07_OPS_050+complete" target="n5"/>
+      <arc id="1fc5d4c2-2a83-4d1c-8b6e-792b0ef1974a" source="n3" target="07_OPS_020+complete"/>
+      <arc id="3321a090-c83f-48ce-816a-5b2736ce24e6" source="07_OPS_071+complete" target="n11"/>
+      <arc id="3e085e69-1eee-417f-824a-9b688dcac9f7" source="n7" target="07_OPS_060_1+complete"/>
+      <arc id="4bd7730d-cfdd-4844-a06c-99c43511317a" source="n5" target="07_OPS_051+complete"/>
+      <arc id="cc4451ca-0e9d-453f-8f4f-1cdcc3964719" source="n30" target="n11"/>
+      <arc id="c4844205-e842-41a5-983d-6c788bfa70fc" source="07_OPS_075+complete" target="n2"/>
+      <arc id="6bf61635-e70b-4396-b91d-34cb07ad8607" source="07_OPS_080_1+complete" target="n2"/>
+      <arc id="8e7f5175-0757-417e-855c-94d14353526e" source="n6" target="n22"/>
+      <arc id="f7a4707e-a37c-4335-ba69-6d3ba4cc29a5" source="n4" target="07_OPS_050+complete"/>
+      <arc id="65497a5b-0ead-4198-931b-7d8a4b2849ba" source="07_OPS_020+complete" target="n4"/>
+      <arc id="ac5d22d6-52fc-461f-be65-98b665b34162" source="07_OPS_070+complete" target="n10"/>
+      <arc id="d2075702-7c48-4afd-bcae-2a30b1813cb2" source="n8" target="07_OPS_070+complete"/>
+    </page>
+  </net>
+</pnml>

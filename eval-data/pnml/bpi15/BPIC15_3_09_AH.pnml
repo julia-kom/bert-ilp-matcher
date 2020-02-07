@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="1ec07342-b953-4d3b-bf54-f1cd7c9a2512" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5483</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5484</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 5485</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>middle 5486</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>sink 5487</text>
+        </name>
+      </place>
+      <transition id="09_AH_I_020+complete">
+        <name>
+          <text>environmental permit irrevocable</text>
+        </name>
+      </transition>
+      <transition id="09_AH_I_010+complete">
+        <name>
+          <text>article 34  WABO applies</text>
+        </name>
+      </transition>
+      <transition id="n7"/>
+      <transition id="09_AH_I_040+complete">
+        <name>
+          <text>determine cause for suspension article 34 WABO</text>
+        </name>
+      </transition>
+      <transition id="n8"/>
+      <transition id="n9"/>
+      <arc id="11c5a3ab-66e3-4213-8515-55419a0a048c" source="n5" target="09_AH_I_040+complete"/>
+      <arc id="35e310bd-4f9d-469b-917b-fdfd30f1770e" source="09_AH_I_010+complete" target="n4"/>
+      <arc id="d76dddae-40b6-42ea-99b1-fb94eba676a7" source="n1" target="09_AH_I_010+complete"/>
+      <arc id="236bfa77-4147-4895-a211-5604f7a49485" source="09_AH_I_020+complete" target="n5"/>
+      <arc id="391d87b7-751e-4d96-8631-bb3d0c179bea" source="n3" target="09_AH_I_020+complete"/>
+      <arc id="d342eb34-5af8-4342-9a51-ce0c8ad596b4" source="n8" target="n3"/>
+      <arc id="45334a68-d8b4-4754-b62c-070c340e0edc" source="n3" target="n9"/>
+      <arc id="ef91783c-8898-44aa-a09d-e68bcb8a050a" source="n4" target="n7"/>
+      <arc id="8ebf1373-da60-4fd5-9fcd-6d113073b5cc" source="n9" target="n2"/>
+      <arc id="07e17276-3508-4eb4-9e77-5c84b1df58a3" source="n4" target="n8"/>
+      <arc id="800558d6-c382-49ac-bd14-fe1548d28997" source="09_AH_I_040+complete" target="n2"/>
+      <arc id="c7c35367-68a2-4607-8432-1cdaf34ad8f9" source="n7" target="n1"/>
+    </page>
+  </net>
+</pnml>

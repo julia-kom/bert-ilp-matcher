@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="a0072d42-1459-4370-a8a6-a12b2c89f32a" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5658</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5659</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 5660</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>sink 5661</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>sink 5662</text>
+        </name>
+      </place>
+      <place id="n6">
+        <name>
+          <text>sink 5663</text>
+        </name>
+      </place>
+      <place id="n7">
+        <name>
+          <text>sink 5664</text>
+        </name>
+      </place>
+      <place id="n8">
+        <name>
+          <text>middle 5665</text>
+        </name>
+      </place>
+      <transition id="n13"/>
+      <transition id="n16"/>
+      <transition id="01_OLO_190+complete">
+        <name>
+          <text>message change status</text>
+        </name>
+      </transition>
+      <transition id="01_OLO_160+complete">
+        <name>
+          <text>message change status</text>
+        </name>
+      </transition>
+      <transition id="01_OLO_120+complete">
+        <name>
+          <text>send message OLO-status in progress</text>
+        </name>
+      </transition>
+      <transition id="n18"/>
+      <transition id="n17"/>
+      <transition id="01_OLO_180+complete">
+        <name>
+          <text>message change status</text>
+        </name>
+      </transition>
+      <transition id="n10"/>
+      <transition id="01_OLO_240+complete">
+        <name>
+          <text>message change status</text>
+        </name>
+      </transition>
+      <transition id="01_OLO_140+complete">
+        <name>
+          <text>message request advice</text>
+        </name>
+      </transition>
+      <arc id="9ff08661-57d0-4ef3-8bd9-a10b1d820bb3" source="n8" target="n16"/>
+      <arc id="17396f18-1862-450f-aca9-de81fc027750" source="01_OLO_190+complete" target="n8"/>
+      <arc id="16ea565f-0206-480a-87f9-6a97e1155fdd" source="01_OLO_140+complete" target="n4"/>
+      <arc id="40c49c5a-d378-45e8-8b15-43457890b191" source="n4" target="01_OLO_160+complete"/>
+      <arc id="293f9e22-1d40-4fa3-8696-512c43c141fa" source="n8" target="n17"/>
+      <arc id="e0eff2b4-1ed0-4039-97b1-5a13a5d65fa9" source="n10" target="n2"/>
+      <arc id="567e8d4e-6532-4c08-87e2-f3caa1febf6a" source="01_OLO_120+complete" target="n3"/>
+      <arc id="97fa2128-4802-47b2-ac0c-9f3f194903f5" source="n3" target="n10"/>
+      <arc id="1323f475-5a18-4983-8a6d-40832d055c05" source="n5" target="n13"/>
+      <arc id="c973b1da-586f-4357-ab2f-a91ce22f701a" source="n6" target="01_OLO_190+complete"/>
+      <arc id="101a618a-ed86-4645-b132-b359c4193b13" source="n17" target="n7"/>
+      <arc id="50d2ec84-47b7-40e5-b2a6-8ff32d24b2db" source="n1" target="01_OLO_120+complete"/>
+      <arc id="ce2a04e6-e7eb-4025-8018-936b6f00d532" source="n5" target="01_OLO_180+complete"/>
+      <arc id="588e90a3-cc65-4bab-82bf-1fd833434c5e" source="n7" target="n18"/>
+      <arc id="a85fada4-3eed-4547-b9bf-38338e7c52d3" source="n7" target="01_OLO_240+complete"/>
+      <arc id="1f13f201-3be7-4c68-9288-ffef0d8a3e52" source="n13" target="n6"/>
+      <arc id="f779ffca-4880-4bbe-94df-0fdf8ae8976f" source="n3" target="01_OLO_140+complete"/>
+      <arc id="6823f1a3-1ae1-4c4a-9232-be42dde10931" source="n18" target="n2"/>
+      <arc id="96cc6bc3-295a-4597-8037-164b5f97900b" source="01_OLO_240+complete" target="n2"/>
+      <arc id="2ee54c9e-b5a8-4ccf-9ef5-ac4a29e4d0fe" source="n16" target="n6"/>
+      <arc id="13f415a1-108b-40be-942f-b00051479a5d" source="01_OLO_160+complete" target="n5"/>
+      <arc id="37196833-7a64-4974-9ddf-9316e2d8da68" source="01_OLO_180+complete" target="n6"/>
+    </page>
+  </net>
+</pnml>

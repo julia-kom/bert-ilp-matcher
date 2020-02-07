@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <onto1>
+    <Ontology rdf:about="null">
+      <location>null</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="null">
+      <location>null</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_060_0+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_060_0+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_071+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_071+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_080_0+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_080_0+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_060_2+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_060_2+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_080_2+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_080_2+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_075+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_075+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_050+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_050+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_010+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_010+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_070+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_070+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_055+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_055+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_020+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_020+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_060_1+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_060_1+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_080_1+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_080_1+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_07_OPS#07_OPS_051+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_07_OPS#07_OPS_051+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

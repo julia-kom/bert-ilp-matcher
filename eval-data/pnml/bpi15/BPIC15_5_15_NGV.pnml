@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="4d800dc7-7656-41eb-bb9f-5fdb4acca9c4" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 6260</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 6261</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 6262</text>
+        </name>
+      </place>
+      <transition id="n5"/>
+      <transition id="15_NGV_010+complete">
+        <name>
+          <text>request further information</text>
+        </name>
+      </transition>
+      <transition id="15_NGV_020_1+complete">
+        <name>
+          <text>send information request</text>
+        </name>
+      </transition>
+      <arc id="abaf8486-10a4-4a5d-87f1-c7fe63d23e6a" source="15_NGV_010+complete" target="n3"/>
+      <arc id="ff9624f5-bb42-494e-9d97-404f45a2d851" source="15_NGV_020_1+complete" target="n2"/>
+      <arc id="d01754fc-3378-483f-aff9-d7cd72adfe2d" source="n1" target="15_NGV_010+complete"/>
+      <arc id="2f881b3b-8dda-4465-b0df-2437af396399" source="n5" target="n2"/>
+      <arc id="d2171d5f-d660-47a1-a8ec-9539ce002f0c" source="n3" target="n5"/>
+      <arc id="cb356dd3-8908-4662-9568-8baf46c967b2" source="n3" target="15_NGV_020_1+complete"/>
+    </page>
+  </net>
+</pnml>

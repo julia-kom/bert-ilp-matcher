@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="0fba4ee7-8c28-4789-9d9f-94e86dafb72a" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5675</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5676</text>
+        </name>
+      </place>
+      <transition id="03_GBH_005+complete">
+        <name>
+          <text>applicant is stakeholder</text>
+        </name>
+      </transition>
+      <arc id="50d97deb-6ab8-41be-900b-3987f6574ddf" source="n1" target="03_GBH_005+complete"/>
+      <arc id="0685b764-8a4d-498a-9dd5-c96ba07c14bf" source="03_GBH_005+complete" target="n2"/>
+    </page>
+  </net>
+</pnml>

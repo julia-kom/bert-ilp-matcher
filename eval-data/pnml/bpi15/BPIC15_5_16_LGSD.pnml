@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="1e9380ab-4128-4de5-9baf-513d2d64bd3a" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 6263</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 6264</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>middle 6265</text>
+        </name>
+      </place>
+      <transition id="16_LGSD_010+complete">
+        <name>
+          <text>calculate final charges</text>
+        </name>
+      </transition>
+      <transition id="n5"/>
+      <transition id="n6"/>
+      <arc id="4c26fe4e-ebd0-408b-9a2c-cd6086ccf4f8" source="n3" target="n6"/>
+      <arc id="a4ae9b5d-43d7-43f2-8396-4adc0e3eb4d0" source="n6" target="n2"/>
+      <arc id="5fa62148-f126-4d9d-8458-e7f3ce087546" source="n5" target="n1"/>
+      <arc id="b5c78dae-3676-4167-8670-13e1224738c7" source="n1" target="16_LGSD_010+complete"/>
+      <arc id="201fe8c8-d487-43a5-a9a8-4275680a0a6e" source="16_LGSD_010+complete" target="n3"/>
+      <arc id="8928446a-be2b-4bab-9fc9-f07918b1d252" source="n3" target="n5"/>
+    </page>
+  </net>
+</pnml>

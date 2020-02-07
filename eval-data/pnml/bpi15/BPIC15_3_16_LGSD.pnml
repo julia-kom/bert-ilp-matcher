@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="f22bc7d8-192b-4e90-a908-ddb4c5664b54" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5591</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5592</text>
+        </name>
+      </place>
+      <transition id="16_LGSD_010+complete">
+        <name>
+          <text>calculate final charges</text>
+        </name>
+      </transition>
+      <arc id="065d8381-3a06-4ca9-993c-1f8abd7694cf" source="16_LGSD_010+complete" target="n2"/>
+      <arc id="d44a37a2-adb5-4aeb-9daf-69715653f100" source="n1" target="16_LGSD_010+complete"/>
+    </page>
+  </net>
+</pnml>

@@ -84,7 +84,7 @@ public abstract class AbstractLogProfile extends AbstractProfile {
             return 0;
         }
 
-        int freqTransition = followFrequency.get(edge);
+        int freqFollow = followFrequency.get(edge);
         int freqN1 = transitionFrequency.get(n1);
 
         // special case that a transition is not occuring in the log for some reasons
@@ -92,7 +92,7 @@ public abstract class AbstractLogProfile extends AbstractProfile {
             return 0;
         }
 
-        return ((double) freqTransition)/freqN1;
+        return ((double) freqFollow)/freqN1;
     }
 
 }

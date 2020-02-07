@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="5f1ba54a-06a6-4d28-bd90-3d7e79de2a5e" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5998</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5999</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 6000</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>middle 6001</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>sink 6002</text>
+        </name>
+      </place>
+      <place id="n6">
+        <name>
+          <text>sink 6003</text>
+        </name>
+      </place>
+      <place id="n7">
+        <name>
+          <text>sink 6004</text>
+        </name>
+      </place>
+      <place id="n8">
+        <name>
+          <text>sink 6005</text>
+        </name>
+      </place>
+      <place id="n9">
+        <name>
+          <text>sink 6006</text>
+        </name>
+      </place>
+      <place id="n10">
+        <name>
+          <text>source 6007</text>
+        </name>
+      </place>
+      <place id="n12">
+        <name>
+          <text>source 6009</text>
+        </name>
+      </place>
+      <place id="n11">
+        <name>
+          <text>sink 6008</text>
+        </name>
+      </place>
+      <place id="n14">
+        <name>
+          <text>source 6011</text>
+        </name>
+      </place>
+      <place id="n13">
+        <name>
+          <text>sink 6010</text>
+        </name>
+      </place>
+      <place id="n16">
+        <name>
+          <text>sink 6013</text>
+        </name>
+      </place>
+      <place id="n15">
+        <name>
+          <text>sink 6012</text>
+        </name>
+      </place>
+      <place id="n18">
+        <name>
+          <text>sink 6015</text>
+        </name>
+      </place>
+      <place id="n17">
+        <name>
+          <text>sink 6014</text>
+        </name>
+      </place>
+      <transition id="05_EIND_070+complete">
+        <name>
+          <text>phase procedure aborted</text>
+        </name>
+      </transition>
+      <transition id="05_EIND_020+complete">
+        <name>
+          <text>enter date termination request received</text>
+        </name>
+      </transition>
+      <transition id="n30"/>
+      <transition id="n32"/>
+      <transition id="n31"/>
+      <transition id="n34"/>
+      <transition id="n36"/>
+      <transition id="05_EIND_040+complete">
+        <name>
+          <text>decision terminate on request</text>
+        </name>
+      </transition>
+      <transition id="n38"/>
+      <transition id="05_EIND_020_0+complete">
+        <name>
+          <text>initiative competent authority</text>
+        </name>
+      </transition>
+      <transition id="05_EIND_030_0+complete">
+        <name>
+          <text>create message terminate request</text>
+        </name>
+      </transition>
+      <transition id="05_EIND_030_2+complete">
+        <name>
+          <text>enter senddate request termination</text>
+        </name>
+      </transition>
+      <transition id="n19"/>
+      <transition id="05_EIND_060+complete">
+        <name>
+          <text>stop process after terminate on request</text>
+        </name>
+      </transition>
+      <transition id="05_EIND_010+complete">
+        <name>
+          <text>terminate on request</text>
+        </name>
+      </transition>
+      <transition id="05_EIND_065+complete">
+        <name>
+          <text>phase procedure aborted</text>
+        </name>
+      </transition>
+      <transition id="05_EIND_025+complete">
+        <name>
+          <text>phase procedure prematurely terminated</text>
+        </name>
+      </transition>
+      <transition id="n40"/>
+      <transition id="n21"/>
+      <transition id="n42"/>
+      <transition id="n23"/>
+      <transition id="n44"/>
+      <transition id="n25"/>
+      <transition id="n47"/>
+      <transition id="n46"/>
+      <transition id="n27"/>
+      <transition id="05_EIND_011+complete">
+        <name>
+          <text>initiative competent authority</text>
+        </name>
+      </transition>
+      <transition id="05_EIND_050+complete">
+        <name>
+          <text>enter senddate confirmation request</text>
+        </name>
+      </transition>
+      <transition id="05_EIND_030_1+complete">
+        <name>
+          <text>message terminate request</text>
+        </name>
+      </transition>
+      <arc id="e85b6198-12af-4b45-a68a-e0be809e1617" source="n15" target="n31"/>
+      <arc id="a68fd768-64de-4c84-bad1-376aea6f48bb" source="05_EIND_030_1+complete" target="n13"/>
+      <arc id="6728fbe4-05c3-4564-97f3-69be1e7877ba" source="n23" target="n7"/>
+      <arc id="ba3f9875-f82b-4964-8959-d9bd901e102e" source="n34" target="n13"/>
+      <arc id="c07bc49b-fc4b-4270-a2f0-5ab0d74b2dcb" source="n7" target="n25"/>
+      <arc id="1b5410e1-f9fc-490f-90cd-fc51d34d6ea9" source="05_EIND_040+complete" target="n16"/>
+      <arc id="2f939ffe-d917-4644-bcde-a9829759e591" source="05_EIND_020+complete" target="n7"/>
+      <arc id="66b8a339-6156-4c2e-a935-ef86c42a2ba9" source="n30" target="n12"/>
+      <arc id="cee67f8c-59f9-410a-8e27-4ef003693a04" source="n27" target="n5"/>
+      <arc id="a26f6af1-7e1d-4d91-9dac-588991c1e823" source="n9" target="n38"/>
+      <arc id="c53aefbe-feba-4d7f-8619-933a5520b7a8" source="n44" target="n4"/>
+      <arc id="55870ca8-e007-4f5f-be18-85677cd94c78" source="n3" target="n21"/>
+      <arc id="822a6544-be78-429a-a21c-ce8bce13291e" source="n16" target="05_EIND_060+complete"/>
+      <arc id="d8734590-9551-4e41-9ddd-d857a0bf11d6" source="n4" target="n47"/>
+      <arc id="9ba6ef2c-1434-4d5b-ae43-667a0dd11be3" source="n10" target="05_EIND_025+complete"/>
+      <arc id="5e3c7312-4357-4dae-9349-03bf0befe553" source="n5" target="n30"/>
+      <arc id="06985cb2-3426-48f8-82a9-bc87cc76b906" source="n17" target="n42"/>
+      <arc id="348bbe2e-1f98-4cd1-9fdd-e8e7faea752c" source="n16" target="n40"/>
+      <arc id="c2a745be-e0e7-4145-b647-eadf216dcb86" source="n18" target="n44"/>
+      <arc id="fe91c23c-10e7-4bca-bf4d-e9a94577aee8" source="n1" target="05_EIND_020_0+complete"/>
+      <arc id="8b758f2a-f72d-447d-ba03-be55c9b77466" source="n40" target="n17"/>
+      <arc id="f3aa6359-4c71-4117-b613-f55486431bcb" source="n14" target="05_EIND_065+complete"/>
+      <arc id="4b9b5149-aa9b-49ad-9eb9-b97ffa51b956" source="05_EIND_070+complete" target="n18"/>
+      <arc id="36d88a81-ee4e-41f8-8577-d975ebe5d2a5" source="n30" target="n10"/>
+      <arc id="cef0c168-c403-4efb-8b5b-0b10b0b77b28" source="n12" target="n34"/>
+      <arc id="36ef9b2e-d23b-410d-b3db-52d902cbc324" source="n11" target="n31"/>
+      <arc id="907ecfc0-6de7-4898-9d7b-3b44ff41c8fb" source="n8" target="05_EIND_010+complete"/>
+      <arc id="c2496f82-5d74-48e6-9779-7c19538c242d" source="n14" target="n36"/>
+      <arc id="ea87c4fc-190c-4b3a-be44-5ee29e932bcc" source="n30" target="n14"/>
+      <arc id="bce11233-bc81-4dea-8e59-25c6c38f46c2" source="n9" target="05_EIND_040+complete"/>
+      <arc id="62b55b57-714b-43bf-8959-6d636f835ef7" source="n25" target="n8"/>
+      <arc id="8ad1d1e4-f290-408b-9784-dde8b52f3c8b" source="n19" target="n3"/>
+      <arc id="dc1cb203-dce9-4e9f-a691-34dced85157a" source="05_EIND_030_2+complete" target="n5"/>
+      <arc id="a242180b-75eb-47dc-adb2-6006476a1ad5" source="n17" target="05_EIND_070+complete"/>
+      <arc id="757bead1-18bf-4d9f-b5da-85506a153a8b" source="05_EIND_030_0+complete" target="n8"/>
+      <arc id="6f2e1d8d-b279-4107-9e68-d8ecc6717c7c" source="n3" target="05_EIND_011+complete"/>
+      <arc id="ad7cede3-3522-4fb2-a661-6f73a5d7ae3e" source="n10" target="n32"/>
+      <arc id="fd04b34b-9924-40df-bb6a-3ab40877fa2d" source="05_EIND_011+complete" target="n6"/>
+      <arc id="ea339f06-0cf8-44e4-8962-946f283efaf7" source="n38" target="n16"/>
+      <arc id="41fa5387-6304-4d59-b891-15928310cfb0" source="n1" target="n19"/>
+      <arc id="5798feb4-3597-4faf-b247-164d7f9275bf" source="05_EIND_025+complete" target="n11"/>
+      <arc id="9f244bfa-24c8-4847-b1a0-d005bb7b3a72" source="n47" target="n2"/>
+      <arc id="fc2297d8-672b-4cb4-a38f-957b2342f0c3" source="n13" target="n31"/>
+      <arc id="02469a35-b0d5-4b88-a968-8ec7fae4f66f" source="05_EIND_020_0+complete" target="n3"/>
+      <arc id="a133d83e-4a9d-4a6f-8721-8398dc46cbc7" source="n36" target="n15"/>
+      <arc id="1d55ccdb-3ddd-4508-9521-f6f7e21e0a6d" source="05_EIND_065+complete" target="n15"/>
+      <arc id="31fc3fd6-4670-49b7-8177-28816ec9ca13" source="n18" target="05_EIND_050+complete"/>
+      <arc id="49a8e2f1-4bf0-465b-8e98-434009e8df8a" source="n8" target="n27"/>
+      <arc id="a9681a32-3001-476d-9160-8102303699e4" source="05_EIND_050+complete" target="n4"/>
+      <arc id="a31e23ec-a9cd-4fad-80d0-0fe8416cb16a" source="n46" target="n3"/>
+      <arc id="d5504e6b-655c-495e-9053-8dd4c50d8442" source="n32" target="n11"/>
+      <arc id="17ea6f91-5557-4328-b0a1-fce86ceb9bc7" source="05_EIND_060+complete" target="n17"/>
+      <arc id="3b7a12ba-1ebd-49a1-8cec-ba585853c318" source="n12" target="05_EIND_030_1+complete"/>
+      <arc id="1109f811-db84-4c3b-938e-a644a3ed4580" source="n7" target="05_EIND_030_0+complete"/>
+      <arc id="3c2688c5-1e59-4d72-8bca-4dce52c603f5" source="n6" target="05_EIND_020+complete"/>
+      <arc id="ba3567e4-a29b-47a1-a34b-afc2fef20a62" source="05_EIND_010+complete" target="n5"/>
+      <arc id="8625dec1-7b50-4c82-a445-47b0fb9a7fc8" source="n6" target="n23"/>
+      <arc id="07d6f06e-f299-4bd9-b9af-2b08e9e7f009" source="n4" target="n46"/>
+      <arc id="343ddaea-a9cb-47f3-80ec-0984a779930f" source="n21" target="n6"/>
+      <arc id="ca0d6763-f464-4552-95ce-14105a7a26f8" source="n31" target="n9"/>
+      <arc id="fcba4b42-ce8b-482d-a9dd-ac84c3e9d91e" source="n42" target="n18"/>
+      <arc id="e84bb068-168d-43e1-ac03-a744aaf28df1" source="n3" target="05_EIND_030_2+complete"/>
+    </page>
+  </net>
+</pnml>

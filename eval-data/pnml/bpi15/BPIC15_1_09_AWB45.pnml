@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="b2752429-c8cb-404f-af24-d5ec70bbcf38" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 4972</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 4973</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>middle 4974</text>
+        </name>
+      </place>
+      <transition id="09_AWB45_005+complete">
+        <name>
+          <text>request complete</text>
+        </name>
+      </transition>
+      <transition id="n5"/>
+      <transition id="n6"/>
+      <arc id="ea3072cf-6fec-4e25-b173-5746b5975be7" source="n5" target="n1"/>
+      <arc id="7ba93091-cdf5-4057-b2d2-444ab7dbc1f2" source="n1" target="09_AWB45_005+complete"/>
+      <arc id="2847497d-557f-4b55-b264-0fe1aa89d5bf" source="n3" target="n5"/>
+      <arc id="15849fe3-e3fe-4d60-8f87-4cd679e3b402" source="n6" target="n2"/>
+      <arc id="f1e39bcb-0338-4c6a-a0b6-cea5cf2437aa" source="n3" target="n6"/>
+      <arc id="783897d4-8d83-4c24-8b6f-8b5f16111e64" source="09_AWB45_005+complete" target="n3"/>
+    </page>
+  </net>
+</pnml>

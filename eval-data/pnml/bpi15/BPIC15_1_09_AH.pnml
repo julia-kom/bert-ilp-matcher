@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="01357e6d-feef-4aa2-89d2-02fefa03b843" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 4967</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 4968</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 4969</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>middle 4970</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>sink 4971</text>
+        </name>
+      </place>
+      <transition id="09_AH_I_020+complete">
+        <name>
+          <text>environmental permit irrevocable</text>
+        </name>
+      </transition>
+      <transition id="09_AH_I_010+complete">
+        <name>
+          <text>article 34  WABO applies</text>
+        </name>
+      </transition>
+      <transition id="n7"/>
+      <transition id="09_AH_I_040+complete">
+        <name>
+          <text>determine cause for suspension article 34 WABO</text>
+        </name>
+      </transition>
+      <transition id="n8"/>
+      <transition id="n9"/>
+      <transition id="09_AH_I_030+complete">
+        <name>
+          <text>date environmental permit irrevocable</text>
+        </name>
+      </transition>
+      <arc id="6c38bac5-40ac-477a-9d5d-00d2e6cfe8e9" source="n4" target="n7"/>
+      <arc id="0bf0f2e1-0987-4f32-b1d2-75aa01e7f219" source="n8" target="n3"/>
+      <arc id="8ab794fd-c3de-4d5b-a66a-69677667c598" source="n5" target="09_AH_I_030+complete"/>
+      <arc id="979f9278-d6da-411e-aad6-d5aae0ea547e" source="n1" target="09_AH_I_010+complete"/>
+      <arc id="4c715786-23e2-4d2f-a584-042b23d4f3be" source="09_AH_I_010+complete" target="n4"/>
+      <arc id="97db2724-82d2-47f5-9aa0-cf8f1efea09c" source="09_AH_I_020+complete" target="n5"/>
+      <arc id="54a30612-1005-459b-9424-462ac064874e" source="n3" target="n9"/>
+      <arc id="4f2b939f-301b-4d2d-b556-2d092c8735aa" source="n5" target="09_AH_I_040+complete"/>
+      <arc id="84581eee-1f4d-488e-b625-ddadc7a2da97" source="n7" target="n1"/>
+      <arc id="867e8c88-a6c1-4881-bbe6-77e1e08e54c8" source="n9" target="n2"/>
+      <arc id="eb6ff6eb-5038-46da-aca4-2a0aaa02a8ad" source="09_AH_I_030+complete" target="n2"/>
+      <arc id="f81f4249-8bca-4717-861c-f3dcb54ce119" source="09_AH_I_040+complete" target="n2"/>
+      <arc id="81582196-7447-4ed6-b05b-e7cae20a30f0" source="n3" target="09_AH_I_020+complete"/>
+      <arc id="9cadecff-6ad2-4800-b7eb-ed2e594b0efe" source="n4" target="n8"/>
+    </page>
+  </net>
+</pnml>

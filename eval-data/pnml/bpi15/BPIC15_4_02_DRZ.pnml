@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="53421e55-f5d9-40fa-b7cc-c65329afdba8" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5666</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5667</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 5668</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>middle 5669</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>sink 5670</text>
+        </name>
+      </place>
+      <place id="n6">
+        <name>
+          <text>sink 5671</text>
+        </name>
+      </place>
+      <place id="n7">
+        <name>
+          <text>sink 5672</text>
+        </name>
+      </place>
+      <place id="n8">
+        <name>
+          <text>sink 5673</text>
+        </name>
+      </place>
+      <place id="n9">
+        <name>
+          <text>sink 5674</text>
+        </name>
+      </place>
+      <transition id="n13"/>
+      <transition id="02_DRZ_035+complete">
+        <name>
+          <text>phase forwarded to competent authority</text>
+        </name>
+      </transition>
+      <transition id="02_DRZ_010+complete">
+        <name>
+          <text>forward to the competent authority</text>
+        </name>
+      </transition>
+      <transition id="02_DRZ_030_1+complete">
+        <name>
+          <text>forward transcript to stakeholders</text>
+        </name>
+      </transition>
+      <transition id="02_DRZ_045+complete">
+        <name>
+          <text>phase procedure aborted</text>
+        </name>
+      </transition>
+      <transition id="02_DRZ_020_1+complete">
+        <name>
+          <text>request to competent authority</text>
+        </name>
+      </transition>
+      <transition id="02_DRZ_020_2+complete">
+        <name>
+          <text>enter senddate letter to competent authority</text>
+        </name>
+      </transition>
+      <transition id="n12"/>
+      <transition id="02_DRZ_030_2+complete">
+        <name>
+          <text>enter senddate letter to stakeholders</text>
+        </name>
+      </transition>
+      <transition id="n11"/>
+      <arc id="f1314142-b736-48d2-94c9-e3011060e32c" source="02_DRZ_030_1+complete" target="n7"/>
+      <arc id="ec0d5832-1185-49a2-a531-16b6c56783ab" source="n8" target="02_DRZ_035+complete"/>
+      <arc id="04b6edc4-2ac1-4f10-92a5-b60848ef9bde" source="n3" target="n13"/>
+      <arc id="abf8f52e-5a26-45ed-930a-f10e6538ba4f" source="02_DRZ_020_1+complete" target="n5"/>
+      <arc id="31035267-95e1-45fa-980c-96a62bbe18ac" source="n6" target="02_DRZ_030_1+complete"/>
+      <arc id="599e7c7a-edfe-46d9-bd8b-a989fb01558e" source="02_DRZ_010+complete" target="n4"/>
+      <arc id="ae57e0fd-f055-4d20-a189-9099f138f546" source="02_DRZ_035+complete" target="n9"/>
+      <arc id="bc22c40e-a03a-4756-a135-3d3b61a37e13" source="n1" target="02_DRZ_010+complete"/>
+      <arc id="def978cc-aeef-4825-b39d-73a6e7c4b5a4" source="n12" target="n3"/>
+      <arc id="e6ce4ea4-430f-4053-ad70-9faf5eafc507" source="02_DRZ_030_2+complete" target="n8"/>
+      <arc id="852860bd-cb56-4c4d-a3d5-1bc8ddb7b92a" source="02_DRZ_045+complete" target="n2"/>
+      <arc id="d7601c36-839c-4b60-9b28-4583ab215b6e" source="n11" target="n1"/>
+      <arc id="ebe077ef-e4a3-4a9b-b91c-e8a748ed2586" source="02_DRZ_020_2+complete" target="n6"/>
+      <arc id="65ce03c5-a49f-4af8-b113-4e34b30c42a5" source="n4" target="n12"/>
+      <arc id="f142ef0f-8875-4d21-b7ba-80e103608f87" source="n9" target="02_DRZ_045+complete"/>
+      <arc id="0317d411-83b7-4ec3-9b5f-a7b9da87ea1f" source="n3" target="02_DRZ_020_1+complete"/>
+      <arc id="7b0ef75a-4e4f-4ad5-9bd8-6a03bd92836e" source="n4" target="n11"/>
+      <arc id="f8314223-0dba-4ca7-89f4-b036cf8a5768" source="n5" target="02_DRZ_020_2+complete"/>
+      <arc id="f8361ef1-7524-45e3-8f5a-79a6cf2a1f6b" source="n7" target="02_DRZ_030_2+complete"/>
+      <arc id="67dc5810-db13-45ca-b698-521b72819e93" source="n13" target="n2"/>
+    </page>
+  </net>
+</pnml>

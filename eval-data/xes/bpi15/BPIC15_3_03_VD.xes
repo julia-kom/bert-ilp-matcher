@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file has been generated with the OpenXES library. It conforms -->
+<!-- to the XML serialization of the XES standard for log storage and -->
+<!-- management. -->
+<!-- XES standard version: 1.0 -->
+<!-- OpenXES library version: 1.0RC7 -->
+<!-- OpenXES is available from http://www.openxes.org/ -->
+<log xes.version="1.0" xes.features="nested-attributes" openxes.version="1.0RC7">
+	<trace>
+		<event>
+			<string key="monitoringResource" value="2013365"/>
+			<string key="org:resource" value="2013365"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-01-25 10:54:45"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2013-01-15T10:16:59.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-14T10:17:03.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560454"/>
+			<string key="org:resource" value="560454"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2013-02-14 16:19:42"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2013-02-15T16:19:20.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-02-14T16:19:25.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="2013365"/>
+			<string key="org:resource" value="2013365"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-01-30 13:08:17"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2013-01-31T13:04:46.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-30T13:04:49.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="3442724"/>
+			<string key="org:resource" value="3442724"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-01-29 13:49:39"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2013-01-30T13:49:01.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-29T13:49:06.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="2013365"/>
+			<string key="org:resource" value="2013365"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-05-03 11:27:01"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2013-05-04T11:14:27.000+02:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-05-03T11:14:31.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="2013365"/>
+			<string key="org:resource" value="2013365"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-04-23 11:42:33"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2013-04-24T11:42:04.000+02:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-04-23T11:42:12.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560454"/>
+			<string key="org:resource" value="560454"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-06-17 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2013-06-18T15:54:45.000+02:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-06-17T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="2013365"/>
+			<string key="org:resource" value="2013365"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-06-28 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2013-06-29T09:09:39.000+02:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-06-28T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560454"/>
+			<string key="org:resource" value="2013365"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-07-16 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2013-07-17T11:26:10.000+02:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-07-16T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="2013365"/>
+			<string key="org:resource" value="560454"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2013-08-07 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2013-08-08T08:25:32.000+02:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-08-07T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560454"/>
+			<string key="org:resource" value="560454"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-01-20 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2014-01-21T08:51:11.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-01-20T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560454"/>
+			<string key="org:resource" value="560454"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-01-20 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2014-01-21T08:52:34.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-01-20T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560454"/>
+			<string key="org:resource" value="560454"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-01-02 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2014-01-03T10:54:05.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-01-02T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560454"/>
+			<string key="org:resource" value="560454"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-02-13 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2014-02-14T10:04:25.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-02-13T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="2013365"/>
+			<string key="org:resource" value="2013365"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-02-24 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2014-02-25T09:10:17.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-02-24T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560696"/>
+			<string key="org:resource" value="560454"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2014-03-05 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2014-03-06T11:34:12.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-03-05T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="5025869"/>
+			<string key="org:resource" value="3442724"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-05-22 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2014-05-23T13:28:36.000+02:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-05-22T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="2013365"/>
+			<string key="org:resource" value="2013365"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-09-03 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2014-09-04T09:04:42.000+02:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-09-03T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="2013365"/>
+			<string key="org:resource" value="2013365"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-09-03 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2014-09-04T15:02:34.000+02:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-09-03T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560696"/>
+			<string key="org:resource" value="2013365"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-10-14 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2014-10-15T09:11:22.000+02:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-10-14T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560454"/>
+			<string key="org:resource" value="560454"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-12-31 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2015-01-01T09:51:22.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-12-31T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="2013365"/>
+			<string key="org:resource" value="2013365"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-12-22 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2014-12-23T14:53:28.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-12-22T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="2013365"/>
+			<string key="org:resource" value="2013365"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2015-01-29 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2015-01-30T08:16:21.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2015-01-29T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560454"/>
+			<string key="org:resource" value="560454"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2015-02-04 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2015-02-05T08:19:36.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2015-02-04T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560454"/>
+			<string key="org:resource" value="560454"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2015-02-09 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2015-02-10T13:33:46.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2015-02-09T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="2013365"/>
+			<string key="org:resource" value="2013365"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2015-02-13 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2015-02-16T09:24:43.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2015-02-13T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560454"/>
+			<string key="org:resource" value="560454"/>
+			<string key="activityNameNL" value="begeleidende brief verlengen proceduretermijn aanmaken"/>
+			<string key="concept:name" value="03_VD_060_0"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2015-02-12 00:00:00"/>
+			<string key="action_code" value="03_VD_060_0"/>
+			<string key="activityNameEN" value="create cover letter extend procedure term"/>
+			<date key="planned" value="2015-02-13T13:15:28.000+01:00"/>
+			<string key="subprocess" value="03_VD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2015-02-12T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+</log>

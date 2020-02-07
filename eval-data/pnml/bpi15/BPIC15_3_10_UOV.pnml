@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="b454a697-c415-4094-b7fb-dd9b67fd0087" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5493</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5494</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 5495</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>source 5496</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>sink 5497</text>
+        </name>
+      </place>
+      <place id="n6">
+        <name>
+          <text>source 5498</text>
+        </name>
+      </place>
+      <place id="n7">
+        <name>
+          <text>sink 5499</text>
+        </name>
+      </place>
+      <place id="n8">
+        <name>
+          <text>middle 5500</text>
+        </name>
+      </place>
+      <place id="n9">
+        <name>
+          <text>replacement source 5501</text>
+        </name>
+      </place>
+      <place id="n10">
+        <name>
+          <text>sink 5502</text>
+        </name>
+      </place>
+      <place id="n12">
+        <name>
+          <text>sink 5504</text>
+        </name>
+      </place>
+      <place id="n11">
+        <name>
+          <text>middle 5503</text>
+        </name>
+      </place>
+      <place id="n14">
+        <name>
+          <text>sink 5506</text>
+        </name>
+      </place>
+      <place id="n13">
+        <name>
+          <text>sink 5505</text>
+        </name>
+      </place>
+      <transition id="10_UOV_041+complete">
+        <name>
+          <text>enter publication date draft decision</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_050_2+complete">
+        <name>
+          <text>entering senddate draft decision environmental permit</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_035+complete">
+        <name>
+          <text>publication date draft decision</text>
+        </name>
+      </transition>
+      <transition id="n56"/>
+      <transition id="n58"/>
+      <transition id="10_UOV_160+complete">
+        <name>
+          <text>subcases reassessment plan completed</text>
+        </name>
+      </transition>
+      <transition id="n57"/>
+      <transition id="n16"/>
+      <transition id="n59"/>
+      <transition id="10_UOV_065+complete">
+        <name>
+          <text>phase perspective submitted</text>
+        </name>
+      </transition>
+      <transition id="n15"/>
+      <transition id="10_UOV_050_2a+complete">
+        <name>
+          <text>set decision phase: draft decision permitted sent</text>
+        </name>
+      </transition>
+      <transition id="n18"/>
+      <transition id="10_UOV_200+complete">
+        <name>
+          <text>subcase final VVGB completed</text>
+        </name>
+      </transition>
+      <transition id="n19"/>
+      <transition id="10_UOV_080+complete">
+        <name>
+          <text>hearing about draft</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_010+complete">
+        <name>
+          <text>open draft decision for inspection</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_050_3+complete">
+        <name>
+          <text>enter senddate draft decision</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_030a+complete">
+        <name>
+          <text>set decision phase: draft decision for inspection</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_100+complete">
+        <name>
+          <text>subcase perspective complete</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_040+complete">
+        <name>
+          <text>publish official draft decision</text>
+        </name>
+      </transition>
+      <transition id="n60"/>
+      <transition id="n62"/>
+      <transition id="n64"/>
+      <transition id="n20"/>
+      <transition id="10_UOV_170+complete">
+        <name>
+          <text>ground for refusal after reassessment plan</text>
+        </name>
+      </transition>
+      <transition id="n66"/>
+      <transition id="10_UOV_075+complete">
+        <name>
+          <text>phase perspective submitted</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_070+complete">
+        <name>
+          <text>perspective from GS or VROM received</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_076+complete">
+        <name>
+          <text>perspective from GS or VROM received</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_190_2+complete">
+        <name>
+          <text>subcase final VVGB completed</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_041b+complete">
+        <name>
+          <text>enter publication date draft decision</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_180+complete">
+        <name>
+          <text>final VVGB applications</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_039+complete">
+        <name>
+          <text>create publication document</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_050_4+complete">
+        <name>
+          <text>enter senddate draft decision</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_030+complete">
+        <name>
+          <text>date draft decision for inspection</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_045+complete">
+        <name>
+          <text>phase draft decision made</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_050_1+complete">
+        <name>
+          <text>send design decision to stakeholders</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_140+complete">
+        <name>
+          <text>updated plan after perspective</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_061_2+complete">
+        <name>
+          <text>subcase perspective complete</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_120+complete">
+        <name>
+          <text>perspective regarding draft founded</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_066+complete">
+        <name>
+          <text>phase perspective submitted</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_190+complete">
+        <name>
+          <text>treat subcase final VVGB</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_050_0+complete">
+        <name>
+          <text>create cover letter draft decision</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_060+complete">
+        <name>
+          <text>perspective on draft decision environmental permit received</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_061_1+complete">
+        <name>
+          <text>treat subcase perspective</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_041a+complete">
+        <name>
+          <text>set decision phase: draft decision permitting</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_190_1+complete">
+        <name>
+          <text>treat subcase final VVGB</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_020+complete">
+        <name>
+          <text>term perspective on draft decision</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_210+complete">
+        <name>
+          <text>VVGB positive</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_055+complete">
+        <name>
+          <text>phase draft decision sent</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_150+complete">
+        <name>
+          <text>treat subcases reassessment plan</text>
+        </name>
+      </transition>
+      <transition id="10_UOV_061+complete">
+        <name>
+          <text>treat subcase perspective</text>
+        </name>
+      </transition>
+      <arc id="d8fa7a0d-81e1-4eef-83a4-8553deecb141" source="n10" target="10_UOV_041+complete"/>
+      <arc id="b9c01e25-558a-4b6b-a187-36d0a87d2e03" source="n58" target="n9"/>
+      <arc id="b6114d2a-63bb-4afe-a908-bb63f2dcea3e" source="n11" target="n57"/>
+      <arc id="052b0a65-a712-4898-830d-19479bb2ceb2" source="10_UOV_050_1+complete" target="n11"/>
+      <arc id="f423d4e5-dd4b-453d-8f00-6a54257ef5a6" source="n15" target="n4"/>
+      <arc id="9e9cb96b-d3c6-4329-9eac-1e9e56e012b0" source="n10" target="10_UOV_050_1+complete"/>
+      <arc id="dc477cf0-8834-4d4a-8110-4bc11d316082" source="10_UOV_050_3+complete" target="n11"/>
+      <arc id="6e5489fd-07ec-424f-8e2b-56cf8e7f9879" source="n10" target="10_UOV_061+complete"/>
+      <arc id="df311caf-8239-4aab-adfa-d2c08bd09c2d" source="n13" target="n64"/>
+      <arc id="d131e662-48a5-4051-9fde-e05b45f918cc" source="10_UOV_076+complete" target="n11"/>
+      <arc id="148ef2a1-b36f-459a-8fe9-acdddfd0b34a" source="10_UOV_050_4+complete" target="n11"/>
+      <arc id="b7b281ea-5daf-4801-87f7-d000355ba310" source="n7" target="n16"/>
+      <arc id="0d94d7a2-9f7f-470c-98a4-a90b5b624230" source="10_UOV_010+complete" target="n5"/>
+      <arc id="d09effc3-b75f-43f9-9ac7-5b8d52682b27" source="n10" target="10_UOV_065+complete"/>
+      <arc id="5ccade5d-7bb3-4b04-a995-16e7a9bea421" source="n9" target="10_UOV_020+complete"/>
+      <arc id="9fae65b6-4537-45c1-9672-8439f8ef18d1" source="n10" target="10_UOV_055+complete"/>
+      <arc id="b700ce1a-3bf5-4a51-9e06-31ed5eef68bb" source="n10" target="10_UOV_039+complete"/>
+      <arc id="5ef92b09-c928-47ef-9093-8d1077601ace" source="10_UOV_120+complete" target="n11"/>
+      <arc id="7e749118-cb2d-40a6-81fe-28ed3b5ed796" source="10_UOV_060+complete" target="n11"/>
+      <arc id="0523e053-c8c4-4a0e-8307-173917dd729e" source="10_UOV_061+complete" target="n11"/>
+      <arc id="13b85341-e218-4d2a-9ac7-0aef48eba142" source="n10" target="10_UOV_030+complete"/>
+      <arc id="0b9f5d4a-f209-42af-bc40-b11b2b5153a6" source="n62" target="n13"/>
+      <arc id="860935c3-10a4-4dae-9070-a938a1d39852" source="n4" target="10_UOV_010+complete"/>
+      <arc id="97006c5e-fdc8-411f-9cd6-aeaa258f67fc" source="10_UOV_041+complete" target="n11"/>
+      <arc id="5d438ace-bc49-4ce6-bf60-06f04485bdcc" source="10_UOV_050_2+complete" target="n11"/>
+      <arc id="1bdc6407-d426-4e7f-957d-07dcf830621a" source="n66" target="n2"/>
+      <arc id="761c2f47-cfe6-44b0-9a44-3d42885401c7" source="n10" target="10_UOV_060+complete"/>
+      <arc id="820e5c73-7ff4-437d-9fb0-8f1293a583f7" source="10_UOV_020+complete" target="n10"/>
+      <arc id="a94204ab-2019-42e4-80a7-b35c659bd430" source="n10" target="10_UOV_061_2+complete"/>
+      <arc id="c9f9b22f-2953-4231-89da-04316eb2d65b" source="n10" target="10_UOV_041b+complete"/>
+      <arc id="8243eb97-700d-4ffe-8cee-b6e6bfbde3c0" source="n3" target="n60"/>
+      <arc id="3e6696cc-f73d-4569-9e20-3ff9126dfa5f" source="n10" target="10_UOV_200+complete"/>
+      <arc id="3df8b60b-3c1b-4935-b026-e2ce8b8c28b2" source="10_UOV_180+complete" target="n11"/>
+      <arc id="d0976e93-b03c-483f-9de4-f190a2254648" source="10_UOV_041a+complete" target="n11"/>
+      <arc id="465d012e-9ecb-40d6-a12c-dc3c20b9e973" source="n10" target="10_UOV_045+complete"/>
+      <arc id="f486aa53-71c2-4370-b82d-c5d85209863b" source="n14" target="n66"/>
+      <arc id="8df2f0ba-de41-49e3-816d-01fc18c750cb" source="n57" target="n8"/>
+      <arc id="02b016c3-22c5-4117-a023-43bd78de65fa" source="n56" target="n10"/>
+      <arc id="286012eb-6a6d-4f41-9a70-1f1d64895c30" source="10_UOV_061_1+complete" target="n11"/>
+      <arc id="450b322d-f1a2-45e0-9665-ce986f84a8db" source="10_UOV_070+complete" target="n11"/>
+      <arc id="505e4aaf-59d4-42a3-9812-2fcd3c3d29c0" source="n10" target="10_UOV_120+complete"/>
+      <arc id="828d6db9-5167-49e2-ace9-1acac87d60f1" source="n8" target="n58"/>
+      <arc id="6325f3cd-c831-4de2-b6b0-5d448a724a31" source="n10" target="10_UOV_066+complete"/>
+      <arc id="4c1c9ba8-8d08-45ed-bc40-41652ff8c45f" source="n60" target="n12"/>
+      <arc id="e4e5a4bc-6875-4c73-98ea-64966c3f0a66" source="10_UOV_030a+complete" target="n11"/>
+      <arc id="5738ce42-0b0d-4997-ba64-79d109581114" source="10_UOV_061_2+complete" target="n11"/>
+      <arc id="1004cfa5-a6f0-4a85-bf02-bcbbf8a36b2f" source="n6" target="n18"/>
+      <arc id="c06ff277-74e7-450f-8281-109a350ada25" source="n10" target="10_UOV_035+complete"/>
+      <arc id="4e8856ea-5511-42c2-93e7-7f3656e6f28c" source="n12" target="10_UOV_150+complete"/>
+      <arc id="a1c6fcdc-067c-4c15-8e20-cd3e5fab87f7" source="10_UOV_045+complete" target="n11"/>
+      <arc id="26d81164-88c3-4298-91ed-d5a8bc262917" source="n10" target="10_UOV_080+complete"/>
+      <arc id="4e471aad-333f-472c-9474-b9ca5a075ffe" source="n8" target="n59"/>
+      <arc id="7f5490b3-98fc-49a7-87e1-dad650cb9d98" source="n10" target="10_UOV_050_3+complete"/>
+      <arc id="5b59f9d8-8f08-44fd-8607-c75ac05e0c05" source="n15" target="n6"/>
+      <arc id="07ba4a89-9e65-48dd-9995-42ee22623023" source="n13" target="10_UOV_160+complete"/>
+      <arc id="7b0f2d30-498f-4f84-80b1-3db4f2c8540f" source="10_UOV_190_2+complete" target="n11"/>
+      <arc id="91b2bf41-292e-4418-bb82-9f0a888be2c6" source="10_UOV_100+complete" target="n11"/>
+      <arc id="a72c192f-444b-4ab6-a9d8-0c17f8675f53" source="n10" target="10_UOV_050_4+complete"/>
+      <arc id="29ea4678-9625-40c0-9dd1-239e0b00705b" source="10_UOV_150+complete" target="n13"/>
+      <arc id="f9cf0046-ed13-4075-90bb-1321b8186233" source="n59" target="n7"/>
+      <arc id="5a9bbb3f-9df9-415f-b8ab-ceea7f9e37df" source="n10" target="10_UOV_210+complete"/>
+      <arc id="0b968f85-2080-467c-b190-008ae27e4925" source="n14" target="10_UOV_170+complete"/>
+      <arc id="837189b6-d53a-4f8e-b9a2-0b511e801325" source="10_UOV_050_2a+complete" target="n11"/>
+      <arc id="08132c7c-1d4a-4ce7-9ecd-ba7e92c04e47" source="n10" target="10_UOV_190+complete"/>
+      <arc id="5dfa0c1c-7ac8-48ce-ad4f-a74d97908a4a" source="10_UOV_140+complete" target="n12"/>
+      <arc id="7582e003-e2a7-42c3-a02f-88ef6bb2a40f" source="10_UOV_040+complete" target="n11"/>
+      <arc id="e0fe2876-363f-4c30-b747-406874eb291d" source="n64" target="n14"/>
+      <arc id="996bff70-95e1-4af9-afac-a4b6073320d2" source="n6" target="n19"/>
+      <arc id="1a79b30a-52ed-476f-af1b-dceb64daa0eb" source="10_UOV_039+complete" target="n11"/>
+      <arc id="6e6c5abd-bcf5-4887-8fc9-25a669eb3163" source="n9" target="n20"/>
+      <arc id="dc07346b-07e4-4044-b7c8-e520689e856d" source="10_UOV_190_1+complete" target="n11"/>
+      <arc id="49a58fb4-55f3-4e95-bcd5-32fab12c477a" source="n11" target="n56"/>
+      <arc id="a382b343-3762-4b1c-87dc-2285636fb544" source="n10" target="10_UOV_075+complete"/>
+      <arc id="38f831ff-7d6f-49d8-91de-4c15a526363e" source="n10" target="10_UOV_040+complete"/>
+      <arc id="8c7b9013-7ddd-426a-a6b1-8e1eafa61020" source="10_UOV_055+complete" target="n11"/>
+      <arc id="7135c89f-94e3-4ae1-bfa0-a51916589ed9" source="10_UOV_200+complete" target="n11"/>
+      <arc id="65813599-7303-4618-af13-707fb27c2bb2" source="n10" target="10_UOV_041a+complete"/>
+      <arc id="c07b6a10-3d44-4c0f-b05a-74c454b6ef84" source="10_UOV_190+complete" target="n11"/>
+      <arc id="d334d055-f5b7-42cf-938c-77e3811f1b5e" source="10_UOV_035+complete" target="n11"/>
+      <arc id="83dd112b-0d99-462a-b76d-db28752bd1cd" source="10_UOV_160+complete" target="n14"/>
+      <arc id="d99c6c4e-4f9a-4e32-932f-d4280ea9f26c" source="n10" target="10_UOV_100+complete"/>
+      <arc id="12346989-5b41-42ba-83fb-07218ad28408" source="n19" target="n9"/>
+      <arc id="ff0a3852-dd97-47d0-a2d4-381cbbec10af" source="n10" target="10_UOV_076+complete"/>
+      <arc id="35bbed9c-6644-4ece-8278-47262e7b8651" source="10_UOV_170+complete" target="n2"/>
+      <arc id="2f9327f7-fc94-402b-8472-5ed8852efd4a" source="10_UOV_066+complete" target="n11"/>
+      <arc id="b5a8d773-460b-4116-a577-a594193d083c" source="n10" target="10_UOV_070+complete"/>
+      <arc id="a26bdb81-c59e-489e-a156-cc1c0ee3e9f5" source="n3" target="10_UOV_140+complete"/>
+      <arc id="c2364718-f7db-48a8-8c47-5c1a0868cf0a" source="10_UOV_041b+complete" target="n11"/>
+      <arc id="561378d8-1692-48cd-8b87-02d004b711e1" source="10_UOV_030+complete" target="n11"/>
+      <arc id="ab7b3202-c6ea-4695-b64e-a15cebb60253" source="n18" target="n7"/>
+      <arc id="8157b902-d8f5-42e3-870a-0470d5d99ed3" source="n10" target="10_UOV_050_0+complete"/>
+      <arc id="f198b2fc-f2b8-44d0-8ed0-f437e2fed0f4" source="n10" target="10_UOV_050_2a+complete"/>
+      <arc id="54e8b369-1f3b-4c69-b570-6b8051f76c77" source="n10" target="10_UOV_180+complete"/>
+      <arc id="6dc09a3c-09f5-44e8-9e1d-df239fb3e4f1" source="n1" target="n15"/>
+      <arc id="10c1e7f8-37e0-4224-882f-d2ad6dfeeff9" source="n5" target="n16"/>
+      <arc id="f066166e-f6c9-460f-94a8-cbffe778216c" source="10_UOV_080+complete" target="n11"/>
+      <arc id="75a8d914-a53a-40a2-8477-97950845cbdb" source="n10" target="10_UOV_030a+complete"/>
+      <arc id="af1488db-b211-4c37-8f71-241a506716fe" source="n10" target="10_UOV_050_2+complete"/>
+      <arc id="47caa670-3c7f-40a1-bcb6-f8bfa12743af" source="n20" target="n10"/>
+      <arc id="3144db79-edbc-46bc-9d67-3f0493253c9d" source="10_UOV_210+complete" target="n11"/>
+      <arc id="f3f3dc0f-fb3a-4dae-964b-d4f63df221e8" source="n10" target="10_UOV_061_1+complete"/>
+      <arc id="27419c17-5c61-44bc-8e76-3256cacc9776" source="n10" target="10_UOV_190_2+complete"/>
+      <arc id="15a40905-eea1-4223-9b09-6354117f3773" source="10_UOV_065+complete" target="n11"/>
+      <arc id="bd5db369-d9eb-47e4-8012-f99a34ccfb32" source="10_UOV_050_0+complete" target="n11"/>
+      <arc id="7d5caa65-981d-488d-b6fc-9b43e06e1d8f" source="n16" target="n3"/>
+      <arc id="f50c3e47-88ec-41ec-9beb-de1c9e3df6a5" source="n10" target="10_UOV_190_1+complete"/>
+      <arc id="c4e051f1-44b6-44a4-98e9-31a77dbf5671" source="10_UOV_075+complete" target="n11"/>
+      <arc id="0f04cf49-b5e6-426d-b6c2-5612fad4d8cc" source="n12" target="n62"/>
+    </page>
+  </net>
+</pnml>

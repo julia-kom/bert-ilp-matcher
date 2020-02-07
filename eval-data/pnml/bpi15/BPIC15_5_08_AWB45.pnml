@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="5527bb98-fd63-4b70-8311-44c404021328" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 6070</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 6071</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 6072</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>middle 6073</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>sink 6074</text>
+        </name>
+      </place>
+      <place id="n6">
+        <name>
+          <text>sink 6075</text>
+        </name>
+      </place>
+      <place id="n7">
+        <name>
+          <text>sink 6076</text>
+        </name>
+      </place>
+      <place id="n8">
+        <name>
+          <text>middle 6077</text>
+        </name>
+      </place>
+      <place id="n9">
+        <name>
+          <text>sink 6078</text>
+        </name>
+      </place>
+      <place id="n21">
+        <name>
+          <text>sink 6090</text>
+        </name>
+      </place>
+      <place id="n10">
+        <name>
+          <text>sink 6079</text>
+        </name>
+      </place>
+      <place id="n20">
+        <name>
+          <text>sink 6089</text>
+        </name>
+      </place>
+      <place id="n12">
+        <name>
+          <text>sink 6081</text>
+        </name>
+      </place>
+      <place id="n11">
+        <name>
+          <text>middle 6080</text>
+        </name>
+      </place>
+      <place id="n14">
+        <name>
+          <text>middle 6083</text>
+        </name>
+      </place>
+      <place id="n13">
+        <name>
+          <text>sink 6082</text>
+        </name>
+      </place>
+      <place id="n16">
+        <name>
+          <text>middle 6085</text>
+        </name>
+      </place>
+      <place id="n15">
+        <name>
+          <text>sink 6084</text>
+        </name>
+      </place>
+      <place id="n18">
+        <name>
+          <text>middle 6087</text>
+        </name>
+      </place>
+      <place id="n17">
+        <name>
+          <text>sink 6086</text>
+        </name>
+      </place>
+      <place id="n19">
+        <name>
+          <text>sink 6088</text>
+        </name>
+      </place>
+      <transition id="08_AWB45_110+complete">
+        <name>
+          <text>objection to permanent suspension received</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_070_4+complete">
+        <name>
+          <text>decision keep permanently suspended</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_150+complete">
+        <name>
+          <text>decision permanent suspension irrevocable</text>
+        </name>
+      </transition>
+      <transition id="n58"/>
+      <transition id="08_AWB45_070_3a+complete">
+        <name>
+          <text>start decision phase permanently suspended decided</text>
+        </name>
+      </transition>
+      <transition id="n59"/>
+      <transition id="08_AWB45_040+complete">
+        <name>
+          <text>enter receipt of additional data</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_070_1+complete">
+        <name>
+          <text>creating decision permanently suspended</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_090_1+complete">
+        <name>
+          <text>copy decision permanent suspension to stakeholders</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_045+complete">
+        <name>
+          <text>phase additional information received</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_070_5+complete">
+        <name>
+          <text>enter date decision permanent suspension</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_025+complete">
+        <name>
+          <text>phase asked additional information</text>
+        </name>
+      </transition>
+      <transition id="n61"/>
+      <transition id="n60"/>
+      <transition id="n62"/>
+      <transition id="n65"/>
+      <transition id="n64"/>
+      <transition id="n67"/>
+      <transition id="n66"/>
+      <transition id="08_AWB45_080+complete">
+        <name>
+          <text>enter date decision permanent suspension</text>
+        </name>
+      </transition>
+      <transition id="n25"/>
+      <transition id="n68"/>
+      <transition id="08_AWB45_090_0+complete">
+        <name>
+          <text>create cover letter permanent suspension</text>
+        </name>
+      </transition>
+      <transition id="n29"/>
+      <transition id="08_AWB45_051_0+complete">
+        <name>
+          <text>send confirmation receipt additional data</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_050+complete">
+        <name>
+          <text>send confirmation receipt additional data</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_180+complete">
+        <name>
+          <text>stop procedure after permanent suspension</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_020_0+complete">
+        <name>
+          <text>create letter requesting missing data</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_WAW_010+complete">
+        <name>
+          <text>WAW request permanently suspended</text>
+        </name>
+      </transition>
+      <transition id="n72"/>
+      <transition id="08_AWB45_090_2a+complete">
+        <name>
+          <text>start decision phase permanent suspension sent</text>
+        </name>
+      </transition>
+      <transition id="n74"/>
+      <transition id="08_AWB45_070_3+complete">
+        <name>
+          <text>enter date decision permanent suspension</text>
+        </name>
+      </transition>
+      <transition id="n73"/>
+      <transition id="n76"/>
+      <transition id="n78"/>
+      <transition id="n33"/>
+      <transition id="n79"/>
+      <transition id="n35"/>
+      <transition id="n38"/>
+      <transition id="08_AWB45_170+complete">
+        <name>
+          <text>MER present in supplement</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_010+complete">
+        <name>
+          <text>term for supplying missing data</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_070_5a+complete">
+        <name>
+          <text>start decision phase permanently suspended decided</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_175+complete">
+        <name>
+          <text>phase procedure aborted</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_051_1+complete">
+        <name>
+          <text>send confirmation receipt</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_070_2+complete">
+        <name>
+          <text>decision date prior to decision</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_060+complete">
+        <name>
+          <text>keep permanently suspended</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_090_2+complete">
+        <name>
+          <text>enter senddate decision permanent suspension</text>
+        </name>
+      </transition>
+      <transition id="n80"/>
+      <transition id="n41"/>
+      <transition id="08_AWB45_005+complete">
+        <name>
+          <text>request complete</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_075+complete">
+        <name>
+          <text>phase permanently suspended</text>
+        </name>
+      </transition>
+      <transition id="n43"/>
+      <transition id="08_AWB45_020_2+complete">
+        <name>
+          <text>enter senddate retrieve missing data</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_070_1a+complete">
+        <name>
+          <text>set decision status</text>
+        </name>
+      </transition>
+      <transition id="n46"/>
+      <transition id="08_AWB45_030+complete">
+        <name>
+          <text>receive additional information</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_051_2+complete">
+        <name>
+          <text>enter senddate acknowledgement</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_090_3+complete">
+        <name>
+          <text>enter senddate decision permanent suspension</text>
+        </name>
+      </transition>
+      <transition id="08_AWB45_020_1+complete">
+        <name>
+          <text>retrieve missing data</text>
+        </name>
+      </transition>
+      <arc id="3f5cc6d5-68be-4a14-a668-3c9af03d0e80" source="n1" target="08_AWB45_020_2+complete"/>
+      <arc id="a0412aaf-a858-46de-8200-313fceef7002" source="08_AWB45_050+complete" target="n8"/>
+      <arc id="41a45b9f-4a2c-489e-bd3b-07680fc6787e" source="08_AWB45_070_5+complete" target="n18"/>
+      <arc id="422e7aa9-53d0-4f28-9050-963fee74cb66" source="n14" target="n64"/>
+      <arc id="7f4ac689-5d5a-4d52-8f74-a6b377005dc8" source="08_AWB45_070_2+complete" target="n13"/>
+      <arc id="d9b1c213-a9fe-4989-8413-87a8c1ae2099" source="n9" target="n33"/>
+      <arc id="637770fc-41dc-42b0-8ac0-55092191e669" source="n4" target="n78"/>
+      <arc id="e63e533c-583c-4be8-b3fe-59838f3e41de" source="n79" target="n3"/>
+      <arc id="9e857172-298d-4245-ba12-24191b238207" source="n13" target="n38"/>
+      <arc id="204d1ad9-4460-461d-bdf6-ee67043c71aa" source="n18" target="n59"/>
+      <arc id="2bed5b3b-a8ee-464c-b865-a6d45d2bc666" source="n73" target="n7"/>
+      <arc id="ca5ad348-8871-43d9-87d2-2cff2ed129cc" source="n13" target="08_AWB45_045+complete"/>
+      <arc id="14593c1f-9f34-4f16-bf9e-833231c914df" source="08_AWB45_175+complete" target="n20"/>
+      <arc id="4303b2c9-1922-4f27-8f52-de7ca2074b43" source="08_AWB45_020_1+complete" target="n5"/>
+      <arc id="6d870188-6320-4d77-ab4f-3926f9dc590e" source="n64" target="n13"/>
+      <arc id="eb2dcb3f-62bd-4dd7-85db-f6e3a8ce0e30" source="n76" target="n4"/>
+      <arc id="2e50a82c-3359-4d96-bef3-37f6b3557855" source="08_AWB45_150+complete" target="n14"/>
+      <arc id="9f809a9b-a87c-4832-9159-a1652a161932" source="n3" target="n80"/>
+      <arc id="0d4f9064-ab16-4e60-ba7f-7a364713a82e" source="n16" target="n61"/>
+      <arc id="ab7edf92-ee18-4617-8270-4544943298f6" source="n20" target="08_AWB45_070_3a+complete"/>
+      <arc id="3b313aac-4a7b-4af7-9b0f-4f54cb9a1971" source="08_AWB45_025+complete" target="n9"/>
+      <arc id="a5abd4e8-3326-4705-8b84-840c297409bd" source="n17" target="n41"/>
+      <arc id="a340dfd5-f512-4259-82a2-8337c64a0b5c" source="n12" target="n35"/>
+      <arc id="c73e315c-747a-439b-b2e3-2ffca5b19eb1" source="08_AWB45_005+complete" target="n5"/>
+      <arc id="0fe2831c-f617-4a82-bd29-5568401b1933" source="08_AWB45_WAW_010+complete" target="n2"/>
+      <arc id="4a152d1a-f22f-4cf5-a863-9176860f9dba" source="08_AWB45_090_2+complete" target="n18"/>
+      <arc id="e92e80be-3c5d-44ef-afd1-83e23f04b910" source="n5" target="08_AWB45_060+complete"/>
+      <arc id="c7ffea71-015b-4393-a153-794f8d5749b8" source="n29" target="n9"/>
+      <arc id="8991eb11-087e-410b-b75f-4dc4c7cedeb7" source="n7" target="08_AWB45_051_2+complete"/>
+      <arc id="074313bd-be6d-4758-a498-55a31ec93761" source="08_AWB45_070_1+complete" target="n18"/>
+      <arc id="6f58c1a9-6d95-4cd8-ae55-f1e2b78df524" source="n9" target="08_AWB45_080+complete"/>
+      <arc id="aa5d776a-7fd3-4284-b5aa-4f7863ef9196" source="n19" target="08_AWB45_070_1a+complete"/>
+      <arc id="9eb0256f-4359-40a1-b3d1-bc3d553a766d" source="08_AWB45_090_2a+complete" target="n18"/>
+      <arc id="aaa3e301-976a-4162-9317-6fba706dc1db" source="08_AWB45_030+complete" target="n13"/>
+      <arc id="7597e191-d2f8-4bb6-aa04-2c1b324c1841" source="08_AWB45_045+complete" target="n17"/>
+      <arc id="3aa6600e-78e5-4bd0-9d1d-0657b1dadf18" source="n11" target="n67"/>
+      <arc id="0a8f39f9-bc8b-4e81-90f2-4be8ad354d44" source="08_AWB45_040+complete" target="n5"/>
+      <arc id="d68fc294-da78-483c-aecf-7650f8c87e6b" source="08_AWB45_070_1a+complete" target="n18"/>
+      <arc id="7f8a079b-6a8c-4fe9-842c-4ccc76a7f8f0" source="08_AWB45_020_2+complete" target="n5"/>
+      <arc id="60e269ae-e2f2-4759-9790-92039e5a3d7b" source="n21" target="08_AWB45_051_1+complete"/>
+      <arc id="2abc8a56-1c0f-4fdf-8b30-bcf1d2b17369" source="n5" target="n29"/>
+      <arc id="a65afd9f-8807-4b73-90a7-fabf603a5299" source="08_AWB45_051_1+complete" target="n4"/>
+      <arc id="3869997b-c90e-493f-ab2d-d3c702c5ac41" source="n12" target="08_AWB45_030+complete"/>
+      <arc id="968cbc8f-825c-45a2-b5a8-71d7897aaca7" source="n11" target="n66"/>
+      <arc id="e91df507-8678-4de7-9db3-53f6d0c31316" source="08_AWB45_180+complete" target="n9"/>
+      <arc id="cbd89882-ab3e-4ac4-9f5b-3866d21d9edd" source="08_AWB45_051_2+complete" target="n21"/>
+      <arc id="23dc5608-d17a-4f34-8aa7-a766d91d39bc" source="n25" target="n5"/>
+      <arc id="523371eb-6918-4d51-ad1b-a78cb456ad8e" source="08_AWB45_060+complete" target="n9"/>
+      <arc id="786ec989-7130-46e8-aa40-91642af3ef30" source="n13" target="08_AWB45_090_0+complete"/>
+      <arc id="9d29036b-c06d-4275-87b1-c497ec153522" source="08_AWB45_075+complete" target="n19"/>
+      <arc id="cc1c0958-a88f-46ed-9192-881bb9de4971" source="n66" target="n9"/>
+      <arc id="7920249c-f09a-4ae6-ac70-f052362b5679" source="n19" target="08_AWB45_070_4+complete"/>
+      <arc id="9f724594-f538-42f1-9065-0504791f1a94" source="n1" target="08_AWB45_020_1+complete"/>
+      <arc id="0b0a1325-ce3a-45d9-86ca-fddfbbf10f01" source="n1" target="08_AWB45_010+complete"/>
+      <arc id="e7e52817-cf6f-4598-a1c2-c74c266fa561" source="n17" target="08_AWB45_075+complete"/>
+      <arc id="dbccea0b-6b17-416c-9aeb-c2c19273bc9a" source="n46" target="n18"/>
+      <arc id="2a41a599-8f49-4471-91c4-99bdf59d60be" source="n3" target="08_AWB45_WAW_010+complete"/>
+      <arc id="aea5bd4b-7a74-433f-b3e0-a0bb27f1abd3" source="n19" target="08_AWB45_070_3+complete"/>
+      <arc id="7cd59f01-0cbc-42a5-b5d5-f9b5f70767c3" source="08_AWB45_010+complete" target="n6"/>
+      <arc id="ed6d5d03-4eab-443c-83b5-ce21bbb1e32e" source="n8" target="n72"/>
+      <arc id="6571c88e-a551-4380-9273-3c8fcd7c0d26" source="n19" target="08_AWB45_070_5a+complete"/>
+      <arc id="928b7ce2-4d95-4537-b7d4-14f750358c34" source="08_AWB45_090_3+complete" target="n18"/>
+      <arc id="4edf6f3b-2c9c-494a-bcf4-1d39ca987d90" source="n58" target="n17"/>
+      <arc id="2088c799-c9f7-4621-b350-ae1d3890ecd4" source="n4" target="n79"/>
+      <arc id="e0d7be57-de69-451d-bee0-164f8d983a93" source="n14" target="n65"/>
+      <arc id="1cc74feb-9adc-4d99-9c41-4c82ebc0e88b" source="n19" target="08_AWB45_090_3+complete"/>
+      <arc id="3dbcf306-7dea-439e-9d3a-0d06b548a061" source="n5" target="08_AWB45_050+complete"/>
+      <arc id="5bf2f650-f87b-435b-bbc3-e6df79c68ae1" source="n61" target="n15"/>
+      <arc id="26dd39f4-dcc0-4a0c-9457-2ebdbc64f165" source="n19" target="n43"/>
+      <arc id="eaa461f3-251c-47e4-ad5c-d55847235327" source="n15" target="08_AWB45_150+complete"/>
+      <arc id="2e901711-6190-4a20-a65d-a68629111f59" source="n18" target="n58"/>
+      <arc id="48abb4c0-0acf-4045-9069-7893fa2beda8" source="n19" target="08_AWB45_175+complete"/>
+      <arc id="e6a3ec9e-fa50-4e69-82f4-c3061e388687" source="n41" target="n19"/>
+      <arc id="5e22226a-a7c9-4960-8d1a-5598f114feae" source="n6" target="n25"/>
+      <arc id="353b9913-12e5-425e-8ee6-3795a6cdac6e" source="n19" target="08_AWB45_090_2a+complete"/>
+      <arc id="07485a88-1fa9-4ab5-a0a7-07149491052e" source="n19" target="08_AWB45_090_2+complete"/>
+      <arc id="ed8b9afa-91c1-4d92-b9b3-a9c4e2694ddc" source="08_AWB45_090_0+complete" target="n17"/>
+      <arc id="7ea9d502-5a73-4b7e-80de-a89918a81b0b" source="n6" target="08_AWB45_020_0+complete"/>
+      <arc id="93ab0dd4-3f24-425a-b92c-756f62e7afd9" source="n5" target="08_AWB45_180+complete"/>
+      <arc id="9574288e-0ef3-4d45-a919-bae405c73b99" source="08_AWB45_070_4+complete" target="n18"/>
+      <arc id="5422f570-b677-4d99-be75-425bcb0cdbe3" source="08_AWB45_070_5a+complete" target="n18"/>
+      <arc id="dacf2896-5b3e-4db7-8088-67a77c1bd8df" source="08_AWB45_080+complete" target="n12"/>
+      <arc id="66babdaa-8218-446c-8d17-2bdcc391e718" source="n78" target="n1"/>
+      <arc id="780b12e1-9e48-4092-8570-af43186f78f8" source="n72" target="n5"/>
+      <arc id="195aca72-1341-4c94-bbaf-af5bf274179e" source="n65" target="n11"/>
+      <arc id="6ddf9034-1445-4af6-aa00-3ee895fdde99" source="08_AWB45_110+complete" target="n18"/>
+      <arc id="1d37111d-dbf2-4704-bcf6-9f63183ebf07" source="n74" target="n21"/>
+      <arc id="49886974-0c7c-426e-9337-08d1afac0f33" source="08_AWB45_070_3+complete" target="n20"/>
+      <arc id="f6128ad9-e702-4806-b77d-c190fccbedd4" source="n10" target="08_AWB45_051_0+complete"/>
+      <arc id="676735b6-ae7f-4c63-8b42-873be1ee5506" source="n67" target="n10"/>
+      <arc id="ae3373cf-73af-428d-9d8a-13ace943e256" source="n8" target="n73"/>
+      <arc id="3348e0b1-62ce-42fd-915e-293a95125eef" source="n19" target="08_AWB45_070_1+complete"/>
+      <arc id="0918f487-a5ae-498d-807d-380d60e87b5f" source="n35" target="n13"/>
+      <arc id="e130df8c-a1ea-4073-bf68-b7ca761e5943" source="n62" target="n14"/>
+      <arc id="2d82cd69-afcc-4dd9-a83b-9a40f604dd23" source="n80" target="n2"/>
+      <arc id="83f0a843-da49-4c2c-bf16-fb7825cde2de" source="n43" target="n20"/>
+      <arc id="6bc2ee7a-0652-4d14-91ec-040ef6e25dcb" source="n7" target="n74"/>
+      <arc id="7c3e661f-3206-4a43-a831-57c37fffd997" source="n19" target="08_AWB45_090_1+complete"/>
+      <arc id="526a3dbd-46f6-4885-9cc4-8c20ada53fce" source="n10" target="n68"/>
+      <arc id="ff614a13-88f9-4ef5-92c5-aec7c697417c" source="n19" target="08_AWB45_070_5+complete"/>
+      <arc id="254854a0-792f-4556-b330-de2b31197818" source="n20" target="n46"/>
+      <arc id="0356ad25-9699-4315-95e6-000d1149c23d" source="n19" target="08_AWB45_110+complete"/>
+      <arc id="b80a1291-7d9f-4ae0-a4d6-83304f65cb7e" source="08_AWB45_070_3a+complete" target="n18"/>
+      <arc id="697472d3-d7d3-4329-ae73-0bc98be42fdf" source="n38" target="n17"/>
+      <arc id="16e813bd-720f-4236-aad1-e25c41b5243f" source="n12" target="08_AWB45_070_2+complete"/>
+      <arc id="9f4a28c5-4683-4674-a0f5-f59ef2237349" source="n16" target="n60"/>
+      <arc id="4dd7f353-4f7f-48fd-b546-b2ddc50cc6a4" source="08_AWB45_020_0+complete" target="n5"/>
+      <arc id="643078ef-5fed-4ba4-8280-7c2d0fe5dc39" source="n33" target="n12"/>
+      <arc id="5725624f-c57d-41b9-989b-3d38f3ad4581" source="n21" target="n76"/>
+      <arc id="81081f80-d6c9-4fd5-834c-66fa53e05d0d" source="n60" target="n13"/>
+      <arc id="86866d63-22e0-443b-9b47-849e5bd420c5" source="n15" target="n62"/>
+      <arc id="f75c639e-c650-4f00-a1fa-296314b20799" source="n10" target="08_AWB45_170+complete"/>
+      <arc id="50082a68-2e52-42fe-9e41-20d517f7583e" source="n1" target="08_AWB45_040+complete"/>
+      <arc id="ed6ce8ff-9fe3-4d1a-963e-04b60a00fb2c" source="n59" target="n16"/>
+      <arc id="cef1118a-fbbb-4a15-ad69-73b2c0f63d43" source="08_AWB45_051_0+complete" target="n8"/>
+      <arc id="9a0fca05-2d0b-41ee-a995-95b46b3d8b6f" source="n1" target="08_AWB45_005+complete"/>
+      <arc id="5dfefe76-0544-4b7f-95ed-805fdabce922" source="n68" target="n8"/>
+      <arc id="52e8b31b-4eae-4e05-b096-f3cd474aa2b3" source="08_AWB45_090_1+complete" target="n18"/>
+      <arc id="b38aabb9-1782-418f-b10f-2e201c34adb5" source="08_AWB45_170+complete" target="n8"/>
+      <arc id="3a8f5a2f-dd02-4e15-bede-2014e9860576" source="n5" target="08_AWB45_025+complete"/>
+    </page>
+  </net>
+</pnml>

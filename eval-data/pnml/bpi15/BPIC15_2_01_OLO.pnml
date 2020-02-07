@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="5a6c5e8a-7165-4712-9edd-dab9c6be6190" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5114</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5115</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 5116</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>sink 5117</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>sink 5118</text>
+        </name>
+      </place>
+      <place id="n6">
+        <name>
+          <text>sink 5119</text>
+        </name>
+      </place>
+      <place id="n7">
+        <name>
+          <text>sink 5120</text>
+        </name>
+      </place>
+      <place id="n8">
+        <name>
+          <text>middle 5121</text>
+        </name>
+      </place>
+      <place id="n9">
+        <name>
+          <text>replacement source 5122</text>
+        </name>
+      </place>
+      <transition id="01_OLO_160+complete">
+        <name>
+          <text>message change status</text>
+        </name>
+      </transition>
+      <transition id="n21"/>
+      <transition id="n20"/>
+      <transition id="01_OLO_240+complete">
+        <name>
+          <text>message change status</text>
+        </name>
+      </transition>
+      <transition id="n11"/>
+      <transition id="n14"/>
+      <transition id="01_OLO_190+complete">
+        <name>
+          <text>message change status</text>
+        </name>
+      </transition>
+      <transition id="n16"/>
+      <transition id="01_OLO_120+complete">
+        <name>
+          <text>send message OLO-status in progress</text>
+        </name>
+      </transition>
+      <transition id="n17"/>
+      <transition id="01_OLO_180+complete">
+        <name>
+          <text>message change status</text>
+        </name>
+      </transition>
+      <transition id="n19"/>
+      <transition id="01_OLO_140+complete">
+        <name>
+          <text>message request advice</text>
+        </name>
+      </transition>
+      <arc id="8d2d391f-1a3e-4e75-89c0-19f5b6182f91" source="01_OLO_120+complete" target="n3"/>
+      <arc id="68c3faca-cfa7-402e-a95f-c9fd91997486" source="n3" target="n11"/>
+      <arc id="331ded6b-6249-4b42-872c-2de9b2edacbf" source="n7" target="01_OLO_240+complete"/>
+      <arc id="e34638bb-b79d-4863-9588-3c4ea16b895c" source="n4" target="01_OLO_160+complete"/>
+      <arc id="71de1771-c085-4b28-b64e-dc177eb26d7a" source="n7" target="n21"/>
+      <arc id="c329a2fe-7267-406c-964b-1f2940d394b6" source="n21" target="n2"/>
+      <arc id="af67f4e8-3a9a-400a-ab6c-7c52474653a6" source="n20" target="n7"/>
+      <arc id="93b172b5-5106-4223-94e7-f77f30d8efa0" source="n11" target="n2"/>
+      <arc id="0d773dc3-a9b9-4194-b2a1-2d09136989ce" source="n6" target="n16"/>
+      <arc id="db49a261-6a72-4a32-b96f-4e46b09ebf67" source="n3" target="01_OLO_140+complete"/>
+      <arc id="0d61dc5d-51ec-4b1c-a051-43986b5647b0" source="n17" target="n9"/>
+      <arc id="b65910e9-1752-4772-b42b-45e7898ad8df" source="n19" target="n9"/>
+      <arc id="77534c81-5d2f-4ecd-8da6-c8d5bb2c1488" source="n5" target="n14"/>
+      <arc id="1e15f031-69d2-4e17-b906-ad3c67f6dc6e" source="n8" target="n20"/>
+      <arc id="a372edf4-f70b-4d59-bcb1-8c52e8b1edb5" source="01_OLO_180+complete" target="n6"/>
+      <arc id="492c0333-c635-4ba7-adec-e44a6e242ae1" source="01_OLO_160+complete" target="n5"/>
+      <arc id="d8d3110e-5409-4f99-840b-19f9448a1b83" source="n1" target="01_OLO_120+complete"/>
+      <arc id="912e8327-392e-4924-a5bb-ae0e219ee9b7" source="n5" target="01_OLO_180+complete"/>
+      <arc id="1c6e9abc-aa1d-4a2c-8de6-867b03033b41" source="n16" target="n7"/>
+      <arc id="00f5552e-c9d8-46c2-8138-f2ed1a0300c7" source="n14" target="n6"/>
+      <arc id="e08fdb51-3436-4471-a532-fc2e11e2b293" source="n8" target="n19"/>
+      <arc id="b94e784a-d6fb-4d94-b64e-57487c6dad06" source="n9" target="01_OLO_190+complete"/>
+      <arc id="657f3f64-ce27-4493-ac1b-3667d8a4646e" source="01_OLO_240+complete" target="n2"/>
+      <arc id="91495ec9-4e3e-4009-a170-f2d9ef85dfb9" source="n6" target="n17"/>
+      <arc id="93d64b03-7c00-443a-ba73-34f2cf28a863" source="01_OLO_140+complete" target="n4"/>
+      <arc id="d44e44f0-a5ca-4abe-89bd-46b4234e7ada" source="01_OLO_190+complete" target="n8"/>
+    </page>
+  </net>
+</pnml>

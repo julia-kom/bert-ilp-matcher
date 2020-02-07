@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="a0b925cc-b79e-4baa-b7bb-d699e4ed5078" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5771</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5772</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 5773</text>
+        </name>
+      </place>
+      <transition id="10_OLO_100+complete">
+        <name>
+          <text>message change status</text>
+        </name>
+      </transition>
+      <transition id="n5"/>
+      <transition id="10_OLO_120+complete">
+        <name>
+          <text>mesage request VVGB</text>
+        </name>
+      </transition>
+      <arc id="a9e9b7f5-4d9b-49c6-b2ad-06b06a403c40" source="n3" target="n5"/>
+      <arc id="d7c92c67-fe40-4cd0-9e02-ca19ebadd827" source="n5" target="n2"/>
+      <arc id="cbc800dd-e530-4dd0-a5c2-55d5ed5cb568" source="10_OLO_120+complete" target="n2"/>
+      <arc id="4bc5c36e-c60d-46a2-b4e7-57278af371ac" source="10_OLO_100+complete" target="n3"/>
+      <arc id="16beda56-7d16-4743-a52a-add138c529a6" source="n1" target="10_OLO_100+complete"/>
+      <arc id="22aab203-d7ff-42f0-a5bb-6ebc9ed4b9ca" source="n3" target="10_OLO_120+complete"/>
+    </page>
+  </net>
+</pnml>

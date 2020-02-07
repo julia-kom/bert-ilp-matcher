@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="0b073f55-7e5a-430c-b268-761694aaec54" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5507</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5508</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>middle 5509</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>sink 5510</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>middle 5511</text>
+        </name>
+      </place>
+      <place id="n6">
+        <name>
+          <text>replacement source 5512</text>
+        </name>
+      </place>
+      <place id="n7">
+        <name>
+          <text>middle 5513</text>
+        </name>
+      </place>
+      <place id="n8">
+        <name>
+          <text>replacement source 5514</text>
+        </name>
+      </place>
+      <place id="n9">
+        <name>
+          <text>middle 5515</text>
+        </name>
+      </place>
+      <place id="n10">
+        <name>
+          <text>replacement source 5516</text>
+        </name>
+      </place>
+      <place id="n12">
+        <name>
+          <text>replacement source 5518</text>
+        </name>
+      </place>
+      <place id="n11">
+        <name>
+          <text>middle 5517</text>
+        </name>
+      </place>
+      <transition id="11_AH_II_020+complete">
+        <name>
+          <text>article 33 applies</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_037_1+complete">
+        <name>
+          <text>send decision suspension</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_090_1+complete">
+        <name>
+          <text>treat subcase suspension art. 35 WABO</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_055+complete">
+        <name>
+          <text>article 35 applies</text>
+        </name>
+      </transition>
+      <transition id="n52"/>
+      <transition id="11_AH_II_130+complete">
+        <name>
+          <text>refusal after suspension</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_035+complete">
+        <name>
+          <text>phase decision suspended</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_040c+complete">
+        <name>
+          <text>set decision phase suspension sent</text>
+        </name>
+      </transition>
+      <transition id="n51"/>
+      <transition id="11_AH_II_020_1+complete">
+        <name>
+          <text>send decision suspension</text>
+        </name>
+      </transition>
+      <transition id="n54"/>
+      <transition id="n53"/>
+      <transition id="11_AH_II_090_2+complete">
+        <name>
+          <text>subcase art. 35 WABO completed</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_040_d+complete">
+        <name>
+          <text>enter senddate decision suspension</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_037_3+complete">
+        <name>
+          <text>enter senddate decision suspension</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_145+complete">
+        <name>
+          <text>phase procedure resumed</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_060+complete">
+        <name>
+          <text>creating decision suspension 35 WABO</text>
+        </name>
+      </transition>
+      <transition id="n15"/>
+      <transition id="11_AH_II_030+complete">
+        <name>
+          <text>article 35 applies</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_070_1+complete">
+        <name>
+          <text>treat subcase suspension art. 33 WABO</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_070_3a+complete">
+        <name>
+          <text>set decision phase: suspension cancelled</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_010+complete">
+        <name>
+          <text>suspension ground applicable</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_020_2+complete">
+        <name>
+          <text>enter senddate decision suspension</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_140+complete">
+        <name>
+          <text>enter enddate of suspension</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_037_2+complete">
+        <name>
+          <text>enter senddate decision suspension</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_040b+complete">
+        <name>
+          <text>set decision phase suspension decided</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_036+complete">
+        <name>
+          <text>enter date decision suspension</text>
+        </name>
+      </transition>
+      <transition id="n23"/>
+      <transition id="11_AH_II_070_3+complete">
+        <name>
+          <text>enter enddate suspension art. 33 WABO</text>
+        </name>
+      </transition>
+      <transition id="n45"/>
+      <transition id="n22"/>
+      <transition id="n44"/>
+      <transition id="11_AH_II_040a+complete">
+        <name>
+          <text>set decision status</text>
+        </name>
+      </transition>
+      <transition id="n25"/>
+      <transition id="n47"/>
+      <transition id="n27"/>
+      <transition id="n26"/>
+      <transition id="n48"/>
+      <transition id="11_AH_II_070_2+complete">
+        <name>
+          <text>subcase art. 33 WABO completed</text>
+        </name>
+      </transition>
+      <transition id="n28"/>
+      <transition id="11_AH_II_070+complete">
+        <name>
+          <text>treat subcase suspension art. 33 WABO</text>
+        </name>
+      </transition>
+      <transition id="11_AH_II_040+complete">
+        <name>
+          <text>creating decision suspension art. 33 WABO</text>
+        </name>
+      </transition>
+      <arc id="9b7b65dd-c1ae-47bf-9ae8-552ab8b816b9" source="n6" target="11_AH_II_040c+complete"/>
+      <arc id="84c079d8-a547-4ec9-986f-ead6407a2b7b" source="n5" target="n23"/>
+      <arc id="c87b3831-77b7-4ed1-b8bc-fcb548c65de6" source="n6" target="11_AH_II_010+complete"/>
+      <arc id="1f166bff-1665-4c34-9abb-e7c9ac481a33" source="n1" target="11_AH_II_037_2+complete"/>
+      <arc id="91555440-cac6-4ae9-ab61-78530699a3fd" source="11_AH_II_090_1+complete" target="n11"/>
+      <arc id="27ec1fb1-757d-4f0a-84c4-d1d9e1d2f696" source="n25" target="n3"/>
+      <arc id="ff12e177-4f72-4f7b-89d3-77228c95c1be" source="n22" target="n6"/>
+      <arc id="df65aa0b-f08a-4cc2-8669-04c34de45435" source="n47" target="n10"/>
+      <arc id="b1e07f15-ac30-48c0-8d57-d732dfc66e3d" source="11_AH_II_037_2+complete" target="n4"/>
+      <arc id="e9f24da7-508d-45c0-84c6-d1aa38f5e169" source="n54" target="n2"/>
+      <arc id="2efcdcf3-6532-4130-beb4-ca7fa2637a1c" source="n7" target="n52"/>
+      <arc id="42de61b8-87f5-46b4-8398-91705ef22f93" source="n9" target="n48"/>
+      <arc id="ab5f5915-129e-43f9-bdb3-c782965d5561" source="n6" target="11_AH_II_020+complete"/>
+      <arc id="ded63647-4646-492e-b792-97e51b426018" source="n53" target="n1"/>
+      <arc id="65f67732-5980-48eb-8c60-41bce0e7b374" source="n10" target="n28"/>
+      <arc id="5d988149-16b5-4065-943b-2d17f3a1898f" source="11_AH_II_055+complete" target="n7"/>
+      <arc id="e72cb278-82bd-4e1f-813e-3f3f73b6f700" source="11_AH_II_070_3+complete" target="n7"/>
+      <arc id="77d16fbf-a621-46ea-9474-03a8b33485b1" source="n4" target="n25"/>
+      <arc id="573b3fb8-97df-49eb-b7c0-ddebda34feae" source="11_AH_II_036+complete" target="n4"/>
+      <arc id="c858d51e-ff5f-4d3a-97cb-80228d2cf2c8" source="n12" target="11_AH_II_145+complete"/>
+      <arc id="d07b4c0c-091b-4ab0-9f48-7e2c0169ec44" source="11_AH_II_020+complete" target="n5"/>
+      <arc id="3966ceae-60f3-4b31-9fe8-1dfc880b607c" source="n12" target="11_AH_II_090_2+complete"/>
+      <arc id="df0657c9-26f7-4ce6-b6c9-1b1603e9deeb" source="11_AH_II_070_3a+complete" target="n11"/>
+      <arc id="8a850b40-88e8-4cd2-8780-7d7d801e833d" source="n28" target="n12"/>
+      <arc id="cade8860-8890-4471-acba-fe0dfa777cd4" source="n15" target="n6"/>
+      <arc id="7c5f8e5e-d26b-4b0f-95cc-871ac8454e3c" source="n8" target="11_AH_II_070_3+complete"/>
+      <arc id="894b1a09-c66b-460b-9dc2-11aa951a56f0" source="n3" target="n54"/>
+      <arc id="c39b5587-d21b-4643-a680-9a4aa186cdaa" source="11_AH_II_030+complete" target="n5"/>
+      <arc id="86d7865e-edcf-4268-a897-29a863e5ca57" source="11_AH_II_090_2+complete" target="n11"/>
+      <arc id="922738a8-aa18-479d-8110-ac5d33126423" source="n51" target="n8"/>
+      <arc id="e0ef9b3c-e619-4a8a-bf15-9fd6dfb5e99c" source="n3" target="n53"/>
+      <arc id="a59c1a8a-3a19-4229-a74a-e11b9e36c6cc" source="n9" target="n47"/>
+      <arc id="5ce3d7f5-2987-4c85-907f-5e9a144bc322" source="11_AH_II_060+complete" target="n11"/>
+      <arc id="f9e9d9b8-37cb-4056-9b61-7ed08c84a7d9" source="n12" target="11_AH_II_090_1+complete"/>
+      <arc id="6b5ed696-ee85-42b1-a0ca-68cba42b7de3" source="n12" target="11_AH_II_037_3+complete"/>
+      <arc id="5fd2f4fb-134f-4cad-a2a7-ccbc87a84f96" source="n1" target="11_AH_II_036+complete"/>
+      <arc id="3cc82c47-6fe5-4d94-8a01-a3188b046b1c" source="11_AH_II_020_1+complete" target="n5"/>
+      <arc id="a127fd5f-4fd0-4dea-aa99-a28ff1967b8a" source="n12" target="11_AH_II_040_d+complete"/>
+      <arc id="4e739541-4b49-48b0-b193-c3abbfcf5067" source="n12" target="11_AH_II_035+complete"/>
+      <arc id="f696cbcf-6482-4a4b-9d0a-6666accc88ed" source="11_AH_II_040+complete" target="n11"/>
+      <arc id="cc4de406-f835-4035-baa4-2fed6f2457bb" source="n12" target="11_AH_II_070_3a+complete"/>
+      <arc id="b029bae2-c9b8-449f-88bd-df53cfb2d2df" source="n12" target="11_AH_II_060+complete"/>
+      <arc id="6a1d9667-b2e1-43ad-bb4c-d967acedd9f1" source="11_AH_II_140+complete" target="n11"/>
+      <arc id="964a7a2d-d6d7-4ceb-8158-fb5e3f803106" source="n6" target="11_AH_II_020_2+complete"/>
+      <arc id="cf4d3db0-a820-4c3d-9571-bb2217c03415" source="n52" target="n3"/>
+      <arc id="b8bed757-8246-4eb0-998b-443187b28990" source="n12" target="11_AH_II_070+complete"/>
+      <arc id="deca0b13-299c-428f-af09-2957db71e11f" source="n11" target="n45"/>
+      <arc id="454968fb-da91-43d9-bba6-ae677c6b4eef" source="11_AH_II_070_1+complete" target="n11"/>
+      <arc id="2d7cdc08-d070-4716-b2b8-4716098440fa" source="11_AH_II_070+complete" target="n11"/>
+      <arc id="cd2afbde-66f8-4654-bf1a-b53faf716bb9" source="n6" target="11_AH_II_030+complete"/>
+      <arc id="a4fcff11-7a4c-4f51-9a37-4ae801271a00" source="11_AH_II_035+complete" target="n11"/>
+      <arc id="0f59fa90-93a9-48d5-8d3b-fa03237a1ae9" source="11_AH_II_037_3+complete" target="n11"/>
+      <arc id="2f33451f-95f0-4d6a-a247-d47322563f44" source="n10" target="11_AH_II_130+complete"/>
+      <arc id="55722651-67c5-42b7-bae2-2d8502f5168a" source="n44" target="n12"/>
+      <arc id="628d5d73-3d66-41cc-9b0e-f08e6ba96f9d" source="n12" target="11_AH_II_040a+complete"/>
+      <arc id="23f43841-b12b-4ced-a485-b7d1eb73b862" source="11_AH_II_040c+complete" target="n5"/>
+      <arc id="a6818267-a2b3-4c27-b1e9-ce61a6437fba" source="n12" target="11_AH_II_070_2+complete"/>
+      <arc id="9d073442-3ccb-4707-9985-8c0f6fbe98b3" source="11_AH_II_130+complete" target="n9"/>
+      <arc id="26a3d3b1-05d0-4548-9820-8f23fc9d84ee" source="n48" target="n7"/>
+      <arc id="d5bd5381-797d-4fe3-b490-76fac3741b81" source="11_AH_II_070_2+complete" target="n11"/>
+      <arc id="0da1a46b-9eac-4783-ac8d-fc845a7f3201" source="11_AH_II_010+complete" target="n5"/>
+      <arc id="04ebae05-4635-4087-bd88-7393b7e60cba" source="n12" target="11_AH_II_040+complete"/>
+      <arc id="23d3f5b9-1232-41ee-82eb-e42fbe8a10f2" source="n23" target="n4"/>
+      <arc id="1a30ede6-16f7-4790-aade-d9334338f521" source="n45" target="n9"/>
+      <arc id="40a46e8c-d28c-46e9-9027-c2647dd77189" source="n1" target="n15"/>
+      <arc id="c9eeb5d4-2d6c-46c8-afb8-945395e853c6" source="n11" target="n44"/>
+      <arc id="5c160e29-3757-4682-8b03-0d14f99089fe" source="n1" target="11_AH_II_040b+complete"/>
+      <arc id="1fbdbe8a-adb6-4d39-8763-1c7009b7d8d3" source="n27" target="n10"/>
+      <arc id="4dc4554e-21b8-4dfc-86dc-14bd661e880d" source="11_AH_II_037_1+complete" target="n11"/>
+      <arc id="d352b55a-c3ef-4ca1-ab77-958af6638b43" source="11_AH_II_145+complete" target="n11"/>
+      <arc id="f37a0afe-028b-43f2-b2eb-eafab71b550f" source="11_AH_II_040_d+complete" target="n11"/>
+      <arc id="13960196-22a0-485a-9b75-bde3592a9f29" source="n8" target="11_AH_II_055+complete"/>
+      <arc id="61a2c97e-ed21-4f63-b5e6-d418a335e816" source="11_AH_II_040a+complete" target="n11"/>
+      <arc id="b2601402-3cfb-4489-bcca-cb85d44b9446" source="n12" target="11_AH_II_070_1+complete"/>
+      <arc id="271c2dd7-151a-4d62-9924-b37c4537ea78" source="n26" target="n8"/>
+      <arc id="a33a82a0-e254-4884-9e1b-f85e4bb82f78" source="n4" target="n26"/>
+      <arc id="20106bf0-d587-4c92-ba9f-849393b39f01" source="n5" target="n22"/>
+      <arc id="42320e6d-6ad0-4881-b3ad-bc74b1406b4c" source="n8" target="n27"/>
+      <arc id="ffd73012-63d4-4e65-9f3e-c0490cc465a6" source="11_AH_II_020_2+complete" target="n5"/>
+      <arc id="82f77eef-6c74-4c85-b348-e0085ed8f814" source="n12" target="11_AH_II_037_1+complete"/>
+      <arc id="f207cb9d-3c0a-40f8-9315-41f0e6192950" source="n12" target="11_AH_II_140+complete"/>
+      <arc id="463b8c87-255c-4307-9dca-2de200da74b2" source="n6" target="11_AH_II_020_1+complete"/>
+      <arc id="6212ced9-fb6f-4054-8537-57a63c930ed3" source="11_AH_II_040b+complete" target="n4"/>
+      <arc id="c95caf19-c7eb-4524-8fa5-981053b28a1d" source="n7" target="n51"/>
+    </page>
+  </net>
+</pnml>

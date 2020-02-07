@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="1ddbdfe7-a2ec-4310-83b8-1f509627899f" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5123</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5124</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 5125</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>source 5126</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>sink 5127</text>
+        </name>
+      </place>
+      <place id="n6">
+        <name>
+          <text>source 5128</text>
+        </name>
+      </place>
+      <place id="n7">
+        <name>
+          <text>sink 5129</text>
+        </name>
+      </place>
+      <place id="n8">
+        <name>
+          <text>sink 5130</text>
+        </name>
+      </place>
+      <place id="n9">
+        <name>
+          <text>sink 5131</text>
+        </name>
+      </place>
+      <place id="n10">
+        <name>
+          <text>source 5132</text>
+        </name>
+      </place>
+      <place id="n12">
+        <name>
+          <text>source 5134</text>
+        </name>
+      </place>
+      <place id="n11">
+        <name>
+          <text>sink 5133</text>
+        </name>
+      </place>
+      <place id="n14">
+        <name>
+          <text>source 5136</text>
+        </name>
+      </place>
+      <place id="n13">
+        <name>
+          <text>sink 5135</text>
+        </name>
+      </place>
+      <place id="n16">
+        <name>
+          <text>sink 5138</text>
+        </name>
+      </place>
+      <place id="n15">
+        <name>
+          <text>sink 5137</text>
+        </name>
+      </place>
+      <place id="n17">
+        <name>
+          <text>sink 5139</text>
+        </name>
+      </place>
+      <transition id="02_DRZ_030_1+complete">
+        <name>
+          <text>forward transcript to stakeholders</text>
+        </name>
+      </transition>
+      <transition id="02_DRZ_011+complete">
+        <name>
+          <text>send send confirmation competent authority</text>
+        </name>
+      </transition>
+      <transition id="02_DRZ_020_2+complete">
+        <name>
+          <text>enter senddate letter to competent authority</text>
+        </name>
+      </transition>
+      <transition id="n32"/>
+      <transition id="n21"/>
+      <transition id="n20"/>
+      <transition id="n23"/>
+      <transition id="n33"/>
+      <transition id="02_DRZ_030_2+complete">
+        <name>
+          <text>enter senddate letter to stakeholders</text>
+        </name>
+      </transition>
+      <transition id="n36"/>
+      <transition id="02_DRZ_020_0+complete">
+        <name>
+          <text>send send confirmation competent authority</text>
+        </name>
+      </transition>
+      <transition id="n24"/>
+      <transition id="02_DRZ_035+complete">
+        <name>
+          <text>phase procedure aborted</text>
+        </name>
+      </transition>
+      <transition id="02_DRZ_010+complete">
+        <name>
+          <text>forward to the competent authority</text>
+        </name>
+      </transition>
+      <transition id="n29"/>
+      <transition id="n18"/>
+      <transition id="n28"/>
+      <transition id="02_DRZ_045+complete">
+        <name>
+          <text>phase procedure aborted</text>
+        </name>
+      </transition>
+      <transition id="02_DRZ_020_1+complete">
+        <name>
+          <text>request to competent authority</text>
+        </name>
+      </transition>
+      <transition id="02_DRZ_030_0+complete">
+        <name>
+          <text>create forwarding copy</text>
+        </name>
+      </transition>
+      <arc id="7867621e-3fd7-4439-8379-a35cb39da745" source="n32" target="n15"/>
+      <arc id="e3298c0d-6315-4655-bf9d-e1ffc19e3699" source="n15" target="n29"/>
+      <arc id="8d361101-a708-428e-8430-84946f99482e" source="n33" target="n16"/>
+      <arc id="46c88e3d-59b9-4ccf-9d76-518276837568" source="02_DRZ_020_1+complete" target="n13"/>
+      <arc id="fe708d5e-1db0-4381-b9e6-851704378131" source="n28" target="n12"/>
+      <arc id="226042fb-92bd-4ec3-b163-ec413683f33c" source="n14" target="n33"/>
+      <arc id="f26032f5-82f5-42dd-b39d-b9d752943422" source="n21" target="n2"/>
+      <arc id="3e41afd1-9793-4d01-838b-8047aebd1a04" source="n28" target="n14"/>
+      <arc id="385a9142-479d-4865-afb7-d2fc2de59392" source="n3" target="n20"/>
+      <arc id="bfcb9a27-985f-46c9-9ae6-509f5eaa3826" source="n18" target="n3"/>
+      <arc id="90003819-2e17-4555-9d92-d4ade58b45d3" source="n1" target="02_DRZ_030_2+complete"/>
+      <arc id="d473127b-c5d6-4764-8e15-6537310805ba" source="n16" target="02_DRZ_035+complete"/>
+      <arc id="51707c7c-dd4c-40ee-95b7-501daa4e60bd" source="n23" target="n7"/>
+      <arc id="c9273124-e353-4afc-ba70-f84a890fae95" source="02_DRZ_030_0+complete" target="n9"/>
+      <arc id="30091103-97ab-486e-a063-9604f7077c02" source="n11" target="n29"/>
+      <arc id="0517c2cf-0a83-464c-a82c-a517d8b17ea2" source="02_DRZ_020_2+complete" target="n11"/>
+      <arc id="6a1b66ad-a58b-42b7-bfbd-c3c82bbb2031" source="n36" target="n15"/>
+      <arc id="7fccbb2b-d7a8-4701-b9d5-9bab2a589b35" source="n6" target="02_DRZ_030_0+complete"/>
+      <arc id="6aeef465-7105-48f2-ba15-c38a3e0b4bac" source="02_DRZ_010+complete" target="n5"/>
+      <arc id="e17910a7-b659-49ca-b7b3-bea27ed07b5d" source="02_DRZ_045+complete" target="n15"/>
+      <arc id="30f7431e-fd96-42b7-b769-b955dece15d9" source="n17" target="n36"/>
+      <arc id="1e35343c-2dfc-40ab-a33c-40f4698d3dfb" source="n28" target="n10"/>
+      <arc id="bf3dee0f-db09-4074-bbd3-00c4cfce5316" source="n29" target="n7"/>
+      <arc id="654a7e5e-3aeb-4259-bbb3-da130013605a" source="n20" target="n4"/>
+      <arc id="85196324-9e4d-4406-b5fa-c9b058e548c0" source="n9" target="02_DRZ_020_0+complete"/>
+      <arc id="3ca0505f-fcb5-4508-a799-3660c438f1c7" source="02_DRZ_011+complete" target="n8"/>
+      <arc id="501c060c-067e-468e-8b69-225d4a3894e5" source="02_DRZ_035+complete" target="n17"/>
+      <arc id="3db9b461-be6e-41d5-b608-841b77450ae8" source="n6" target="n24"/>
+      <arc id="bb40e8f1-4631-4a76-b815-eec9b025644a" source="n1" target="n18"/>
+      <arc id="b7420d86-c72d-433b-b1e7-527ca99c0a45" source="02_DRZ_020_0+complete" target="n8"/>
+      <arc id="07e1dddf-e343-4276-b2e3-3c8e5eca1b61" source="n6" target="02_DRZ_011+complete"/>
+      <arc id="878923e1-e24c-4b09-8f00-263adb16fff6" source="n12" target="02_DRZ_020_1+complete"/>
+      <arc id="e024c48e-7641-4a56-87c2-86c0cd2d3b93" source="n20" target="n6"/>
+      <arc id="bd4dd792-cf61-4398-8d37-84ddc14c10d6" source="n14" target="02_DRZ_030_1+complete"/>
+      <arc id="ff9c2e4a-e8bc-4168-a010-cd03333d078b" source="02_DRZ_030_1+complete" target="n16"/>
+      <arc id="673e590e-ff33-4f72-8fae-5b061929ea0b" source="n5" target="n21"/>
+      <arc id="a92fc78b-76c8-46d4-b628-e44d89e2792f" source="n13" target="n29"/>
+      <arc id="2a551782-f1cd-419d-9188-5f431bc3ef1d" source="n17" target="02_DRZ_045+complete"/>
+      <arc id="c3be5810-4eac-4dc8-939d-80445a941a1f" source="02_DRZ_030_2+complete" target="n3"/>
+      <arc id="cf99fc48-6d43-4569-8478-87223427bf8d" source="n7" target="n21"/>
+      <arc id="7e697d5b-dca1-4f71-87cc-984226c4d1b8" source="n4" target="02_DRZ_010+complete"/>
+      <arc id="676ad4b5-4e64-45db-aa46-9b55017ef2f2" source="n24" target="n8"/>
+      <arc id="6dcda429-157c-4b4b-88e6-5a3214cf47a4" source="n8" target="n28"/>
+      <arc id="2deefbce-1746-43d8-9de8-8fd86b957ba4" source="n10" target="02_DRZ_020_2+complete"/>
+      <arc id="cfa29ea7-5144-4cb7-b734-4c56a0e3befc" source="n6" target="n23"/>
+      <arc id="07144cf8-7499-4d45-b061-b0e71ac66473" source="n14" target="n32"/>
+    </page>
+  </net>
+</pnml>

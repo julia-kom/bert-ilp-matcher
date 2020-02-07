@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="ed0fb1ec-c7b5-4db3-bd39-32a872aae8ac" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5311</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5312</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 5313</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>sink 5314</text>
+        </name>
+      </place>
+      <transition id="13_CRD_030_0+complete">
+        <name>
+          <text>create coordination confirmation</text>
+        </name>
+      </transition>
+      <transition id="n6"/>
+      <transition id="13_CRD_020+complete">
+        <name>
+          <text>suspend term</text>
+        </name>
+      </transition>
+      <transition id="13_CRD_010+complete">
+        <name>
+          <text>coordination of application</text>
+        </name>
+      </transition>
+      <arc id="794499d8-f246-4ab3-a008-9dce4ec7391a" source="n4" target="13_CRD_020+complete"/>
+      <arc id="dd72bb6d-4565-442c-8a32-4c9cb5078853" source="n3" target="n6"/>
+      <arc id="cefce244-fd5d-4795-8c43-821cb228eeb4" source="n1" target="13_CRD_010+complete"/>
+      <arc id="1477d99d-a2c0-4d67-829a-ed0470a52912" source="n3" target="13_CRD_030_0+complete"/>
+      <arc id="67ee8af5-d103-45e4-ade1-2b94f185fb24" source="n6" target="n2"/>
+      <arc id="fbccbe3b-e55a-49eb-94f1-f78eb16c8f3e" source="13_CRD_010+complete" target="n3"/>
+      <arc id="c9681779-fa5f-4856-98fb-9f5d104cc547" source="13_CRD_020+complete" target="n2"/>
+      <arc id="df868bc7-f5d1-4707-a4d3-9c38ef74e845" source="13_CRD_030_0+complete" target="n4"/>
+    </page>
+  </net>
+</pnml>

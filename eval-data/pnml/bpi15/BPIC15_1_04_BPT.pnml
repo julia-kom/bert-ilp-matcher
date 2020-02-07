@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="fc98e1ba-9ae0-43ff-9645-df51e1d988a3" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 4881</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 4882</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>middle 4883</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>sink 4884</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>sink 4885</text>
+        </name>
+      </place>
+      <place id="n6">
+        <name>
+          <text>sink 4886</text>
+        </name>
+      </place>
+      <place id="n7">
+        <name>
+          <text>middle 4887</text>
+        </name>
+      </place>
+      <place id="n8">
+        <name>
+          <text>sink 4888</text>
+        </name>
+      </place>
+      <place id="n9">
+        <name>
+          <text>middle 4889</text>
+        </name>
+      </place>
+      <place id="n10">
+        <name>
+          <text>replacement source 4890</text>
+        </name>
+      </place>
+      <place id="n11">
+        <name>
+          <text>sink 4891</text>
+        </name>
+      </place>
+      <transition id="04_BPT_009+complete">
+        <name>
+          <text>MER required</text>
+        </name>
+      </transition>
+      <transition id="04_BPT_010+complete">
+        <name>
+          <text>MER present</text>
+        </name>
+      </transition>
+      <transition id="04_BPT_029+complete">
+        <name>
+          <text>read field phased application</text>
+        </name>
+      </transition>
+      <transition id="04_BPT_060+complete">
+        <name>
+          <text>term 14 or 26 weeks</text>
+        </name>
+      </transition>
+      <transition id="n32"/>
+      <transition id="n21"/>
+      <transition id="n31"/>
+      <transition id="04_BPT_050+complete">
+        <name>
+          <text>first phase affected</text>
+        </name>
+      </transition>
+      <transition id="n20"/>
+      <transition id="n34"/>
+      <transition id="04_BPT_041+complete">
+        <name>
+          <text>start phased application</text>
+        </name>
+      </transition>
+      <transition id="n33"/>
+      <transition id="n13"/>
+      <transition id="n15"/>
+      <transition id="n26"/>
+      <transition id="n18"/>
+      <transition id="n29"/>
+      <transition id="n28"/>
+      <transition id="04_BPT_021+complete">
+        <name>
+          <text>start WABOprocedure</text>
+        </name>
+      </transition>
+      <transition id="04_BPT_040+complete">
+        <name>
+          <text>first or second phase</text>
+        </name>
+      </transition>
+      <transition id="04_BPT_020+complete">
+        <name>
+          <text>activities regular procedure</text>
+        </name>
+      </transition>
+      <transition id="04_BPT_005+complete">
+        <name>
+          <text>regular procedure without MER</text>
+        </name>
+      </transition>
+      <transition id="04_BPT_030+complete">
+        <name>
+          <text>phased application</text>
+        </name>
+      </transition>
+      <arc id="76fc8394-ef6f-4313-b1c8-4f9634691918" source="n8" target="n20"/>
+      <arc id="c565c7de-08b6-4dcd-b970-ab9d9753ac3c" source="n33" target="n1"/>
+      <arc id="d12442eb-5ce6-4314-9c95-77cbe6228dea" source="04_BPT_050+complete" target="n9"/>
+      <arc id="86bc7fd1-ceb9-4951-8fe3-56a6877c36f1" source="04_BPT_005+complete" target="n4"/>
+      <arc id="004f6190-d670-4aa5-ab19-1585e81f46a3" source="04_BPT_030+complete" target="n7"/>
+      <arc id="a81938a0-45da-42c1-a254-f9162cc7bd41" source="n7" target="n32"/>
+      <arc id="8c058b65-7bbb-4d61-9a22-854578be707f" source="04_BPT_020+complete" target="n4"/>
+      <arc id="ef5cac27-19eb-4974-903e-4f94ec1b0eb9" source="04_BPT_009+complete" target="n5"/>
+      <arc id="e325b93a-9b6b-42df-892d-f81d0b93208f" source="n26" target="n9"/>
+      <arc id="25675f05-388a-4f68-9179-9f660768f67b" source="n29" target="n7"/>
+      <arc id="b3369a2e-4da9-460c-8eff-4fcea1271e59" source="n9" target="n29"/>
+      <arc id="bc4de47d-e756-4072-a61f-b1cddd0b9720" source="n3" target="n34"/>
+      <arc id="f52b339b-f3a6-4fee-931c-ac2753eea33e" source="n32" target="n3"/>
+      <arc id="5a9e01aa-eee3-4dcb-b30c-ac3520b7bdde" source="n5" target="n15"/>
+      <arc id="8cea1db6-84de-439b-9d5f-af1474731619" source="n1" target="04_BPT_009+complete"/>
+      <arc id="2aeeda8e-372d-4b2b-a0d6-049658e90939" source="n4" target="04_BPT_040+complete"/>
+      <arc id="a8226204-c816-42e3-b250-436e079baaa1" source="n13" target="n5"/>
+      <arc id="9dedd829-16eb-4391-a545-b756841e14d5" source="n4" target="04_BPT_030+complete"/>
+      <arc id="4a3f27cb-865e-458c-8a78-786304fac8f0" source="n9" target="n28"/>
+      <arc id="ba4c4254-42ad-466f-a2a7-18f02ab0d9b1" source="n10" target="04_BPT_050+complete"/>
+      <arc id="72a7e830-2545-4c91-a8e0-8135d0aa1ae3" source="n20" target="n7"/>
+      <arc id="292681ac-f23c-4f39-9404-5c98ede00b85" source="n6" target="04_BPT_020+complete"/>
+      <arc id="d5b45265-213a-4dea-b9b5-68066a982ddd" source="n1" target="04_BPT_005+complete"/>
+      <arc id="2984def7-275b-4f55-a1b1-55a16cc28ef7" source="n4" target="n18"/>
+      <arc id="9f6d9b7a-9010-47d9-9926-2a9679a8547e" source="n34" target="n2"/>
+      <arc id="c7bf0a44-c8c0-48d1-8198-6977603caa98" source="n28" target="n10"/>
+      <arc id="96b3552a-832d-4c04-b511-aa274f10c614" source="04_BPT_041+complete" target="n9"/>
+      <arc id="4098e0f7-7f75-49b0-9945-f1e51cf81286" source="n11" target="04_BPT_041+complete"/>
+      <arc id="f032449f-6c91-45db-a8d6-52f81b0fcfd8" source="04_BPT_060+complete" target="n11"/>
+      <arc id="ec63a4d9-ed4d-4e32-8465-8cd12c2f6853" source="04_BPT_021+complete" target="n11"/>
+      <arc id="1693e45c-a936-4997-a18a-17dbc95935dc" source="n3" target="n33"/>
+      <arc id="d8d69b3f-ad9c-4ad9-9543-2dd9a9a63bf8" source="n18" target="n8"/>
+      <arc id="c8cd442e-cdbc-4d07-aafc-6b09d0dee9a1" source="n11" target="n26"/>
+      <arc id="fe2ee337-fc47-45f0-aa8f-34693cedfdbf" source="n1" target="n13"/>
+      <arc id="68591dee-6157-4f9d-80a0-8a49a0c3d620" source="n5" target="04_BPT_010+complete"/>
+      <arc id="04a24051-653f-46f0-b927-c0cd0e071303" source="n31" target="n4"/>
+      <arc id="20f58c38-9e12-43df-9473-99aec3b32d58" source="n10" target="04_BPT_060+complete"/>
+      <arc id="62f42bbd-e00b-4a87-8705-6e406ac3c73f" source="04_BPT_040+complete" target="n8"/>
+      <arc id="fe120aac-d059-42eb-8cad-270788e9693c" source="04_BPT_010+complete" target="n6"/>
+      <arc id="70a9ff38-1db8-490b-89f5-571df82e4217" source="n21" target="n10"/>
+      <arc id="1df8434b-6b91-48d5-afac-0ed1f3a897d9" source="n15" target="n6"/>
+      <arc id="a3524579-ec95-4e04-8396-ebdca2ca3631" source="n8" target="n21"/>
+      <arc id="773aafce-397e-41be-9762-719ba6a7f2b0" source="n10" target="04_BPT_021+complete"/>
+      <arc id="71a195ef-aa33-4196-9d4f-cc6b03a68ea1" source="04_BPT_029+complete" target="n11"/>
+      <arc id="ff896aa6-4e0e-491e-bcac-5d1ccb14f127" source="n7" target="n31"/>
+      <arc id="d0c6815e-8b63-48d7-a763-a3bcf5055cc6" source="n10" target="04_BPT_029+complete"/>
+    </page>
+  </net>
+</pnml>

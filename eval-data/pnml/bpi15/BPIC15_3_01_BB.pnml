@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="a2e41f05-7fb9-488d-a078-1017f1b677e6" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5356</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5357</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 5358</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>middle 5359</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>sink 5360</text>
+        </name>
+      </place>
+      <place id="n6">
+        <name>
+          <text>sink 5361</text>
+        </name>
+      </place>
+      <place id="n7">
+        <name>
+          <text>sink 5362</text>
+        </name>
+      </place>
+      <place id="n8">
+        <name>
+          <text>source 5363</text>
+        </name>
+      </place>
+      <place id="n9">
+        <name>
+          <text>sink 5364</text>
+        </name>
+      </place>
+      <place id="n10">
+        <name>
+          <text>middle 5365</text>
+        </name>
+      </place>
+      <place id="n12">
+        <name>
+          <text>source 5367</text>
+        </name>
+      </place>
+      <place id="n11">
+        <name>
+          <text>replacement source 5366</text>
+        </name>
+      </place>
+      <place id="n14">
+        <name>
+          <text>sink 5369</text>
+        </name>
+      </place>
+      <place id="n13">
+        <name>
+          <text>sink 5368</text>
+        </name>
+      </place>
+      <place id="n16">
+        <name>
+          <text>sink 5371</text>
+        </name>
+      </place>
+      <place id="n15">
+        <name>
+          <text>sink 5370</text>
+        </name>
+      </place>
+      <place id="n18">
+        <name>
+          <text>sink 5373</text>
+        </name>
+      </place>
+      <place id="n17">
+        <name>
+          <text>sink 5372</text>
+        </name>
+      </place>
+      <place id="n19">
+        <name>
+          <text>sink 5374</text>
+        </name>
+      </place>
+      <transition id="01_BB_770+complete">
+        <name>
+          <text>set phase: phase permitting irrevocable</text>
+        </name>
+      </transition>
+      <transition id="01_BB_640+complete">
+        <name>
+          <text>request for preliminary injunction received</text>
+        </name>
+      </transition>
+      <transition id="n30"/>
+      <transition id="n31"/>
+      <transition id="n33"/>
+      <transition id="01_BB_730+complete">
+        <name>
+          <text>contested decision affected</text>
+        </name>
+      </transition>
+      <transition id="n35"/>
+      <transition id="n37"/>
+      <transition id="n39"/>
+      <transition id="01_BB_540+complete">
+        <name>
+          <text>objection lodged against decision</text>
+        </name>
+      </transition>
+      <transition id="01_BB_755+complete">
+        <name>
+          <text>set phase</text>
+        </name>
+      </transition>
+      <transition id="01_BB_650_2+complete">
+        <name>
+          <text>subcase preliminary injunction completed</text>
+        </name>
+      </transition>
+      <transition id="01_BB_545+complete">
+        <name>
+          <text>phase objection filed</text>
+        </name>
+      </transition>
+      <transition id="01_BB_766+complete">
+        <name>
+          <text>new decision or reassessment</text>
+        </name>
+      </transition>
+      <transition id="n20"/>
+      <transition id="n42"/>
+      <transition id="n45"/>
+      <transition id="n22"/>
+      <transition id="n44"/>
+      <transition id="n25"/>
+      <transition id="01_BB_765+complete">
+        <name>
+          <text>set phase decision revoked</text>
+        </name>
+      </transition>
+      <transition id="n24"/>
+      <transition id="01_BB_650_1+complete">
+        <name>
+          <text>treat subcase preliminary injunction</text>
+        </name>
+      </transition>
+      <transition id="n46"/>
+      <transition id="n27"/>
+      <transition id="n26"/>
+      <transition id="01_BB_775+complete">
+        <name>
+          <text>phase decision irrevocable</text>
+        </name>
+      </transition>
+      <transition id="n29"/>
+      <transition id="01_BB_546+complete">
+        <name>
+          <text>objections and preliminary injunction in system</text>
+        </name>
+      </transition>
+      <transition id="01_BB_760+complete">
+        <name>
+          <text>new decision or reassessment</text>
+        </name>
+      </transition>
+      <transition id="01_BB_630+complete">
+        <name>
+          <text>appeal logded</text>
+        </name>
+      </transition>
+      <arc id="39cc34a1-9644-4766-b9cc-8b24440b9da5" source="01_BB_730+complete" target="n14"/>
+      <arc id="81a1a92d-68c3-4723-afaf-9b1785094897" source="n30" target="n9"/>
+      <arc id="f791efce-a18a-4e41-ae2d-5b7ff26182f2" source="n29" target="n11"/>
+      <arc id="b01a635e-fdb7-4e2f-aba4-80e0847f3e17" source="n11" target="01_BB_630+complete"/>
+      <arc id="abfc521a-ccd4-44b9-b3cf-2b6668c58a30" source="n17" target="01_BB_760+complete"/>
+      <arc id="33fc75ba-18a0-44fc-ad98-13f7374bd7b4" source="n35" target="n16"/>
+      <arc id="e2313024-9e87-4827-8292-cd210683a769" source="n12" target="n31"/>
+      <arc id="947d1f2f-74ae-4742-afad-4e22b36a48bd" source="n24" target="n12"/>
+      <arc id="0041bc8b-66c3-4969-b1f0-19fa14193c2c" source="n20" target="n6"/>
+      <arc id="0656d13f-eb2b-45bf-8154-523a920cff9c" source="n37" target="n17"/>
+      <arc id="2a5b4b9d-29c9-4a65-b4f4-39dd8a06def2" source="n12" target="01_BB_730+complete"/>
+      <arc id="75fb4956-d854-4490-ad56-d02411570af9" source="01_BB_545+complete" target="n16"/>
+      <arc id="75044ce2-d96e-4b2c-b042-4e27cbede310" source="n22" target="n7"/>
+      <arc id="da6c638c-cba9-47f1-b5e1-5d9550c84bdc" source="n25" target="n5"/>
+      <arc id="be4b5385-72ba-4d3f-889b-ce627bbd5667" source="01_BB_760+complete" target="n13"/>
+      <arc id="f9b172b1-22a8-4b00-a625-e49954a9b1f1" source="n44" target="n1"/>
+      <arc id="0fc9735a-7203-42d0-9186-29c3a0cb99ed" source="n45" target="n3"/>
+      <arc id="8efbf462-c362-4301-b73a-dbb80e321747" source="01_BB_640+complete" target="n18"/>
+      <arc id="93ad6860-ce40-4718-948a-32e3fdd37930" source="n18" target="01_BB_650_1+complete"/>
+      <arc id="e524244c-82e4-4c99-a0dd-0ea4626bbd2e" source="01_BB_540+complete" target="n6"/>
+      <arc id="1aaad9f9-6d3e-4ed5-b7ff-c4ac72fff89b" source="01_BB_630+complete" target="n10"/>
+      <arc id="bc03802c-06f0-477d-bfe2-d43f0504e210" source="n7" target="n24"/>
+      <arc id="6c22072e-9788-4e82-9415-8e794996ffdf" source="n39" target="n13"/>
+      <arc id="e06295fe-88da-450d-8ef0-e234a2a98bf2" source="n19" target="01_BB_650_2+complete"/>
+      <arc id="dbc6cb19-bb4f-4b86-9ba5-139accbadf53" source="01_BB_766+complete" target="n15"/>
+      <arc id="00f82019-8fcf-49d8-afe7-04071aa9c109" source="n42" target="n4"/>
+      <arc id="ed2c3eb5-2c79-4605-a68c-066a68f57743" source="n10" target="n29"/>
+      <arc id="42981a9c-a56e-4e99-9c15-36ba5db130ef" source="n26" target="n9"/>
+      <arc id="9ea3dc38-323f-49ee-951c-61515710f17c" source="n5" target="01_BB_775+complete"/>
+      <arc id="4b546b8b-3def-4e85-92ad-f56ccb0c6ee7" source="01_BB_770+complete" target="n5"/>
+      <arc id="659a3566-2a07-4f48-9663-9405a5b94020" source="n14" target="01_BB_766+complete"/>
+      <arc id="afe393c3-d8e2-4e9d-9d4e-5f85b66a5090" source="n31" target="n14"/>
+      <arc id="8454215c-3e8d-49ce-982a-7764857a74b5" source="n33" target="n15"/>
+      <arc id="af29d596-28fa-48dd-90fd-702199dad19e" source="n8" target="n26"/>
+      <arc id="916c5d62-240a-4051-9e3c-ef747555b3f3" source="n16" target="01_BB_765+complete"/>
+      <arc id="f31d0a5a-d464-421a-ae3b-fd2179974d6a" source="01_BB_650_1+complete" target="n19"/>
+      <arc id="24a118dc-e607-407c-8365-02b6a581d6e1" source="n1" target="01_BB_770+complete"/>
+      <arc id="ae4ac1f0-b195-4677-96d0-9ee460ee4351" source="n24" target="n8"/>
+      <arc id="f91b4476-4494-4710-a7cb-732b4e12bcc6" source="n3" target="n46"/>
+      <arc id="bcdb0320-de29-482c-aaed-5e241083d86c" source="n17" target="n39"/>
+      <arc id="993b9e90-69f2-474d-84fe-45a1d5c0a40c" source="01_BB_775+complete" target="n4"/>
+      <arc id="979cd2cd-130a-42f3-b856-5c896ab11e4e" source="n27" target="n11"/>
+      <arc id="dcda32a4-75d0-407e-bdba-f819897dc739" source="n5" target="n42"/>
+      <arc id="6b1b253f-e4d3-4ffc-b4e1-e66e851c7c93" source="01_BB_546+complete" target="n7"/>
+      <arc id="9ca53d70-beb8-47e5-ab7b-9551a8a7f1b1" source="n46" target="n2"/>
+      <arc id="ca461b52-f718-4e63-ad2e-a326b3acbc0e" source="n4" target="n44"/>
+      <arc id="1f66e3c7-a79f-4cd5-a89b-6bd3bbc2ba48" source="01_BB_765+complete" target="n17"/>
+      <arc id="ac7197e7-ac50-4621-8289-197a01736146" source="01_BB_755+complete" target="n2"/>
+      <arc id="03b87367-9957-4e32-9744-504023cd1fa0" source="n8" target="n27"/>
+      <arc id="0d7efcb7-6ae8-4c79-865e-1797c699b269" source="n3" target="01_BB_755+complete"/>
+      <arc id="d7ef6910-ded5-4a52-bb7d-0ccfffc6d3e2" source="n6" target="n22"/>
+      <arc id="476765fc-4b10-4012-ad52-3909e4e04c05" source="n3" target="01_BB_640+complete"/>
+      <arc id="b8ea0161-a370-430a-aeec-1c2b2ba50380" source="n1" target="01_BB_540+complete"/>
+      <arc id="05116343-9469-4bf5-af1c-301cd01998bb" source="n1" target="n20"/>
+      <arc id="0aae5805-e814-42ef-8f67-17018161c26b" source="n15" target="01_BB_545+complete"/>
+      <arc id="20650a3f-799c-4c7f-87b6-6642638c17b2" source="01_BB_650_2+complete" target="n2"/>
+      <arc id="935307eb-b6b8-46a2-8442-f83abbabd8bc" source="n6" target="01_BB_546+complete"/>
+      <arc id="51c25af0-3bc4-4aa6-935e-459359ff15bf" source="n15" target="n35"/>
+      <arc id="8bc90734-aaa8-4ddb-a513-eff0c025ca18" source="n9" target="n25"/>
+      <arc id="b9c4addb-3ac9-4ce4-a5fb-472b7ff458a1" source="n13" target="n25"/>
+      <arc id="cd8c5de4-e937-4dc5-86cb-0d1856b0473c" source="n14" target="n33"/>
+      <arc id="9247260c-02fe-4e2d-989d-effdb7060d46" source="n10" target="n30"/>
+      <arc id="46acb1c0-b953-48d5-ba3e-22956c572752" source="n4" target="n45"/>
+      <arc id="57882510-9359-4583-a457-db8bac88d66e" source="n16" target="n37"/>
+    </page>
+  </net>
+</pnml>

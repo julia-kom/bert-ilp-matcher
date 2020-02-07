@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="5f9231ab-b634-46a1-9e71-6c948cc74875" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5038</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5039</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 5040</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>sink 5041</text>
+        </name>
+      </place>
+      <transition id="13_CRD_030_0+complete">
+        <name>
+          <text>create coordination confirmation</text>
+        </name>
+      </transition>
+      <transition id="n6"/>
+      <transition id="n8"/>
+      <transition id="13_CRD_020+complete">
+        <name>
+          <text>suspend term</text>
+        </name>
+      </transition>
+      <transition id="13_CRD_010+complete">
+        <name>
+          <text>coordination of application</text>
+        </name>
+      </transition>
+      <arc id="b4062270-a400-47a2-a35f-ce662a3eec4e" source="13_CRD_020+complete" target="n4"/>
+      <arc id="65dc3623-f516-4d3c-84c1-aa96a7bdf8b2" source="n4" target="n8"/>
+      <arc id="ad41d353-70a6-466f-8b19-711600edd274" source="n1" target="13_CRD_010+complete"/>
+      <arc id="08a6113d-05a4-4020-a607-c077deeddc28" source="n3" target="n6"/>
+      <arc id="a110aa8d-42ce-4a0a-a49e-6be4b5f637a5" source="n8" target="n2"/>
+      <arc id="196065e1-c915-4261-8994-3840e8b6b530" source="n6" target="n4"/>
+      <arc id="16a654ec-fb7d-467a-9258-bceb44dfe439" source="n3" target="13_CRD_020+complete"/>
+      <arc id="a5730fab-f43c-460d-be2d-29239488c042" source="13_CRD_010+complete" target="n3"/>
+      <arc id="15d5c664-0714-40ec-873f-61dae54433c1" source="n4" target="13_CRD_030_0+complete"/>
+      <arc id="f45c2bc8-ee69-48db-9ad9-a4918224374f" source="13_CRD_030_0+complete" target="n2"/>
+    </page>
+  </net>
+</pnml>

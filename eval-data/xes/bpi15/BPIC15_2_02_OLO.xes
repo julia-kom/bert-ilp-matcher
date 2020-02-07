@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file has been generated with the OpenXES library. It conforms -->
+<!-- to the XML serialization of the XES standard for log storage and -->
+<!-- management. -->
+<!-- XES standard version: 1.0 -->
+<!-- OpenXES library version: 1.0RC7 -->
+<!-- OpenXES is available from http://www.openxes.org/ -->
+<log xes.version="1.0" xes.features="nested-attributes" openxes.version="1.0RC7">
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="bericht wijzig bevoegd gezag"/>
+			<string key="concept:name" value="02_OLO_100"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2012-03-27 14:04:33"/>
+			<string key="action_code" value="02_OLO_100"/>
+			<string key="activityNameEN" value="message change competent authority"/>
+			<string key="subprocess" value="02_OLO"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-27T14:04:19.000+02:00"/>
+		</event>
+	</trace>
+</log>

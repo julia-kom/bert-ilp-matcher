@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file has been generated with the OpenXES library. It conforms -->
+<!-- to the XML serialization of the XES standard for log storage and -->
+<!-- management. -->
+<!-- XES standard version: 1.0 -->
+<!-- OpenXES library version: 1.0RC7 -->
+<!-- OpenXES is available from http://www.openxes.org/ -->
+<log xes.version="1.0" xes.features="nested-attributes" openxes.version="1.0RC7">
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-05-09 11:39:57"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-05-09T11:39:48.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-24 11:16:34"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-24T11:13:10.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-05-10 10:18:35"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-05-10T10:15:06.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-24 11:54:34"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-24T11:54:28.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="4634935"/>
+			<string key="org:resource" value="4634935"/>
+			<string key="activityNameNL" value="verzoek nadere gegevens aanmaken"/>
+			<string key="concept:name" value="15_NGV_020_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-10-01 00:00:00"/>
+			<string key="action_code" value="15_NGV_020_0"/>
+			<string key="activityNameEN" value="create information request"/>
+			<date key="planned" value="2013-10-02T10:23:50.000+02:00"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-10-01T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="4634935"/>
+			<string key="org:resource" value="4634935"/>
+			<string key="activityNameNL" value="nadere gegevens ontvangen"/>
+			<string key="concept:name" value="15_NGV_030"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2013-10-01 00:00:00"/>
+			<string key="action_code" value="15_NGV_030"/>
+			<string key="activityNameEN" value="further information received"/>
+			<date key="planned" value="2013-10-02T10:23:53.000+02:00"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-10-01T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="4634935"/>
+			<string key="org:resource" value="4634935"/>
+			<string key="activityNameNL" value="registratie ontvangst nadere gegevens"/>
+			<string key="concept:name" value="15_NGV_040"/>
+			<string key="question" value="9-9-2013 0:00:00"/>
+			<string key="dateFinished" value="2013-10-01 00:00:00"/>
+			<string key="action_code" value="15_NGV_040"/>
+			<string key="activityNameEN" value="registration receipt further information"/>
+			<date key="planned" value="2013-10-02T10:23:54.000+02:00"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-10-01T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="4634935"/>
+			<string key="org:resource" value="4634935"/>
+			<string key="activityNameNL" value="ontvangstbevestiging nadere gegevens versturen"/>
+			<string key="concept:name" value="15_NGV_050"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-10-01 00:00:00"/>
+			<string key="action_code" value="15_NGV_050"/>
+			<string key="activityNameEN" value="send acknowledgement further information"/>
+			<date key="planned" value="2013-10-02T10:26:08.000+02:00"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-10-01T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="4634935"/>
+			<string key="org:resource" value="4634935"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2013-10-01 00:00:00"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<date key="planned" value="2013-10-02T10:23:16.000+02:00"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-10-01T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="4634935"/>
+			<string key="org:resource" value="4634935"/>
+			<string key="activityNameNL" value="fase nadere gegevens gevraagd"/>
+			<string key="concept:name" value="15_NGV_025"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2013-10-01 00:00:00"/>
+			<string key="action_code" value="15_NGV_025"/>
+			<string key="activityNameEN" value="phase further information requested"/>
+			<date key="planned" value="2013-10-02T10:23:52.000+02:00"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-10-01T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="4634935"/>
+			<string key="org:resource" value="4634935"/>
+			<string key="activityNameNL" value="fase nadere gegevens ontvangen"/>
+			<string key="concept:name" value="15_NGV_045"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2013-10-01 00:00:00"/>
+			<string key="action_code" value="15_NGV_045"/>
+			<string key="activityNameEN" value="phase further information received"/>
+			<date key="planned" value="2013-10-02T10:24:08.000+02:00"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-10-01T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-12 09:52:39"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-12T09:52:13.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-29 09:06:00"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-27T17:32:31.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-13 16:42:51"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-13T16:42:48.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-05 09:43:11"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-05T09:43:05.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-28 15:23:41"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-28T15:23:17.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-02 15:24:17"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-02T15:23:30.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-30 16:56:30"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-30T16:53:52.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-07-25 11:23:19"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-14T10:20:31.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-25 15:00:10"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-25T15:00:07.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-11 11:41:46"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-11T11:41:38.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-20 15:21:51"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-20T15:18:29.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-30 09:07:51"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-30T09:07:48.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-01 09:18:49"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-01T09:16:04.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-29 10:34:49"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-29T10:34:47.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-02 13:26:50"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-02T13:22:29.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-04 12:38:24"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-04T12:27:37.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-16 15:31:37"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-16T15:31:32.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-29 13:13:05"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-29T13:13:01.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-21 17:03:12"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-21T17:03:02.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-12 12:16:48"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-12T12:16:40.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-18 16:28:02"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-18T16:27:30.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-05 14:34:37"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-05T14:34:18.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="4634935"/>
+			<string key="org:resource" value="4634935"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-10-07 00:00:00"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<date key="planned" value="2013-10-08T14:37:00.000+02:00"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-10-07T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-06-06 10:12:58"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-19T13:40:05.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-16 19:15:01"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-16T19:06:59.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-28 10:32:47"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-28T10:32:44.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-24 12:18:11"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-24T12:16:11.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-29 11:59:22"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-29T11:59:09.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-03 11:27:31"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-03T11:27:14.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-04 12:20:00"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-04T12:19:57.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-03 12:34:08"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-03T12:33:44.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-04 11:23:39"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-04T11:23:35.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-05 12:04:59"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-05T12:04:48.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-29 13:50:32"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-29T13:45:42.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-05-16 09:25:16"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-23T14:33:04.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-04 09:44:54"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-04T09:39:37.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-09 12:20:01"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-09T12:19:51.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-24 09:45:06"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-24T09:45:03.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-22 17:18:41"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-22T17:10:30.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-10 16:30:48"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-10T16:30:44.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-23 15:53:55"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-23T15:53:50.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560519"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-05 09:49:48"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-05T09:49:41.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560458"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-22 15:38:54"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-22T12:54:03.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-28 09:12:13"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-28T09:12:04.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="4634935"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-21 10:10:32"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-21T10:10:19.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="4634935"/>
+			<string key="org:resource" value="4634935"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-20 11:01:10"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-20T11:00:53.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560519"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-16 15:22:34"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-16T15:22:19.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-24 11:29:25"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-24T11:24:06.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560519"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-23 16:19:44"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-23T16:19:32.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="4634935"/>
+			<string key="org:resource" value="560458"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-05-03 09:14:46"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-05-03T09:14:42.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560519"/>
+			<string key="org:resource" value="560532"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-05-02 11:47:46"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-05-02T11:47:27.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560521"/>
+			<string key="org:resource" value="560530"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-03 08:56:20"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-03T08:49:48.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560519"/>
+			<string key="org:resource" value="560519"/>
+			<string key="activityNameNL" value="nadere gegevens vragen"/>
+			<string key="concept:name" value="15_NGV_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-07-11 09:43:16"/>
+			<string key="action_code" value="15_NGV_010"/>
+			<string key="activityNameEN" value="request further information"/>
+			<string key="subprocess" value="15_NGV"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-05-02T14:43:22.000+02:00"/>
+		</event>
+	</trace>
+</log>

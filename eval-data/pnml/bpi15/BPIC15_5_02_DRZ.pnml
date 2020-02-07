@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="0e8e2b22-ac72-4ef6-af8a-dffee3f43b7c" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text/>
+    </name>
+    <page id="page0">
+      <place id="n1">
+        <name>
+          <text>source 5980</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 5981</text>
+        </name>
+      </place>
+      <transition id="02_DRZ_010+complete">
+        <name>
+          <text>forward to the competent authority</text>
+        </name>
+      </transition>
+      <arc id="a8ec3d41-c1d7-489e-9123-fcc83161d426" source="02_DRZ_010+complete" target="n2"/>
+      <arc id="fe743279-dc38-489a-ae5d-adcc7183df86" source="n1" target="02_DRZ_010+complete"/>
+    </page>
+  </net>
+</pnml>

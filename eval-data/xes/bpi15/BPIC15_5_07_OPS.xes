@@ -1,0 +1,4462 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file has been generated with the OpenXES library. It conforms -->
+<!-- to the XML serialization of the XES standard for log storage and -->
+<!-- management. -->
+<!-- XES standard version: 1.0 -->
+<!-- OpenXES library version: 1.0RC7 -->
+<!-- OpenXES is available from http://www.openxes.org/ -->
+<log xes.version="1.0" xes.features="nested-attributes" openxes.version="1.0RC7">
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-02-18 00:00:00"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2014-02-06T12:00:12.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-02-18T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-07-18 00:00:00"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2014-04-21T12:58:20.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-07-18T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-07-21 00:00:00"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2014-06-12T11:05:17.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-07-21T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-15 09:30:25"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-08-16T08:26:57.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-15T09:30:12.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="1254625"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-01 09:33:52"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-09-02T09:27:45.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-01T09:28:01.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="560598"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-15 11:08:39"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-08-16T10:16:29.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-15T10:16:31.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="560598"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-06 12:00:23"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-08-16T13:53:23.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-06T12:00:18.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-28 10:18:23"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-28T10:15:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-06 16:11:06"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-06T15:45:50.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="560598"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-16 15:21:32"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-08-16T09:19:37.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-16T15:20:44.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-22 12:10:25"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-22T12:07:11.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-01 08:48:14"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-06-23T14:07:09.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-22T14:07:12.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-22 10:50:14"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-22T10:21:13.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="1254625"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-11 09:59:31"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-11T09:56:43.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560594"/>
+			<string key="org:resource" value="560594"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-07-30 14:54:19"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-07-31T14:47:29.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-07-30T14:48:57.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-11 17:07:54"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-11T16:29:43.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-22 11:36:25"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-22T10:39:48.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-23 08:54:29"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-23T08:53:41.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-15 12:57:36"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-15T12:56:48.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="1254625"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-11 11:22:43"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-11T11:21:55.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-05 11:15:59"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-05T10:59:04.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560602"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-04 12:25:43"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-04T12:25:01.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-22 16:02:03"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-22T15:56:44.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-29 18:07:12"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-29T17:47:45.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560602"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-29 12:09:49"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-29T12:09:33.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-04 12:20:44"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-04T12:19:58.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="560598"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-28 19:04:02"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-08-16T09:50:41.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-20T11:13:47.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-12 11:32:54"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-12T11:32:51.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="560598"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-19 09:48:42"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-09-16T08:59:13.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-19T09:48:10.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-11 14:22:17"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-08-12T14:21:39.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-11T14:22:14.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-08 13:09:12"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-08T13:08:02.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-30 17:11:24"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-30T17:03:20.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="560598"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-13 09:17:58"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-10-14T09:17:44.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-13T09:17:51.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-15 15:40:25"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-15T15:33:02.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="560598"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-17 10:44:47"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-10-18T10:43:01.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-17T10:43:11.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="560598"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-18 12:02:20"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-11-10T11:40:46.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-09T11:40:52.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-06-30 15:44:20"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-06-30T15:38:35.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-04 15:20:28"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-04T15:16:56.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-31 11:54:21"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-31T11:53:30.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-18 13:23:40"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-18T13:22:20.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="560598"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-19 16:20:28"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-10-20T16:19:46.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-19T16:19:52.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560596"/>
+			<string key="org:resource" value="560596"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-18 16:18:07"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-18T16:14:27.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="560598"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-09 13:52:41"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-09T13:51:14.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-06 14:57:58"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-06T14:57:55.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-27 11:56:27"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-27T11:56:20.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-07 13:37:56"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-07-08T13:37:25.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-07T13:37:43.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-13 16:09:49"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-13T15:57:46.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-11 09:17:59"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-11T09:17:55.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-07 12:55:57"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-07T12:55:51.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-11 08:19:34"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-11T08:19:13.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560594"/>
+			<string key="org:resource" value="560594"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-26 15:17:59"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-26T13:12:19.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-14 10:46:11"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-14T10:45:10.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-08 11:27:34"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-08T11:27:09.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-14 08:49:42"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-14T08:48:01.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-12 12:24:56"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-12T12:22:19.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-13 08:28:27"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-13T08:27:53.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-09 16:28:50"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-09T16:27:24.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-07-14 12:20:35"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-07-14T12:20:20.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-06 15:55:46"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-06T15:54:06.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560596"/>
+			<string key="org:resource" value="560596"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-06 12:47:36"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-06T12:13:34.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-05 11:54:45"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-05T11:17:56.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="1254625"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-20 15:18:18"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-20T15:17:47.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-26 09:11:26"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-08-16T11:09:30.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-26T09:07:33.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-09 16:45:06"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-09T16:10:53.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-29 09:51:16"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-29T09:47:52.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-07 17:49:34"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-08-31T16:11:07.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-30T16:11:11.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-07 15:08:18"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-07T15:04:23.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-20 14:37:41"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-20T14:37:16.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-12 11:27:30"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-12T10:44:07.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-23 09:15:18"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-23T09:15:14.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-15 11:59:35"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-15T11:59:26.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560596"/>
+			<string key="org:resource" value="560596"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-11 13:35:19"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-11T13:31:50.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-16 12:02:59"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-16T12:02:27.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-08 09:53:02"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-08T09:35:14.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-13 17:09:11"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-13T16:15:13.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-23 16:29:58"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-23T16:26:22.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-15 18:14:32"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-15T18:13:47.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-15 14:30:47"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-15T14:29:48.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-15 13:16:16"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-15T13:16:04.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-08 12:00:06"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-08T11:47:37.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-08 14:44:02"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-08T14:40:17.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-08-22 14:21:36"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-08-22T14:20:41.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-04 16:24:52"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-04T16:24:26.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560613"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-25 11:11:09"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-25T11:10:36.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-16 09:46:17"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-16T09:42:31.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-05 16:28:37"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-05T16:21:01.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-28 16:30:37"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-28T16:02:49.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-08 10:56:28"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-08T10:49:44.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-14 17:06:43"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-14T16:56:45.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-15 17:08:27"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-15T17:02:16.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-11 15:14:04"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-11T14:27:14.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-14 10:04:02"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-14T09:22:24.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-06 13:29:10"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-06T13:28:28.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-06 13:22:34"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-06T13:17:34.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-02 08:37:30"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-02T08:37:11.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560596"/>
+			<string key="org:resource" value="560596"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-27 11:31:11"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-27T11:19:15.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-26 19:45:40"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-26T19:29:09.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560594"/>
+			<string key="org:resource" value="560594"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-25 17:20:34"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-25T15:28:02.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-19 16:59:28"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-19T16:56:38.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-22 09:52:36"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-22T09:51:53.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560602"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-02 10:24:25"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-02T10:22:01.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-19 09:19:54"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-19T09:17:37.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-26 14:31:36"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-26T10:13:23.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560596"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-19 15:36:19"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-21T09:29:44.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-14 16:25:13"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-14T16:24:16.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-04 09:50:12"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-04T09:27:20.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-04 11:07:31"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-04T11:06:52.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-09-28 19:53:11"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-09-28T19:49:49.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560596"/>
+			<string key="org:resource" value="560596"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-05 10:56:55"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-05T09:52:52.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-25 14:35:59"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-25T14:34:50.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-14 13:42:08"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-14T08:22:49.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-10 13:49:42"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-10T13:38:06.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-12 19:10:52"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-12T19:10:33.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-13 16:09:54"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-13T16:09:33.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-11 08:58:36"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-11T08:58:15.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-27 16:47:27"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-27T16:03:48.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-14 10:04:07"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-31T11:21:21.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-26 15:42:37"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-26T15:07:05.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-13 12:06:29"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-13T12:04:59.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-18 09:25:30"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-18T09:25:19.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-13 11:51:47"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-13T11:51:40.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-20 11:37:51"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-20T11:14:49.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-18 10:52:16"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-18T10:51:38.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-18 12:02:15"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-18T11:57:47.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-14 12:29:30"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-14T12:13:40.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560596"/>
+			<string key="org:resource" value="560596"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-08 11:55:36"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-08T11:54:17.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-25 16:17:06"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-25T16:16:21.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-10-27 10:10:50"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-10-27T10:10:37.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-30 17:43:57"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-30T17:36:05.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-16 18:40:01"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-14T16:20:06.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-08 17:54:35"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-08T17:53:44.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-01 09:00:29"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-01T08:53:34.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-01 09:19:26"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-01T09:16:36.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-01 14:32:58"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-01T14:27:46.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-01 14:41:44"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-01T14:36:10.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-08 11:20:34"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-08T11:20:24.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-16 15:25:07"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-16T15:23:15.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-15 13:22:37"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-15T13:21:57.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-13 17:44:35"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-13T17:35:58.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-15 17:07:34"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-15T16:25:57.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-25 10:44:06"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-25T09:42:45.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-10 11:35:54"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2011-11-11T11:35:26.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-10T11:35:32.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-16 18:16:32"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-16T18:10:43.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-15 10:25:34"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-15T10:16:15.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-07 19:18:54"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-07T19:13:59.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-21 17:05:03"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-21T14:59:07.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-15 16:12:37"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-15T16:06:11.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-02 17:34:39"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-02T16:02:51.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560596"/>
+			<string key="org:resource" value="560596"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-22 11:59:32"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-22T11:50:22.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-13 10:33:45"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-13T10:17:19.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560602"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-06-07 08:48:10"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-06-08T08:45:00.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-06-07T08:45:03.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-27 14:32:16"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-13T08:42:41.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-13 14:24:38"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-13T14:03:02.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-08 11:33:25"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-08T11:23:13.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-02 09:22:54"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-02T09:22:50.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-07 09:25:25"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-07T09:05:24.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-11-30 14:28:06"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-11-30T10:39:47.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560596"/>
+			<string key="org:resource" value="560596"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-14 15:09:00"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-16T12:30:15.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-08 11:35:03"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-08T11:34:25.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-07 19:38:58"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-07T19:35:12.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-14 17:01:53"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-14T16:59:34.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-12 12:12:35"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-09T09:03:56.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-17 10:21:34"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-17T10:20:58.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-15 08:40:20"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-15T08:40:11.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-26 09:59:24"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-26T09:03:55.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-02 16:13:40"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-02T16:10:05.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-16 15:55:21"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-16T15:42:07.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-15 13:35:08"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-15T13:34:53.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-08 11:01:04"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-03T09:53:57.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-02 10:09:44"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-02T10:08:40.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-31 12:08:15"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-31T09:32:58.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-20 10:07:06"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-20T09:46:30.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-16 17:01:46"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-16T17:01:39.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-04 10:00:37"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-04T09:55:51.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-03 14:06:42"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-03T12:30:09.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-21 15:10:45"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-21T11:55:38.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2011-12-21 18:15:07"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2011-12-21T18:15:02.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-02 11:26:03"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-02T11:25:49.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-16 11:34:33"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-16T11:21:06.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-05 15:21:14"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-05T15:13:18.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-04 11:18:47"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-04T11:14:36.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-06 12:33:41"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-06T12:32:15.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-31 10:17:10"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-31T10:14:55.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-09 16:06:57"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-09T16:04:15.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560596"/>
+			<string key="org:resource" value="560596"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-16 16:34:56"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-16T16:33:45.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-20 09:54:33"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-02T15:27:29.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560596"/>
+			<string key="org:resource" value="560596"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-16 10:59:27"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-06T13:27:35.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-09 17:08:04"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-09T16:48:18.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-26 17:13:49"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-26T16:56:16.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-20 09:28:56"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-20T09:17:51.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-30 15:51:26"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-30T15:27:01.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-31 17:02:20"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-31T14:11:13.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-26 13:29:18"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-26T13:28:42.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-07 11:50:26"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-07T11:44:29.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-07 09:48:34"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-07T09:45:57.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-24 16:02:25"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-24T16:02:16.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-03 10:56:06"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-03T10:42:23.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-01-26 11:39:01"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-01-26T11:38:58.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-06 16:43:26"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-06T16:33:12.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-07 17:12:06"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-07T16:36:23.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-08 16:58:50"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-08T16:58:34.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-23 12:19:20"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-16T11:46:03.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-15 15:50:20"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-15T15:18:54.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-06 15:30:26"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-06T15:17:52.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-08 10:05:18"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-08T10:04:55.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-15 12:25:45"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-15T11:58:53.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-27 11:15:31"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-28T17:05:41.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-29 09:00:09"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-29T08:47:25.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-16 10:17:38"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-13T11:00:55.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-26 17:19:22"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-26T17:18:42.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-14 16:07:10"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-14T15:01:43.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-29 11:44:15"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-29T10:36:26.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-07 14:46:17"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-07T14:38:39.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-02 10:54:14"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-02T10:54:01.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-14 17:31:40"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-14T17:30:45.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-02-20 10:54:14"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-02-20T10:54:07.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-10 15:16:05"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-10T15:02:33.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-05 15:36:20"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-05T15:25:31.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-07 17:21:21"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-07T17:20:12.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560596"/>
+			<string key="org:resource" value="560596"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-19 16:31:26"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-19T12:45:47.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-20 10:22:35"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-15T15:24:44.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-07-18 11:09:20"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-07-19T11:07:09.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-07-18T11:07:38.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-08 13:35:19"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-08T13:35:09.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-27 14:19:55"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-27T14:13:48.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-14 17:20:14"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-14T17:18:35.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-27 17:00:56"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-14T16:54:13.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-27 11:18:43"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-27T11:02:23.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-20 15:03:51"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-20T13:36:12.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-22 07:59:22"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-22T07:58:58.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-05-08 14:37:38"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-05-08T13:31:50.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-19 17:18:33"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-19T17:18:17.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560594"/>
+			<string key="org:resource" value="560594"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-08-15 09:11:52"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-08-01T11:09:25.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-07-31T11:09:31.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-05-09 11:56:56"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-05-09T11:52:04.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-06-05 13:53:05"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-06-06T13:51:26.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-06-05T13:51:30.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-29 11:03:28"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-29T10:25:50.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-12 17:46:45"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-28T15:19:03.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-06-06 19:10:38"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-06-07T19:10:28.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-06-06T19:10:33.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-03-29 17:36:03"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-03-29T17:20:44.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-17 14:07:33"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-17T14:06:30.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-11 11:42:54"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-11T11:34:24.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-23 13:15:40"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-23T08:58:38.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-05 15:46:05"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-05T15:45:56.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-07-04 12:00:35"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-07-05T10:57:14.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-07-04T10:57:21.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560602"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-19 10:54:26"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-19T10:44:04.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-04 15:06:53"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-04T13:05:54.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-19 10:24:57"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-19T10:23:28.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-05-23 14:55:20"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-10T15:34:30.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-16 14:49:38"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-16T13:33:08.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-16 16:36:09"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-16T15:27:33.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-26 15:17:26"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-26T15:13:36.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="560598"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-06-18 08:53:41"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-06-19T08:52:44.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-06-18T08:53:02.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-23 11:30:29"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-23T11:15:55.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-23 11:33:19"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-23T11:32:37.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-04-24 08:42:26"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-04-24T08:42:02.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-05-07 16:11:14"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-05-07T16:11:05.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-07-20 11:11:38"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-07-21T11:10:27.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-07-20T11:11:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-06-05 15:27:51"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-05-03T16:51:05.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-07-17 11:01:40"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-07-18T11:00:24.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-07-17T11:00:48.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560429"/>
+			<string key="org:resource" value="560429"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-05-08 08:40:35"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-05-08T08:40:12.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560596"/>
+			<string key="org:resource" value="560596"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-06-18 14:26:19"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-06-19T14:25:43.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-06-18T14:25:45.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-06-25 14:48:41"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-06-26T14:45:20.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-06-25T14:45:26.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560598"/>
+			<string key="org:resource" value="560598"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-08-08 10:52:01"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-08-09T09:39:11.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-08-08T09:39:34.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-09-27 11:41:37"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-09-27T18:37:59.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-09-26T18:38:30.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560594"/>
+			<string key="org:resource" value="560594"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2012-11-13 10:05:00"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-11-14T10:01:13.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2012-11-13T10:03:27.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2013-01-03 14:25:27"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-11-14T09:18:18.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-03T14:24:35.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="aanleiding tot opschorten"/>
+			<string key="concept:name" value="07_OPS_020"/>
+			<string key="question" value="Initiatief bevoegd gezag"/>
+			<string key="dateFinished" value="2013-01-03 14:25:27"/>
+			<string key="action_code" value="07_OPS_020"/>
+			<string key="activityNameEN" value="reason for suspension found"/>
+			<date key="planned" value="2013-01-04T14:24:35.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-03T14:24:41.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="registratie opschorting termijn bevoegd gezag"/>
+			<string key="concept:name" value="07_OPS_050"/>
+			<string key="question" value="42"/>
+			<string key="dateFinished" value="2013-01-03 14:25:27"/>
+			<string key="action_code" value="07_OPS_050"/>
+			<string key="activityNameEN" value="register suspension by competent authority"/>
+			<date key="planned" value="2013-01-04T14:24:41.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-03T14:24:46.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="startdatum opschorting termijn bevoegd gezag"/>
+			<string key="concept:name" value="07_OPS_051"/>
+			<string key="question" value="3-1-2013 14:24:46"/>
+			<string key="dateFinished" value="2013-01-03 14:25:27"/>
+			<string key="action_code" value="07_OPS_051"/>
+			<string key="activityNameEN" value="start date suspension competent authority"/>
+			<date key="planned" value="2013-01-04T14:24:46.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-03T14:24:46.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="opschorting bevoegd gezag aanmaken"/>
+			<string key="concept:name" value="07_OPS_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-01-03 14:25:27"/>
+			<string key="action_code" value="07_OPS_060_0"/>
+			<string key="activityNameEN" value="create suspension competent authority"/>
+			<date key="planned" value="2013-01-04T14:24:51.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-03T14:24:51.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="fase proceduretermijn opgeschort"/>
+			<string key="concept:name" value="07_OPS_055"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2013-01-03 14:25:27"/>
+			<string key="action_code" value="07_OPS_055"/>
+			<string key="activityNameEN" value="phase procedure term suspended"/>
+			<date key="planned" value="2013-01-04T14:24:50.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-03T14:24:51.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="voortzetting termijn tot besluit"/>
+			<string key="concept:name" value="07_OPS_070"/>
+			<string key="question" value="Volledige termijn"/>
+			<string key="dateFinished" value="2013-01-03 14:25:27"/>
+			<string key="action_code" value="07_OPS_070"/>
+			<string key="activityNameEN" value="continuation term to decision"/>
+			<date key="planned" value="2013-01-04T14:24:51.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-03T14:25:08.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="datum voortzetting termijn tot besluit"/>
+			<string key="concept:name" value="07_OPS_071"/>
+			<string key="question" value="3-1-2013 14:25:08"/>
+			<string key="dateFinished" value="2013-01-03 14:25:27"/>
+			<string key="action_code" value="07_OPS_071"/>
+			<string key="activityNameEN" value="date continuation term to decision"/>
+			<date key="planned" value="2013-01-04T14:25:08.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-03T14:25:08.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="voortzettingsbrief aanmaken"/>
+			<string key="concept:name" value="07_OPS_080_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-01-03 14:25:27"/>
+			<string key="action_code" value="07_OPS_080_0"/>
+			<string key="activityNameEN" value="create continuation letter"/>
+			<date key="planned" value="2013-01-04T14:25:10.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-03T14:25:10.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560604"/>
+			<string key="activityNameNL" value="fase proceduretermijn hervat"/>
+			<string key="concept:name" value="07_OPS_075"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2013-01-03 14:25:27"/>
+			<string key="action_code" value="07_OPS_075"/>
+			<string key="activityNameEN" value="phase procedure term resumed"/>
+			<date key="planned" value="2013-01-04T14:25:10.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-03T14:25:10.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-01-24 08:13:02"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2012-12-07T09:51:39.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-01-08T08:43:09.000+01:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2013-08-22 00:00:00"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2013-04-17T15:13:36.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-08-22T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="aanleiding tot opschorten"/>
+			<string key="concept:name" value="07_OPS_020"/>
+			<string key="question" value="Initiatief bevoegd gezag"/>
+			<string key="dateFinished" value="2013-08-22 00:00:00"/>
+			<string key="action_code" value="07_OPS_020"/>
+			<string key="activityNameEN" value="reason for suspension found"/>
+			<date key="planned" value="2013-08-23T14:46:42.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-08-22T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="registratie opschorting termijn bevoegd gezag"/>
+			<string key="concept:name" value="07_OPS_050"/>
+			<string key="question" value="42"/>
+			<string key="dateFinished" value="2013-08-22 00:00:00"/>
+			<string key="action_code" value="07_OPS_050"/>
+			<string key="activityNameEN" value="register suspension by competent authority"/>
+			<date key="planned" value="2013-08-23T14:46:45.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-08-22T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="opschorting bevoegd gezag aanmaken"/>
+			<string key="concept:name" value="07_OPS_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-08-22 00:00:00"/>
+			<string key="action_code" value="07_OPS_060_0"/>
+			<string key="activityNameEN" value="create suspension competent authority"/>
+			<date key="planned" value="2013-08-23T14:46:53.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-08-22T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="voortzetting termijn tot besluit"/>
+			<string key="concept:name" value="07_OPS_070"/>
+			<string key="question" value="Resterende termijn"/>
+			<string key="dateFinished" value="2013-08-22 00:00:00"/>
+			<string key="action_code" value="07_OPS_070"/>
+			<string key="activityNameEN" value="continuation term to decision"/>
+			<date key="planned" value="2013-08-23T14:46:53.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-08-22T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="voortzettingsbrief aanmaken"/>
+			<string key="concept:name" value="07_OPS_080_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-08-22 00:00:00"/>
+			<string key="action_code" value="07_OPS_080_0"/>
+			<string key="activityNameEN" value="create continuation letter"/>
+			<date key="planned" value="2013-08-23T14:47:07.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-08-22T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="fase proceduretermijn hervat"/>
+			<string key="concept:name" value="07_OPS_075"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2013-08-22 00:00:00"/>
+			<string key="action_code" value="07_OPS_075"/>
+			<string key="activityNameEN" value="phase procedure term resumed"/>
+			<date key="planned" value="2013-08-23T14:47:07.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-08-22T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="fase proceduretermijn opgeschort"/>
+			<string key="concept:name" value="07_OPS_055"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2013-08-22 00:00:00"/>
+			<string key="action_code" value="07_OPS_055"/>
+			<string key="activityNameEN" value="phase procedure term suspended"/>
+			<date key="planned" value="2013-08-23T14:46:53.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-08-22T00:00:00.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="startdatum opschorting termijn bevoegd gezag"/>
+			<string key="concept:name" value="07_OPS_051"/>
+			<string key="question" value="22-8-2013 14:46:50"/>
+			<string key="dateFinished" value="2013-08-22 00:00:00"/>
+			<string key="action_code" value="07_OPS_051"/>
+			<string key="activityNameEN" value="start date suspension competent authority"/>
+			<date key="planned" value="2013-08-23T14:46:50.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-08-22T14:46:50.000+02:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560608"/>
+			<string key="org:resource" value="560608"/>
+			<string key="activityNameNL" value="datum voortzetting termijn tot besluit"/>
+			<string key="concept:name" value="07_OPS_071"/>
+			<string key="question" value="22-8-2013 14:46:57"/>
+			<string key="dateFinished" value="2013-08-22 00:00:00"/>
+			<string key="action_code" value="07_OPS_071"/>
+			<string key="activityNameEN" value="date continuation term to decision"/>
+			<date key="planned" value="2013-08-23T14:46:57.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-08-22T14:46:57.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2013-09-16 00:00:00"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2013-09-03T14:18:18.000+02:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2013-09-16T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="datum voortzetting termijn tot besluit"/>
+			<string key="concept:name" value="07_OPS_071"/>
+			<string key="question" value="31-12-2013 0:00:00"/>
+			<string key="dateFinished" value="2014-01-14 00:00:00"/>
+			<string key="action_code" value="07_OPS_071"/>
+			<string key="activityNameEN" value="date continuation term to decision"/>
+			<date key="planned" value="2014-01-15T15:38:54.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-01-14T00:00:00.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="aanleiding tot opschorten"/>
+			<string key="concept:name" value="07_OPS_020"/>
+			<string key="question" value="Initiatief bevoegd gezag"/>
+			<string key="dateFinished" value="2014-01-14 00:00:00"/>
+			<string key="action_code" value="07_OPS_020"/>
+			<string key="activityNameEN" value="reason for suspension found"/>
+			<date key="planned" value="2014-01-15T14:48:45.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-01-14T00:00:00.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="registratie opschorting termijn bevoegd gezag"/>
+			<string key="concept:name" value="07_OPS_050"/>
+			<string key="question" value="42"/>
+			<string key="dateFinished" value="2014-01-14 00:00:00"/>
+			<string key="action_code" value="07_OPS_050"/>
+			<string key="activityNameEN" value="register suspension by competent authority"/>
+			<date key="planned" value="2014-01-15T14:48:58.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-01-14T00:00:00.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="startdatum opschorting termijn bevoegd gezag"/>
+			<string key="concept:name" value="07_OPS_051"/>
+			<string key="question" value="19-11-2013 0:00:00"/>
+			<string key="dateFinished" value="2014-01-14 00:00:00"/>
+			<string key="action_code" value="07_OPS_051"/>
+			<string key="activityNameEN" value="start date suspension competent authority"/>
+			<date key="planned" value="2014-01-15T14:49:15.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-01-14T00:00:00.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="opschorting bevoegd gezag aanmaken"/>
+			<string key="concept:name" value="07_OPS_060_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-01-14 00:00:00"/>
+			<string key="action_code" value="07_OPS_060_0"/>
+			<string key="activityNameEN" value="create suspension competent authority"/>
+			<date key="planned" value="2014-01-15T15:34:28.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-01-14T00:00:00.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="voortzetting termijn tot besluit"/>
+			<string key="concept:name" value="07_OPS_070"/>
+			<string key="question" value="Resterende termijn"/>
+			<string key="dateFinished" value="2014-01-14 00:00:00"/>
+			<string key="action_code" value="07_OPS_070"/>
+			<string key="activityNameEN" value="continuation term to decision"/>
+			<date key="planned" value="2014-01-15T15:36:34.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-01-14T00:00:00.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="voortzettingsbrief aanmaken"/>
+			<string key="concept:name" value="07_OPS_080_0"/>
+			<string key="question" value="False"/>
+			<string key="dateFinished" value="2014-01-14 00:00:00"/>
+			<string key="action_code" value="07_OPS_080_0"/>
+			<string key="activityNameEN" value="create continuation letter"/>
+			<date key="planned" value="2014-01-15T15:42:03.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-01-14T00:00:00.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="termijn opschorten"/>
+			<string key="concept:name" value="07_OPS_010"/>
+			<string key="question" value="True"/>
+			<string key="dateFinished" value="2014-01-14 00:00:00"/>
+			<string key="action_code" value="07_OPS_010"/>
+			<string key="activityNameEN" value="suspend term"/>
+			<date key="planned" value="2013-11-20T12:15:05.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-01-14T00:00:00.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="fase proceduretermijn opgeschort"/>
+			<string key="concept:name" value="07_OPS_055"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2014-01-14 00:00:00"/>
+			<string key="action_code" value="07_OPS_055"/>
+			<string key="activityNameEN" value="phase procedure term suspended"/>
+			<date key="planned" value="2014-01-15T14:50:38.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-01-14T00:00:00.000+01:00"/>
+		</event>
+		<event>
+			<string key="monitoringResource" value="560600"/>
+			<string key="org:resource" value="560600"/>
+			<string key="activityNameNL" value="fase proceduretermijn hervat"/>
+			<string key="concept:name" value="07_OPS_075"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2014-01-14 00:00:00"/>
+			<string key="action_code" value="07_OPS_075"/>
+			<string key="activityNameEN" value="phase procedure term resumed"/>
+			<date key="planned" value="2014-01-15T15:41:58.000+01:00"/>
+			<string key="subprocess" value="07_OPS"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-01-14T00:00:00.000+01:00"/>
+		</event>
+	</trace>
+</log>

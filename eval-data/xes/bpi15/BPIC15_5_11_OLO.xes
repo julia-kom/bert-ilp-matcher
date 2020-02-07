@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file has been generated with the OpenXES library. It conforms -->
+<!-- to the XML serialization of the XES standard for log storage and -->
+<!-- management. -->
+<!-- XES standard version: 1.0 -->
+<!-- OpenXES library version: 1.0RC7 -->
+<!-- OpenXES is available from http://www.openxes.org/ -->
+<log xes.version="1.0" xes.features="nested-attributes" openxes.version="1.0RC7">
+	<trace>
+		<event>
+			<string key="monitoringResource" value="560604"/>
+			<string key="org:resource" value="560602"/>
+			<string key="activityNameNL" value="bericht OLO-status beschikking versturen"/>
+			<string key="concept:name" value="11_OLO_190"/>
+			<string key="question" value="EMPTY"/>
+			<string key="dateFinished" value="2014-07-17 00:00:00"/>
+			<string key="action_code" value="11_OLO_190"/>
+			<string key="activityNameEN" value="send message OLO status decision"/>
+			<date key="planned" value="2014-07-18T09:54:04.000+02:00"/>
+			<string key="subprocess" value="11_OLO"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2014-07-17T00:00:00.000+02:00"/>
+		</event>
+	</trace>
+</log>
