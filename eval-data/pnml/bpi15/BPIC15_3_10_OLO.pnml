@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="a296c270-1041-43cc-988c-4a9a9ffcf117" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="f39f5771-d0e9-4624-8c06-fcfd07b8024b" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
@@ -23,8 +23,8 @@
           <text>message change status</text>
         </name>
       </transition>
-      <arc id="71fb99a7-7422-4f04-ac74-d7cde7902f5d" source="n1" target="10_OLO_100+complete"/>
-      <arc id="cbab5d25-80f5-4859-8643-9203673916bb" source="10_OLO_100+complete" target="n2"/>
+      <arc id="6d3d1fb8-9f50-42af-9ea8-77789351d41d" source="n1" target="10_OLO_100+complete"/>
+      <arc id="4676b543-8d06-461d-9356-93eb7c2a4bd1" source="10_OLO_100+complete" target="n2"/>
     </page>
   </net>
 </pnml>

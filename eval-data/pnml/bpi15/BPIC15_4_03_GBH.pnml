@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="0fba4ee7-8c28-4789-9d9f-94e86dafb72a" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="ecb96bdd-b494-493b-b981-252947024754" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
@@ -23,8 +23,8 @@
           <text>applicant is stakeholder</text>
         </name>
       </transition>
-      <arc id="50d97deb-6ab8-41be-900b-3987f6574ddf" source="n1" target="03_GBH_005+complete"/>
-      <arc id="0685b764-8a4d-498a-9dd5-c96ba07c14bf" source="03_GBH_005+complete" target="n2"/>
+      <arc id="6cf4a35c-7e7a-41cb-97a1-3625f19f2c4c" source="03_GBH_005+complete" target="n2"/>
+      <arc id="6229134e-8c29-4327-856b-98ed41ad59e9" source="n1" target="03_GBH_005+complete"/>
     </page>
   </net>
 </pnml>

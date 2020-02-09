@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="7126a81d-dcfb-46c2-86de-f0a88a7bff10" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="85251e34-880b-4012-8e5f-42c34078f8c9" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
@@ -23,8 +23,8 @@
           <text>create cover letter extend procedure term</text>
         </name>
       </transition>
-      <arc id="43bd2816-3902-4beb-8914-f02d45d26970" source="n1" target="03_VD_060_0+complete"/>
-      <arc id="f83d550f-848f-44a2-95a1-c446e90b8dbd" source="03_VD_060_0+complete" target="n2"/>
+      <arc id="649e732f-b843-4f7d-ae35-a43c83872613" source="n1" target="03_VD_060_0+complete"/>
+      <arc id="2c5a5b20-d244-4460-a0d3-190870d88c94" source="03_VD_060_0+complete" target="n2"/>
     </page>
   </net>
 </pnml>

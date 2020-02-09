@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="0b29a4d3-4c8c-4db8-a3f2-08e0bcd230b5" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="57bf65a9-6b47-4d05-9d7c-3fc47fd90684" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
@@ -23,8 +23,8 @@
           <text>calculate provisional charges</text>
         </name>
       </transition>
-      <arc id="30c5278d-6d74-468b-98e8-afd274b87b61" source="n1" target="16_LGSV_010+complete"/>
-      <arc id="c0bdcf80-bffa-409c-be30-02ff6ad05919" source="16_LGSV_010+complete" target="n2"/>
+      <arc id="c97286c7-6f4f-4142-a38d-28ca2cf1f844" source="16_LGSV_010+complete" target="n2"/>
+      <arc id="18ae7f73-ec09-4385-a8b7-c7de3c10ce8a" source="n1" target="16_LGSV_010+complete"/>
     </page>
   </net>
 </pnml>

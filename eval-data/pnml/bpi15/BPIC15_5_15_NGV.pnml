@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="4d800dc7-7656-41eb-bb9f-5fdb4acca9c4" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="82162643-5206-4dd4-bcdf-e9f0b3366b52" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
@@ -34,12 +34,12 @@
           <text>send information request</text>
         </name>
       </transition>
-      <arc id="abaf8486-10a4-4a5d-87f1-c7fe63d23e6a" source="15_NGV_010+complete" target="n3"/>
-      <arc id="ff9624f5-bb42-494e-9d97-404f45a2d851" source="15_NGV_020_1+complete" target="n2"/>
-      <arc id="d01754fc-3378-483f-aff9-d7cd72adfe2d" source="n1" target="15_NGV_010+complete"/>
-      <arc id="2f881b3b-8dda-4465-b0df-2437af396399" source="n5" target="n2"/>
-      <arc id="d2171d5f-d660-47a1-a8ec-9539ce002f0c" source="n3" target="n5"/>
-      <arc id="cb356dd3-8908-4662-9568-8baf46c967b2" source="n3" target="15_NGV_020_1+complete"/>
+      <arc id="ceae59e8-83a7-41d7-ab63-4741912c44d0" source="n3" target="15_NGV_020_1+complete"/>
+      <arc id="56137f35-0d57-4037-a0ca-d927a0d5df5e" source="15_NGV_010+complete" target="n3"/>
+      <arc id="55c51d8b-6402-44a4-8581-a0087e5f96ef" source="n3" target="n5"/>
+      <arc id="d1cdc02c-1b60-435b-86b6-2d87b8e7a923" source="n5" target="n2"/>
+      <arc id="81afc60f-2c43-4314-94ac-95b7ba678172" source="15_NGV_020_1+complete" target="n2"/>
+      <arc id="805e03a4-0573-4d7c-bde1-4e4fd531c89c" source="n1" target="15_NGV_010+complete"/>
     </page>
   </net>
 </pnml>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="1e96f6df-f04e-4f4b-8bbd-d7c8f24009b7" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="580f8f05-b4d7-4e1e-bc15-324360e045bd" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
@@ -23,8 +23,8 @@
           <text>coordination of application</text>
         </name>
       </transition>
-      <arc id="63e201e8-cb43-4f33-b2ad-40fd27d958cf" source="13_CRD_010+complete" target="n2"/>
-      <arc id="e1eb6676-8cc5-4565-b284-75a8c171f81a" source="n1" target="13_CRD_010+complete"/>
+      <arc id="23a91198-0172-4dd0-9181-44037859aa5f" source="13_CRD_010+complete" target="n2"/>
+      <arc id="552eee16-308e-42ee-b315-7962b3e3c8c9" source="n1" target="13_CRD_010+complete"/>
     </page>
   </net>
 </pnml>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="fb9fc339-a694-4641-b4cd-ad7de0aec58b" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="1e26f2e7-dd33-4419-8eb4-12507402c1ed" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
@@ -23,8 +23,8 @@
           <text>send message OLO status additions required</text>
         </name>
       </transition>
-      <arc id="291c2fa7-6a49-4d9c-9194-34c2e3c7f3d4" source="n1" target="08_OLO_100+complete"/>
-      <arc id="a5a7f79e-dcb6-486f-b66f-aa4272331e84" source="08_OLO_100+complete" target="n2"/>
+      <arc id="542e8202-6b94-4204-9ec5-53fbb0b144ce" source="n1" target="08_OLO_100+complete"/>
+      <arc id="03ddcdfc-0d9b-4cfe-92f3-f228661ee58b" source="08_OLO_100+complete" target="n2"/>
     </page>
   </net>
 </pnml>

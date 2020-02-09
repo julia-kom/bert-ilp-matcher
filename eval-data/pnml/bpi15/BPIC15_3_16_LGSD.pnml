@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="f22bc7d8-192b-4e90-a908-ddb4c5664b54" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="61d41c96-3070-44f9-affb-fac929560011" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
@@ -23,8 +23,8 @@
           <text>calculate final charges</text>
         </name>
       </transition>
-      <arc id="065d8381-3a06-4ca9-993c-1f8abd7694cf" source="16_LGSD_010+complete" target="n2"/>
-      <arc id="d44a37a2-adb5-4aeb-9daf-69715653f100" source="n1" target="16_LGSD_010+complete"/>
+      <arc id="d9fa62e4-0d44-41b5-971e-4a36f62d50ec" source="16_LGSD_010+complete" target="n2"/>
+      <arc id="f0862ade-f5c1-4dbb-b67f-563494c77c16" source="n1" target="16_LGSD_010+complete"/>
     </page>
   </net>
 </pnml>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="842e458b-146a-42d2-991c-4a33eb4772fd" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="1fc12fa0-0783-4c66-8887-0287a552d941" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
@@ -23,8 +23,8 @@
           <text>forward to the competent authority</text>
         </name>
       </transition>
-      <arc id="87d63a73-fdcc-4d24-b49a-673028729441" source="02_DRZ_010+complete" target="n2"/>
-      <arc id="b7c45dda-713e-45be-9578-0f97430b9a58" source="n1" target="02_DRZ_010+complete"/>
+      <arc id="1d63ce3f-f50c-4c8c-9b0a-58a55cf4e8a8" source="02_DRZ_010+complete" target="n2"/>
+      <arc id="f3b17f7c-2476-454c-9ed6-16992c7640d9" source="n1" target="02_DRZ_010+complete"/>
     </page>
   </net>
 </pnml>

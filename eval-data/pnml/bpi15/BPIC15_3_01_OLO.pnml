@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="9670da65-e5a8-42c1-9748-37f9df209ddc" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="a2af8c19-b428-4c5b-9ae5-1a5e915775b4" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
@@ -63,16 +63,16 @@
           <text>message request advice</text>
         </name>
       </transition>
-      <arc id="9687eb14-8a8c-4b24-a54b-f417f112370d" source="01_OLO_120+complete" target="n3"/>
-      <arc id="5ad43feb-b2e9-4dd3-a78a-eed7a64901fd" source="n5" target="01_OLO_180+complete"/>
-      <arc id="13fd1646-04fa-40a6-8dae-cb478a259bae" source="n4" target="01_OLO_160+complete"/>
-      <arc id="961ee51f-717d-48f6-9e30-2ba0f6d450bf" source="n1" target="01_OLO_120+complete"/>
-      <arc id="2a2cec80-fd4a-45bc-b25a-dcc96b016905" source="01_OLO_160+complete" target="n5"/>
-      <arc id="8ca6627a-d201-4471-a4b3-80b745117a31" source="01_OLO_140+complete" target="n4"/>
-      <arc id="a72ac299-681f-4f89-9cc3-397b1abaa0f7" source="01_OLO_190+complete" target="n2"/>
-      <arc id="f049f826-4b8a-41f0-a455-bbcc0884e21c" source="01_OLO_180+complete" target="n6"/>
-      <arc id="ef57e9f4-a74a-45e4-bdc8-fcce74e843bc" source="n3" target="01_OLO_140+complete"/>
-      <arc id="7cf6d456-ed96-4bf0-934d-dc34925bff6b" source="n6" target="01_OLO_190+complete"/>
+      <arc id="796fe152-c49a-47d8-933b-19240cbc1a3e" source="n1" target="01_OLO_120+complete"/>
+      <arc id="35fc9233-0f03-437c-be4e-91faa420eae0" source="n6" target="01_OLO_190+complete"/>
+      <arc id="25403b6c-e04e-4c3a-9178-0d0c39704371" source="01_OLO_190+complete" target="n2"/>
+      <arc id="1682ff09-d32a-4a41-a28a-123cc160b6f1" source="01_OLO_180+complete" target="n6"/>
+      <arc id="ea3319f9-96ca-40d7-b4f3-a91596183cd4" source="01_OLO_120+complete" target="n3"/>
+      <arc id="bf004a7d-1bdb-4000-b1c7-60b65cdcb30b" source="n5" target="01_OLO_180+complete"/>
+      <arc id="1abdba69-91cc-4745-ba5f-a6b40483a1e2" source="n4" target="01_OLO_160+complete"/>
+      <arc id="5c1885d5-7bf8-47f7-898e-e3756dc22aec" source="01_OLO_160+complete" target="n5"/>
+      <arc id="5767b46a-2d2e-4ea0-8e21-b67a79136416" source="n3" target="01_OLO_140+complete"/>
+      <arc id="f5c6c550-2bf4-4fab-b706-493d72a6efb4" source="01_OLO_140+complete" target="n4"/>
     </page>
   </net>
 </pnml>

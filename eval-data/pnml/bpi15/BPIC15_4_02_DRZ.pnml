@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="53421e55-f5d9-40fa-b7cc-c65329afdba8" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="84c8bb3b-1c47-486a-8a2d-dafe1b8681eb" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
@@ -9,14 +9,16 @@
         <name>
           <text>source 5666</text>
         </name>
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 5667</text>
         </name>
+      </place>
+      <place id="ca02533a-1000-45c8-9492-6fc1439510e6">
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n3">
         <name>
@@ -53,20 +55,18 @@
           <text>sink 5674</text>
         </name>
       </place>
+      <place id="e52037ac-d768-4501-9c27-873edc4eeec0"/>
+      <transition id="94eaf5f3-459f-4131-9784-1e50d4d8be0f"/>
       <transition id="n13"/>
       <transition id="02_DRZ_035+complete">
         <name>
           <text>phase forwarded to competent authority</text>
         </name>
       </transition>
+      <transition id="n16"/>
       <transition id="02_DRZ_010+complete">
         <name>
           <text>forward to the competent authority</text>
-        </name>
-      </transition>
-      <transition id="02_DRZ_030_1+complete">
-        <name>
-          <text>forward transcript to stakeholders</text>
         </name>
       </transition>
       <transition id="02_DRZ_045+complete">
@@ -74,6 +74,7 @@
           <text>phase procedure aborted</text>
         </name>
       </transition>
+      <transition id="08b71c20-2df3-4ae5-ab1d-0db3a71f43ec"/>
       <transition id="02_DRZ_020_1+complete">
         <name>
           <text>request to competent authority</text>
@@ -91,26 +92,30 @@
         </name>
       </transition>
       <transition id="n11"/>
-      <arc id="f1314142-b736-48d2-94c9-e3011060e32c" source="02_DRZ_030_1+complete" target="n7"/>
-      <arc id="ec0d5832-1185-49a2-a531-16b6c56783ab" source="n8" target="02_DRZ_035+complete"/>
-      <arc id="04b6edc4-2ac1-4f10-92a5-b60848ef9bde" source="n3" target="n13"/>
-      <arc id="abf8f52e-5a26-45ed-930a-f10e6538ba4f" source="02_DRZ_020_1+complete" target="n5"/>
-      <arc id="31035267-95e1-45fa-980c-96a62bbe18ac" source="n6" target="02_DRZ_030_1+complete"/>
-      <arc id="599e7c7a-edfe-46d9-bd8b-a989fb01558e" source="02_DRZ_010+complete" target="n4"/>
-      <arc id="ae57e0fd-f055-4d20-a189-9099f138f546" source="02_DRZ_035+complete" target="n9"/>
-      <arc id="bc22c40e-a03a-4756-a135-3d3b61a37e13" source="n1" target="02_DRZ_010+complete"/>
-      <arc id="def978cc-aeef-4825-b39d-73a6e7c4b5a4" source="n12" target="n3"/>
-      <arc id="e6ce4ea4-430f-4053-ad70-9faf5eafc507" source="02_DRZ_030_2+complete" target="n8"/>
-      <arc id="852860bd-cb56-4c4d-a3d5-1bc8ddb7b92a" source="02_DRZ_045+complete" target="n2"/>
-      <arc id="d7601c36-839c-4b60-9b28-4583ab215b6e" source="n11" target="n1"/>
-      <arc id="ebe077ef-e4a3-4a9b-b91c-e8a748ed2586" source="02_DRZ_020_2+complete" target="n6"/>
-      <arc id="65ce03c5-a49f-4af8-b113-4e34b30c42a5" source="n4" target="n12"/>
-      <arc id="f142ef0f-8875-4d21-b7ba-80e103608f87" source="n9" target="02_DRZ_045+complete"/>
-      <arc id="0317d411-83b7-4ec3-9b5f-a7b9da87ea1f" source="n3" target="02_DRZ_020_1+complete"/>
-      <arc id="7b0ef75a-4e4f-4ad5-9bd8-6a03bd92836e" source="n4" target="n11"/>
-      <arc id="f8314223-0dba-4ca7-89f4-b036cf8a5768" source="n5" target="02_DRZ_020_2+complete"/>
-      <arc id="f8361ef1-7524-45e3-8f5a-79a6cf2a1f6b" source="n7" target="02_DRZ_030_2+complete"/>
-      <arc id="67dc5810-db13-45ca-b698-521b72819e93" source="n13" target="n2"/>
+      <arc id="dfa65547-2624-4651-8764-d05ac159f9a4" source="n5" target="02_DRZ_020_2+complete"/>
+      <arc id="e45f83ed-f35f-4a9f-9395-36f53207c0d5" source="n4" target="n12"/>
+      <arc id="dd9bc178-4e67-4d1c-a360-e2720f702435" source="02_DRZ_035+complete" target="n9"/>
+      <arc id="18e1d428-4a05-4952-8184-d1839cbe711e" source="n2" target="94eaf5f3-459f-4131-9784-1e50d4d8be0f"/>
+      <arc id="acb5de51-840c-475a-834a-014ee1c49312" source="n11" target="n1"/>
+      <arc id="4ec2c2d5-89aa-41c3-b1db-9a947cf8e166" source="n7" target="02_DRZ_030_2+complete"/>
+      <arc id="4b44d93d-a860-4eec-ae34-3bd549efdf90" source="02_DRZ_020_2+complete" target="n6"/>
+      <arc id="d09f5741-9432-45ed-9c49-e69b4a372db3" source="n4" target="n11"/>
+      <arc id="0bb7977f-64f9-49af-bba6-596bd30d566b" source="02_DRZ_020_1+complete" target="n5"/>
+      <arc id="e162479d-4e96-4475-9d52-c49ff20450d2" source="02_DRZ_010+complete" target="n4"/>
+      <arc id="abf5a3a7-83d1-4e00-b532-5e11458217cd" source="n13" target="n2"/>
+      <arc id="4a57a278-bbaa-4f73-bca0-5d68e15a9a31" source="n6" target="n16"/>
+      <arc id="e3fb2a93-d2d5-4fd2-a0d2-1d7256858bc7" source="02_DRZ_030_2+complete" target="n8"/>
+      <arc id="eccc2ca0-15e2-403d-93c9-f10535999118" source="n8" target="02_DRZ_035+complete"/>
+      <arc id="80290824-b855-458e-b013-67c69bf8d4ac" source="n16" target="n7"/>
+      <arc id="41918828-a644-4c10-904c-8a22cdf9bbfb" source="94eaf5f3-459f-4131-9784-1e50d4d8be0f" target="e52037ac-d768-4501-9c27-873edc4eeec0"/>
+      <arc id="1aadcf90-d314-47e2-b6b4-c95d9c437352" source="n1" target="02_DRZ_010+complete"/>
+      <arc id="cf5befc9-b9c1-46c2-b506-3c21e77ce296" source="n9" target="02_DRZ_045+complete"/>
+      <arc id="b124828f-41e8-4d7f-bbc6-71959a438459" source="ca02533a-1000-45c8-9492-6fc1439510e6" target="08b71c20-2df3-4ae5-ab1d-0db3a71f43ec"/>
+      <arc id="9427e543-ae56-4af0-9c5f-ebd4fcfc7d4a" source="08b71c20-2df3-4ae5-ab1d-0db3a71f43ec" target="n1"/>
+      <arc id="c5bac3dd-06d0-4720-b432-ce429e5ccfaa" source="n3" target="n13"/>
+      <arc id="960d85eb-d407-4c06-87c2-97a20f89f7ae" source="02_DRZ_045+complete" target="n2"/>
+      <arc id="d15e1d54-d5c8-43c3-a37e-3898e5046da6" source="n3" target="02_DRZ_020_1+complete"/>
+      <arc id="7f5b915a-ac9a-4799-bb5f-123ef70110d7" source="n12" target="n3"/>
     </page>
   </net>
 </pnml>

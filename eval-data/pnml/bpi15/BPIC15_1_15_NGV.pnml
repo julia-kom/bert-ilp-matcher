@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="0529ce1f-9388-4be3-8501-494d9e5b1125" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="fb1923c9-864a-4251-a4c3-f2b493c3e5f5" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
@@ -23,8 +23,8 @@
           <text>request further information</text>
         </name>
       </transition>
-      <arc id="6f80eea1-b959-4420-9175-d2e5ab750fed" source="n1" target="15_NGV_010+complete"/>
-      <arc id="46fa7fae-f717-42a7-88e1-ba8e097efbac" source="15_NGV_010+complete" target="n2"/>
+      <arc id="8af4d07d-39a3-4cef-8e4d-1ef105ad0c32" source="n1" target="15_NGV_010+complete"/>
+      <arc id="68ed9104-ea00-4c82-a183-dd1fd55d2048" source="15_NGV_010+complete" target="n2"/>
     </page>
   </net>
 </pnml>

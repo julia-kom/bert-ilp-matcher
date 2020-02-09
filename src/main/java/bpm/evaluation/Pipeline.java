@@ -65,7 +65,8 @@ public class Pipeline{
                 try {
                     netAnalysis.addNet(net1, createProfile(net1, netProfile,null)); // todo add log
                 }catch(Exception e){
-                    System.out.println("Analysis not possible for net " + f.getName() + e.toString());
+                    System.out.println("Analysis not possible for net " + f.getName() );
+                    e.printStackTrace();
                 }
             }
             try {
@@ -459,20 +460,7 @@ public class Pipeline{
          * @return
          */
         public Builder withNetEvalProfile(String profile){
-            AbstractProfile.Profile p;
-            switch(profile){
-                case "BP":
-                    p = AbstractProfile.Profile.BP;
-                    break;
-                case "BPP":
-                    p = AbstractProfile.Profile.BPP;
-                    break;
-                case "ARP":
-                    p = AbstractProfile.Profile.ARP;
-                    break;
-                default:
-                    throw new IllegalArgumentException("relational profile argument is not valid: " +profile);
-            }
+            AbstractProfile.Profile p = AbstractProfile.Profile.valueOf(profile);
             this.netProfile = p;
             return this;
         }

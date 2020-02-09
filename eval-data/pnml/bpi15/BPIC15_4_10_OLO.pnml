@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="a0b925cc-b79e-4baa-b7bb-d699e4ed5078" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="5f1372b3-b99b-44f4-98d4-78526118955a" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
@@ -34,12 +34,12 @@
           <text>mesage request VVGB</text>
         </name>
       </transition>
-      <arc id="a9e9b7f5-4d9b-49c6-b2ad-06b06a403c40" source="n3" target="n5"/>
-      <arc id="d7c92c67-fe40-4cd0-9e02-ca19ebadd827" source="n5" target="n2"/>
-      <arc id="cbc800dd-e530-4dd0-a5c2-55d5ed5cb568" source="10_OLO_120+complete" target="n2"/>
-      <arc id="4bc5c36e-c60d-46a2-b4e7-57278af371ac" source="10_OLO_100+complete" target="n3"/>
-      <arc id="16beda56-7d16-4743-a52a-add138c529a6" source="n1" target="10_OLO_100+complete"/>
-      <arc id="22aab203-d7ff-42f0-a5bb-6ebc9ed4b9ca" source="n3" target="10_OLO_120+complete"/>
+      <arc id="d9eff035-794b-419d-b43a-d5573c4f0c58" source="10_OLO_100+complete" target="n3"/>
+      <arc id="a59012e0-60c0-40d1-ab37-d165837b06f0" source="n5" target="n2"/>
+      <arc id="13c8ce19-c828-475c-919e-6eb53f2560c1" source="n1" target="10_OLO_100+complete"/>
+      <arc id="b8cd3062-4844-4f37-a3c4-34e55e385a5e" source="10_OLO_120+complete" target="n2"/>
+      <arc id="e67ee1e1-ba50-4f6f-92f7-68b4db7b1aea" source="n3" target="10_OLO_120+complete"/>
+      <arc id="e8affafc-78a3-4557-a8c9-b48ec6d6b454" source="n3" target="n5"/>
     </page>
   </net>
 </pnml>
