@@ -74,6 +74,7 @@ public class AggregatedGoldstandardAnalysis {
 
             //test if labels are equal
             if(!labelNode1.equals(labelNode2)){
+                System.out.println(alignment.getName()+ ": " +labelNode1 + " --- " +labelNode2);
                 continue;
             }
 

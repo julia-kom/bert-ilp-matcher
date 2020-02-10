@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="a2af8c19-b428-4c5b-9ae5-1a5e915775b4" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="35bba1db-8d29-45e1-9acf-037611020009" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
       <place id="n1">
         <name>
-          <text>source 5403</text>
+          <text>source 8315</text>
         </name>
         <initialMarking>
           <text>1</text>
@@ -15,27 +15,27 @@
       </place>
       <place id="n2">
         <name>
-          <text>sink 5404</text>
+          <text>sink 8316</text>
         </name>
       </place>
       <place id="n3">
         <name>
-          <text>sink 5405</text>
+          <text>sink 8317</text>
         </name>
       </place>
       <place id="n4">
         <name>
-          <text>sink 5406</text>
+          <text>sink 8318</text>
         </name>
       </place>
       <place id="n5">
         <name>
-          <text>sink 5407</text>
+          <text>sink 8319</text>
         </name>
       </place>
       <place id="n6">
         <name>
-          <text>sink 5408</text>
+          <text>sink 8320</text>
         </name>
       </place>
       <transition id="01_OLO_190+complete">
@@ -63,16 +63,16 @@
           <text>message request advice</text>
         </name>
       </transition>
-      <arc id="796fe152-c49a-47d8-933b-19240cbc1a3e" source="n1" target="01_OLO_120+complete"/>
-      <arc id="35fc9233-0f03-437c-be4e-91faa420eae0" source="n6" target="01_OLO_190+complete"/>
-      <arc id="25403b6c-e04e-4c3a-9178-0d0c39704371" source="01_OLO_190+complete" target="n2"/>
-      <arc id="1682ff09-d32a-4a41-a28a-123cc160b6f1" source="01_OLO_180+complete" target="n6"/>
-      <arc id="ea3319f9-96ca-40d7-b4f3-a91596183cd4" source="01_OLO_120+complete" target="n3"/>
-      <arc id="bf004a7d-1bdb-4000-b1c7-60b65cdcb30b" source="n5" target="01_OLO_180+complete"/>
-      <arc id="1abdba69-91cc-4745-ba5f-a6b40483a1e2" source="n4" target="01_OLO_160+complete"/>
-      <arc id="5c1885d5-7bf8-47f7-898e-e3756dc22aec" source="01_OLO_160+complete" target="n5"/>
-      <arc id="5767b46a-2d2e-4ea0-8e21-b67a79136416" source="n3" target="01_OLO_140+complete"/>
-      <arc id="f5c6c550-2bf4-4fab-b706-493d72a6efb4" source="01_OLO_140+complete" target="n4"/>
+      <arc id="2f70c918-6fc9-4f00-9b6a-3f69b3c76316" source="01_OLO_180+complete" target="n6"/>
+      <arc id="dd195f93-2a62-477f-a125-76559d3c85f0" source="01_OLO_160+complete" target="n5"/>
+      <arc id="6ccbae7a-4d62-465b-89d1-ab6ebf6e237a" source="n3" target="01_OLO_140+complete"/>
+      <arc id="53303d2e-f714-4cb8-acc6-5f694918dc1c" source="n6" target="01_OLO_190+complete"/>
+      <arc id="b698168b-f4bc-4432-a914-67ece518020b" source="n4" target="01_OLO_160+complete"/>
+      <arc id="ab54bb21-cf27-48ca-84cb-3816a9ab3fa7" source="n5" target="01_OLO_180+complete"/>
+      <arc id="664f904d-718f-47e7-94bf-ed560f563af0" source="01_OLO_190+complete" target="n2"/>
+      <arc id="e615354b-207d-4f24-832a-d9b6edff0383" source="01_OLO_140+complete" target="n4"/>
+      <arc id="0fa03c7a-dfd2-4255-8200-8086a6e81bd4" source="01_OLO_120+complete" target="n3"/>
+      <arc id="2dd11927-ac1e-49e3-9902-ed4b36f3239f" source="n1" target="01_OLO_120+complete"/>
     </page>
   </net>
 </pnml>

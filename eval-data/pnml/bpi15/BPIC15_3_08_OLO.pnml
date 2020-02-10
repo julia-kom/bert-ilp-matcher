@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="1e26f2e7-dd33-4419-8eb4-12507402c1ed" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="332cfdac-6787-4c27-bade-187787af3c93" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
       <place id="n1">
         <name>
-          <text>source 5481</text>
+          <text>source 8393</text>
         </name>
         <initialMarking>
           <text>1</text>
@@ -15,7 +15,7 @@
       </place>
       <place id="n2">
         <name>
-          <text>sink 5482</text>
+          <text>sink 8394</text>
         </name>
       </place>
       <transition id="08_OLO_100+complete">
@@ -23,8 +23,8 @@
           <text>send message OLO status additions required</text>
         </name>
       </transition>
-      <arc id="542e8202-6b94-4204-9ec5-53fbb0b144ce" source="n1" target="08_OLO_100+complete"/>
-      <arc id="03ddcdfc-0d9b-4cfe-92f3-f228661ee58b" source="08_OLO_100+complete" target="n2"/>
+      <arc id="1a8a826d-4fe1-4e2b-a409-ae9d4206d940" source="08_OLO_100+complete" target="n2"/>
+      <arc id="13d44e6b-2e32-4487-9705-e2148a1ea79a" source="n1" target="08_OLO_100+complete"/>
     </page>
   </net>
 </pnml>

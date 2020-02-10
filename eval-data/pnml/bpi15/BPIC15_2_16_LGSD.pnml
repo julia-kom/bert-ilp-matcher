@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="b9ee607f-6251-4d90-baac-ac844070ba7f" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="659b2f5f-1c30-4fcb-8671-4b21f09680c2" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
       <place id="n1">
         <name>
-          <text>source 5352</text>
+          <text>source 8264</text>
         </name>
         <initialMarking>
           <text>1</text>
@@ -15,7 +15,7 @@
       </place>
       <place id="n2">
         <name>
-          <text>sink 5353</text>
+          <text>sink 8265</text>
         </name>
       </place>
       <transition id="16_LGSD_010+complete">
@@ -23,8 +23,8 @@
           <text>calculate final charges</text>
         </name>
       </transition>
-      <arc id="67dd0357-c488-45bd-b636-6e1900591d1c" source="16_LGSD_010+complete" target="n2"/>
-      <arc id="06a3aba6-b726-4fd7-8e6a-596417a0b508" source="n1" target="16_LGSD_010+complete"/>
+      <arc id="18a058b7-bbb4-427c-b17d-40d07879a04a" source="16_LGSD_010+complete" target="n2"/>
+      <arc id="b8ae48c2-e6ac-4633-b360-ad88b6750c41" source="n1" target="16_LGSD_010+complete"/>
     </page>
   </net>
 </pnml>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="7bed156b-3bc9-4344-8c32-d3a6e4c328a3" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="c73e2753-4551-4118-ae8d-6df0a36ab0b8" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
       <place id="n1">
         <name>
-          <text>source 6203</text>
+          <text>source 9115</text>
         </name>
         <initialMarking>
           <text>1</text>
@@ -15,7 +15,7 @@
       </place>
       <place id="n2">
         <name>
-          <text>sink 6204</text>
+          <text>sink 9116</text>
         </name>
       </place>
       <transition id="13_CRD_010+complete">
@@ -23,8 +23,8 @@
           <text>coordination of application</text>
         </name>
       </transition>
-      <arc id="1190a27e-d7d3-4a75-90f4-3031cee1bd7e" source="13_CRD_010+complete" target="n2"/>
-      <arc id="77a32e1c-e486-49f7-8ca1-e0bc8feaf255" source="n1" target="13_CRD_010+complete"/>
+      <arc id="b71a70a6-dcc8-4346-8ef0-feefb0247cb1" source="13_CRD_010+complete" target="n2"/>
+      <arc id="42aa4b90-13c5-4216-8ce2-ea76483624d9" source="n1" target="13_CRD_010+complete"/>
     </page>
   </net>
 </pnml>

@@ -35,8 +35,8 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_020+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_020+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_030_1+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_030_1+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -53,14 +53,6 @@
     <Cell>
       <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_490_3+complete'/>
       <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_490_3+complete'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_030_1+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_030_1+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -235,14 +227,6 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_390+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_390+complete'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
       <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_350_0+complete'/>
       <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_350_0+complete'/>
       <relation>=</relation>
@@ -253,6 +237,14 @@
     <Cell>
       <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_130+complete'/>
       <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_130+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_390+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_390+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -307,14 +299,6 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_250+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_250+complete'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
       <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_250_1+complete'/>
       <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_250_1+complete'/>
       <relation>=</relation>
@@ -347,22 +331,6 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_380+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_380+complete'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_532+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_532+complete'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
       <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_370+complete'/>
       <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_370+complete'/>
       <relation>=</relation>
@@ -379,16 +347,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_494a+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_494a+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_250_2+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_250_2+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_250_2+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_250_2+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_494a+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_494a+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -459,16 +427,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_815+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_815+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_100+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_100+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_100+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_100+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_815+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_815+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -539,16 +507,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_515+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_515+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_060+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_060+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_060+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_060+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_515+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_515+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -579,16 +547,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_440_1+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_440_1+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_330+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_330+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_330+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_330+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_440_1+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_440_1+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -611,8 +579,8 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_061+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_061+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_110_2+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_110_2+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -627,8 +595,8 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_110_2+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_110_2+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_061+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_061+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -699,16 +667,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_331+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_331+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_440_2+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_440_2+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_440_2+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_440_2+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_331+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_331+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -883,16 +851,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_465+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_465+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_190_2+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_190_2+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_190_2+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_190_2+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_465+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_465+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -923,16 +891,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_196+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_196+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_420+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_420+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_420+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_420+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_HOOFD#01_HOOFD_196+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_01_HOOFD#01_HOOFD_196+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>

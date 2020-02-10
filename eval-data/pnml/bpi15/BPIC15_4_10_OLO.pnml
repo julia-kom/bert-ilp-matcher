@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="5f1372b3-b99b-44f4-98d4-78526118955a" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="76cf04d3-7e09-4227-92d3-af22bfabbfeb" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
       <place id="n1">
         <name>
-          <text>source 5771</text>
+          <text>source 8683</text>
         </name>
         <initialMarking>
           <text>1</text>
@@ -15,12 +15,12 @@
       </place>
       <place id="n2">
         <name>
-          <text>sink 5772</text>
+          <text>sink 8684</text>
         </name>
       </place>
       <place id="n3">
         <name>
-          <text>sink 5773</text>
+          <text>sink 8685</text>
         </name>
       </place>
       <transition id="10_OLO_100+complete">
@@ -34,12 +34,12 @@
           <text>mesage request VVGB</text>
         </name>
       </transition>
-      <arc id="d9eff035-794b-419d-b43a-d5573c4f0c58" source="10_OLO_100+complete" target="n3"/>
-      <arc id="a59012e0-60c0-40d1-ab37-d165837b06f0" source="n5" target="n2"/>
-      <arc id="13c8ce19-c828-475c-919e-6eb53f2560c1" source="n1" target="10_OLO_100+complete"/>
-      <arc id="b8cd3062-4844-4f37-a3c4-34e55e385a5e" source="10_OLO_120+complete" target="n2"/>
-      <arc id="e67ee1e1-ba50-4f6f-92f7-68b4db7b1aea" source="n3" target="10_OLO_120+complete"/>
-      <arc id="e8affafc-78a3-4557-a8c9-b48ec6d6b454" source="n3" target="n5"/>
+      <arc id="8b17c26b-315b-4872-9ade-d4044f645831" source="n1" target="10_OLO_100+complete"/>
+      <arc id="007c1944-fe2e-4420-b696-05a328328fb3" source="n5" target="n2"/>
+      <arc id="346b0c56-670d-481f-adb8-4941cd8d45d6" source="10_OLO_120+complete" target="n2"/>
+      <arc id="6d81fc89-ce31-4633-bcff-447887d1a83f" source="n3" target="10_OLO_120+complete"/>
+      <arc id="e9631012-b351-49cb-aabf-5c18f34ed711" source="10_OLO_100+complete" target="n3"/>
+      <arc id="1a203b2c-8049-458b-ac06-56b2a9e3083c" source="n3" target="n5"/>
     </page>
   </net>
 </pnml>

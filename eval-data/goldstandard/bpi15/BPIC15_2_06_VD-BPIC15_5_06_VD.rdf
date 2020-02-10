@@ -131,16 +131,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_2_06_VD#06_VD_030_5a+complete'/>
-      <entity2 rdf:resource='http://BPIC15_5_06_VD#06_VD_030_5a+complete'/>
+      <entity1 rdf:resource='http://BPIC15_2_06_VD#06_VD_020+complete'/>
+      <entity2 rdf:resource='http://BPIC15_5_06_VD#06_VD_020+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_2_06_VD#06_VD_020+complete'/>
-      <entity2 rdf:resource='http://BPIC15_5_06_VD#06_VD_020+complete'/>
+      <entity1 rdf:resource='http://BPIC15_2_06_VD#06_VD_030_5a+complete'/>
+      <entity2 rdf:resource='http://BPIC15_5_06_VD#06_VD_030_5a+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>

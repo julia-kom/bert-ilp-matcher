@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="1fc12fa0-0783-4c66-8887-0287a552d941" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="391e9922-2a02-492e-9a99-122439cd9395" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
       <place id="n1">
         <name>
-          <text>source 5409</text>
+          <text>source 8321</text>
         </name>
         <initialMarking>
           <text>1</text>
@@ -15,7 +15,7 @@
       </place>
       <place id="n2">
         <name>
-          <text>sink 5410</text>
+          <text>sink 8322</text>
         </name>
       </place>
       <transition id="02_DRZ_010+complete">
@@ -23,8 +23,8 @@
           <text>forward to the competent authority</text>
         </name>
       </transition>
-      <arc id="1d63ce3f-f50c-4c8c-9b0a-58a55cf4e8a8" source="02_DRZ_010+complete" target="n2"/>
-      <arc id="f3b17f7c-2476-454c-9ed6-16992c7640d9" source="n1" target="02_DRZ_010+complete"/>
+      <arc id="d28e4114-63b4-4d0a-9460-eeebec1e0176" source="02_DRZ_010+complete" target="n2"/>
+      <arc id="2b40cafb-b306-4e6c-a3c7-4eb2f515c41a" source="n1" target="02_DRZ_010+complete"/>
     </page>
   </net>
 </pnml>

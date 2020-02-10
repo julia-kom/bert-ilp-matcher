@@ -107,14 +107,6 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_1_06_VD#06_VD_040+complete'/>
-      <entity2 rdf:resource='http://BPIC15_2_06_VD#06_VD_040+complete'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
       <entity1 rdf:resource='http://BPIC15_1_06_VD#06_VD_030+complete'/>
       <entity2 rdf:resource='http://BPIC15_2_06_VD#06_VD_030+complete'/>
       <relation>=</relation>
@@ -179,16 +171,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_1_06_VD#06_VD_070+complete'/>
-      <entity2 rdf:resource='http://BPIC15_2_06_VD#06_VD_070+complete'/>
+      <entity1 rdf:resource='http://BPIC15_1_06_VD#06_VD_020+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_06_VD#06_VD_020+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_1_06_VD#06_VD_020+complete'/>
-      <entity2 rdf:resource='http://BPIC15_2_06_VD#06_VD_020+complete'/>
+      <entity1 rdf:resource='http://BPIC15_1_06_VD#06_VD_070+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_06_VD#06_VD_070+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>

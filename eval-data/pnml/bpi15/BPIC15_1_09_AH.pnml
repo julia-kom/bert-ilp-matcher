@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="59f01b6f-02ee-4ba4-a369-94277f883362" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="2b4fe3f0-e387-49f7-b7d8-92247ec413ee" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id="n1">
-        <name>
-          <text>source 4967</text>
-        </name>
-      </place>
-      <place id="n2">
-        <name>
-          <text>sink 4968</text>
-        </name>
-      </place>
-      <place id="n3">
-        <name>
-          <text>sink 4969</text>
-        </name>
-      </place>
-      <place id="n4">
-        <name>
-          <text>middle 4970</text>
-        </name>
-      </place>
-      <place id="n5">
-        <name>
-          <text>sink 4971</text>
-        </name>
-      </place>
-      <place id="6fc4b5b5-6171-4dfb-b044-874462efa66c"/>
-      <place id="9af89e93-9e38-46a8-aa2f-1697ca241742">
+      <place id="ab654380-5690-4404-9ce1-245dfe5d5394">
         <initialMarking>
           <text>1</text>
         </initialMarking>
       </place>
-      <transition id="94eaf5f3-459f-4131-9784-1e50d4d8be0f"/>
+      <place id="n1">
+        <name>
+          <text>source 7879</text>
+        </name>
+      </place>
+      <place id="n2">
+        <name>
+          <text>sink 7880</text>
+        </name>
+      </place>
+      <place id="n3">
+        <name>
+          <text>sink 7881</text>
+        </name>
+      </place>
+      <place id="n4">
+        <name>
+          <text>middle 7882</text>
+        </name>
+      </place>
+      <place id="n5">
+        <name>
+          <text>sink 7883</text>
+        </name>
+      </place>
+      <place id="2068d2df-e780-4368-8e4b-ed7305205cb7"/>
       <transition id="09_AH_I_020+complete">
         <name>
           <text>environmental permit irrevocable</text>
         </name>
       </transition>
+      <transition id="a2e85617-54ec-4d93-9578-700d4b2d688d"/>
       <transition id="09_AH_I_010+complete">
         <name>
           <text>article 34  WABO applies</text>
         </name>
       </transition>
+      <transition id="bee5ccc9-16f3-45a6-814a-0bddc288d663"/>
       <transition id="n7"/>
       <transition id="09_AH_I_040+complete">
         <name>
           <text>determine cause for suspension article 34 WABO</text>
         </name>
       </transition>
-      <transition id="08b71c20-2df3-4ae5-ab1d-0db3a71f43ec"/>
       <transition id="n8"/>
       <transition id="n9"/>
       <transition id="09_AH_I_030+complete">
@@ -61,24 +61,24 @@
           <text>date environmental permit irrevocable</text>
         </name>
       </transition>
-      <arc id="259bd08b-eae7-424e-b0f5-39a2fe094b1a" source="n5" target="09_AH_I_030+complete"/>
-      <arc id="11104d0c-bba4-4ea0-9610-1cd348bd08ea" source="09_AH_I_030+complete" target="n2"/>
-      <arc id="878ee6b0-bf3f-4c32-a59e-f7dc8713615d" source="n5" target="09_AH_I_040+complete"/>
-      <arc id="ca058e1c-8031-4f15-8ec7-117a9481cd1a" source="09_AH_I_010+complete" target="n4"/>
-      <arc id="53aac064-65c1-49e0-b2c5-c1cd5df9f265" source="9af89e93-9e38-46a8-aa2f-1697ca241742" target="08b71c20-2df3-4ae5-ab1d-0db3a71f43ec"/>
-      <arc id="73ef2c9e-eb48-4a4c-85ee-8340496ed115" source="n3" target="n9"/>
-      <arc id="674e4329-027f-48d7-8265-307507f79e61" source="n4" target="n8"/>
-      <arc id="9dd21f4e-c489-4264-b01c-88044c69e6dc" source="n4" target="n7"/>
-      <arc id="28de2659-0ae0-4942-a553-e8d680a5b881" source="n9" target="n2"/>
-      <arc id="a2b02a6a-2113-4693-961f-206ec9c07f61" source="n3" target="09_AH_I_020+complete"/>
-      <arc id="84308622-3de2-4901-8ef7-ccec9a145bcc" source="n8" target="n3"/>
-      <arc id="2e594348-3f5b-42d7-8a10-a839620fca8f" source="09_AH_I_040+complete" target="n2"/>
-      <arc id="a5255bb6-ef89-4f97-ac25-961e4b031b3d" source="09_AH_I_020+complete" target="n5"/>
-      <arc id="7f766ab8-d9bb-441c-ae7b-5101cb511bc4" source="n7" target="n1"/>
-      <arc id="2830db46-142c-4930-8461-261da0bd6dc4" source="08b71c20-2df3-4ae5-ab1d-0db3a71f43ec" target="n1"/>
-      <arc id="4c3325b0-6616-420b-aadd-a93db3ede83b" source="n2" target="94eaf5f3-459f-4131-9784-1e50d4d8be0f"/>
-      <arc id="c956818d-a165-48cb-8ab6-ddf39c24fc3e" source="94eaf5f3-459f-4131-9784-1e50d4d8be0f" target="6fc4b5b5-6171-4dfb-b044-874462efa66c"/>
-      <arc id="f76bf848-1cf8-46d4-b547-984fbcc931e0" source="n1" target="09_AH_I_010+complete"/>
+      <arc id="df8e6615-e911-44f6-b593-227d602a62d3" source="n9" target="n2"/>
+      <arc id="5302feea-1f44-4904-bcd5-4b3becf3e80f" source="09_AH_I_010+complete" target="n4"/>
+      <arc id="e33f6a8c-1476-4f7b-b9eb-4b53ffdc9983" source="n8" target="n3"/>
+      <arc id="cb4f1e07-bac7-4f19-9155-3aa637f9fe18" source="n3" target="09_AH_I_020+complete"/>
+      <arc id="ffa98a54-492e-47ba-936e-44e41e1f888a" source="09_AH_I_030+complete" target="n2"/>
+      <arc id="1c544a81-6220-4edd-9dad-2e2d8a7c731c" source="n5" target="09_AH_I_040+complete"/>
+      <arc id="41f292fc-e34f-4abd-b135-6cc22dc90afd" source="n7" target="n1"/>
+      <arc id="d369928c-2723-422c-a9f2-f1998afb3b22" source="n5" target="09_AH_I_030+complete"/>
+      <arc id="80217505-2179-4841-ab1b-2a6c108f1a00" source="n4" target="n8"/>
+      <arc id="d20a92d6-e088-4e51-940e-9681f8eb974f" source="09_AH_I_020+complete" target="n5"/>
+      <arc id="5fd15203-34fe-4055-9a44-8a476681cf31" source="n2" target="bee5ccc9-16f3-45a6-814a-0bddc288d663"/>
+      <arc id="4fb0a4db-928d-434a-ab8c-e2d984a5d90d" source="bee5ccc9-16f3-45a6-814a-0bddc288d663" target="2068d2df-e780-4368-8e4b-ed7305205cb7"/>
+      <arc id="f0232b49-a611-436c-95bf-df7d45a7fa0b" source="n4" target="n7"/>
+      <arc id="daf6af19-b0d7-490e-91eb-57d901bd7623" source="ab654380-5690-4404-9ce1-245dfe5d5394" target="a2e85617-54ec-4d93-9578-700d4b2d688d"/>
+      <arc id="e430f9ef-af0e-4862-8366-fd2a5511e750" source="n3" target="n9"/>
+      <arc id="12fb443a-9f1b-49b0-b39c-db535a1aeb90" source="a2e85617-54ec-4d93-9578-700d4b2d688d" target="n1"/>
+      <arc id="5c432a9a-5a2b-4b36-9d9c-c73a1c910606" source="09_AH_I_040+complete" target="n2"/>
+      <arc id="108cfb93-5b52-4255-84fb-26142c9e73ad" source="n1" target="09_AH_I_010+complete"/>
     </page>
   </net>
 </pnml>

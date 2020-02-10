@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="82162643-5206-4dd4-bcdf-e9f0b3366b52" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="f5e77a7b-7acd-4b65-bfcb-7934df23e089" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
       <place id="n1">
         <name>
-          <text>source 6260</text>
+          <text>source 9172</text>
         </name>
         <initialMarking>
           <text>1</text>
@@ -15,12 +15,12 @@
       </place>
       <place id="n2">
         <name>
-          <text>sink 6261</text>
+          <text>sink 9173</text>
         </name>
       </place>
       <place id="n3">
         <name>
-          <text>sink 6262</text>
+          <text>sink 9174</text>
         </name>
       </place>
       <transition id="n5"/>
@@ -34,12 +34,12 @@
           <text>send information request</text>
         </name>
       </transition>
-      <arc id="ceae59e8-83a7-41d7-ab63-4741912c44d0" source="n3" target="15_NGV_020_1+complete"/>
-      <arc id="56137f35-0d57-4037-a0ca-d927a0d5df5e" source="15_NGV_010+complete" target="n3"/>
-      <arc id="55c51d8b-6402-44a4-8581-a0087e5f96ef" source="n3" target="n5"/>
-      <arc id="d1cdc02c-1b60-435b-86b6-2d87b8e7a923" source="n5" target="n2"/>
-      <arc id="81afc60f-2c43-4314-94ac-95b7ba678172" source="15_NGV_020_1+complete" target="n2"/>
-      <arc id="805e03a4-0573-4d7c-bde1-4e4fd531c89c" source="n1" target="15_NGV_010+complete"/>
+      <arc id="35cea063-5161-4c2e-8398-512027e3f6bd" source="n5" target="n2"/>
+      <arc id="08ce7117-64f6-460c-b405-7a0b857743bd" source="15_NGV_010+complete" target="n3"/>
+      <arc id="2eb59cf2-2c34-4db9-89ef-1c1f190b1aad" source="n3" target="n5"/>
+      <arc id="cf88b860-ebd5-469e-ae44-300fe9598bc3" source="n3" target="15_NGV_020_1+complete"/>
+      <arc id="f9880488-dcdb-4559-9bf4-e7097e7738bb" source="15_NGV_020_1+complete" target="n2"/>
+      <arc id="6a9d9eb5-ff4b-4c5d-95db-24e53cc1b07e" source="n1" target="15_NGV_010+complete"/>
     </page>
   </net>
 </pnml>

@@ -27,14 +27,6 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_04_BPT#04_BPT_060+complete'/>
-      <entity2 rdf:resource='http://BPIC15_3_04_BPT#04_BPT_060+complete'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
       <entity1 rdf:resource='http://BPIC15_4_04_BPT#04_BPT_010+complete'/>
       <entity2 rdf:resource='http://BPIC15_3_04_BPT#04_BPT_010+complete'/>
       <relation>=</relation>
@@ -45,14 +37,6 @@
     <Cell>
       <entity1 rdf:resource='http://BPIC15_4_04_BPT#04_BPT_005+complete'/>
       <entity2 rdf:resource='http://BPIC15_3_04_BPT#04_BPT_005+complete'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_04_BPT#04_BPT_020+complete'/>
-      <entity2 rdf:resource='http://BPIC15_3_04_BPT#04_BPT_020+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>

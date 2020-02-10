@@ -19,14 +19,6 @@
   </onto2>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_5_05_EIND#05_EIND_010+complete'/>
-      <entity2 rdf:resource='http://BPIC15_2_05_EIND#05_EIND_010+complete'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
       <entity1 rdf:resource='http://BPIC15_5_05_EIND#05_EIND_030_0+complete'/>
       <entity2 rdf:resource='http://BPIC15_2_05_EIND#05_EIND_030_0+complete'/>
       <relation>=</relation>
@@ -37,6 +29,14 @@
     <Cell>
       <entity1 rdf:resource='http://BPIC15_5_05_EIND#05_EIND_070+complete'/>
       <entity2 rdf:resource='http://BPIC15_2_05_EIND#05_EIND_070+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_5_05_EIND#05_EIND_010+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_05_EIND#05_EIND_010+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>

@@ -35,16 +35,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_11_AH#11_AH_II_037_1+complete'/>
-      <entity2 rdf:resource='http://BPIC15_3_11_AH#11_AH_II_037_1+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_11_AH#11_AH_II_070_2+complete'/>
+      <entity2 rdf:resource='http://BPIC15_3_11_AH#11_AH_II_070_2+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_11_AH#11_AH_II_070_2+complete'/>
-      <entity2 rdf:resource='http://BPIC15_3_11_AH#11_AH_II_070_2+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_11_AH#11_AH_II_037_1+complete'/>
+      <entity2 rdf:resource='http://BPIC15_3_11_AH#11_AH_II_037_1+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>

@@ -19,14 +19,6 @@
   </onto2>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_11_AH#11_AH_II_130+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_130+complete'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
       <entity1 rdf:resource='http://BPIC15_4_11_AH#11_AH_II_040a+complete'/>
       <entity2 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_040a+complete'/>
       <relation>=</relation>
@@ -131,16 +123,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_11_AH#11_AH_II_070+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_070+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_11_AH#11_AH_II_145+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_145+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_11_AH#11_AH_II_145+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_145+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_11_AH#11_AH_II_070+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_070+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -189,14 +181,6 @@
     <Cell>
       <entity1 rdf:resource='http://BPIC15_4_11_AH#11_AH_II_070_3a+complete'/>
       <entity2 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_070_3a+complete'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_11_AH#11_AH_II_055+complete'/>
-      <entity2 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_055+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>

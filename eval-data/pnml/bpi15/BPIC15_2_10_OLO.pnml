@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="6f28b175-e8c0-47f2-98b0-9823c27cb94f" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="f795bab2-ee10-49ab-b3ff-6641a651b080" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
       <place id="n1">
         <name>
-          <text>source 5239</text>
+          <text>source 8151</text>
         </name>
         <initialMarking>
           <text>1</text>
@@ -15,12 +15,12 @@
       </place>
       <place id="n2">
         <name>
-          <text>sink 5240</text>
+          <text>sink 8152</text>
         </name>
       </place>
       <place id="n3">
         <name>
-          <text>sink 5241</text>
+          <text>sink 8153</text>
         </name>
       </place>
       <transition id="10_OLO_100+complete">
@@ -33,10 +33,10 @@
           <text>mesage request VVGB</text>
         </name>
       </transition>
-      <arc id="bd2802fb-ceea-433d-ad4e-da8dcc4450c6" source="10_OLO_120+complete" target="n2"/>
-      <arc id="a17d2d85-2902-4121-b9cf-39090333f648" source="10_OLO_100+complete" target="n3"/>
-      <arc id="37508305-6dd8-4b60-925b-3d4d65420b2f" source="n1" target="10_OLO_100+complete"/>
-      <arc id="8f4e3532-6f94-4c4e-aeec-7122882a10ee" source="n3" target="10_OLO_120+complete"/>
+      <arc id="a3673399-ee58-4675-948f-9210d68910ef" source="n1" target="10_OLO_100+complete"/>
+      <arc id="97ebaf5d-7631-43fe-a81b-e621a2a677ba" source="10_OLO_100+complete" target="n3"/>
+      <arc id="f843b614-98bb-4194-b96b-d55d16f33bd1" source="n3" target="10_OLO_120+complete"/>
+      <arc id="fdb359b5-a35a-4448-8caf-3c4e8e8dc5d0" source="10_OLO_120+complete" target="n2"/>
     </page>
   </net>
 </pnml>

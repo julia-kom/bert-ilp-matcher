@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="3d2a2727-ca22-4c02-b742-eb7586a97a7b" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="a0f03f61-fe2b-417c-b483-5db89f3b183c" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
       <place id="n1">
         <name>
-          <text>source 5140</text>
+          <text>source 8052</text>
         </name>
         <initialMarking>
           <text>1</text>
@@ -15,7 +15,7 @@
       </place>
       <place id="n2">
         <name>
-          <text>sink 5141</text>
+          <text>sink 8053</text>
         </name>
       </place>
       <transition id="02_OLO_100+complete">
@@ -23,8 +23,8 @@
           <text>message change competent authority</text>
         </name>
       </transition>
-      <arc id="c026688e-646f-4f01-b199-b6b77f384565" source="02_OLO_100+complete" target="n2"/>
-      <arc id="eddd35c8-fe62-4670-922a-901dce5867e1" source="n1" target="02_OLO_100+complete"/>
+      <arc id="6a503586-cafc-40c0-99c4-5ee9ae5c8713" source="n1" target="02_OLO_100+complete"/>
+      <arc id="fc2bea70-0360-4826-8058-1dab35e07ead" source="02_OLO_100+complete" target="n2"/>
     </page>
   </net>
 </pnml>

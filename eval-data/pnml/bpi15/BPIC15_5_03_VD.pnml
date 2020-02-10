@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="73e6f20f-8212-429e-8948-e732c62e84fd" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="06438909-325f-4b95-a609-496458d59592" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
       <place id="n1">
         <name>
-          <text>source 5984</text>
+          <text>source 8896</text>
         </name>
         <initialMarking>
           <text>1</text>
@@ -15,7 +15,7 @@
       </place>
       <place id="n2">
         <name>
-          <text>sink 5985</text>
+          <text>sink 8897</text>
         </name>
       </place>
       <transition id="03_VD_060_0+complete">
@@ -23,8 +23,8 @@
           <text>create cover letter extend procedure term</text>
         </name>
       </transition>
-      <arc id="4134b5df-0af9-4bb2-bd34-50fa47206b2c" source="03_VD_060_0+complete" target="n2"/>
-      <arc id="62a320a3-680f-4ccb-a8a9-ce61665887db" source="n1" target="03_VD_060_0+complete"/>
+      <arc id="8b50a945-c382-4ed4-a514-c48865579ac0" source="n1" target="03_VD_060_0+complete"/>
+      <arc id="d4a94829-97db-4373-bd87-6db925e9fd59" source="03_VD_060_0+complete" target="n2"/>
     </page>
   </net>
 </pnml>
