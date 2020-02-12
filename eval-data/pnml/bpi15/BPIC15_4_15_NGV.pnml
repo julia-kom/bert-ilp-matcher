@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="26375677-089b-4ed7-aa80-4682f10a7bd9" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="9f70c196-9bbc-4682-9aac-973cfb5cb7cb" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
+      <place id=""/>
       <place id="n1">
         <name>
           <text>source 8824</text>
         </name>
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 8825</text>
         </name>
       </place>
+      <place id="b8cdbc82-2835-4def-8853-89062ef8e9db">
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="c452d3ed-2faa-4881-9618-c91322b54404"/>
       <transition id="15_NGV_010+complete">
         <name>
           <text>request further information</text>
         </name>
       </transition>
-      <arc id="ea0336fd-f5d9-4a75-903d-c1ca14c0e9dc" source="15_NGV_010+complete" target="n2"/>
-      <arc id="177034df-e20e-4e15-9e75-21ed6493e296" source="n1" target="15_NGV_010+complete"/>
+      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
+      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
+      <arc id="c0c38346-f538-43a3-bcf1-617f1f1b9803" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
+      <arc id="e14bca7a-0e47-4b05-99f6-52a95ff17290" source="15_NGV_010+complete" target="n2"/>
+      <arc id="3cd46500-46c1-4755-985e-50dd4bd5c33e" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
+      <arc id="931b1f4d-d809-4158-af66-2659185ace57" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="c452d3ed-2faa-4881-9618-c91322b54404"/>
+      <arc id="00d28a22-c76e-4be1-b5be-eaa86d6d0916" source="n1" target="15_NGV_010+complete"/>
+      <arc id="5adde2c3-8892-45e0-9ef4-fdc771a675c9" source="b8cdbc82-2835-4def-8853-89062ef8e9db" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
     </page>
   </net>
 </pnml>

@@ -51,6 +51,14 @@
   </map>
   <map>
     <Cell>
+      <entity1 rdf:resource='http://BPIC15_4_04_BPT#04_BPT_020+complete'/>
+      <entity2 rdf:resource='http://BPIC15_1_04_BPT#04_BPT_020+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
       <entity1 rdf:resource='http://BPIC15_4_04_BPT#04_BPT_030+complete'/>
       <entity2 rdf:resource='http://BPIC15_1_04_BPT#04_BPT_030+complete'/>
       <relation>=</relation>

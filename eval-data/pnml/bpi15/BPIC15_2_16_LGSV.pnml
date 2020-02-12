@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="a7a353d8-9d38-41ac-ac62-b08caf1fee89" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="9eae14f9-6f63-41bd-b963-bbc0a450e87d" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
+      <place id=""/>
       <place id="n1">
         <name>
           <text>source 8266</text>
         </name>
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 8267</text>
         </name>
       </place>
+      <place id="ea1be980-13d3-4deb-b2a3-47a834175dbe">
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="c792d888-f905-4c31-9538-6d5ab6e57328"/>
+      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
+      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
       <transition id="16_LGSV_010+complete">
         <name>
           <text>calculate provisional charges</text>
         </name>
       </transition>
-      <arc id="5fa1fe4e-377e-45a0-897f-e3df80320b5c" source="16_LGSV_010+complete" target="n2"/>
-      <arc id="d01a9f87-87c5-4978-bcce-358168dcab3b" source="n1" target="16_LGSV_010+complete"/>
+      <arc id="8f38abca-5cd0-4ce8-8242-a6da2a32e38c" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
+      <arc id="fcfac1c3-5dd5-4274-9ad2-222d92e0d614" source="ea1be980-13d3-4deb-b2a3-47a834175dbe" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
+      <arc id="ddc208ec-007f-4ca8-82a0-383093c7aa62" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
+      <arc id="ea4a733d-160a-4c03-bad2-353fbb5bacae" source="16_LGSV_010+complete" target="n2"/>
+      <arc id="dbb9705d-3d36-4ac5-b562-9e3544cafb31" source="n1" target="16_LGSV_010+complete"/>
+      <arc id="526f535b-6d46-4614-bc43-f0eeef963c33" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="c792d888-f905-4c31-9538-6d5ab6e57328"/>
     </page>
   </net>
 </pnml>

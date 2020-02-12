@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="0c236523-7d27-447f-8bc3-40cb2d5a906b" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="61827ee6-825c-46c0-a552-38f569b977e0" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
+      <place id=""/>
+      <place id="c3b012dd-4d39-4ae1-ae0e-0e8fc9e369a6"/>
       <place id="n1">
         <name>
           <text>source 8325</text>
         </name>
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 8326</text>
         </name>
       </place>
+      <place id="14f516c0-1088-4d0b-aee4-05f37cbc7952">
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
       <transition id="03_VD_060_0+complete">
         <name>
           <text>create cover letter extend procedure term</text>
         </name>
       </transition>
-      <arc id="51f37b12-a93f-44a6-be36-75690328be15" source="03_VD_060_0+complete" target="n2"/>
-      <arc id="8423bc5e-2e32-4522-9776-1ce035063620" source="n1" target="03_VD_060_0+complete"/>
+      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
+      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
+      <arc id="06290942-39d8-4d0b-9d00-78491c77f7f8" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
+      <arc id="f1bef9f8-bdb0-4eaa-8e76-276707008d2a" source="n1" target="03_VD_060_0+complete"/>
+      <arc id="070dd509-b993-4115-8020-74744e47fdfa" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
+      <arc id="e1d15896-3b12-4fe1-ba4c-a0e64494ad30" source="03_VD_060_0+complete" target="n2"/>
+      <arc id="58760d98-ca77-4de6-8f28-5b32a9c8190d" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="c3b012dd-4d39-4ae1-ae0e-0e8fc9e369a6"/>
+      <arc id="ecd532f6-757e-41e0-9073-bfd37f4f7a99" source="14f516c0-1088-4d0b-aee4-05f37cbc7952" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
     </page>
   </net>
 </pnml>

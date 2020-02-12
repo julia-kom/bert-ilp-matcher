@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="b20adb49-5186-4512-8ef9-9275e5404411" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="f15b46e2-69c5-4085-a9f1-0dcd6fbd8caf" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
+      <place id=""/>
       <place id="n1">
         <name>
           <text>source 8826</text>
         </name>
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 8827</text>
         </name>
       </place>
+      <place id="85ae8183-7c8b-4b96-b545-65629884bc07"/>
+      <place id="4002c9fa-00c9-4b1b-910c-e7f2ec6a7b66">
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
       <transition id="16_LGSD_010+complete">
         <name>
           <text>calculate final charges</text>
         </name>
       </transition>
-      <arc id="1a2f62b0-11bd-4038-a771-785d4cbebf93" source="n1" target="16_LGSD_010+complete"/>
-      <arc id="32b3dd90-904b-4653-8216-7412d209ad17" source="16_LGSD_010+complete" target="n2"/>
+      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
+      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
+      <arc id="f2ce9a02-436d-4819-9fca-105fa2d140a7" source="n1" target="16_LGSD_010+complete"/>
+      <arc id="cdcbe927-f7df-4812-87c8-f3738b5d44bc" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
+      <arc id="5f261b73-d531-4a16-9cf0-76fd83ced8b3" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
+      <arc id="d0ce6e76-0c07-4263-be68-09ca597fdec3" source="16_LGSD_010+complete" target="n2"/>
+      <arc id="e78d60fd-573d-4d99-b428-2cec8d6e525a" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="85ae8183-7c8b-4b96-b545-65629884bc07"/>
+      <arc id="b12fa014-526f-4052-94c7-4e55d69f8884" source="4002c9fa-00c9-4b1b-910c-e7f2ec6a7b66" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
     </page>
   </net>
 </pnml>

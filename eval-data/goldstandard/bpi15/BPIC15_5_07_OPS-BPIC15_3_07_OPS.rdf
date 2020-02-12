@@ -19,6 +19,14 @@
   </onto2>
   <map>
     <Cell>
+      <entity1 rdf:resource='http://BPIC15_5_07_OPS#07_OPS_060_0+complete'/>
+      <entity2 rdf:resource='http://BPIC15_3_07_OPS#07_OPS_060_0+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
       <entity1 rdf:resource='http://BPIC15_5_07_OPS#07_OPS_071+complete'/>
       <entity2 rdf:resource='http://BPIC15_3_07_OPS#07_OPS_071+complete'/>
       <relation>=</relation>

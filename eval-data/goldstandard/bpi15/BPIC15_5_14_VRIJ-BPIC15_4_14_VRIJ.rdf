@@ -163,6 +163,14 @@
   </map>
   <map>
     <Cell>
+      <entity1 rdf:resource='http://BPIC15_5_14_VRIJ#14_VRIJ_060_4+complete'/>
+      <entity2 rdf:resource='http://BPIC15_4_14_VRIJ#14_VRIJ_060_4+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
       <entity1 rdf:resource='http://BPIC15_5_14_VRIJ#14_VRIJ_060_0+complete'/>
       <entity2 rdf:resource='http://BPIC15_4_14_VRIJ#14_VRIJ_060_0+complete'/>
       <relation>=</relation>

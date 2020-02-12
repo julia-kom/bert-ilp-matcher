@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="d9509092-9de9-4a65-9e6c-5646fc911dce" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="e2fc75c6-f3aa-4957-843a-e278a99ff668" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
+      <place id=""/>
       <place id="n1">
         <name>
           <text>source 8054</text>
         </name>
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 8055</text>
         </name>
       </place>
+      <place id="804aafa6-a981-4860-a8dd-27f55495d65e">
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="3a803598-aa07-46e7-98bb-68e11d336a00"/>
       <transition id="03_GBH_005+complete">
         <name>
           <text>applicant is stakeholder</text>
         </name>
       </transition>
-      <arc id="85715cdd-302e-41cd-a312-465028bcb010" source="03_GBH_005+complete" target="n2"/>
-      <arc id="e1ae0c9e-6a2b-425e-b391-09c7620910cd" source="n1" target="03_GBH_005+complete"/>
+      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
+      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
+      <arc id="6b2dcdf5-2c87-41ab-9453-6424ab0096cf" source="n1" target="03_GBH_005+complete"/>
+      <arc id="b5f2cafa-df56-4611-b934-94698a97ccd6" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="3a803598-aa07-46e7-98bb-68e11d336a00"/>
+      <arc id="2bcaa6a7-4a20-45ba-94f6-1ca3f991ff31" source="804aafa6-a981-4860-a8dd-27f55495d65e" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
+      <arc id="9210e544-f941-4a56-9652-4edf34e51877" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
+      <arc id="ce652748-28c5-4d9f-a11d-6db3492bddfb" source="03_GBH_005+complete" target="n2"/>
+      <arc id="7bc01297-3cef-43e0-9cfd-b69839951e5f" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
     </page>
   </net>
 </pnml>

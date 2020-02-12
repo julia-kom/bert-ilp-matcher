@@ -59,16 +59,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_BB#01_BB_775+complete'/>
-      <entity2 rdf:resource='http://BPIC15_2_01_BB#01_BB_775+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_BB#01_BB_590+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_01_BB#01_BB_590+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_BB#01_BB_590+complete'/>
-      <entity2 rdf:resource='http://BPIC15_2_01_BB#01_BB_590+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_BB#01_BB_775+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_01_BB#01_BB_775+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -85,6 +85,14 @@
     <Cell>
       <entity1 rdf:resource='http://BPIC15_4_01_BB#01_BB_550+complete'/>
       <entity2 rdf:resource='http://BPIC15_2_01_BB#01_BB_550+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_4_01_BB#01_BB_635+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_01_BB#01_BB_635+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -115,16 +123,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_BB#01_BB_730+complete'/>
-      <entity2 rdf:resource='http://BPIC15_2_01_BB#01_BB_730+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_BB#01_BB_630+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_01_BB#01_BB_630+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_4_01_BB#01_BB_630+complete'/>
-      <entity2 rdf:resource='http://BPIC15_2_01_BB#01_BB_630+complete'/>
+      <entity1 rdf:resource='http://BPIC15_4_01_BB#01_BB_730+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_01_BB#01_BB_730+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>

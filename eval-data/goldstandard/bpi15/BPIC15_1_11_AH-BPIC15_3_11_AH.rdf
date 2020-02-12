@@ -59,6 +59,14 @@
   </map>
   <map>
     <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_130+complete'/>
+      <entity2 rdf:resource='http://BPIC15_3_11_AH#11_AH_II_130+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
       <entity1 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_037_3+complete'/>
       <entity2 rdf:resource='http://BPIC15_3_11_AH#11_AH_II_037_3+complete'/>
       <relation>=</relation>
@@ -101,6 +109,14 @@
     <Cell>
       <entity1 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_070_3+complete'/>
       <entity2 rdf:resource='http://BPIC15_3_11_AH#11_AH_II_070_3+complete'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_055+complete'/>
+      <entity2 rdf:resource='http://BPIC15_3_11_AH#11_AH_II_055+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
@@ -179,16 +195,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_020_2+complete'/>
-      <entity2 rdf:resource='http://BPIC15_3_11_AH#11_AH_II_020_2+complete'/>
+      <entity1 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_010+complete'/>
+      <entity2 rdf:resource='http://BPIC15_3_11_AH#11_AH_II_010+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_010+complete'/>
-      <entity2 rdf:resource='http://BPIC15_3_11_AH#11_AH_II_010+complete'/>
+      <entity1 rdf:resource='http://BPIC15_1_11_AH#11_AH_II_020_2+complete'/>
+      <entity2 rdf:resource='http://BPIC15_3_11_AH#11_AH_II_020_2+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>

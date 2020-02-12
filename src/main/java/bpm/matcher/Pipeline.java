@@ -178,8 +178,15 @@ public class Pipeline {
      * @return NetSystem
      */
     public static NetSystem parseFile(File f){
-        PNMLSerializer serializer = new PNMLSerializer();
-        return serializer.parse(f.getAbsolutePath());
+        //PNMLSerializer serializer = new PNMLSerializer();
+        //return serializer.parse(f.getAbsolutePath());
+        Parser p = new Parser();
+        try {
+            return p.parse(f);
+        }catch(Exception e){
+            System.err.println("Exception while parsing "+ e.getStackTrace());
+            return null;
+        }
     }
 
     /**

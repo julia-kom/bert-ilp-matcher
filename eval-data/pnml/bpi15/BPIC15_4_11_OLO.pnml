@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="70f4ed55-6f57-45be-b07a-aebd850791fd" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="8d8316dc-8174-44aa-ab61-63fae0f8cd4b" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
+      <place id=""/>
+      <place id="0c79b7f9-c5c8-47bc-b700-1262167d85d8">
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
       <place id="n1">
         <name>
           <text>source 8748</text>
         </name>
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 8749</text>
         </name>
       </place>
+      <place id="32f4b642-5f8d-403f-b08b-1f2a2b16cf25"/>
+      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
+      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
       <transition id="11_OLO_100+complete">
         <name>
           <text>message change status</text>
         </name>
       </transition>
-      <arc id="8d742aa1-1093-4bb8-a8ae-2d28b3ed408f" source="n1" target="11_OLO_100+complete"/>
-      <arc id="89da6cc5-f278-41ff-825c-5628a6d02b37" source="11_OLO_100+complete" target="n2"/>
+      <arc id="007f9e18-2c58-485c-b89b-0eba0516d44c" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
+      <arc id="5c47d1c1-1cb7-4228-91e4-c44d1b36fafe" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="32f4b642-5f8d-403f-b08b-1f2a2b16cf25"/>
+      <arc id="a90cefac-3393-4f07-96bd-73ff89952cd5" source="0c79b7f9-c5c8-47bc-b700-1262167d85d8" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
+      <arc id="55891185-339e-456e-8fe7-caa4d6fbb56e" source="n1" target="11_OLO_100+complete"/>
+      <arc id="5ffefa3f-7a43-4895-99e8-53f107bae22d" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
+      <arc id="e10b6463-478b-4040-afbd-f591fbfcbcc7" source="11_OLO_100+complete" target="n2"/>
     </page>
   </net>
 </pnml>

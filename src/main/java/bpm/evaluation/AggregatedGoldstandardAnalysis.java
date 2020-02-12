@@ -58,18 +58,30 @@ public class AggregatedGoldstandardAnalysis {
 
             //fetch actual label net1 (as this is not stored in the goldstandard)
             String labelNode1 = "";
+            boolean found = false;
             for (Node n : n1.getNodes()){
                 if(n.getId().equals(node1.getId())){
                     labelNode1 = n.getLabel();
+                    found = true;
                 }
             }
 
+            if(!found){
+                System.err.println("Id not found in model: "+ n1.getTransitions() + node1.getId());
+            }
+
+            found = false;
             //fetch actual label net2 (as this is not stored in the goldstandard)
             String labelNode2 = "";
             for (Node n : n2.getNodes()){
                 if(n.getId().equals(node2.getId())){
                     labelNode2 = n.getLabel();
+                    found = true;
                 }
+            }
+
+             if(!found){
+                System.err.println("Id not found in model: "+ n2.getTransitions() + node2.getId());
             }
 
             //test if labels are equal

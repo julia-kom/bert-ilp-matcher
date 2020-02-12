@@ -27,16 +27,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_5_14_VRIJ#14_VRIJ_060_1+complete'/>
-      <entity2 rdf:resource='http://BPIC15_2_14_VRIJ#14_VRIJ_060_1+complete'/>
+      <entity1 rdf:resource='http://BPIC15_5_14_VRIJ#14_VRIJ_030_1+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_14_VRIJ#14_VRIJ_030_1+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_5_14_VRIJ#14_VRIJ_030_1+complete'/>
-      <entity2 rdf:resource='http://BPIC15_2_14_VRIJ#14_VRIJ_030_1+complete'/>
+      <entity1 rdf:resource='http://BPIC15_5_14_VRIJ#14_VRIJ_060_1+complete'/>
+      <entity2 rdf:resource='http://BPIC15_2_14_VRIJ#14_VRIJ_060_1+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
