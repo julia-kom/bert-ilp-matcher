@@ -136,11 +136,8 @@ public class BPPlusTest {
         Assert.assertSame(plus.getRelationForEntities(t3,te).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
     }
 
-   // @Test
+    @Test
     public void testBPPlusLoopTest(){
-
-        // this test does not terminate. Loop in process model leads to loop in BP+. Failure in RefinedOrderMatrix line 288 while(!queue.isEmpty()) {
-        // Queue gets larger before it becomes empty.
 
         NetSystem net1 = new NetSystem();
         Transition t1 = new Transition();
@@ -199,17 +196,17 @@ public class BPPlusTest {
 
         Assert.assertSame(plus.getRelationForEntities(t2,t1).getType(), Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
         Assert.assertSame(plus.getRelationForEntities(t2,t2).getType(), Relation.RelationType.BPP_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t2,t3).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t2,t3).getType(), Relation.RelationType.NONE); //ALWAYS CONCURRENT
         Assert.assertSame(plus.getRelationForEntities(t2,t4).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
 
-        Assert.assertSame(plus.getRelationForEntities(t3,t1).getType(), Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t3,t2).getType(), Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
+        Assert.assertSame(plus.getRelationForEntities(t3,t1).getType(), Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL); //ALWAYS CONCURRENT
+        Assert.assertSame(plus.getRelationForEntities(t3,t2).getType(), Relation.RelationType.NONE); // ALWAYS CONCURRENT
         Assert.assertSame(plus.getRelationForEntities(t3,t3).getType(), Relation.RelationType.BPP_CONFLICT);
-        Assert.assertSame(plus.getRelationForEntities(t3,t4).getType(), Relation.RelationType.BPP_CONFLICT);
+        Assert.assertSame(plus.getRelationForEntities(t3,t4).getType(), Relation.RelationType.NONE); // ALWAYS CONCURRENT
 
         Assert.assertSame(plus.getRelationForEntities(t4,t1).getType(), Relation.RelationType.BPP_REVERSE_INDIRECT_CAUSAL);
         Assert.assertSame(plus.getRelationForEntities(t4,t2).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
-        Assert.assertSame(plus.getRelationForEntities(t4,t3).getType(), Relation.RelationType.BPP_CONFLICT); // ?
+        Assert.assertSame(plus.getRelationForEntities(t4,t3).getType(), Relation.RelationType.NONE); // ALWAYS CONCURRENT
         Assert.assertSame(plus.getRelationForEntities(t4,t4).getType(), Relation.RelationType.BPP_INDIRECT_CAUSAL);
 
     }

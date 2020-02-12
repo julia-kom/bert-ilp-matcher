@@ -98,9 +98,10 @@ public class BPPlusOwn extends AbstractProfile {
     private boolean areConcurrent(Node n1, Node n2){
         Set<Node> leCmPre = getLeCmPre(n1, n2);
 
-        /*if(leCmPre.size() == 0){
+        //todo maybe delete
+        if(leCmPre.size() == 0){
             return false;
-        }*/
+        }
 
         //nodes are not equal
         if(n1.equals(n2)){
@@ -128,7 +129,12 @@ public class BPPlusOwn extends AbstractProfile {
             return true;
         }
 
+        //todo maybe remve if NONE shouldnt be tighbreaker
         Set<Node> leCmPre = getLeCmPre(n1, n2);
+        if(leCmPre.size() == 0){
+            return false;
+        }
+
         // lcPre subset of Places
         boolean onlyP = true;
         for (Node n : leCmPre){
