@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="d2843874-fc4c-4b6c-a24a-d0014d92f956" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="94613a2f-d086-4322-b7af-ca99792f1488" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id=""/>
       <place id="n1">
         <name>
           <text>source 8343</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 8344</text>
         </name>
-      </place>
-      <place id="19e4ea77-8060-4378-8449-74236ff7a996">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
       </place>
       <place id="n3">
         <name>
@@ -81,7 +78,6 @@
           <text>replacement source 8355</text>
         </name>
       </place>
-      <place id="934aa2d7-3848-4337-90d6-c539899dd4f8"/>
       <place id="n16">
         <name>
           <text>replacement source 8358</text>
@@ -102,7 +98,6 @@
           <text>phase procedure aborted</text>
         </name>
       </transition>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
       <transition id="05_EIND_020+complete">
         <name>
           <text>enter date termination request received</text>
@@ -133,7 +128,6 @@
         </name>
       </transition>
       <transition id="n19"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
       <transition id="05_EIND_060+complete">
         <name>
           <text>stop process after terminate on request</text>
@@ -182,74 +176,70 @@
           <text>message terminate request</text>
         </name>
       </transition>
-      <arc id="3c3e0755-1cee-4b37-8882-514cf99eaea5" source="n41" target="n16"/>
-      <arc id="025bea92-cda8-4f81-a496-80fca61b590f" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="934aa2d7-3848-4337-90d6-c539899dd4f8"/>
-      <arc id="2a9d25e7-770b-4b79-b240-602183ab1649" source="n33" target="n12"/>
-      <arc id="a3759db4-ef24-489c-8622-2d53e0634143" source="05_EIND_010+complete" target="n4"/>
-      <arc id="d3b4d97a-a8a7-4a66-b6b7-ad71e7aaece5" source="n28" target="n13"/>
-      <arc id="fac7de61-a4a6-4d55-9203-668ac55c1e24" source="n6" target="n19"/>
-      <arc id="463f742e-ac4a-4050-b7a0-a1a9b5fb57b4" source="n19" target="n2"/>
-      <arc id="f3314342-a3c6-41d0-939c-ef326f71a308" source="n44" target="n10"/>
-      <arc id="98e6c80e-3980-4441-8d27-35e96794900a" source="n5" target="n21"/>
-      <arc id="7c79ab2e-6761-4302-97fb-c692696937e3" source="n14" target="n34"/>
-      <arc id="9b9dd728-b248-4118-b144-4324a543cee9" source="n1" target="n18"/>
-      <arc id="c86e4fa5-8941-4544-92af-72fb6d823a47" source="n13" target="05_EIND_020+complete"/>
-      <arc id="86619616-dd0e-4885-969d-ef00a21c6fc2" source="n9" target="n25"/>
-      <arc id="f9669c97-c5f8-4ea8-a946-5dbd6b0cbc85" source="n47" target="n7"/>
-      <arc id="1fc89090-57fa-44d4-930f-e6cdd74dfbcd" source="05_EIND_020_0+complete" target="n7"/>
-      <arc id="402de5d6-2c88-48fd-9a84-1296b92d14d0" source="05_EIND_030_0+complete" target="n11"/>
-      <arc id="b2fe4bc4-c616-4700-b66f-e78b53f4d687" source="05_EIND_040+complete" target="n15"/>
-      <arc id="931f49cd-c89e-491c-b9d4-a9317401e847" source="n3" target="05_EIND_010+complete"/>
-      <arc id="0676948b-5ebf-484b-873b-2553309bd6e8" source="n38" target="n15"/>
-      <arc id="7fb14435-60a9-47df-aae8-9620b5328d77" source="n27" target="n10"/>
-      <arc id="f8b2d866-d6e7-45e1-b329-ba9a323c9bd6" source="n46" target="n8"/>
-      <arc id="22ab550e-a711-4d09-8b55-6777f3a9d739" source="n9" target="05_EIND_030_0+complete"/>
-      <arc id="9d48bfb8-2fc3-4944-8038-b7387f17357a" source="n15" target="n42"/>
-      <arc id="211d825c-6f65-4f63-a7ba-45f15618d190" source="n21" target="n7"/>
-      <arc id="19ff8026-4e16-4da3-8bc1-1e26bf6d8f14" source="n45" target="n9"/>
-      <arc id="82fd215b-1a10-4bf1-b3a7-67f204dcd57b" source="n16" target="05_EIND_030_2+complete"/>
-      <arc id="d26b6dd9-cf31-4656-b46b-57b345e3daf9" source="n25" target="n11"/>
-      <arc id="54e27de4-5da2-4bba-ac10-1eddac911a49" source="n18" target="n3"/>
-      <arc id="c468c853-7eb6-4088-9b20-58e54636281b" source="05_EIND_065+complete" target="n14"/>
-      <arc id="274ac80d-fb2f-4f19-9bc1-8f80ef3b3cfe" source="n10" target="n45"/>
-      <arc id="3456f344-c060-4ef7-99ff-3c77d1dc659f" source="n5" target="05_EIND_020_0+complete"/>
-      <arc id="3cb9f36a-14df-472b-9693-840eb3cb6635" source="n12" target="n44"/>
-      <arc id="a86f8bd7-12ac-419c-b3b8-5027539ad0a0" source="n7" target="05_EIND_011+complete"/>
-      <arc id="ff007203-b5ad-469e-aef0-f4e6a1792ab8" source="n16" target="05_EIND_050+complete"/>
-      <arc id="3590de05-aa5b-4182-baba-69c11a13fd28" source="05_EIND_011+complete" target="n9"/>
-      <arc id="31a6d88f-a23b-44f0-ab2a-f717ca5600db" source="n17" target="05_EIND_060+complete"/>
-      <arc id="75972c4e-a500-495a-8fd3-4bfb5de8e310" source="n43" target="n13"/>
-      <arc id="2305708e-378e-4a1c-9ba9-62b3aeb48904" source="n17" target="n38"/>
-      <arc id="55257133-0421-4066-9b17-7a1fc3f8033e" source="05_EIND_025+complete" target="n12"/>
-      <arc id="8dda1ab6-47cd-4e18-b4bb-77f15cc39554" source="05_EIND_020+complete" target="n14"/>
-      <arc id="396d692e-764f-4cd2-8926-cb7bb46b9910" source="05_EIND_060+complete" target="n15"/>
-      <arc id="4a6480ea-ba38-4f88-8b4f-b0a6f79afceb" source="n8" target="n47"/>
-      <arc id="079ec2bd-7127-4640-be80-327d3a6d4c91" source="n13" target="05_EIND_025+complete"/>
-      <arc id="0663757b-fef5-4072-9f6b-d84af00ca53e" source="n18" target="n5"/>
-      <arc id="bd30c864-70a3-4e39-82f5-df1eef7379bd" source="n16" target="05_EIND_040+complete"/>
-      <arc id="21c759a7-2f7d-4893-b062-51f9a84346d2" source="n23" target="n9"/>
-      <arc id="15699a64-3ec6-4d9e-826d-d1c2d1c60843" source="05_EIND_030_1+complete" target="n14"/>
-      <arc id="b994c6f5-00ea-469f-bb20-b81063f83a1a" source="n34" target="n16"/>
-      <arc id="7c8918ca-6e75-4d9a-b0e5-03fd8071f1bc" source="n4" target="n19"/>
-      <arc id="634d8c79-f52f-4abd-a6e0-aca6570d97da" source="n14" target="n33"/>
-      <arc id="14303360-cded-4c1a-bb19-6030eab1d9a0" source="n11" target="n27"/>
-      <arc id="47c029c5-dadd-4253-9ef3-912295b6395b" source="n16" target="05_EIND_070+complete"/>
-      <arc id="12b0c3e1-06d8-4066-8019-463fc0fac18a" source="n13" target="05_EIND_030_1+complete"/>
-      <arc id="e9559c4f-0e21-4868-8595-335841d0bfc0" source="19e4ea77-8060-4378-8449-74236ff7a996" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="053af5f8-9f3c-4335-a874-7a75a6af65d6" source="n11" target="n28"/>
-      <arc id="d7661b47-5686-4b1d-933e-84891c02787b" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="44780bbb-6b26-4b0b-a4d2-01b763256d70" source="n48" target="n6"/>
-      <arc id="1a8fc41f-8bb5-4a0a-996d-195a92e89de0" source="n42" target="n12"/>
-      <arc id="c1732f94-2cd9-496d-bdbd-c9baa3f15819" source="n10" target="n46"/>
-      <arc id="6fd68a2f-3772-4f7f-9fee-2b4cf7db1b2b" source="n8" target="n48"/>
-      <arc id="0e312eaf-a580-4a0c-a76c-e040049f7302" source="05_EIND_070+complete" target="n17"/>
-      <arc id="cc7eb85b-73c5-4207-83a1-1e17c1d9a1c3" source="n13" target="05_EIND_065+complete"/>
-      <arc id="7a840348-46cd-4dc0-8e0b-608a0eab5c5e" source="n7" target="n23"/>
-      <arc id="0ed1e957-e627-4090-91f9-2401637aeb4d" source="n15" target="n41"/>
-      <arc id="98829a34-3d71-4419-8e12-5c76848c8717" source="n12" target="n43"/>
-      <arc id="d45adcc8-0f37-4976-9b54-05a22d6f0cd3" source="05_EIND_030_2+complete" target="n15"/>
-      <arc id="9510d760-3c0f-4b3e-a48f-2f9d4bfb7279" source="05_EIND_050+complete" target="n15"/>
-      <arc id="9685647a-0aaf-4ce8-afaa-c3d38a3109b7" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
+      <arc id="a50c7acc-5251-4c84-b7ec-eb3da7c91f94" source="05_EIND_020+complete" target="n14"/>
+      <arc id="0769397f-6ba3-4ecb-a838-91aaf9ff3f9b" source="n4" target="n19"/>
+      <arc id="2a72ad73-f983-445d-97f3-06470cf86f1e" source="n1" target="n18"/>
+      <arc id="3ae19bce-3beb-430b-903c-d787b5efff32" source="05_EIND_011+complete" target="n9"/>
+      <arc id="c908646f-1b8e-45b9-a580-80ac775b42e2" source="05_EIND_065+complete" target="n14"/>
+      <arc id="cb3f1e7b-880c-4fc6-836c-109fa28e8584" source="n15" target="n41"/>
+      <arc id="4cfa7dd3-2e2b-40ca-9984-9d9ea17eb555" source="n16" target="05_EIND_070+complete"/>
+      <arc id="9cde4e09-ba60-4115-9045-b38657a610af" source="n25" target="n11"/>
+      <arc id="cffbd697-5b3d-43da-99f7-65d9628e0373" source="05_EIND_020_0+complete" target="n7"/>
+      <arc id="ecdefbbd-bd16-41bc-92e6-f9fbe4dd56e2" source="05_EIND_030_2+complete" target="n15"/>
+      <arc id="cea6a022-75c8-4c3e-bb2f-8fef5c369c1a" source="05_EIND_040+complete" target="n15"/>
+      <arc id="554f2b56-dd8d-49a9-b031-2afe6668e665" source="n18" target="n3"/>
+      <arc id="405ed28f-5252-466e-aeae-0c21601bf44d" source="05_EIND_010+complete" target="n4"/>
+      <arc id="d6bf8687-ef0e-4de3-9645-37c5112db6ca" source="n41" target="n16"/>
+      <arc id="ebc4a4da-f176-4613-bbc1-f5b08cfe6c45" source="05_EIND_070+complete" target="n17"/>
+      <arc id="f6830a3b-6909-4fea-8615-a59fd5a47f48" source="n17" target="n38"/>
+      <arc id="ffdc8e09-9bd9-40bf-af29-409957a2671e" source="n18" target="n5"/>
+      <arc id="5f61aaef-0824-408b-9f8d-e5da67887bbd" source="05_EIND_030_1+complete" target="n14"/>
+      <arc id="b5339a2c-3d77-432b-8b74-3494a9d25abc" source="n13" target="05_EIND_020+complete"/>
+      <arc id="e1ede522-d2d8-4d49-aff3-169f42faca2d" source="n10" target="n46"/>
+      <arc id="290ce02f-90b6-4c1c-bb29-5732c132a843" source="05_EIND_050+complete" target="n15"/>
+      <arc id="4c110910-b670-4b0d-abff-a8b1a94b3933" source="n10" target="n45"/>
+      <arc id="6ef38982-1456-4225-abe0-c181fd8b8ea7" source="n45" target="n9"/>
+      <arc id="5fa97a8a-e7b8-4cb2-8547-ea0d341a7219" source="n8" target="n47"/>
+      <arc id="9c72e474-d5ac-4a7d-a0b2-9f47d00711f3" source="n5" target="05_EIND_020_0+complete"/>
+      <arc id="220a0d84-2634-4ef9-8804-8d0e89451c95" source="n13" target="05_EIND_030_1+complete"/>
+      <arc id="fe5622c5-5b11-4212-aeb9-d904d9898551" source="05_EIND_025+complete" target="n12"/>
+      <arc id="302bdf02-db8b-4daf-bae4-9dce267a81ba" source="n47" target="n7"/>
+      <arc id="f66cf054-fb90-477c-b72b-85d3087d8a94" source="n11" target="n27"/>
+      <arc id="245da234-67ec-49f7-83c5-dfa6d0d5c340" source="n48" target="n6"/>
+      <arc id="c3b76b51-c6ac-4395-9ca7-d5409f10999b" source="05_EIND_030_0+complete" target="n11"/>
+      <arc id="ea5fce2e-c885-40b8-af77-e2016192db5a" source="n44" target="n10"/>
+      <arc id="acd88989-d6a7-4c1b-a650-d352f0b0f63f" source="n21" target="n7"/>
+      <arc id="738b8516-dfd1-4d25-a839-d1695b573dca" source="n9" target="n25"/>
+      <arc id="67cc36dc-dbb1-45c6-9d61-02176941e7b9" source="n12" target="n43"/>
+      <arc id="ab009fd4-5765-49ff-906d-8fe977f966a5" source="n14" target="n33"/>
+      <arc id="79a5c9da-d7e3-4e89-92b8-482cc2905ec3" source="n42" target="n12"/>
+      <arc id="6f60ac93-8644-4825-ad16-e66e135f298d" source="n7" target="05_EIND_011+complete"/>
+      <arc id="c4bb72c6-b736-4516-97b5-6eba9e08a738" source="n43" target="n13"/>
+      <arc id="44fe78cc-e369-4462-834d-dafd445e5840" source="n19" target="n2"/>
+      <arc id="4683c34a-db65-459f-afb3-c2eb518ef538" source="n13" target="05_EIND_025+complete"/>
+      <arc id="46f1c86c-d870-4b13-9e2d-347538bd39b5" source="n13" target="05_EIND_065+complete"/>
+      <arc id="287e238f-ddc2-42ba-9f20-86d9593127eb" source="n27" target="n10"/>
+      <arc id="c911b48d-fd63-4adf-a209-c2c6d2b6a40b" source="n6" target="n19"/>
+      <arc id="a1d2d6e8-bef4-4c65-8b2d-225ff3590ce4" source="n16" target="05_EIND_050+complete"/>
+      <arc id="6cf77f40-77bb-43b8-b2bb-5814c2828692" source="n11" target="n28"/>
+      <arc id="0750d1e8-0915-429f-9be9-327626ce2cd3" source="n46" target="n8"/>
+      <arc id="ef304dcf-987d-45a6-a008-97a3b7a277e4" source="n17" target="05_EIND_060+complete"/>
+      <arc id="fb250d91-a0be-4221-b5f5-9c8a39f5c155" source="n3" target="05_EIND_010+complete"/>
+      <arc id="6f00545e-b934-4624-8808-903a24969086" source="n14" target="n34"/>
+      <arc id="f8eca733-3c62-4a0b-97db-9138b4c6f2f0" source="05_EIND_060+complete" target="n15"/>
+      <arc id="8fc9a73c-95af-4a49-913c-b2c1d1e40a2e" source="n15" target="n42"/>
+      <arc id="57ca9cf6-b00d-4b9f-910e-45845126ad02" source="n12" target="n44"/>
+      <arc id="0d99d669-ead9-4aae-a797-e226772c5888" source="n23" target="n9"/>
+      <arc id="235179dd-58d9-4b8d-8b25-56b6e17deaa5" source="n5" target="n21"/>
+      <arc id="33dee06a-1115-40f7-999d-6b19bc13853b" source="n9" target="05_EIND_030_0+complete"/>
+      <arc id="71583e1b-5eac-4b21-9ff0-da3b13b2d355" source="n16" target="05_EIND_030_2+complete"/>
+      <arc id="e6f8ef15-5911-4735-8f40-9c5476075e54" source="n34" target="n16"/>
+      <arc id="41c372d9-6a8f-42bb-ab00-8fa319b055f1" source="n28" target="n13"/>
+      <arc id="883171ef-6c83-4ea4-b511-52768a91a722" source="n33" target="n12"/>
+      <arc id="97247ecf-1619-467e-a781-fe1ba79c0929" source="n7" target="n23"/>
+      <arc id="1f4dec79-87a4-437d-b1a6-3ed79c166e76" source="n8" target="n48"/>
+      <arc id="df5acf82-b6a9-428e-8c9d-adce7b751536" source="n16" target="05_EIND_040+complete"/>
+      <arc id="7158004e-027d-4cb6-a92f-af3dee2bda31" source="n38" target="n15"/>
     </page>
   </net>
 </pnml>

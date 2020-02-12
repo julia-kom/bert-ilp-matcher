@@ -74,7 +74,7 @@ public  class Parser {
             Element t = (Element) transitions.item(i);
             String tId = t.getAttribute("id");
 
-            if (tId == null) {
+            if (tId == null ||tId.equals("")) {
                 throw new Exception("Id of transtion is not given. Iteration " + i);
             }
 
@@ -108,8 +108,13 @@ public  class Parser {
             Element p = (Element) places.item(i);
             String pId = p.getAttribute("id");
 
-            if (pId == null) {
-                throw new Exception("Id of place is not given. Iteration " + i );
+            //if part of final marking then ignore
+            if(p.getParentNode().getNodeName().equals("marking")){
+                continue;
+            }
+
+            if (pId == null || pId.equals("")) {
+                throw new Exception("Id of place is not given. Iteration " + i);
             }
 
             Node label = p.getElementsByTagName("name").item(0);
@@ -179,7 +184,8 @@ public  class Parser {
             }
 
             // ad arc to net
-            target.addEdge(nodeMapping.get(aSource),nodeMapping.get(aTarget));
+            target.addFlow(nodeMapping.get(aSource),nodeMapping.get(aTarget));
+            //target.addEdge(nodeMapping.get(aSource),nodeMapping.get(aTarget));
         }
 
     }

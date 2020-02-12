@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="cac9c741-33f4-4e34-bce4-a0dc690d73c1" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="eb46074f-7d71-4ed0-81e7-e2e565bcf604" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id=""/>
+      <place id="ARTIFICIAL-PLACE-START">
+        <name>
+          <text>ARTIFICIAL-PLACE-START</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
       <place id="n1">
         <name>
           <text>source 7793</text>
+        </name>
+      </place>
+      <place id="ARTIFICIAL-PLACE-END">
+        <name>
+          <text>ARTIFICIAL-PLACE-END</text>
         </name>
       </place>
       <place id="n2">
@@ -16,7 +28,6 @@
           <text>sink 7794</text>
         </name>
       </place>
-      <place id="0f1b61af-424d-4a6b-b847-bc3ebf5ce992"/>
       <place id="n3">
         <name>
           <text>middle 7795</text>
@@ -62,11 +73,6 @@
           <text>sink 7803</text>
         </name>
       </place>
-      <place id="b736b90d-4eeb-4ac1-b849-69b177fda5e3">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
       <transition id="04_BPT_009+complete">
         <name>
           <text>MER required</text>
@@ -77,7 +83,6 @@
           <text>read field phased application</text>
         </name>
       </transition>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
       <transition id="n32"/>
       <transition id="n31"/>
       <transition id="04_BPT_050+complete">
@@ -92,6 +97,7 @@
         </name>
       </transition>
       <transition id="n33"/>
+      <transition id="5d93867c-8cd9-427d-888f-8ee8bfd02857"/>
       <transition id="n13"/>
       <transition id="n15"/>
       <transition id="n18"/>
@@ -105,7 +111,6 @@
           <text>activities regular procedure</text>
         </name>
       </transition>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
       <transition id="04_BPT_005+complete">
         <name>
           <text>regular procedure without MER</text>
@@ -123,6 +128,7 @@
       </transition>
       <transition id="n21"/>
       <transition id="n20"/>
+      <transition id="0a94c52c-6096-41be-a03d-59b5c3ee2ebf"/>
       <transition id="n26"/>
       <transition id="n29"/>
       <transition id="04_BPT_021+complete">
@@ -136,56 +142,56 @@
           <text>phased application</text>
         </name>
       </transition>
-      <arc id="35d5affb-f02e-441e-8589-eaa91be547ec" source="n9" target="n29"/>
-      <arc id="766e19a4-a872-450d-9965-d83cebbc27b2" source="n18" target="n8"/>
-      <arc id="28708c46-0456-4f35-bf04-88c6562a848d" source="n5" target="n15"/>
-      <arc id="c8eafbba-04f6-4aa3-aaf7-37f15f64c4a9" source="n1" target="04_BPT_009+complete"/>
-      <arc id="84d1770f-3eb7-4107-826c-5c1fe99aeb6f" source="n9" target="n28"/>
-      <arc id="4639d265-2cb6-4eac-9439-343339240ac0" source="04_BPT_029+complete" target="n11"/>
-      <arc id="9b1f968c-4dbd-486d-99ac-fd0dca9db5fe" source="04_BPT_009+complete" target="n5"/>
-      <arc id="19c035ad-7833-4d20-9a74-e85780e2b5b4" source="n10" target="04_BPT_029+complete"/>
-      <arc id="3e25c26b-ce47-4ea1-8544-799b7d0e9e86" source="n20" target="n7"/>
-      <arc id="70030a64-25bb-4108-a7d4-02ad8b036ae4" source="n4" target="n18"/>
-      <arc id="0bbec213-6542-4c83-918d-712369e35b8b" source="04_BPT_041+complete" target="n9"/>
-      <arc id="cbadb7f5-71ee-4168-9eb8-01ada92d3c8e" source="04_BPT_040+complete" target="n8"/>
-      <arc id="f5aa2f5e-1a37-4169-ada6-4dd935626aff" source="04_BPT_030+complete" target="n7"/>
-      <arc id="c0e46bbb-cc6b-4d8d-ae23-a6959025bfde" source="n33" target="n1"/>
-      <arc id="c1851adc-131d-4381-802b-890e4bb0ee5c" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="0f1b61af-424d-4a6b-b847-bc3ebf5ce992"/>
-      <arc id="4f42031e-905f-44b5-ac94-dc9e769138fa" source="n8" target="n21"/>
-      <arc id="1affe351-4933-4b08-9e62-590ccfb17b61" source="04_BPT_020+complete" target="n4"/>
-      <arc id="7b252ae4-7f75-4cb9-a2b3-bf6674147a6a" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="841d25c0-4fee-48e9-b21a-d6d1f8dd641c" source="n21" target="n10"/>
-      <arc id="bfd83199-0822-48c4-8337-6879ed1d5b7f" source="04_BPT_010+complete" target="n6"/>
-      <arc id="028395af-1957-4b03-81f7-73852a428796" source="n11" target="n26"/>
-      <arc id="5cc37a61-ae50-408b-a413-1fbc9f21ae1f" source="n10" target="04_BPT_050+complete"/>
-      <arc id="a8e4018e-d333-4d34-9e65-3160dd43486c" source="n31" target="n4"/>
-      <arc id="cd76b41b-aa48-4608-b7b2-1d827d7f7f66" source="n1" target="n13"/>
-      <arc id="111a65cc-c140-4e95-aea2-05b7f2a57c5e" source="04_BPT_050+complete" target="n9"/>
-      <arc id="fc17c1b4-0367-423e-9e8d-4b5a46c1a936" source="04_BPT_021+complete" target="n11"/>
-      <arc id="ef843548-dae9-436c-8d74-291d7946d97f" source="04_BPT_005+complete" target="n4"/>
-      <arc id="e22fdc58-65ca-407a-882d-851d61f4b438" source="n26" target="n9"/>
-      <arc id="9700bf52-3879-4c63-a938-d6ba8002a65e" source="n4" target="04_BPT_030+complete"/>
-      <arc id="daa53f65-56f3-444d-a587-e4f1d0aaf3a4" source="04_BPT_060+complete" target="n11"/>
-      <arc id="adecde09-a689-4159-961c-7b05d3759518" source="n3" target="n34"/>
-      <arc id="29101a3b-0f25-4443-adf7-0339ed60d02c" source="n34" target="n2"/>
-      <arc id="b2ad4f70-28dc-4f43-857b-798c8e3a21a0" source="n11" target="04_BPT_041+complete"/>
-      <arc id="d2dcc2a6-a268-4f7a-b20b-180121525dc6" source="n6" target="04_BPT_020+complete"/>
-      <arc id="a3036fc9-ce2a-4946-afd4-1648506dd4fc" source="n15" target="n6"/>
-      <arc id="c4c40f3f-4990-41d0-b29e-8d1dc7921a0e" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="8abd6d8d-27ba-41e9-b284-307527d5544b" source="n10" target="04_BPT_060+complete"/>
-      <arc id="6a528de6-8882-4c40-8e8b-10d396a0f21d" source="n4" target="04_BPT_040+complete"/>
-      <arc id="0a8a0ca5-3b80-459a-b320-6ec0e6e253b1" source="b736b90d-4eeb-4ac1-b849-69b177fda5e3" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="3680d6aa-25a4-4bd7-9bed-d7702c1e9c4e" source="n7" target="n32"/>
-      <arc id="ad589678-afca-446a-8192-241782e62fd8" source="n8" target="n20"/>
-      <arc id="2544f796-8bb7-48fe-94b9-c8440017e5f9" source="n13" target="n5"/>
-      <arc id="aef76616-44a0-4e50-a563-d7ce2056ec04" source="n7" target="n31"/>
-      <arc id="4d580c81-0a2c-453e-b3e5-2a8c59672006" source="n10" target="04_BPT_021+complete"/>
-      <arc id="50ee90de-f466-430b-abe2-3d030a4d19f3" source="n29" target="n7"/>
-      <arc id="f0b5c9c2-6f17-45ed-94bb-bf4032bccccc" source="n3" target="n33"/>
-      <arc id="5d4b6ea2-e279-458f-ac82-3e9ede36aa9d" source="n32" target="n3"/>
-      <arc id="9fa26380-86e2-40d5-8876-682c06058c97" source="n5" target="04_BPT_010+complete"/>
-      <arc id="85eff806-0ff6-449e-a6a3-71139a6c6ec0" source="n28" target="n10"/>
-      <arc id="88ba281b-2b50-405c-ac45-2d3698d454ae" source="n1" target="04_BPT_005+complete"/>
+      <arc id="0c4808a6-605b-4b2f-a6f0-fd133b9ca8a2" source="04_BPT_010+complete" target="n6"/>
+      <arc id="dc49746e-9322-4bc2-b288-a972a5bd77c9" source="n8" target="n20"/>
+      <arc id="762b4e9e-fcef-4701-8219-e44dd1122f80" source="n1" target="04_BPT_005+complete"/>
+      <arc id="1b64f6e7-7529-49cd-a159-c61971b42b04" source="n4" target="n18"/>
+      <arc id="b873580d-d605-4d52-951a-972793f1d823" source="5d93867c-8cd9-427d-888f-8ee8bfd02857" target="n1"/>
+      <arc id="48c65370-d4e7-4c72-b0f0-f60955a2fc7f" source="n10" target="04_BPT_029+complete"/>
+      <arc id="ca27b5f4-baa1-4e6d-a2e7-93b9f2695325" source="n6" target="04_BPT_020+complete"/>
+      <arc id="b8ea2f05-cfdd-41f4-af3a-74a6d49801aa" source="04_BPT_005+complete" target="n4"/>
+      <arc id="c778920b-fc46-437b-91ae-7affa19e9977" source="04_BPT_060+complete" target="n11"/>
+      <arc id="6b14753e-3e43-4725-b9b3-5ea98fb827bd" source="n7" target="n31"/>
+      <arc id="bb88f7c2-6eb0-40f9-9a97-fa34609962a6" source="n31" target="n4"/>
+      <arc id="b27618e4-36f0-47b3-a138-d53b58c6649e" source="n11" target="n26"/>
+      <arc id="4fba610e-485c-4a7c-975f-c72b96fdeed8" source="n34" target="n2"/>
+      <arc id="27df713c-c451-4a0c-95b1-7c0bdf357650" source="ARTIFICIAL-PLACE-START" target="5d93867c-8cd9-427d-888f-8ee8bfd02857"/>
+      <arc id="eab31b1d-b234-4330-ab27-e360cbcd3e09" source="n32" target="n3"/>
+      <arc id="17146bda-835a-4a30-9d69-92e5976253c0" source="n3" target="n33"/>
+      <arc id="99f3aaed-e0c9-4485-92a1-0ed1d64738ed" source="n29" target="n7"/>
+      <arc id="e820892a-5eca-43cd-8362-e13a80b3f505" source="n5" target="04_BPT_010+complete"/>
+      <arc id="b4791cec-f355-4e8e-a5d4-e5af3410ae73" source="n15" target="n6"/>
+      <arc id="131069a5-c76a-4a34-85ba-c26ed32a8c8e" source="n13" target="n5"/>
+      <arc id="f5cf501a-861a-42f9-945d-e97745792e5f" source="04_BPT_020+complete" target="n4"/>
+      <arc id="4e276367-a7ed-4a79-ab8b-504bf6203ec2" source="n20" target="n7"/>
+      <arc id="40f034df-c8ef-4d04-bbca-3308daa5a58d" source="n10" target="04_BPT_050+complete"/>
+      <arc id="bc509971-8b17-428f-bef3-30429ab8c015" source="n26" target="n9"/>
+      <arc id="d327ead0-b2d8-4252-a5bd-8de64e25ea9a" source="04_BPT_050+complete" target="n9"/>
+      <arc id="846ed7f0-cb22-4023-88b4-129d94eb6ea7" source="n4" target="04_BPT_030+complete"/>
+      <arc id="cb9c9aa7-69ed-4375-a1e7-92b2d5df25ea" source="n1" target="04_BPT_009+complete"/>
+      <arc id="1e41e997-ee94-46bf-8785-7f2bf5598070" source="n10" target="04_BPT_060+complete"/>
+      <arc id="d19720d0-6898-4778-a388-a8cfb19231d6" source="04_BPT_041+complete" target="n9"/>
+      <arc id="beeac2ea-e174-465f-8cc3-4ce62934ea13" source="n18" target="n8"/>
+      <arc id="55468693-99b8-4f6b-9e07-469935ed8149" source="n3" target="n34"/>
+      <arc id="f49ef331-c2b3-424f-9e69-b730a22342ae" source="n10" target="04_BPT_021+complete"/>
+      <arc id="bedf4c61-3b42-4d83-897e-37ecfc080dee" source="n33" target="n1"/>
+      <arc id="b818b1cd-5d62-4990-a923-77e37d63fa71" source="n9" target="n28"/>
+      <arc id="903189ce-c437-41fa-9634-e06f22c94bc7" source="04_BPT_030+complete" target="n7"/>
+      <arc id="7c2a050b-a86f-44a8-aa1a-b53728d7613f" source="n7" target="n32"/>
+      <arc id="097bd10c-e091-4dfa-bd5d-11a012466e14" source="n11" target="04_BPT_041+complete"/>
+      <arc id="a3003ec8-e3c0-4796-ac0f-91e56650a3f5" source="n21" target="n10"/>
+      <arc id="139a94e9-31d8-4a1b-aacf-43d7fff8a500" source="n2" target="0a94c52c-6096-41be-a03d-59b5c3ee2ebf"/>
+      <arc id="71f592ee-7232-4704-9447-42b2df68845f" source="n5" target="n15"/>
+      <arc id="d1faa0bb-4a6b-490e-8ca6-f367b67f8f00" source="04_BPT_009+complete" target="n5"/>
+      <arc id="36b930b3-332a-482d-be57-a9776e0f333c" source="n28" target="n10"/>
+      <arc id="a7898f5f-c3d3-4992-9459-2c43c679c268" source="04_BPT_021+complete" target="n11"/>
+      <arc id="0320b178-794a-433a-a4db-3a13031b1ace" source="n1" target="n13"/>
+      <arc id="b23d238c-efdc-4bd6-9896-7219f16fd4f8" source="04_BPT_029+complete" target="n11"/>
+      <arc id="36f89563-53e5-41e2-bff8-8a18311a01c2" source="n8" target="n21"/>
+      <arc id="6f038804-10fb-4e6f-b99e-3ddefc128963" source="n4" target="04_BPT_040+complete"/>
+      <arc id="701c0d7d-dea0-4a36-b3a0-64703d8d0677" source="0a94c52c-6096-41be-a03d-59b5c3ee2ebf" target="ARTIFICIAL-PLACE-END"/>
+      <arc id="69b3eef5-6ba0-424c-bc78-f76a75cf5cfd" source="04_BPT_040+complete" target="n8"/>
+      <arc id="9ca5e1f5-43ae-4644-9251-fa6e33ddb2d7" source="n9" target="n29"/>
     </page>
   </net>
 </pnml>

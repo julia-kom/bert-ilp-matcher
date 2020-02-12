@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="2ec016d2-0a9e-433e-aad3-c3ba4d386fe0" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="fdf07a54-3902-4508-a542-3ea38fc5c1c2" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id="215f0aaf-6d98-4fef-9c1d-1adf9e5125a4">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
-      <place id=""/>
-      <place id="493f5ad1-4cbc-429c-a7f9-bbf6d9a6c6bd"/>
       <place id="n1">
         <name>
           <text>source 8896</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n2">
         <name>
@@ -27,14 +23,8 @@
           <text>create cover letter extend procedure term</text>
         </name>
       </transition>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="1a24b3ad-829b-402b-9243-840a40030fb8" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="3df448e8-e0f3-4dc6-a0cb-ac8473c209ba" source="215f0aaf-6d98-4fef-9c1d-1adf9e5125a4" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="5de385b2-3d64-42f5-9b86-25ebd54e3e04" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="493f5ad1-4cbc-429c-a7f9-bbf6d9a6c6bd"/>
-      <arc id="a70f76fb-0a12-47af-8e95-563abb225904" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="10f77ede-dad8-4153-8a89-e63dd3ed689d" source="03_VD_060_0+complete" target="n2"/>
-      <arc id="d7616a85-7694-4c44-8166-4d9d21e92676" source="n1" target="03_VD_060_0+complete"/>
+      <arc id="64917eb5-1271-4f33-92c3-9a52528a671b" source="n1" target="03_VD_060_0+complete"/>
+      <arc id="787476ca-c890-4dad-a406-5f910971c804" source="03_VD_060_0+complete" target="n2"/>
     </page>
   </net>
 </pnml>

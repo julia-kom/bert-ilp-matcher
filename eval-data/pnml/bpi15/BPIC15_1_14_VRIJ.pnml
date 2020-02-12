@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="f163bbf8-f221-4c3a-b098-c01a3abd053b" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="b800f609-e2e2-4f51-b137-74d0ed6a87f8" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id=""/>
       <place id="n1">
         <name>
           <text>source 7954</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n2">
         <name>
@@ -51,17 +53,11 @@
           <text>sink 7962</text>
         </name>
       </place>
-      <place id="ec15aef1-5afb-4b18-83b6-23accb606b06">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
       <place id="n10">
         <name>
           <text>sink 7963</text>
         </name>
       </place>
-      <place id="bfa9635a-6e44-49d3-808a-1a11399f2dc0"/>
       <place id="n12">
         <name>
           <text>sink 7965</text>
@@ -107,12 +103,16 @@
           <text>sink 7972</text>
         </name>
       </place>
+      <transition id="14_VRIJ_060_2a+complete">
+        <name>
+          <text>set decision phase decision no permit required sent</text>
+        </name>
+      </transition>
       <transition id="14_VRIJ_110+complete">
         <name>
           <text>objection decision no permit required received</text>
         </name>
       </transition>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
       <transition id="14_VRIJ_060_0+complete">
         <name>
           <text>creating cover letter no permit required</text>
@@ -123,55 +123,14 @@
           <text>phase only notification required</text>
         </name>
       </transition>
-      <transition id="14_VRIJ_030_5+complete">
-        <name>
-          <text>record date of decision no permit required</text>
-        </name>
-      </transition>
-      <transition id="14_VRIJ_060_3+complete">
-        <name>
-          <text>enter senddate letter no permit required</text>
-        </name>
-      </transition>
-      <transition id="14_VRIJ_175+complete">
-        <name>
-          <text>phase procedure aborted</text>
-        </name>
-      </transition>
-      <transition id="14_VRIJ_030_5a+complete">
-        <name>
-          <text>set decision phase no permit required decided</text>
-        </name>
-      </transition>
-      <transition id="14_VRIJ_060_2+complete">
-        <name>
-          <text>enter senddate letter no permit required</text>
-        </name>
-      </transition>
-      <transition id="14_VRIJ_010+complete">
-        <name>
-          <text>no permit needed or only notification needed</text>
-        </name>
-      </transition>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <transition id="14_VRIJ_030_2+complete">
-        <name>
-          <text>decision date prior to decision</text>
-        </name>
-      </transition>
-      <transition id="14_VRIJ_170+complete">
-        <name>
-          <text>cancel BAG objects research</text>
-        </name>
-      </transition>
-      <transition id="14_VRIJ_060_2a+complete">
-        <name>
-          <text>set decision phase decision no permit required sent</text>
-        </name>
-      </transition>
       <transition id="14_VRIJ_030_4+complete">
         <name>
           <text>generating decision no permit required</text>
+        </name>
+      </transition>
+      <transition id="14_VRIJ_030_5+complete">
+        <name>
+          <text>record date of decision no permit required</text>
         </name>
       </transition>
       <transition id="14_VRIJ_150+complete">
@@ -191,15 +150,50 @@
       </transition>
       <transition id="n20"/>
       <transition id="n23"/>
+      <transition id="14_VRIJ_060_3+complete">
+        <name>
+          <text>enter senddate letter no permit required</text>
+        </name>
+      </transition>
       <transition id="n25"/>
+      <transition id="14_VRIJ_175+complete">
+        <name>
+          <text>phase procedure aborted</text>
+        </name>
+      </transition>
       <transition id="14_VRIJ_020_0+complete">
         <name>
           <text>create letter only notification required</text>
         </name>
       </transition>
+      <transition id="14_VRIJ_030_5a+complete">
+        <name>
+          <text>set decision phase no permit required decided</text>
+        </name>
+      </transition>
+      <transition id="14_VRIJ_060_2+complete">
+        <name>
+          <text>enter senddate letter no permit required</text>
+        </name>
+      </transition>
       <transition id="14_VRIJ_055+complete">
         <name>
           <text>phase activity no permit required</text>
+        </name>
+      </transition>
+      <transition id="14_VRIJ_010+complete">
+        <name>
+          <text>no permit needed or only notification needed</text>
+        </name>
+      </transition>
+      <transition id="14_VRIJ_030_2+complete">
+        <name>
+          <text>decision date prior to decision</text>
+        </name>
+      </transition>
+      <transition id="14_VRIJ_170+complete">
+        <name>
+          <text>cancel BAG objects research</text>
         </name>
       </transition>
       <transition id="14_VRIJ_030_1a+complete">
@@ -212,56 +206,52 @@
           <text>phase procedure aborted</text>
         </name>
       </transition>
-      <arc id="16b4cdbd-708c-4df3-a985-fe89bcafab51" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="c3db3d44-42da-40cd-b993-09e3e4c3c7cf" source="n1" target="14_VRIJ_150+complete"/>
-      <arc id="ab69600a-c4a3-45b7-b9d9-a6459aae3cac" source="n23" target="n5"/>
-      <arc id="838e0dac-7145-445e-a9a3-31614afd8167" source="n13" target="14_VRIJ_030_5a+complete"/>
-      <arc id="e054279c-32ca-4e64-9c4e-db31a8e924e8" source="14_VRIJ_011+complete" target="n5"/>
-      <arc id="a2ab6f9c-25ed-4a59-bb85-6aa8ec59314f" source="n5" target="14_VRIJ_020_0+complete"/>
-      <arc id="6794e59d-3930-4482-bcf9-7925ff800a13" source="14_VRIJ_060_2a+complete" target="n15"/>
-      <arc id="38e29952-eafa-4e50-ab2e-4d7ff0e6b006" source="n5" target="14_VRIJ_030_2+complete"/>
-      <arc id="416f9cd9-15a7-4562-b94c-9fbe0c241120" source="14_VRIJ_150+complete" target="n3"/>
-      <arc id="2b659420-77d2-499b-9b6c-0cc5e6655713" source="n4" target="n23"/>
-      <arc id="7ba3ff7a-9bcb-4b26-9cc4-a06ac5d6970f" source="n19" target="14_VRIJ_060_2+complete"/>
-      <arc id="816eb898-d848-4bcb-a543-b12482a0a3b0" source="14_VRIJ_060_0+complete" target="n9"/>
-      <arc id="fcfac737-6d19-4578-88ed-29dac1f3ec73" source="14_VRIJ_060_3+complete" target="n13"/>
-      <arc id="34d021cb-ba76-45dc-b54a-22f019dd4071" source="n6" target="14_VRIJ_035+complete"/>
-      <arc id="49ff7d07-834c-4d72-aefc-3a9f0187bbe2" source="n8" target="14_VRIJ_060_0+complete"/>
-      <arc id="392c16f6-809c-4fbf-a498-6394664b4726" source="n1" target="n20"/>
-      <arc id="93194faf-7bed-4b96-94c3-445df3ab19a3" source="n1" target="14_VRIJ_170+complete"/>
-      <arc id="8a63da2b-a9fc-47df-ba19-dcfce094fa62" source="n3" target="14_VRIJ_010+complete"/>
-      <arc id="0d976402-57f3-4eed-a3ce-0650d5e7c336" source="14_VRIJ_060_2+complete" target="n2"/>
-      <arc id="5971bd02-05e6-450c-8d1a-91080ace6571" source="n16" target="14_VRIJ_030_1a+complete"/>
-      <arc id="731e3b33-54e5-413d-b947-2d784cab2129" source="14_VRIJ_175+complete" target="n11"/>
-      <arc id="98359def-985c-4b6b-b4cb-ed5dc0f74d89" source="n4" target="14_VRIJ_011+complete"/>
-      <arc id="0ec2f117-9fe1-41d1-bffd-b1f8e880857a" source="n12" target="14_VRIJ_060_3+complete"/>
-      <arc id="5fabd68e-06f3-43d5-9bba-ce9420dd736f" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="bfa9635a-6e44-49d3-808a-1a11399f2dc0"/>
-      <arc id="b2a3e59a-e207-451c-9b2d-5661094ce785" source="n5" target="n25"/>
-      <arc id="6eebd1af-5929-4011-9006-8d22aca0e179" source="n20" target="n3"/>
-      <arc id="6db9cbae-5064-4de6-9345-7f8fa03c54b1" source="n11" target="14_VRIJ_030_4+complete"/>
-      <arc id="ca33aee9-a11a-47c9-9bd5-b70e25362741" source="n9" target="14_VRIJ_110+complete"/>
-      <arc id="2690b017-2d97-4de7-8034-4fac40081319" source="14_VRIJ_010+complete" target="n4"/>
-      <arc id="ac101a5a-b814-49ec-ba58-44192c9c2822" source="14_VRIJ_015+complete" target="n2"/>
-      <arc id="6edec8c1-318c-4f11-8b7c-d67c957972dd" source="14_VRIJ_035+complete" target="n7"/>
-      <arc id="ec9262f9-978e-42e0-a7fb-1a1c3d8c00a1" source="14_VRIJ_030_1a+complete" target="n17"/>
-      <arc id="41cd3762-0023-4177-8aa3-605e0232870c" source="n18" target="14_VRIJ_030_5+complete"/>
-      <arc id="d9d8b854-69a3-4841-a565-aabe124b17e1" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="fc5f08ff-760f-4a85-bd3d-3abec0303821" source="n25" target="n2"/>
-      <arc id="f0d9349b-2210-4046-bb98-c63e78e83443" source="14_VRIJ_030_2+complete" target="n8"/>
-      <arc id="176e9034-1f74-4cd9-a5b6-722b25aea06b" source="14_VRIJ_170+complete" target="n2"/>
-      <arc id="0415554d-cd68-483e-b665-01800178da37" source="14_VRIJ_030_4+complete" target="n12"/>
-      <arc id="b9ee5b81-a17a-4715-bb2c-df8852b13d55" source="ec15aef1-5afb-4b18-83b6-23accb606b06" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="461593e8-7ebc-4653-b881-be90972e0bfb" source="14_VRIJ_030_5a+complete" target="n14"/>
-      <arc id="a345587d-d9b0-49ce-9f1b-368a9666c6bc" source="n15" target="14_VRIJ_030_1+complete"/>
-      <arc id="66f9e17e-4ee9-4c17-98b7-74c573cd618a" source="14_VRIJ_110+complete" target="n10"/>
-      <arc id="96b84f41-05b7-4830-bba5-77e4e38958a5" source="n7" target="14_VRIJ_015+complete"/>
-      <arc id="d1738bad-b57b-4d69-b896-34547df0c0c6" source="14_VRIJ_055+complete" target="n18"/>
-      <arc id="aa827b3d-7f6a-40f7-8786-1a2b7d60758b" source="14_VRIJ_030_1+complete" target="n16"/>
-      <arc id="c4a7fdfb-c4f4-42c7-8726-e13cb9a6d5d2" source="14_VRIJ_020_0+complete" target="n6"/>
-      <arc id="755219ea-4fef-41f2-839e-0dfcb3a44634" source="n10" target="14_VRIJ_175+complete"/>
-      <arc id="16ca6077-4869-4732-98f6-ed66cbb43738" source="n14" target="14_VRIJ_060_2a+complete"/>
-      <arc id="81d460df-c316-4f4f-9c40-aacd067b6824" source="n17" target="14_VRIJ_055+complete"/>
-      <arc id="2f341542-6095-4b32-ab3a-c1df1d1d5ed7" source="14_VRIJ_030_5+complete" target="n19"/>
+      <arc id="11e8b36d-b023-4e40-bf0a-18b0d72ea7cf" source="n9" target="14_VRIJ_110+complete"/>
+      <arc id="f901edd1-3de4-4c0c-b014-cbf7613f5008" source="n7" target="14_VRIJ_015+complete"/>
+      <arc id="1554110a-813a-41d7-b9ae-9974eae5e8a9" source="14_VRIJ_060_0+complete" target="n9"/>
+      <arc id="dd0fbaaa-51e0-4b6e-8563-7df631834441" source="n1" target="14_VRIJ_150+complete"/>
+      <arc id="9c141f77-ba1c-4e7c-bcff-59cfe1bcb370" source="n20" target="n3"/>
+      <arc id="54e6febf-197f-4d1d-bf98-4dabb9c410bd" source="n8" target="14_VRIJ_060_0+complete"/>
+      <arc id="0fbba18e-a939-4f60-a2dd-da700416bb3a" source="n19" target="14_VRIJ_060_2+complete"/>
+      <arc id="375f44cd-4eea-4bb1-bec6-d8f1b712d657" source="n18" target="14_VRIJ_030_5+complete"/>
+      <arc id="bd39f0c9-33b0-40a7-88b5-3acfaa6351fa" source="n5" target="14_VRIJ_030_2+complete"/>
+      <arc id="408c6c5e-f941-419a-97ff-2eaf771da06a" source="n5" target="14_VRIJ_020_0+complete"/>
+      <arc id="fcde88eb-6eda-4774-a365-937eac28af91" source="14_VRIJ_020_0+complete" target="n6"/>
+      <arc id="f6be1463-8fc9-44bd-abb8-966f74f8139c" source="14_VRIJ_015+complete" target="n2"/>
+      <arc id="2192f5ef-c51d-4abd-8f1a-a5a7d833e5d4" source="14_VRIJ_035+complete" target="n7"/>
+      <arc id="a784c8bb-52bb-4fd7-9b05-cabe17b1f368" source="n16" target="14_VRIJ_030_1a+complete"/>
+      <arc id="f19d0aae-0a20-4e62-b930-e36da2ba87bd" source="14_VRIJ_030_5a+complete" target="n14"/>
+      <arc id="ba22ac6f-f048-4c91-a4c6-9a3c159e4bf7" source="14_VRIJ_030_4+complete" target="n12"/>
+      <arc id="420e2c87-3e33-4c0c-9d91-a6c92c7612ae" source="14_VRIJ_060_2a+complete" target="n15"/>
+      <arc id="cb4556a2-ab05-4aa1-a815-60e6292e78f2" source="14_VRIJ_060_2+complete" target="n2"/>
+      <arc id="2664924d-21b9-4fa2-96d0-789de3140996" source="14_VRIJ_110+complete" target="n10"/>
+      <arc id="0c56b52c-1143-4920-be81-d5e376a4ad8d" source="n11" target="14_VRIJ_030_4+complete"/>
+      <arc id="df9646df-6205-4845-a15f-7c6b6fb6399d" source="14_VRIJ_030_1a+complete" target="n17"/>
+      <arc id="3ff2a528-1cf7-4a05-92cf-bb3635f899ba" source="n25" target="n2"/>
+      <arc id="67132c3f-f7b5-4722-87d0-632b260e1802" source="n12" target="14_VRIJ_060_3+complete"/>
+      <arc id="1cae01de-c680-4850-aa5d-221d81c73359" source="n1" target="n20"/>
+      <arc id="64e02352-7b39-47f5-adc9-a718c3a5bc6d" source="14_VRIJ_030_1+complete" target="n16"/>
+      <arc id="46d38bbc-ba9f-465e-bb98-34debcfcee82" source="n14" target="14_VRIJ_060_2a+complete"/>
+      <arc id="3382d242-5821-4398-8908-5377528e7f40" source="n10" target="14_VRIJ_175+complete"/>
+      <arc id="b1f72855-edb3-4e9c-a4f8-fedf74c642c9" source="14_VRIJ_030_5+complete" target="n19"/>
+      <arc id="3ad043ff-f499-40fe-8e06-5628717ca275" source="n23" target="n5"/>
+      <arc id="6a458e14-25a0-4e47-923b-37ddc96a239d" source="n4" target="14_VRIJ_011+complete"/>
+      <arc id="fbe3a51e-bf16-4cbc-9a1b-a97c97151cab" source="14_VRIJ_175+complete" target="n11"/>
+      <arc id="e38f3217-7054-4227-aaea-125cf4ddb831" source="14_VRIJ_060_3+complete" target="n13"/>
+      <arc id="0c64027e-ca97-4ba8-a686-1ae4b036ec90" source="14_VRIJ_150+complete" target="n3"/>
+      <arc id="df429486-eb5b-44ee-a8d7-e706531444d9" source="n17" target="14_VRIJ_055+complete"/>
+      <arc id="c4088db2-c265-4aba-8b44-63a80ffad3e5" source="n6" target="14_VRIJ_035+complete"/>
+      <arc id="9e726ebc-b98a-41fa-82cc-c6cba940323d" source="14_VRIJ_055+complete" target="n18"/>
+      <arc id="9efef124-08b8-4e38-b10b-1b5627fe9132" source="14_VRIJ_011+complete" target="n5"/>
+      <arc id="d77446b5-424b-461e-bf99-a0239637b54b" source="n4" target="n23"/>
+      <arc id="3e5e2f3d-9bf3-4b71-af14-76be7cf19777" source="n13" target="14_VRIJ_030_5a+complete"/>
+      <arc id="5a2f9968-467c-4df6-bb39-d1dcb2f064f7" source="n1" target="14_VRIJ_170+complete"/>
+      <arc id="8719de51-1664-4a19-ab3c-73073c7eab80" source="14_VRIJ_010+complete" target="n4"/>
+      <arc id="9b51c5c1-4896-452c-a628-94e4b5c23f50" source="14_VRIJ_030_2+complete" target="n8"/>
+      <arc id="dcda362a-524e-4dac-8e55-1942d4b5538e" source="14_VRIJ_170+complete" target="n2"/>
+      <arc id="146c8fa3-a1df-4e7f-bfa2-aeee6c8a85d8" source="n3" target="14_VRIJ_010+complete"/>
+      <arc id="3b097a76-f92b-4784-924e-72e02302a545" source="n15" target="14_VRIJ_030_1+complete"/>
+      <arc id="31886d07-9f01-4c2a-9305-ff06fa60c3fa" source="n5" target="n25"/>
     </page>
   </net>
 </pnml>

@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="f778a764-7955-429d-b11b-290cab04239b" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="e530c30e-4db2-4465-926e-2bd74027611c" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id=""/>
-      <place id="4476c6d4-0214-4b1c-a832-aca036220aab"/>
       <place id="n1">
         <name>
           <text>source 8151</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n2">
         <name>
@@ -22,31 +23,20 @@
           <text>sink 8153</text>
         </name>
       </place>
-      <place id="70c870fd-7b1a-46b5-a5ca-605fbc81bf9d">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
       <transition id="10_OLO_100+complete">
         <name>
           <text>message change status</text>
         </name>
       </transition>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
       <transition id="10_OLO_120+complete">
         <name>
           <text>mesage request VVGB</text>
         </name>
       </transition>
-      <arc id="e06f7fb2-c3cd-4c1a-b965-1faccc499c82" source="10_OLO_120+complete" target="n2"/>
-      <arc id="290b3a2a-d056-4b76-8e5c-b0f59b2223d0" source="n1" target="10_OLO_100+complete"/>
-      <arc id="ae4d4def-be6d-4954-a93f-db4125ac892f" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="03ac56ff-caba-482d-8f44-ccd5be62e098" source="70c870fd-7b1a-46b5-a5ca-605fbc81bf9d" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="58d7522b-861c-4670-bd81-a92bcbf03671" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="0fc53f7b-fa14-460e-bede-3ede5a2bc4a0" source="10_OLO_100+complete" target="n3"/>
-      <arc id="17e31653-bece-4d6f-b50d-04765705a5a2" source="n3" target="10_OLO_120+complete"/>
-      <arc id="c121c413-7af5-46c4-b36e-6439f63f39ea" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="4476c6d4-0214-4b1c-a832-aca036220aab"/>
+      <arc id="eecce31c-41a7-4cbd-b1be-cb42a1fd5539" source="10_OLO_120+complete" target="n2"/>
+      <arc id="7a4d5090-7ec9-4ae6-b1b8-3dea051f18cb" source="n1" target="10_OLO_100+complete"/>
+      <arc id="c95b5634-f29d-45e5-8fd5-874ffee10f71" source="10_OLO_100+complete" target="n3"/>
+      <arc id="1dd920ed-a3ab-4109-ada8-2303f65d4850" source="n3" target="10_OLO_120+complete"/>
     </page>
   </net>
 </pnml>

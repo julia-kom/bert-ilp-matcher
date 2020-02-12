@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="d2c8b5ef-3192-4712-aa69-cdf88cada75d" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="eceea56f-f406-4f1a-b95d-f6ab038b5cd8" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id=""/>
+      <place id="ARTIFICIAL-PLACE-START">
+        <name>
+          <text>ARTIFICIAL-PLACE-START</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
       <place id="n1">
         <name>
           <text>source 8493</text>
@@ -14,6 +21,11 @@
       <place id="n2">
         <name>
           <text>sink 8494</text>
+        </name>
+      </place>
+      <place id="ARTIFICIAL-PLACE-END">
+        <name>
+          <text>ARTIFICIAL-PLACE-END</text>
         </name>
       </place>
       <place id="n3">
@@ -56,18 +68,11 @@
           <text>sink 8502</text>
         </name>
       </place>
-      <place id="69273662-125b-4b08-8990-beebf02dfa4a"/>
-      <place id="7a3088ce-effd-49d0-ab4a-b16165d0c48a">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
       <transition id="15_NGV_040+complete">
         <name>
           <text>registration receipt further information</text>
         </name>
       </transition>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
       <transition id="15_NGV_020_1+complete">
         <name>
           <text>send information request</text>
@@ -75,8 +80,10 @@
       </transition>
       <transition id="n21"/>
       <transition id="n23"/>
+      <transition id="0a94c52c-6096-41be-a03d-59b5c3ee2ebf"/>
       <transition id="n13"/>
       <transition id="n24"/>
+      <transition id="5d93867c-8cd9-427d-888f-8ee8bfd02857"/>
       <transition id="n16"/>
       <transition id="n15"/>
       <transition id="n18"/>
@@ -92,46 +99,45 @@
         </name>
       </transition>
       <transition id="n19"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
       <transition id="15_NGV_030+complete">
         <name>
           <text>further information received</text>
         </name>
       </transition>
-      <arc id="67a24520-e659-445b-813b-d8a50c921f73" source="7a3088ce-effd-49d0-ab4a-b16165d0c48a" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="13a0e553-f536-4961-ad8a-5b180397d0f2" source="n4" target="n17"/>
-      <arc id="ba717cae-42e9-4bcc-adb9-4208d5972205" source="15_NGV_010+complete" target="n6"/>
-      <arc id="9b4d3943-ca15-4cd6-a349-677e9fe9307d" source="n15" target="n1"/>
-      <arc id="4d757f9b-9c8a-4846-81cd-9f76637cfcca" source="n23" target="n1"/>
-      <arc id="615d70d1-2131-45ee-848d-3666c6dee915" source="n5" target="n15"/>
-      <arc id="84e08073-37b9-460c-82d3-4761ee2a7569" source="n19" target="n8"/>
-      <arc id="3d0c207d-3130-48bc-ac80-1f1fdddaf9b5" source="15_NGV_040+complete" target="n10"/>
-      <arc id="c8ab95e7-38e6-4a3f-a051-f497e84029c2" source="n9" target="n21"/>
-      <arc id="85c9d775-2b69-42ef-8a64-f591d28813a4" source="n7" target="15_NGV_030+complete"/>
-      <arc id="d8ce0403-cd3b-49c1-aeba-1a6b97f76f73" source="n7" target="n19"/>
-      <arc id="d7349b74-7b38-4470-a17c-542fb9d635b5" source="n6" target="15_NGV_020_1+complete"/>
-      <arc id="ad37bfe6-8501-4367-aa76-fbdf887a3d99" source="15_NGV_020_2+complete" target="n6"/>
-      <arc id="4970c176-1c22-4720-a803-14bed55374d5" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="b6893268-4bcd-425f-b879-88f993e0fb5b" source="n13" target="n5"/>
-      <arc id="bd4055db-ca3d-4703-81e3-00974aef872d" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="69273662-125b-4b08-8990-beebf02dfa4a"/>
-      <arc id="468f4381-84c5-45da-8d2b-f5c1ed053e7c" source="n8" target="n18"/>
-      <arc id="51fb5c54-eb7d-4600-a777-fc55f37c161c" source="n1" target="15_NGV_010+complete"/>
-      <arc id="a2eecd66-89b4-4b13-bec4-cddc3a25c5a9" source="n3" target="n24"/>
-      <arc id="39eecbd7-d54c-4dab-a6c7-d24eeae0b9f9" source="n17" target="n9"/>
-      <arc id="63f179f0-4f17-487c-9ff0-53567fa27058" source="n17" target="n7"/>
-      <arc id="84630489-82c7-455e-b7bc-aed6e6c15237" source="n16" target="n4"/>
-      <arc id="453b09fc-2355-41f4-9892-5d29e5c15a3f" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="732a4706-735f-4b9d-8b84-29528fe103ef" source="15_NGV_020_1+complete" target="n5"/>
-      <arc id="3f77e7c5-0664-4591-9b62-46dff970e3d8" source="n18" target="n3"/>
-      <arc id="86368add-146f-4e9e-a8e4-f092d4df8f1b" source="n9" target="15_NGV_040+complete"/>
-      <arc id="5b4991f5-858b-400f-8454-7f6b08d4780d" source="n6" target="n13"/>
-      <arc id="be1e9e0d-2283-485f-a6a0-13f55390f967" source="15_NGV_030+complete" target="n8"/>
-      <arc id="afe99bfa-31f2-4f07-8e3b-9ddb75879178" source="n3" target="n23"/>
-      <arc id="23dfc900-eaee-4c83-bc1b-0045a34a45da" source="n24" target="n2"/>
-      <arc id="0a3f8c5e-9701-46ce-b86d-9e8455f4ac88" source="n1" target="15_NGV_020_2+complete"/>
-      <arc id="b85dfaa3-f260-4f18-a10a-cc81878500fe" source="n5" target="n16"/>
-      <arc id="1f9b1b83-ff71-440b-9f6e-a84be01e60bb" source="n10" target="n18"/>
-      <arc id="88c9f2f6-5a73-441d-b40b-cccf51f5fd12" source="n21" target="n10"/>
+      <arc id="d9616892-aff5-47cd-b921-a18a525d0c9f" source="n2" target="0a94c52c-6096-41be-a03d-59b5c3ee2ebf"/>
+      <arc id="a4c43920-76bd-4750-86a6-9813f1177bd4" source="n7" target="n19"/>
+      <arc id="ce8b5ea6-bf75-4b7b-a928-88da585547da" source="0a94c52c-6096-41be-a03d-59b5c3ee2ebf" target="ARTIFICIAL-PLACE-END"/>
+      <arc id="f5a02c30-c6b5-4fd3-9811-bc7eff95bf2b" source="n15" target="n1"/>
+      <arc id="c0bad25d-a79c-49e3-9292-6a7a21ebf07c" source="n9" target="n21"/>
+      <arc id="61a5556d-32a1-4aa3-91ba-99f6d0ee9c3f" source="15_NGV_030+complete" target="n8"/>
+      <arc id="d35fea0b-0931-486b-b933-d9993ea7ffa8" source="15_NGV_020_1+complete" target="n5"/>
+      <arc id="db9e56b1-37ea-4b4a-97a2-0cd0b60f8862" source="n1" target="15_NGV_010+complete"/>
+      <arc id="035ee3c3-8ec8-4c52-bba6-3b818d3d5555" source="n1" target="15_NGV_020_2+complete"/>
+      <arc id="2dca1be8-34b2-444f-984d-36b41c715444" source="n18" target="n3"/>
+      <arc id="0a3a5993-effc-42bf-9bec-78888e4ad568" source="n19" target="n8"/>
+      <arc id="c9b0338c-ccb7-4787-87cb-94444233967d" source="n3" target="n24"/>
+      <arc id="0910639d-db52-41fd-bf27-0a6d33711af7" source="n23" target="n1"/>
+      <arc id="90661076-b058-47f5-b0d7-b0c1d31f43f8" source="n10" target="n18"/>
+      <arc id="6e17b66b-35a7-4407-9d32-1a22a536f065" source="n5" target="n16"/>
+      <arc id="c6f15b46-b771-4228-a7f9-732aa967b798" source="n6" target="n13"/>
+      <arc id="06e5cbc6-87ab-4dfd-aff8-54b4ea77ce2b" source="n4" target="n17"/>
+      <arc id="87d1553a-172a-4766-9c78-152779bd91d5" source="15_NGV_040+complete" target="n10"/>
+      <arc id="a7108635-8a6a-49f3-ba26-3b863135bb7e" source="n21" target="n10"/>
+      <arc id="61284d4d-aec1-48d0-8f36-cb8a3f303ee7" source="n7" target="15_NGV_030+complete"/>
+      <arc id="40be9416-2adf-4bc2-a9ea-b39ca36cf565" source="n3" target="n23"/>
+      <arc id="3ad59d9f-1b62-416e-af58-40bed570f7a0" source="n17" target="n9"/>
+      <arc id="e6c5c07b-b1dd-47d7-8018-399d8766a8d3" source="5d93867c-8cd9-427d-888f-8ee8bfd02857" target="n1"/>
+      <arc id="32806cb6-a46f-4a45-8945-3c08d85b5f72" source="n24" target="n2"/>
+      <arc id="a75434f4-a318-463b-bdad-80891a9c21a1" source="n16" target="n4"/>
+      <arc id="9ee55d97-763f-49f4-b617-67e76a73eeb1" source="n9" target="15_NGV_040+complete"/>
+      <arc id="7d96df9a-f27a-48d5-a81a-71296e5d9e23" source="15_NGV_020_2+complete" target="n6"/>
+      <arc id="57c6dece-392d-42fb-8501-fa19ddbec3e2" source="n17" target="n7"/>
+      <arc id="0514fcbb-705a-438a-ada9-24bf631a8b16" source="n13" target="n5"/>
+      <arc id="65e742d0-2459-4062-b454-e3da179d358a" source="15_NGV_010+complete" target="n6"/>
+      <arc id="c6f237a1-90f1-433a-bae7-383d80fab3d7" source="n6" target="15_NGV_020_1+complete"/>
+      <arc id="cdb9447c-1bb1-4326-81e8-d601cfdd34fe" source="ARTIFICIAL-PLACE-START" target="5d93867c-8cd9-427d-888f-8ee8bfd02857"/>
+      <arc id="e9a40ca9-b507-4469-9b64-74253c028665" source="n5" target="n15"/>
+      <arc id="f139e082-72ff-4303-bc58-b4add9c64989" source="n8" target="n18"/>
     </page>
   </net>
 </pnml>

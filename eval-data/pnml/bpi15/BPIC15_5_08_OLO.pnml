@@ -1,40 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="69fe2554-5c89-4cae-b98f-d306101edd6d" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="79f44b35-1f05-4af5-b110-75d805cf0ad9" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id="22897fab-7e5f-46b6-a657-1e01ded9fa01"/>
-      <place id="f3839ab4-9aec-40c5-9d6e-ca33e9b13c9c">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
-      <place id=""/>
       <place id="n1">
         <name>
           <text>source 9003</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 9004</text>
         </name>
       </place>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
       <transition id="08_OLO_100+complete">
         <name>
           <text>send message OLO status additions required</text>
         </name>
       </transition>
-      <arc id="37be2a02-b441-412d-b3af-f6b8916d4361" source="f3839ab4-9aec-40c5-9d6e-ca33e9b13c9c" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="6349fa04-6755-4ccc-8be8-0cc765cdaee2" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="22897fab-7e5f-46b6-a657-1e01ded9fa01"/>
-      <arc id="9f2eb21e-0f32-4b01-80ff-f0bf788ec8a8" source="n1" target="08_OLO_100+complete"/>
-      <arc id="8b3c20c5-74dc-4b89-b234-95a77f2d596d" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="3454330a-9cfc-4e4a-ab36-5b830a5da700" source="08_OLO_100+complete" target="n2"/>
-      <arc id="2d2369df-9b49-4a7b-9b4e-141171f69462" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
+      <arc id="c4a65f81-91aa-4a5a-8c5b-f8522e32c209" source="n1" target="08_OLO_100+complete"/>
+      <arc id="feb490ab-3960-43cd-a7bf-3a0f18559759" source="08_OLO_100+complete" target="n2"/>
     </page>
   </net>
 </pnml>

@@ -1,40 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="59a8ac45-34ab-4534-ace8-09293caa542a" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="74535c01-a275-4aad-98e1-524f0b58456f" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id=""/>
       <place id="n1">
         <name>
           <text>source 9115</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 9116</text>
         </name>
       </place>
-      <place id="c3c565d7-a482-4a83-8269-c6a1e4ad71dc"/>
-      <place id="a0db1799-e571-449f-bfc8-887bbc0f1786">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
       <transition id="13_CRD_010+complete">
         <name>
           <text>coordination of application</text>
         </name>
       </transition>
-      <arc id="5f486ab4-4753-4295-8189-94d111caf43a" source="13_CRD_010+complete" target="n2"/>
-      <arc id="2d2574de-f106-4022-b46d-4955e32c4c8e" source="a0db1799-e571-449f-bfc8-887bbc0f1786" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="231b7c05-ff51-45ed-b467-6ba75d2366ad" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="353a1cb2-5591-49af-991c-fa4c64683d63" source="n1" target="13_CRD_010+complete"/>
-      <arc id="bddd8e04-30c9-451b-b204-535fb63922e5" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="c3c565d7-a482-4a83-8269-c6a1e4ad71dc"/>
-      <arc id="5b673e02-ff17-45fb-9a50-0c8353a2e315" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
+      <arc id="6ae737ed-bf70-4cd0-9451-c4de8c333150" source="n1" target="13_CRD_010+complete"/>
+      <arc id="ec456975-f104-4cc0-90c7-0c91ff5f011b" source="13_CRD_010+complete" target="n2"/>
     </page>
   </net>
 </pnml>

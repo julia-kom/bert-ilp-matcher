@@ -1,40 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="f467a49d-038d-48e7-b9cb-9f3f25b539c9" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="7d3c20c2-295f-40bf-87f2-549a6e1c5c56" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id=""/>
-      <place id="e6a8d114-dacc-40dc-bfe6-6f48ab1a626f">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
       <place id="n1">
         <name>
           <text>source 7975</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 7976</text>
         </name>
       </place>
-      <place id="38255940-60c9-4360-9d22-780c5876065b"/>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
       <transition id="16_LGSV_010+complete">
         <name>
           <text>calculate provisional charges</text>
         </name>
       </transition>
-      <arc id="05a91a24-3208-42c0-9c54-9ca6dc85da77" source="16_LGSV_010+complete" target="n2"/>
-      <arc id="1495bbbc-4ddd-4421-9379-17ec62f1e3a6" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="38255940-60c9-4360-9d22-780c5876065b"/>
-      <arc id="e45b07d3-ab78-4a7c-afb7-3a36d3332706" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="0d0daaf9-c309-4e1f-8833-f18feac6637e" source="n1" target="16_LGSV_010+complete"/>
-      <arc id="df55544b-ff95-4ea7-859d-ea436b7b7cd4" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="fe4dfb4b-6e72-4699-be21-bf0bfc6d1787" source="e6a8d114-dacc-40dc-bfe6-6f48ab1a626f" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
+      <arc id="f8e83e70-ad75-43ce-abb5-d12d371e8ede" source="16_LGSV_010+complete" target="n2"/>
+      <arc id="14a37ccc-e4ed-4344-a3a4-e5baf5f1a4df" source="n1" target="16_LGSV_010+complete"/>
     </page>
   </net>
 </pnml>

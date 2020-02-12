@@ -1,40 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="8b781b6a-44b1-4158-8d7c-61d2961c49f1" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="ca6172a4-56ca-45ab-a259-d8138882519d" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id=""/>
       <place id="n1">
         <name>
           <text>source 9076</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 9077</text>
         </name>
       </place>
-      <place id="c5a2f944-a76b-48b1-b975-6686154e1fec"/>
-      <place id="c1e12dc3-8dbc-4e6a-84ff-26561790113a">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
       <transition id="11_OLO_190+complete">
         <name>
           <text>send message OLO status decision</text>
         </name>
       </transition>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="97a45878-ec30-432e-a6e4-5b97738313ef" source="n1" target="11_OLO_190+complete"/>
-      <arc id="03fe1c3f-bb04-4194-9c1a-5879f3fb8262" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="d94deb13-c8a9-49d6-8c19-bc77e4266ae9" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="c5a2f944-a76b-48b1-b975-6686154e1fec"/>
-      <arc id="6d6cb914-fd43-4682-adc7-543face8f3cb" source="11_OLO_190+complete" target="n2"/>
-      <arc id="cd267c36-fec8-440d-8d69-96b6cedab8cd" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="4ec09f21-8c48-4750-a40f-8aac5f41a71b" source="c1e12dc3-8dbc-4e6a-84ff-26561790113a" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
+      <arc id="f019cfda-a620-4a40-a2b5-9018e2e8ce84" source="11_OLO_190+complete" target="n2"/>
+      <arc id="e708804f-db5e-4ea5-aa54-090d1ae1ea01" source="n1" target="11_OLO_190+complete"/>
     </page>
   </net>
 </pnml>

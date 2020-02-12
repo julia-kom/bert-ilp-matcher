@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="074246cd-4dcf-4b52-ac51-524a419eea53" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="3181d249-170d-41b1-9d26-5a5f791131ad" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id=""/>
       <place id="n1">
         <name>
           <text>source 8223</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n2">
         <name>
@@ -21,25 +23,17 @@
           <text>sink 8225</text>
         </name>
       </place>
-      <place id="1e65c69e-18ac-4851-b91d-1b3ebf2aad53">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
       <place id="n4">
         <name>
           <text>sink 8226</text>
         </name>
       </place>
-      <place id="754c4140-da4e-4b47-9274-1d9f9aa82e11"/>
       <transition id="13_CRD_030_0+complete">
         <name>
           <text>create coordination confirmation</text>
         </name>
       </transition>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
       <transition id="n6"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
       <transition id="13_CRD_020+complete">
         <name>
           <text>suspend term</text>
@@ -50,18 +44,14 @@
           <text>coordination of application</text>
         </name>
       </transition>
-      <arc id="c6936369-de84-498e-a280-6d0840586e08" source="13_CRD_030_0+complete" target="n4"/>
-      <arc id="63f79566-f7fa-4fce-8161-c1d1f4e4bd5e" source="1e65c69e-18ac-4851-b91d-1b3ebf2aad53" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="a7c2612e-da1d-4afe-a75e-3c9af82fc434" source="n1" target="13_CRD_010+complete"/>
-      <arc id="15c1a9af-101f-4d9d-8eac-50e09abdda16" source="n4" target="13_CRD_020+complete"/>
-      <arc id="9dc9c1b8-2981-48dc-bbae-67d25995e74b" source="13_CRD_020+complete" target="n2"/>
-      <arc id="b34a174f-a72d-4b8c-b03a-29265704b924" source="13_CRD_010+complete" target="n3"/>
-      <arc id="9347d343-d877-4d9c-a7a3-cbe371132dc3" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="d247dff5-a291-4481-bfc1-1fd2f94a4fdb" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="754c4140-da4e-4b47-9274-1d9f9aa82e11"/>
-      <arc id="4ebe06ee-35c5-4d7d-a239-ac1ff031f142" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="ec457aa6-80f3-413a-b112-b7ee59c1e867" source="n6" target="n2"/>
-      <arc id="8616cb37-cfe0-4f5d-b82f-7dee736bdd6c" source="n3" target="13_CRD_030_0+complete"/>
-      <arc id="6509b88d-2e8f-46ed-93a1-196d6fc79c00" source="n3" target="n6"/>
+      <arc id="b760ed00-3826-4863-99a2-0f5b4416fc51" source="13_CRD_010+complete" target="n3"/>
+      <arc id="7e19a783-5fb5-46d0-9e2f-72a4997348fc" source="n4" target="13_CRD_020+complete"/>
+      <arc id="d19f239e-bb98-441c-866e-3223bd1c6f56" source="n6" target="n2"/>
+      <arc id="c414346f-eecc-49bf-8e5e-9d43f71844dd" source="n1" target="13_CRD_010+complete"/>
+      <arc id="815ddcef-02ad-4e9a-be44-b838d49ee109" source="n3" target="13_CRD_030_0+complete"/>
+      <arc id="83aac871-a829-4f41-a80a-038985c7a574" source="n3" target="n6"/>
+      <arc id="bd4af8c3-9a29-4d47-883f-a20d77ba5354" source="13_CRD_030_0+complete" target="n4"/>
+      <arc id="a365e18e-4c15-4df0-8da4-4978b8bbdc52" source="13_CRD_020+complete" target="n2"/>
     </page>
   </net>
 </pnml>

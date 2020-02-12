@@ -1,40 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="40a83529-b815-4ce1-b817-864295608373" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="6c040c9d-f58d-41b2-a4db-3797d545ed19" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id="922f46f7-5969-4815-a2ae-ae2a6caad541">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
-      <place id=""/>
       <place id="n1">
         <name>
           <text>source 8892</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 8893</text>
         </name>
       </place>
-      <place id="c628c87f-1d7b-444f-b60a-f8a03eaeeeb9"/>
       <transition id="02_DRZ_010+complete">
         <name>
           <text>forward to the competent authority</text>
         </name>
       </transition>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="306ac631-8c9c-4189-9f4b-c1a7321796f1" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="c628c87f-1d7b-444f-b60a-f8a03eaeeeb9"/>
-      <arc id="03519e74-eafa-4a32-b1f6-b80f9ef6e192" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="82405e58-0699-4884-8286-35ee0c191318" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="6028e422-44d7-45d7-8910-29fdda05904f" source="922f46f7-5969-4815-a2ae-ae2a6caad541" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="2587397a-e74c-479d-b203-2d2d027d7666" source="n1" target="02_DRZ_010+complete"/>
-      <arc id="e23458e4-645f-4886-851d-86864a00b772" source="02_DRZ_010+complete" target="n2"/>
+      <arc id="eda7696a-d874-4682-b870-0542f795cbfd" source="02_DRZ_010+complete" target="n2"/>
+      <arc id="ed345882-563c-45a4-9a68-a841631dfb40" source="n1" target="02_DRZ_010+complete"/>
     </page>
   </net>
 </pnml>

@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="335a6442-8542-4b77-9682-33e0d4e82638" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="3654759a-6ca8-44cf-af41-319a02368767" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id=""/>
-      <place id="781f91aa-5103-47d9-8278-af80b261a888"/>
       <place id="n1">
         <name>
           <text>source 7789</text>
         </name>
-      </place>
-      <place id="b4fc4f05-3eb4-466f-a612-aaa7c2a72867">
         <initialMarking>
           <text>1</text>
         </initialMarking>
@@ -27,14 +23,8 @@
           <text>applicant is stakeholder</text>
         </name>
       </transition>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="88d1ba67-35d1-4d03-a28a-02cb0a7951ad" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="781f91aa-5103-47d9-8278-af80b261a888"/>
-      <arc id="d67ca38d-975e-4345-895e-8732ce3ad4eb" source="b4fc4f05-3eb4-466f-a612-aaa7c2a72867" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="83378dff-ff48-4063-893a-51c0559ba49f" source="03_GBH_005+complete" target="n2"/>
-      <arc id="088a1421-3dd7-4ecc-95f5-345e10e6df17" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="7c87e9b1-9768-48a9-a1ca-c0c2147e2be9" source="n1" target="03_GBH_005+complete"/>
-      <arc id="d2dd4a11-c710-4aeb-9475-aaeeed954084" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
+      <arc id="235f7517-b4ad-4358-a4e1-8ba5a9a6927a" source="n1" target="03_GBH_005+complete"/>
+      <arc id="40da948d-5839-4082-9266-a2163c822cd5" source="03_GBH_005+complete" target="n2"/>
     </page>
   </net>
 </pnml>

@@ -1,40 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="3fbaebe7-e465-439b-a873-6f11e52b0cb0" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="2165c36a-22c4-47e3-a6a2-f55f9179615a" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id="cc78af6e-504b-4721-a1ca-f597a9179d65">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
-      <place id=""/>
       <place id="n1">
         <name>
           <text>source 8622</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
-      <place id="3c97b4cb-81d1-49c0-83d8-852e896236ff"/>
       <place id="n2">
         <name>
           <text>sink 8623</text>
         </name>
       </place>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
       <transition id="06_OLO_100+complete">
         <name>
           <text>message change status</text>
         </name>
       </transition>
-      <arc id="996c6891-f308-406a-8216-0ec88a1f8508" source="cc78af6e-504b-4721-a1ca-f597a9179d65" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="e8b5c503-743f-4748-97af-9c0ae43afdfc" source="n1" target="06_OLO_100+complete"/>
-      <arc id="ff8b8b7e-2a82-48e1-9641-bf8584f3dbeb" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="3c97b4cb-81d1-49c0-83d8-852e896236ff"/>
-      <arc id="afd37739-9f64-4f9c-af1b-93ec8ae8f843" source="06_OLO_100+complete" target="n2"/>
-      <arc id="bef45cc4-99b4-4e46-9b58-7697de1ec39e" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="ee2d7887-5dc6-44b1-86f7-1434ce3c4670" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
+      <arc id="8efaf9ee-b5be-4750-8a51-eee005658f15" source="06_OLO_100+complete" target="n2"/>
+      <arc id="484e0002-591f-4862-87b7-8292829929b1" source="n1" target="06_OLO_100+complete"/>
     </page>
   </net>
 </pnml>

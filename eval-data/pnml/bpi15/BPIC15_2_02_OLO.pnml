@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="d93152e3-a892-479d-bb94-8d29bb380e37" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="6bd1f090-95e4-482a-8aa1-1cc16a465403" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id=""/>
-      <place id="4af753f2-f10e-4905-966a-ad5be8e11a64">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
-      <place id="0937fc0d-1fd5-4bd3-9b22-f991e3748da3"/>
       <place id="n1">
         <name>
           <text>source 8052</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n2">
         <name>
@@ -27,14 +23,8 @@
           <text>message change competent authority</text>
         </name>
       </transition>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="de0209b1-6406-48dc-8df6-46fec218d704" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="fe8c9943-1b51-429d-aeba-9bd3322a0214" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="6e239c03-71e1-4996-816f-843d8f4caba4" source="02_OLO_100+complete" target="n2"/>
-      <arc id="2e1b2f0a-5cfa-4daf-bebf-6089c4a5082d" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="0937fc0d-1fd5-4bd3-9b22-f991e3748da3"/>
-      <arc id="b3269c1d-fbfb-4122-8e40-06ec2baf9823" source="4af753f2-f10e-4905-966a-ad5be8e11a64" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="81700bea-ff66-4766-ae47-ba33ec7e1c70" source="n1" target="02_OLO_100+complete"/>
+      <arc id="410d87d2-b604-408b-a364-1ef683f8d17b" source="n1" target="02_OLO_100+complete"/>
+      <arc id="6336d3ed-cd03-4c30-9c24-93eee52b9b4b" source="02_OLO_100+complete" target="n2"/>
     </page>
   </net>
 </pnml>

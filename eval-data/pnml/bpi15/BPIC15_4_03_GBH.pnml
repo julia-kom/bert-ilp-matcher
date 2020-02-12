@@ -1,40 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="48f74b81-bb11-43f9-83a6-6f1efad18035" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="edbb304c-1585-4832-923b-5c1b3fbbe710" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id=""/>
       <place id="n1">
         <name>
           <text>source 8587</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 8588</text>
         </name>
       </place>
-      <place id="a5263291-8095-459d-bfd2-a73cd3a341b1">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
-      <place id="194e1ab7-8868-4c32-a16a-d15dfaf054ae"/>
       <transition id="03_GBH_005+complete">
         <name>
           <text>applicant is stakeholder</text>
         </name>
       </transition>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="03419b32-5bed-4f58-83fc-0468ec934590" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="fc08f5b0-359b-48c7-841a-d33bb3aba82b" source="n1" target="03_GBH_005+complete"/>
-      <arc id="73865ce0-7384-4aa0-80a1-4373ea767379" source="03_GBH_005+complete" target="n2"/>
-      <arc id="aee17fe3-ba5a-4705-852f-66e2a207caf1" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="d02cd812-a106-4454-8f5d-439ee62e6c94" source="a5263291-8095-459d-bfd2-a73cd3a341b1" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="58f93d06-4811-46f7-84af-050ee5c8cd9f" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="194e1ab7-8868-4c32-a16a-d15dfaf054ae"/>
+      <arc id="fe948aac-4175-49b2-a8a4-bf7792bdb419" source="03_GBH_005+complete" target="n2"/>
+      <arc id="b9cf556c-d73e-4d09-a68d-47c0062e10cb" source="n1" target="03_GBH_005+complete"/>
     </page>
   </net>
 </pnml>

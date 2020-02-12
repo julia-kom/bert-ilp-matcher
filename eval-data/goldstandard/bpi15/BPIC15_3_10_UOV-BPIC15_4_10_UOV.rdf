@@ -267,16 +267,16 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_3_10_UOV#10_UOV_050_2+complete'/>
-      <entity2 rdf:resource='http://BPIC15_4_10_UOV#10_UOV_050_2+complete'/>
+      <entity1 rdf:resource='http://BPIC15_3_10_UOV#10_UOV_039+complete'/>
+      <entity2 rdf:resource='http://BPIC15_4_10_UOV#10_UOV_039+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://BPIC15_3_10_UOV#10_UOV_039+complete'/>
-      <entity2 rdf:resource='http://BPIC15_4_10_UOV#10_UOV_039+complete'/>
+      <entity1 rdf:resource='http://BPIC15_3_10_UOV#10_UOV_050_2+complete'/>
+      <entity2 rdf:resource='http://BPIC15_4_10_UOV#10_UOV_050_2+complete'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
     </Cell>

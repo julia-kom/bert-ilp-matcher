@@ -1,40 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="c7e913eb-1c76-44b2-bc6b-5bd19974acb6" type="http://www.pnml.org/version-2009/grammar/ptnet">
+  <net id="73e079ce-9e18-406f-8824-6135f8aaeefd" type="http://www.pnml.org/version-2009/grammar/ptnet">
     <name>
       <text/>
     </name>
     <page id="page0">
-      <place id="16949a28-35a8-4fe0-b9b4-d57fe441f571">
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
-      </place>
-      <place id=""/>
       <place id="n1">
         <name>
           <text>source 8589</text>
         </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
       </place>
       <place id="n2">
         <name>
           <text>sink 8590</text>
         </name>
       </place>
-      <place id="3bd9a734-05da-4d90-a698-508584cc2925"/>
       <transition id="03_VD_060_0+complete">
         <name>
           <text>create cover letter extend procedure term</text>
         </name>
       </transition>
-      <transition id="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <transition id="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="ae26903b-a8da-41ef-b133-8c6f19b7a246" source="28a9fdbb-dfff-4a78-bf50-0e3048dfe700" target="3bd9a734-05da-4d90-a698-508584cc2925"/>
-      <arc id="bd0bd286-09eb-4d94-94fa-4ba3ff9b946f" source="" target="28a9fdbb-dfff-4a78-bf50-0e3048dfe700"/>
-      <arc id="f24e79b5-0f68-4053-aae9-52e8e881df9d" source="16949a28-35a8-4fe0-b9b4-d57fe441f571" target="e62bff5a-c59c-44c9-b2ac-7ca699200a84"/>
-      <arc id="7f1a9940-e6e8-4c28-8ab2-d7cbe7653b86" source="03_VD_060_0+complete" target="n2"/>
-      <arc id="34d6070b-b9e5-4fe2-880c-2d5c79c50233" source="e62bff5a-c59c-44c9-b2ac-7ca699200a84" target="n1"/>
-      <arc id="82e4e73d-33f4-49de-b9a3-887ce43c65f2" source="n1" target="03_VD_060_0+complete"/>
+      <arc id="2387fb8b-5488-4b8a-9ba3-32fd6c951a9d" source="03_VD_060_0+complete" target="n2"/>
+      <arc id="9dd9ee84-837f-4801-994f-755506e3f039" source="n1" target="03_VD_060_0+complete"/>
     </page>
   </net>
 </pnml>
