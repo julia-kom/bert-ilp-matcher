@@ -1,9 +1,7 @@
 package bpm.matcher;
 
 import com.hp.hpl.jena.util.FileUtils;
-import org.jbpt.petri.NetSystem;
-import org.jbpt.petri.Node;
-import org.jbpt.petri.Transition;
+import org.jbpt.petri.*;
 import org.jbpt.petri.io.PNMLSerializer;
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,6 +9,7 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Set;
@@ -63,10 +62,10 @@ public class ParserTest {
         File sap = new File("eval-data/pnml/sap");
         File uni = new File("eval-data/pnml/uni");
         File bpi15 = new File("eval-data/pnml/bpi15");
-        parserComp(birth.listFiles());
-        parserComp(sap.listFiles());
-        parserComp(uni.listFiles());
-        parserComp(bpi15.listFiles());
+        parserComp(birth);
+        parserComp(sap);
+        parserComp(uni);
+        parserComp(bpi15);
     }
 
     /**
@@ -76,27 +75,85 @@ public class ParserTest {
      * As the old parser sometimes deletes the beginning of the label it is fine too if a transitions label of the
      * old parsers net is substring of the new parsers transition's label
      */
-    private void parserComp(File[] files) throws Exception {
+    private void parserComp(File path) throws Exception {
+        File[] files = path.listFiles(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return name.toLowerCase().endsWith(".pnml");
+            }
+        });
         PNMLSerializer oldSerializer = new PNMLSerializer();
         Parser newParser = new Parser();
+
+        //test if transitions are the same (up to the point where the bug is fixed)
+        System.out.println("Transitions: New Parser vs. Old Parser");
         for(File f : files){
             NetSystem oldNet = oldSerializer.parse(f.getAbsolutePath());
             NetSystem newNet = newParser.parse(f);
 
             //check all nodes of old net
-            Set<Node> newNodes = newNet.getNodes();
-            for(Node n : oldNet.getNodes()){
-              Assert.assertTrue("Node" +n.getId() +n.getLabel()+ "not included in new net" ,isInculded(newNet, n));
-            }
-
-            //check all nodes of old net
-            Set<Node> oldNodes = oldNet.getNodes();
-            for(Node n : newNet.getNodes()){
-                Assert.assertTrue("Node" +n.getId() +n.getLabel()+ "not included in new net" ,isInculded(newNet, n));
+            Set<Transition> newNodes = newNet.getTransitions();
+            for(Node n : oldNet.getTransitions()){
+              Assert.assertTrue("Node" +n.getId()+ " " +n.getLabel() + "not included in new net" +f.getName() ,isSubstring(newNet, n));
             }
 
         }
 
+        System.out.println("Transitions: Old Parser vs. New Parser");
+        for(File f : files){
+            NetSystem oldNet = oldSerializer.parse(f.getAbsolutePath());
+            NetSystem newNet = newParser.parse(f);
+
+            //check all nodes of old net
+            Set<Transition> oldNodes = oldNet.getTransitions();
+            for(Node n : newNet.getTransitions()){
+                Assert.assertTrue("Node" +n.getId() +n.getLabel()+ "not included in old net" ,isSuperstring(oldNet, n));
+            }
+
+        }
+
+        // test if arcs are the same
+        System.out.println("Arcs: Old Parser vs. New Parser");
+        for(File f : files){
+            NetSystem oldNet = oldSerializer.parse(f.getAbsolutePath());
+            NetSystem newNet = newParser.parse(f);
+
+            Collection<Flow> newEdges = newNet.getEdges();
+            Collection<Flow> oldEdges = oldNet.getEdges();
+
+            for(Flow nEdge : newEdges){
+                Assert.assertTrue("New edge "+nEdge+"not included in new net",containsFlow(oldEdges,nEdge));
+            }
+            for(Flow oEdge : oldEdges){
+                Assert.assertTrue("Old edge "+oEdge+"not included in new net",containsFlow(newEdges,oEdge));
+            }
+
+        }
+
+        // net props
+        for(File f : files) {
+            NetSystem oldNet = oldSerializer.parse(f.getAbsolutePath());
+            NetSystem newNet = newParser.parse(f);
+            //Name
+            Assert.assertTrue("Net Names not matching", oldNet.getName().equals(newNet.getName()));
+            //Initial Marking
+            Assert.assertTrue("Initial Marking not matching", oldNet.getMarkedPlaces().iterator().next().getId()
+                    .equals(oldNet.getMarkedPlaces().iterator().next().getId()));
+
+        }
+    }
+
+
+
+    private static boolean containsFlow(Collection<Flow> flows, Flow f){
+        for(Flow g : flows){
+            if(g.getSource().getId().equals(f.getSource().getId()) &&
+                    g.getTarget().getId().equals(f.getTarget().getId())){
+                return true;
+            }else{
+
+            }
+        }
+        return false;
     }
 
     /**
@@ -107,14 +164,42 @@ public class ParserTest {
      * @param n
      * @return
      */
-    private static boolean isInculded(NetSystem net, Node n){
+    private static boolean isSubstring(NetSystem net, Node n){
         String substring = "";
-        for(Node m : net.getNodes()){
+        for(Node m : net.getTransitions()){
             if(m.getId().equals(n.getId())){
                 if(m.getLabel().equals(n.getLabel())){
                     return true;
                 }else if(m.getLabel().contains(n.getLabel())){
-                    substring = m.getLabel() + " is substring of net's " + net.getName() +" node " + n.getLabel() + "( Id: "+ n.getId() + ")";
+                    substring =">>"+ m.getLabel() + "<< is superstring of net's " + net.getName() +" node >>" + n.getLabel() + "<< ( Id: "+ n.getId() + ")";
+                }
+            }
+        }
+        if(substring.equals("")){
+            return false;
+        }else{
+            System.err.println(substring);
+            return true;
+        }
+    }
+
+
+    /**
+     * Returns true if Id and label match
+     * Returns true and prints an error when the label is substring of the nets node
+     * Returns false else
+     * @param net
+     * @param n
+     * @return
+     */
+    private static boolean isSuperstring(NetSystem net, Node n){
+        String substring = "";
+        for(Node m : net.getTransitions()){
+            if(m.getId().equals(n.getId())){
+                if(m.getLabel().equals(n.getLabel())){
+                    return true;
+                }else if(n.getLabel().contains(m.getLabel())){
+                    substring =">>"+ m.getLabel() + "<< is substring of net's " + net.getName() +" node >>" + n.getLabel() + "<< ( Id: "+ n.getId() + ")";
                 }
             }
         }

@@ -29,7 +29,6 @@ import java.util.HashMap;
 /**
  * Pnml Parser
  */
-@Deprecated
 public  class Parser {
 
     Xml xmlParser = new Xml();
@@ -190,7 +189,6 @@ public  class Parser {
 
     }
 
-    @Deprecated
     public class Xml {
         public  Document parse(File f) throws ParserConfigurationException, IOException, SAXException {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
