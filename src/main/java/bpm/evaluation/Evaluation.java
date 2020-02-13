@@ -78,6 +78,11 @@ public class Evaluation {
                 .longOpt("net-path")
                 .desc("Path to the folder containing all the nets that should be compared")
                 .build();
+        Option optLogPath = Option.builder("lp")
+                .hasArg(true)
+                .longOpt("log-path")
+                .desc("Path to the folder containing all the logs that should be compared")
+                .build();
         Option optGoldStandardPath = Option.builder("gsp")
                 .hasArg(true)
                 .longOpt("gold-standard-path")
@@ -137,6 +142,7 @@ public class Evaluation {
         options.addOption(optTl);
         options.addOption(optNl);
         options.addOption(optGSEval);
+        options.addOption(optLogPath);
 
         //parse input
         CommandLine line;
@@ -260,6 +266,13 @@ public class Evaluation {
             String netString = line.getOptionValue("np");
             Path nets = Paths.get(netString);
             evalBuilder = evalBuilder.withBatchPath(nets);
+        }
+
+        // path that contains all nets to compare
+        if (line.hasOption("lp")) {
+            String netString = line.getOptionValue("lp");
+            Path processLogPath = Paths.get(netString);
+            evalBuilder = evalBuilder.withLogPath(processLogPath);
         }
 
         // Gold Standard Path needed for batch

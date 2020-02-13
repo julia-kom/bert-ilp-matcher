@@ -31,6 +31,7 @@ public class Pipeline{
     private boolean retrospective;
     private Path resultPath;
     private Path batchPath;
+    private Path processLogPath;
     private File net1;
     private File net2;
     private File goldStandard;
@@ -132,7 +133,7 @@ public class Pipeline{
         //Run a single evaluation test
         } else if(!retrospective){
             try {
-                Eval eval = singleEval(net1, net2, goldStandard);
+                Eval eval = singleEval(net1, null, net2, null, goldStandard); // todo add log. But actually single eval is never done.
                 try {
                     eval.toCSV(new File("eval-results/" + logFolder + "/"+eval.getName()+".eval"));
                 }catch(IOException e){
@@ -158,17 +159,19 @@ public class Pipeline{
     /**
      * Perform single evaluation
      * @param n1 net 1
+     * @param l1 log 1
      * @param n2 net 2
+     * @param l2 log 2
      * @param gs gold standard
      * @return
      */
-    public Eval singleEval(File n1, File n2, File gs) throws Exception{
+    public Eval singleEval(File n1, File l1, File n2, File l2, File gs) throws Exception{
         // Initialize timer
         ExecutionTimer timer = new ExecutionTimer();
         timer.startOverallTime();
 
         // Compute Alignment
-        Result result = matchingPipeline.run(n1,null,n2, null,timer); //TODO add log
+        Result result = matchingPipeline.run(n1, l1, n2, l2,timer);
 
         // Stop timer
         timer.stopOverallTime();
@@ -226,11 +229,25 @@ public class Pipeline{
                         System.gc(); // hint to garbage collect old entries which are not needed anymore
                         String model1 = f1.getName().substring(0,f1.getName().length()-5);
                         String model2 = f2.getName().substring(0,f2.getName().length()-5);
+
+                        //get gold standard
                         File gs = new File(goldStandardPath+"/"+model1+"-"+model2+".rdf");
                         if(!gs.exists()){
                             throw new FileNotFoundException("File not found:" + gs.toString());
                         }
-                        evals.add(singleEval(f1, f2, gs));
+
+                        //get log files if exist
+                        File log1 = null;
+                        File log2 = null;
+                        if(processLogPath != null) {
+                            log1 = new File(processLogPath + "/" + f1.getName().replace("pnml", "xes"));
+                            log2 = new File(processLogPath + "/" + f1.getName().replace("pnml", "xes"));
+                            if (!log1.exists() || !log2.exists()) {
+                                throw new Exception("Log file does not exist. Continue without log information: " + log1.toString() + " or "+ log2.toString());
+                            }
+                        }
+                        //run eval and append
+                        evals.add(singleEval(f1, log1, f2, log2, gs));
                     }catch(Exception e){
                         System.out.println("Evaluation of "+  f1.getName() + " to " + f2.getName() +
                                 "threw an Exception: " + e.getMessage());
@@ -345,6 +362,9 @@ public class Pipeline{
                 if(this.batch){
                     res +=  "Batch Path: " + this.batchPath.toString() + "\n" +
                             "Gold Standard Path" + this.goldStandardPath.toString() + "\n";
+                    if(this.processLogPath != null) {
+                       res += "Log Path: " + this.processLogPath.toString() + "\n";
+                    }
                 }else if(retrospective) {
                     res +=  "Gold Standard Path: " + this.goldStandardPath.toString() + "\n" +
                             "Result Path: " + this.resultPath.toString() + "\n";
@@ -368,6 +388,9 @@ public class Pipeline{
         if(this.batch){
             jsonEval.put("batch-path", this.batchPath.toString());
             jsonEval.put("gs-path", this.goldStandardPath.toString());
+            if(processLogPath!= null) {
+                jsonEval.put("log-path", this.processLogPath.toString());
+            }
         }else if(retrospective) {
             jsonEval.put("gs-path", this.goldStandardPath.toString());
             jsonEval.put("result-path", this.resultPath.toString());
@@ -409,6 +432,7 @@ public class Pipeline{
         private File net2;
         private File goldStandard;
         private Path goldStandardPath;
+        private Path processLogPath;
         private Eval.Strategies evalStrat = Eval.Strategies.BINARY;
         private double postprecessingThreshold = 0;
         private boolean gsEval = false;
@@ -529,6 +553,11 @@ public class Pipeline{
             return this;
         }
 
+        public Builder withLogPath(Path processLogPath) {
+            this.processLogPath = processLogPath;
+            return this;
+        }
+
         /**
          * Set post processing threshold for the pipeline
          * @param p
@@ -564,6 +593,7 @@ public class Pipeline{
             pip.netProfile = this.netProfile;
             pip.postprocessingThreshold = this.postprecessingThreshold;
             pip.gsEval = this.gsEval;
+            pip.processLogPath = this.processLogPath;
 
             //tests
             if(pip.batch && pip.batchPath == null){
