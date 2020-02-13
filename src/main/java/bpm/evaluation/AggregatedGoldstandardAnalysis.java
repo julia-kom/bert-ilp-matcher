@@ -98,6 +98,7 @@ public class AggregatedGoldstandardAnalysis {
                 }
             }
             if(tmp > 1){
+                System.out.println(alignment.getName()+ " is not unique labeled: " +labelNode1  );
                 continue;
             }
 
@@ -108,6 +109,7 @@ public class AggregatedGoldstandardAnalysis {
                 }
             }
             if(tmp > 1){
+                System.out.println(alignment.getName()+ " is not unique labeled: " +labelNode2  );
                 continue;
             }
 

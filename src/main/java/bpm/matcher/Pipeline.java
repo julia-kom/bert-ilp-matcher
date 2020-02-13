@@ -51,6 +51,32 @@ public class Pipeline {
     private Pipeline(){
     }
 
+
+    /**
+     * Run the matching pipeline for the given two petri nets.
+     * @param fileNet1 petri net file path 1 in PNML format
+     * @param fileLog1 log file path 1 of petri net 1 in  XES format
+     * @param fileNet2 petri net file path 2 in PNML format
+     * @param fileLog2 log file path 2 of petri net 2 in  XES format
+     */
+    public Result run(File fileNet1, File fileLog1, File fileNet2, File fileLog2, ExecutionTimer timer){
+        System.out.println("########"+fileNet1.getName()+ " to " +fileNet2.getName()+"#########");
+        if(PRINT_ENABLED) System.out.println("##### Start Net Parsing #####");
+        NetSystem net1 = parseFile(fileNet1);
+        net1.setName(fileNet1.getName());
+        NetSystem net2 = parseFile(fileNet2);
+        net2.setName(fileNet2.getName());
+        if(PRINT_ENABLED) System.out.println("##### Net Parsing Complete #####");
+
+        //parse log files
+        if(PRINT_ENABLED) System.out.println("##### Start Log Parsing #####");
+        XLog log1 = parseLog(fileLog1);
+        XLog log2 = parseLog(fileLog2);
+        if(PRINT_ENABLED) System.out.println("##### Log Parsing Complete #####");
+
+        return run(net1, log1, net2, log2, timer);
+    }
+
     /**
      * Run the matching pipeline for the given two petri nets.
      * @param fileNet1 petri net file path 1 in PNML format
@@ -68,34 +94,24 @@ public class Pipeline {
      * @param fileNet2 petri net file path 2 in PNML format
      */
     public Result run(File fileNet1, File fileNet2){
-        return run(fileNet1, null,fileNet2, null, new ExecutionTimer());
-    }
-
-    /**
-     * Run the timed matching pipeline for the given two petri nets.
-     * @param fileNet1 petri net file path 1 in PNML format
-     * @param fileNet2 petri net file path 2 in PNML format
-     * @param timer timer object which is updated while execution (call by reference)
-     */
-    public Result run(File fileNet1, File fileLog1, File fileNet2, File fileLog2, ExecutionTimer timer){
-        //parse the two petri nets
         System.out.println("########"+fileNet1.getName()+ " to " +fileNet2.getName()+"#########");
-
-        //parse log files
-        if(PRINT_ENABLED) System.out.println("##### Start Log Parsing #####");
-            XLog log1 = parseLog(fileLog1);
-            XLog log2 = parseLog(fileLog2);
-        if(PRINT_ENABLED) System.out.println("##### Log Parsing Complete #####");
-
         if(PRINT_ENABLED) System.out.println("##### Start Net Parsing #####");
         NetSystem net1 = parseFile(fileNet1);
         net1.setName(fileNet1.getName());
         NetSystem net2 = parseFile(fileNet2);
         net2.setName(fileNet2.getName());
-
         if(PRINT_ENABLED) System.out.println("##### Net Parsing Complete #####");
 
+        return run(net1, null, net2, null, new ExecutionTimer());
+    }
 
+    /**
+     * Run the timed matching pipeline for the given two petri nets.
+     * @param net1 petri net file path 1 in PNML format
+     * @param net2 petri net file path 2 in PNML format
+     * @param timer timer object which is updated while execution (call by reference)
+     */
+    public Result run(NetSystem net1, XLog log1, NetSystem net2, XLog log2, ExecutionTimer timer){
         // test if netsystems transitions are all in the log
         if(PRINT_ENABLED) System.out.println("##### Start Log Check Up #####");
         //TODO

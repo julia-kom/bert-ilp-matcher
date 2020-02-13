@@ -1,5 +1,8 @@
 package bpm.matcher;
 
+import bpm.alignment.Result;
+import bpm.evaluation.ExecutionTimer;
+import bpm.profile.AbstractProfile;
 import bpm.profile.DirectlyFollowsLogProfile;
 import bpm.profile.EventuallyFollowsLogProfile;
 import org.deckfour.xes.factory.XFactoryNaiveImpl;
@@ -89,7 +92,7 @@ public class LogProfileTest {
 
         //LOG2: <e1,e2,e3,e6>^39
         log2 = factory.createLog();
-        for (int i = 0; i < 39; i++) {
+        for (int i = 0; i < 40; i++) {
             log2.add(t3);
         }
     }
@@ -335,4 +338,43 @@ public class LogProfileTest {
         map.put("action_code",a);
         return factory.createEvent(map);
     }
+
+    @Test
+    public void paperExample(){
+        //Directly Follows
+        Pipeline p = new Pipeline.Builder().withILP("BASIC5").withProfile(AbstractProfile.Profile.LOG_DF).atSimilarityWeight(1).atPostprocessThreshold(0.0).Build();
+        Result res1 = p.run(model1,log1,model2,log2, new ExecutionTimer());
+        Result res2 = p.run(model1,log1,model2,null, new ExecutionTimer());
+        Result res3 = p.run(model1,null,model2,null, new ExecutionTimer());
+        Result res4 = p.run(model1,null,model2,log2, new ExecutionTimer());
+
+        Assert.assertTrue(res1.getSimilarity() < 1.0); // We detect that it is not perfect to take on
+        Assert.assertTrue(res2.getSimilarity() < 1.0);
+        Assert.assertTrue(res3.getSimilarity() == 1.0);
+        Assert.assertTrue(res4.getSimilarity() == 1.0);
+        System.out.println(res1.toString());
+        System.out.println(res2.toString());
+        System.out.println(res3.toString());
+        System.out.println(res4.toString());
+
+        //Eventually follows
+        Pipeline q = new Pipeline.Builder().withILP("BASIC5").withProfile(AbstractProfile.Profile.LOG_EF).atSimilarityWeight(1).atPostprocessThreshold(0.0).Build();
+        Result res5 = q.run(model1,log1,model2,log2, new ExecutionTimer());
+        Result res6 = q.run(model1,log1,model2,null, new ExecutionTimer());
+        Result res7 = q.run(model1,null,model2,null, new ExecutionTimer());
+        Result res8 = q.run(model1,null,model2,log2, new ExecutionTimer());
+
+        Assert.assertTrue(res5.getSimilarity() < 1.0); // We detect that it is not perfect to take on
+        Assert.assertTrue(res6.getSimilarity() < 1.0);
+        Assert.assertTrue(res7.getSimilarity() == 1.0);
+        Assert.assertTrue(res8.getSimilarity() == 1.0);
+
+        System.out.println(res5.toString());
+        System.out.println(res6.toString());
+        System.out.println(res7.toString());
+        System.out.println(res8.toString());
+
+    }
+
+
 }

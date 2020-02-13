@@ -65,7 +65,7 @@ public class BasicILP5 extends AbstractILP {
 
         GRBVar[][][][] y = new GRBVar[nodesNet1][nodesNet1][nodesNet2][nodesNet2];
         for (int i = 0; i< nodesNet1; i++){
-            for (int k = i; k< nodesNet1; k++){
+            for (int k = 0; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
                         y[i][k][j][l] = model.addVar(0.0, 1.0, 0.0, GRB.BINARY, "y_" + i + "_" + j+"_"+k+"_"+l);
@@ -78,7 +78,7 @@ public class BasicILP5 extends AbstractILP {
         // Behavioral part
         GRBLinExpr behavior = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
-            for (int k = i; k< nodesNet1; k++){
+            for (int k = 0; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
                         // compute the relational similarity
@@ -87,13 +87,7 @@ public class BasicILP5 extends AbstractILP {
                         double relSim = relNet1.getRelationSimilarity(rel1,rel2);
                         // when relational sim is zero we dont add it to the target function
                         if(relSim > 0) {
-                            //by reducing the number of variables, the total sum gets lower too, therefore we fix it by weighting
-                            //every correct entry which is not on the diagonal twice (because of the symmetry of the matrix)
-                            if (i != k && j != l) {
-                                behavior.addTerm(2.0 * relSim / (minSize * minSize), y[i][k][j][l]);
-                            } else {
-                                behavior.addTerm(1.0 * relSim / (minSize * minSize), y[i][k][j][l]);
-                            }
+                            behavior.addTerm(1.0 * relSim / (minSize * minSize), y[i][k][j][l]);
                         }
                     }
                 }
@@ -142,7 +136,7 @@ public class BasicILP5 extends AbstractILP {
 
         // linking between similar entries in the F matrices and the mapping
         for (int i = 0; i< nodesNet1; i++){
-            for (int k = i; k < nodesNet1; k++){
+            for (int k = 0; k < nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++){
                     for (int l = 0; l < nodesNet2; l++) {
                         GRBLinExpr con3 = new GRBLinExpr();
