@@ -14,6 +14,7 @@ public class Word {
         JIANG,
         LEVENSHTEIN,
         LEVENSHTEIN_LIN_MAX,
+        NOISE,
         LEVENSHTEIN_JIANG_MAX
     }
 

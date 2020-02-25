@@ -28,7 +28,14 @@ public class Matrix{
      */
     private void construct(){
         this.similarities = new HashMap<>();
-        LabelSimilarity labelSimilarity = new LabelSimilarity(wordSimilarityFunction);
+        LabelSimilarity labelSimilarity;
+        if(wordSimilarityFunction.equals(Word.Similarities.NOISE)){
+            //this is needed for the similarity tests in the thesis
+            labelSimilarity = new NormalDistributionLabelSimilarity(wordSimilarityFunction);
+            System.out.println("note: you use the noise option for word and label.");
+        }else {
+            labelSimilarity = new LabelSimilarity(wordSimilarityFunction);
+        }
         // fill the matrix
         for(Transition n1 : nodesNet1){
             for (Transition n2 : nodesNet2){
