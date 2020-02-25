@@ -50,3 +50,4 @@ eval-results/
 *.db
 WordNet-3.0/
 evidence.db
+cache.json
