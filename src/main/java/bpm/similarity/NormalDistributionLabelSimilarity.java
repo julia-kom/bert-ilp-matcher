@@ -14,11 +14,11 @@ import java.util.Set;
 
 public class NormalDistributionLabelSimilarity extends LabelSimilarity {
 
-    private double nonMatchingMean = 0.2;
-    private double nonMatchingVariance = 0.4;
+    private double nonMatchingMean = 0.0;
+    private double nonMatchingVariance = 0.35;
 
-    private double matchingMean = 0.8;
-    private double matchingVariance = 0.4;
+    private double matchingMean = 1.0;
+    private double matchingVariance = 0.35;
 
     private static final File CACHE = new File("cache.json");
     private HashMap<String, Double> cache;
