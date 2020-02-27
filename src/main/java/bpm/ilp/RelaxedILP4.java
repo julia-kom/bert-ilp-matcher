@@ -43,7 +43,7 @@ public class RelaxedILP4 extends AbstractILP {
         Node[] nodeNet2 =  net2.toArray(new Node[net2.size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
-        int minSize = Math.min(nodesNet1,nodesNet2);
+        int minSize = Math.max(nodesNet1,nodesNet2);
 
 
 
