@@ -39,6 +39,7 @@ public class Matrix{
         // fill the matrix
         for(Transition n1 : nodesNet1){
             for (Transition n2 : nodesNet2){
+                //System.out.println(n1.getLabel()+" --"+ n2.getLabel() +":"+ labelSimilarity.BagOfWords(n1.getLabel(), n2.getLabel()));
                 similarities.put(new ImmutablePair<>(n1.getLabel(), n2.getLabel()), labelSimilarity.BagOfWords(n1.getLabel(), n2.getLabel()));
             }
         }

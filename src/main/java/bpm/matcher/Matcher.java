@@ -243,27 +243,32 @@ public class Matcher {
 
         // parse log net 1 and 2 (those are optional. If given and a profile that can handle those is
         // chosen they will be used. Otherwise not
-        File log1;
-        File log2;
+        File log1 = null;
+        File log2 = null;
         String log1String = line.getOptionValue("l1");
         String log2String = line.getOptionValue("l2");
-        try {
-            log1 = new File(n1String);
-            if (!log1.exists()) {
-                throw new FileNotFoundException("Net 1 file not found under" + log1String);
+
+        if(log1String == null || log2String == null){
+            System.out.println("Run without logs");
+        }else {
+            try {
+                log1 = new File(log1String);
+                if (!log1.exists()) {
+                    throw new FileNotFoundException("Log 1 file not found under" + log1String);
+                }
+            } catch (FileNotFoundException fileExp) {
+                //if no log given, then we work without a log
+                log1 = null;
             }
-        } catch (FileNotFoundException fileExp) {
-            //if no log given, then we work without a log
-            log1 = null;
-        }
-        try {
-            log2 = new File(n2String);
-            if (!log2.exists()) {
-                throw new FileNotFoundException("Net 2 file not found under" + log2String);
+            try {
+                log2 = new File(log2String);
+                if (!log2.exists()) {
+                    throw new FileNotFoundException("Log 2 file not found under" + log2String);
+                }
+            } catch (FileNotFoundException fileExp) {
+                //if no log given, then we work without a log
+                log2 = null;
             }
-        } catch (FileNotFoundException fileExp) {
-            //if no log given, then we work without a log
-            log2 = null;
         }
 
         //Build pipeline
