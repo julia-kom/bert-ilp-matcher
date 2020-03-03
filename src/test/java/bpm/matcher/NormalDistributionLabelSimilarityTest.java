@@ -43,9 +43,9 @@ public class NormalDistributionLabelSimilarityTest {
         for(File f1 : path.listFiles()) {
             for(File f2 : path.listFiles()) {
                 Pipeline matcher = new Pipeline.Builder()
-                        .atSimilarityWeight(1.0)
+                        .atSimilarityWeight(0.5)
                         .withWordSimilarity("NOISE")
-                        .withProfile(AbstractProfile.Profile.BP)
+                        .withProfile(AbstractProfile.Profile.BPP)
                         .atPostprocessThreshold(0.0)
                         .withILP("BASIC2").Build();
 

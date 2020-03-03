@@ -14,6 +14,8 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.File;
+
 
 public class LogProfileTest {
     private static XLog log1;
@@ -211,6 +213,47 @@ public class LogProfileTest {
         Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t4).getFrequency()) < 0.0001);
     }
 
+    @Test
+    public  void eventuallyFollowsTestNoLog(){
+        EventuallyFollowsLogProfile profile = new EventuallyFollowsLogProfile(model1,null);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t1).getFrequency())==0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t2).getFrequency() ) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t4).getFrequency()) ==1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t3).getFrequency())== 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t5).getFrequency() ) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t6).getFrequency()) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t1).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t2).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t3).getFrequency()) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t4).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t5).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t6).getFrequency() ) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t2).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t3).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t4).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t5).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t6).getFrequency()) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t1).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t2).getFrequency()) ==0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t3).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t4).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t5).getFrequency()) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t6).getFrequency()) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t1).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t2).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t3).getFrequency()) ==0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t4).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t5).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t6).getFrequency()) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t6).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t5).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t3).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t1).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t2).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t4).getFrequency()) == 0);
+    }
+
+
 
 
     @Test
@@ -368,5 +411,15 @@ public class LogProfileTest {
 
     }
 
+    @Test
+    public void realTest(){
+        Pipeline p = new Pipeline.Builder().withILP("BASIC5").withProfile(AbstractProfile.Profile.LOG_EF).atSimilarityWeight(0.2).atPostprocessThreshold(0.0).withILPTimeLimit(1200).Build();
+        Pipeline.PRINT_ENABLED = true;
+        File f1 = new File("./eval-data/pnml/bpi15/BPIC15_5_01_BB.pnml");
+        File f2 = new File("./eval-data/pnml/bpi15/BPIC15_2_01_BB.pnml");
+        File l1 = new File("./eval-data/xes/bpi15/BPIC15_5_01_BB.xes");
+        File l2 = new File("./eval-data/xes/bpi15/BPIC15_2_01_BB.xes");
+        p.run(f1,l1,f2,l2);
+    }
 
 }
