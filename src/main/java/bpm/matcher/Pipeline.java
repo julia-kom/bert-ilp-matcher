@@ -31,7 +31,7 @@ import static java.lang.System.exit;
 /**
  * Matching Pipeline. Note, use builder to construct.
  */
-public class Pipeline {
+public class Pipeline implements MatchingPipeline{
     public static boolean PRINT_ENABLED = false;
     private boolean complexMatches;
     private boolean prematch;
@@ -58,7 +58,9 @@ public class Pipeline {
      * @param fileLog1 log file path 1 of petri net 1 in  XES format
      * @param fileNet2 petri net file path 2 in PNML format
      * @param fileLog2 log file path 2 of petri net 2 in  XES format
+     * @param timer the timer object
      */
+    @Override
     public Result run(File fileNet1, File fileLog1, File fileNet2, File fileLog2, ExecutionTimer timer){
         System.out.println("########"+fileNet1.getName()+ " to " +fileNet2.getName()+"#########");
         if(PRINT_ENABLED) System.out.println("##### Start Net Parsing #####");
@@ -84,6 +86,7 @@ public class Pipeline {
      * @param fileNet2 petri net file path 2 in PNML format
      * @param fileLog2 log file path 2 of petri net 2 in  XES format
      */
+    @Override
     public Result run(File fileNet1, File fileLog1, File fileNet2, File fileLog2){
        return run(fileNet1, fileLog1, fileNet2, fileLog2, new ExecutionTimer());
     }
@@ -92,8 +95,11 @@ public class Pipeline {
      * Run the matching pipeline for the given two petri nets.
      * @param fileNet1 petri net file path 1 in PNML format
      * @param fileNet2 petri net file path 2 in PNML format
+     * @param timer the timer object
+     * @return
      */
-    public Result run(File fileNet1, File fileNet2){
+    @Override
+    public Result run(File fileNet1, File fileNet2, ExecutionTimer timer) {
         System.out.println("########"+fileNet1.getName()+ " to " +fileNet2.getName()+"#########");
         if(PRINT_ENABLED) System.out.println("##### Start Net Parsing #####");
         NetSystem net1 = parseFile(fileNet1);
@@ -101,8 +107,18 @@ public class Pipeline {
         NetSystem net2 = parseFile(fileNet2);
         net2.setName(fileNet2.getName());
         if(PRINT_ENABLED) System.out.println("##### Net Parsing Complete #####");
+        return run(net1, null, net2, null, timer);
 
-        return run(net1, null, net2, null, new ExecutionTimer());
+    }
+
+    /**
+     * Run the matching pipeline for the given two petri nets.
+     * @param fileNet1 petri net file path 1 in PNML format
+     * @param fileNet2 petri net file path 2 in PNML format
+    */
+    @Override
+    public Result run(File fileNet1, File fileNet2){
+        return run(fileNet1, null, fileNet2, null, new ExecutionTimer());
     }
 
     /**

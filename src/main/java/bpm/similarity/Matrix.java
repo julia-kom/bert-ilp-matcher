@@ -29,7 +29,7 @@ public class Matrix{
     private void construct(){
         this.similarities = new HashMap<>();
         LabelSimilarity labelSimilarity;
-        if(wordSimilarityFunction.equals(Word.Similarities.NOISE)){
+        if(wordSimilarityFunction.equals(Word.Similarities.NOISY)){
             //this is needed for the similarity tests in the thesis
             labelSimilarity = new NormalDistributionLabelSimilarity(wordSimilarityFunction);
             System.out.println("note: you use the noise option for word and label.");

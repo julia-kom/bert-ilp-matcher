@@ -14,7 +14,7 @@ public class Word {
         JIANG,
         LEVENSHTEIN,
         LEVENSHTEIN_LIN_MAX,
-        NOISE,
+        NOISY,
         LEVENSHTEIN_JIANG_MAX
     }
 
@@ -26,6 +26,9 @@ public class Word {
      */
     public static double LinSimilarity(String s1, String s2){
         WS4JConfiguration.getInstance().setMFS(false);
+        if (s1.isEmpty() || s2.isEmpty()){
+            return 0.0;
+        }
         if(s1.equals(s2)){
             return 1.0;
         }else{

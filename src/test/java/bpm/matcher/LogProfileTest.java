@@ -413,7 +413,7 @@ public class LogProfileTest {
 
     @Test
     public void realTest(){
-        Pipeline p = new Pipeline.Builder().withILP("BASIC5").withProfile(AbstractProfile.Profile.LOG_EF).atSimilarityWeight(0.2).atPostprocessThreshold(0.0).withILPTimeLimit(1200).Build();
+        Pipeline p = new Pipeline.Builder().withILP("BASIC5").withProfile(AbstractProfile.Profile.LOG_EF).atSimilarityWeight(0.2).atPostprocessThreshold(0.0).withILPTimeLimit(10).Build();
         Pipeline.PRINT_ENABLED = true;
         File f1 = new File("./eval-data/pnml/bpi15/BPIC15_5_01_BB.pnml");
         File f2 = new File("./eval-data/pnml/bpi15/BPIC15_2_01_BB.pnml");

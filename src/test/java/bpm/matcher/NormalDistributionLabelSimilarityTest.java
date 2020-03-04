@@ -36,7 +36,7 @@ public class NormalDistributionLabelSimilarityTest {
     }
 
 
-    @Test
+    //@Test
     public void simTest(){
         File path = new File("eval-data/pnml/sim-comp");
 
@@ -44,7 +44,7 @@ public class NormalDistributionLabelSimilarityTest {
             for(File f2 : path.listFiles()) {
                 Pipeline matcher = new Pipeline.Builder()
                         .atSimilarityWeight(0.5)
-                        .withWordSimilarity("NOISE")
+                        .withWordSimilarity("NOISY")
                         .withProfile(AbstractProfile.Profile.BPP)
                         .atPostprocessThreshold(0.0)
                         .withILP("BASIC2").Build();

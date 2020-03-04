@@ -2,6 +2,7 @@ package bpm.evaluation;
 
 import bpm.alignment.Alignment;
 import bpm.alignment.Result;
+import bpm.matcher.MatchingPipeline;
 import bpm.profile.AbstractProfile;
 import org.json.simple.parser.JSONParser;
 import org.jbpt.petri.NetSystem;
@@ -22,7 +23,7 @@ import static java.lang.System.exit;
 
 public class Pipeline{
     //Standard matcher options
-    private bpm.matcher.Pipeline matchingPipeline;
+    private MatchingPipeline matchingPipeline;
 
     //Evaluation specific options
     private boolean batch;
@@ -41,6 +42,39 @@ public class Pipeline{
     private double postprocessingThreshold;
     private boolean gsEval;
 
+    /**
+     * Returns those files in path which are of one of the types defined in the second parameter.
+     * @param path
+     * @param types
+     * @return
+     */
+    // TODO move this somewhere better. Doesnt really suit here
+    public static File[] listFilesOfType(File path, final String[] types){
+        File[] files =  path.listFiles(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                for(String t : types) {
+                    if(name.toLowerCase().endsWith("."+t)){
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+        return files;
+    }
+
+    /**
+     *  Returns those files in path which is of the type defined in the second parameter.
+     * @param path
+     * @param type
+     * @return
+     */
+    public static File[] listFilesOfType(File path, String type){
+        String[] types = new String[]{type};
+        return listFilesOfType(path,types);
+    }
+
+
     public void run(){
 
         // Run a net evaluation test
@@ -53,11 +87,8 @@ public class Pipeline{
                 netAnalysis = null;
             }
             // get files
-            File[] files =  batchPath.toFile().listFiles(new FilenameFilter() {
-                public boolean accept(File dir, String name) {
-                    return name.toLowerCase().endsWith(".pnml");
-                }
-            });
+            File[] files = listFilesOfType(batchPath.toFile(), new String[]{"epml","pnml"});
+
 
             // add to csv
             for(File f : files){
@@ -86,11 +117,7 @@ public class Pipeline{
                 gsAnalysis = null;
             }
             // get files
-            File[] files =  goldStandardPath.toFile().listFiles(new FilenameFilter() {
-                public boolean accept(File dir, String name) {
-                    return name.toLowerCase().endsWith(".rdf");
-                }
-            });
+            File[] files = listFilesOfType(goldStandardPath.toFile(),"rdf");
 
 
             // add to csv
@@ -171,7 +198,7 @@ public class Pipeline{
         timer.startOverallTime();
 
         // Compute Alignment
-        Result result = matchingPipeline.run(n1, l1, n2, l2,timer);
+        Result result = matchingPipeline.run(n1, l1, n2, l2, timer);
 
         // Stop timer
         timer.stopOverallTime();
@@ -214,11 +241,7 @@ public class Pipeline{
      */
     public List<Eval> batchEval(){
         // Get all pnml files in the batch dir
-        File[] files =  batchPath.toFile().listFiles(new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                return name.toLowerCase().endsWith(".pnml");
-            }
-        });
+        File[] files =  listFilesOfType(batchPath.toFile(),new String[]{"pnml","epml"});
 
         // run evaluation for each combination
         List<Eval> evals = new ArrayList<>();
@@ -260,17 +283,9 @@ public class Pipeline{
 
 
     public List<Eval> retrospectiveEval(Path resultPath, Path goldstandardPath){
-        File[] resultFiles =  resultPath.toFile().listFiles(new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                return name.toLowerCase().endsWith(".rdf");
-            }
-        });
+        File[] resultFiles =  listFilesOfType(resultPath.toFile(),"rdf");
 
-        File[] goldstandardFiles =  goldstandardPath.toFile().listFiles(new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                return name.toLowerCase().endsWith(".rdf");
-            }
-        });
+        File[] goldstandardFiles =  listFilesOfType(goldstandardPath.toFile(),"rdf");
 
         if(goldstandardFiles.length == 0){
             throw new Error("Gold Standard Path is empty");
@@ -419,7 +434,7 @@ public class Pipeline{
      */
     public static class Builder{
         // general options
-        private bpm.matcher.Pipeline matchingPipeline = new bpm.matcher.Pipeline.Builder().Build();
+        private bpm.matcher.MatchingPipeline matchingPipeline = new bpm.matcher.Pipeline.Builder().Build();
 
         // Evaluation specific options
         private boolean batch = false;
@@ -445,7 +460,7 @@ public class Pipeline{
          * Perform a batch test on given folder
          * @return
          */
-        public Builder withMatcher(bpm.matcher.Pipeline matchingPipeline){
+        public Builder withMatcher(bpm.matcher.MatchingPipeline matchingPipeline){
             this.matchingPipeline = matchingPipeline;
             return this;
         }

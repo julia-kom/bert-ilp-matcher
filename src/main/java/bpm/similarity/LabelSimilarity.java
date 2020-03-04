@@ -5,14 +5,10 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
-import java.io.File;
-import java.net.URISyntaxException;
 import java.util.*;
 import javax.xml.parsers.*;
 import java.io.*;
 
-import static java.lang.System.exit;
 
 public class LabelSimilarity {
 
