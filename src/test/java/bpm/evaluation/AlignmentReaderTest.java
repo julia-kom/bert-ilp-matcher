@@ -1,9 +1,7 @@
 package bpm.evaluation;
 
-import bpm.alignment.Alignment;
-import bpm.alignment.Correspondence;
-import bpm.ilp.AbstractILP;
-import bpm.matcher.Pipeline;
+import bpm.evaluation.RdfAlignmentReader;
+import bpm.ippm.alignment.Alignment;
 import org.jbpt.petri.Node;
 import org.junit.Assert;
 import org.junit.Rule;
@@ -11,9 +9,6 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
 import static org.junit.Assert.assertTrue;
 

@@ -1,9 +1,10 @@
 package bpm.evaluation;
 
-import bpm.alignment.Alignment;
-import bpm.alignment.Result;
-import bpm.ilp.RelaxedILP3;
-import bpm.matcher.Matcher;
+import bpm.evaluation.AggregatedEval;
+import bpm.evaluation.Eval;
+import bpm.evaluation.Pipeline;
+import bpm.ippm.alignment.Alignment;
+import bpm.ippm.alignment.Result;
 import org.jbpt.petri.Node;
 import org.json.JSONException;
 import org.json.simple.JSONObject;
@@ -17,7 +18,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -172,7 +172,7 @@ public class EvalTest {
         File goldstandard = new File(getClass().getClassLoader().getResource("./goldstandard/birth").getFile());
         File batch = new File(getClass().getClassLoader().getResource("./pnml/birth").getFile());
         //run retrospecitve test
-        bpm.matcher.Pipeline matcher = new bpm.matcher.Pipeline.Builder().withILP("RELAXED3").Build();
+        bpm.ippm.matcher.Pipeline matcher = new bpm.ippm.matcher.Pipeline.Builder().withILP("RELAXED3").Build();
         Pipeline pip = new Pipeline.Builder().withGoldStandard(goldstandard.toPath()).atThreshold(0.7).withBatchPath(batch.toPath()).withBatch().withMatcher(matcher).atThreshold(0.7).build();
         pip.run();
         Path logPath = pip.getLogPath();

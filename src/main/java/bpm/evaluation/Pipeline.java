@@ -1,9 +1,9 @@
 package bpm.evaluation;
 
-import bpm.alignment.Alignment;
-import bpm.alignment.Result;
-import bpm.matcher.MatchingPipeline;
-import bpm.profile.AbstractProfile;
+import bpm.ippm.alignment.Alignment;
+import bpm.ippm.alignment.Result;
+import bpm.ippm.matcher.MatchingPipeline;
+import bpm.ippm.profile.AbstractProfile;
 import org.json.simple.parser.JSONParser;
 import org.jbpt.petri.NetSystem;
 import org.json.JSONException;
@@ -17,8 +17,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import static bpm.matcher.Pipeline.createProfile;
-import static bpm.matcher.Pipeline.parseFile;
+import static bpm.ippm.matcher.Pipeline.createProfile;
+import static bpm.ippm.matcher.Pipeline.parseFile;
 import static java.lang.System.exit;
 
 public class Pipeline{
@@ -302,7 +302,7 @@ public class Pipeline{
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(reader);
             JSONObject matcher = (JSONObject) json.get("matcher");
-            bpm.matcher.Pipeline.Builder builder = new bpm.matcher.Pipeline.Builder()
+            bpm.ippm.matcher.Pipeline.Builder builder = new bpm.ippm.matcher.Pipeline.Builder()
                     .atPostprocessThreshold(Double.valueOf(matcher.get("postprocessing-thresh").toString()))
                     .atSimilarityWeight(Double.valueOf(matcher.get("sim-weight").toString()))
                     .withWordSimilarity(matcher.get("word-sim").toString())
@@ -434,7 +434,7 @@ public class Pipeline{
      */
     public static class Builder{
         // general options
-        private bpm.matcher.MatchingPipeline matchingPipeline = new bpm.matcher.Pipeline.Builder().Build();
+        private MatchingPipeline matchingPipeline = new bpm.ippm.matcher.Pipeline.Builder().Build();
 
         // Evaluation specific options
         private boolean batch = false;
@@ -460,7 +460,7 @@ public class Pipeline{
          * Perform a batch test on given folder
          * @return
          */
-        public Builder withMatcher(bpm.matcher.MatchingPipeline matchingPipeline){
+        public Builder withMatcher(MatchingPipeline matchingPipeline){
             this.matchingPipeline = matchingPipeline;
             return this;
         }

@@ -1,6 +1,6 @@
 package bpm.evaluation;
 
-import bpm.alignment.Alignment;
+import bpm.ippm.alignment.Alignment;
 
 import java.io.File;
 

@@ -1,7 +1,7 @@
 package bpm.evaluation;
 
-import bpm.alignment.Alignment;
-import bpm.alignment.Correspondence;
+import bpm.ippm.alignment.Alignment;
+import bpm.ippm.alignment.Correspondence;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 

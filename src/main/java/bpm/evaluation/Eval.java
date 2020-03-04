@@ -1,8 +1,8 @@
 package bpm.evaluation;
 
-import bpm.alignment.Alignment;
-import bpm.alignment.Correspondence;
-import bpm.alignment.Result;
+import bpm.ippm.alignment.Alignment;
+import bpm.ippm.alignment.Correspondence;
+import bpm.ippm.alignment.Result;
 import org.apache.commons.lang3.NotImplementedException;
 import org.jbpt.petri.Node;
 

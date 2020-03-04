@@ -1,6 +1,6 @@
 package bpm.evaluation;
 
-import bpm.profile.AbstractProfile;
+import bpm.ippm.profile.AbstractProfile;
 import org.apache.commons.cli.*;
 
 import java.io.BufferedWriter;
@@ -159,7 +159,7 @@ public class Evaluation {
 
         //create matching pipeline
         Pipeline.Builder evalBuilder = new Pipeline.Builder();
-        bpm.matcher.Pipeline.Builder matcherBuilder = new bpm.matcher.Pipeline.Builder();
+        bpm.ippm.matcher.Pipeline.Builder matcherBuilder = new bpm.ippm.matcher.Pipeline.Builder();
 
 
         // parse complexMatches
@@ -169,7 +169,7 @@ public class Evaluation {
 
         // parse complexMatches
         if (line.hasOption("sys")) {
-            bpm.matcher.Pipeline.PRINT_ENABLED = true;
+            bpm.ippm.matcher.Pipeline.PRINT_ENABLED = true;
         }
 
         // parse prematch
@@ -321,7 +321,7 @@ public class Evaluation {
         }
 
         //build
-        bpm.matcher.Pipeline matchingPip = matcherBuilder.Build();
+        bpm.ippm.matcher.Pipeline matchingPip = matcherBuilder.Build();
         evalBuilder.withMatcher(matchingPip);
         Pipeline evalPip = evalBuilder.build();
 

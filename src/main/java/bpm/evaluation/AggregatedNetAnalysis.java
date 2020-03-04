@@ -1,8 +1,8 @@
 package bpm.evaluation;
 
-import bpm.matcher.Preprocessor;
-import bpm.profile.AbstractProfile;
-import bpm.profile.Relation;
+import bpm.ippm.matcher.Preprocessor;
+import bpm.ippm.profile.AbstractProfile;
+import bpm.ippm.profile.Relation;
 import org.jbpt.bp.RelSetType;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Transition;

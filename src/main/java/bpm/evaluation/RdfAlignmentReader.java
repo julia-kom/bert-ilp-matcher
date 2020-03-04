@@ -1,6 +1,6 @@
 package bpm.evaluation;
 
-import bpm.alignment.Alignment;
+import bpm.ippm.alignment.Alignment;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,7 +9,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 
-import bpm.alignment.Correspondence;
+import bpm.ippm.alignment.Correspondence;
 import fr.inrialpes.exmo.align.impl.URIAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
