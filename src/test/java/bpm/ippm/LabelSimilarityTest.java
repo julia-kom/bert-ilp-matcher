@@ -86,8 +86,8 @@ public class LabelSimilarityTest
         // Label Simialarity
         LabelSimilarity sim = new LabelSimilarity(Word.Similarities.LEVENSHTEIN_LIN_MAX);
 
-        for (Node t1 : n1){
-            for (Node t2 : n2){
+        for (Transition t1 : n1){
+            for (Transition t2 : n2){
                 Assert.assertTrue(matrix.between(t1,t2) == sim.BagOfWords(t1.getLabel(),t2.getLabel()));
             }
         }

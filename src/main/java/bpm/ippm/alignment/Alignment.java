@@ -36,8 +36,8 @@ public class Alignment {
     }
 
     /**
-     * fiter using label information only (no behavioral information for filtering used
-     * @param minLikelihood
+     * filter on the correspondence likelihood
+     * @param minLikelihood minimum threshold
      * @return
      */
     public Alignment filter(double minLikelihood){
@@ -54,8 +54,8 @@ public class Alignment {
 
     /**
      * Checks if two nodes are in correspondence relation
-     * @param n1
-     * @param n2
+     * @param n1 node from net 1
+     * @param n2 node from net 2
      * @return boolean
      */
     public boolean isMapped(Node n1, Node n2){
@@ -68,8 +68,8 @@ public class Alignment {
     }
 
     /**
-     * Contains a certain correspondence
-     * @param c
+     * Check if the alignment contains a certain correspondence
+     * @param c correpsondence to check
      * @return
      */
     public boolean contains(Correspondence c){
@@ -141,10 +141,22 @@ public class Alignment {
         return correspondences;
     }
 
+    /**
+     * Get the name of the alignment
+     * @return
+     */
     public String getName(){return name;}
 
+    /**
+     * Set the name of the alignment
+     * @param name new name
+     */
     public void setName(String name){ this.name = name;}
 
+    /**
+     * String representation of the alignment
+     * @return
+     */
     @Override
     public String toString(){
         String s = "";
@@ -185,8 +197,9 @@ public class Alignment {
         return true;
     }
 
-
-
+    /**
+     * Builder class
+     */
     public static class Builder{
 
         private HashSet<Correspondence> correspondences;

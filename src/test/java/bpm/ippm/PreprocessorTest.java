@@ -1,7 +1,6 @@
 package bpm.ippm;
 
 import bpm.ippm.alignment.Alignment;
-import bpm.ippm.matcher.Pipeline;
 import bpm.ippm.matcher.Preprocessor;
 import bpm.ippm.profile.AbstractProfile;
 import bpm.ippm.profile.Relation;
@@ -15,7 +14,7 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
-import static bpm.ippm.matcher.Pipeline.createProfile;
+import static bpm.ippm.profile.AbstractProfile.createProfile;
 import static java.lang.Math.abs;
 
 public class PreprocessorTest {
@@ -100,7 +99,7 @@ public class PreprocessorTest {
     public void ProfileSymmetryTest(){
         File folder = new File(getClass().getClassLoader().getResource("./pnml/app_store/").getFile());
         for(File file1 : folder.listFiles()) {
-            NetSystem net1 = Pipeline.parseFile(file1);
+            NetSystem net1 = Preprocessor.parseFile(file1);
             net1.setName(file1.getName());
             AbstractProfile relNet1 = createProfile(net1, AbstractProfile.Profile.BP, null);
             for(Transition t1 : net1.getTransitions()){

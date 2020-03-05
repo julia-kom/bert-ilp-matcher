@@ -2,8 +2,15 @@ package bpm.ippm.matcher;
 
 import bpm.ippm.alignment.Alignment;
 import bpm.ippm.similarity.Matrix;
+import org.deckfour.xes.in.XUniversalParser;
+import org.deckfour.xes.model.XLog;
+import org.jbpt.petri.NetSystem;
+import org.jbpt.petri.PetriNet;
 import org.jbpt.petri.Transition;
 
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -32,7 +39,6 @@ public class Preprocessor {
         // delete those which are not unique aka in a complex correspondence
         builder = builder.removeComplexMatches();
         return builder.build("prematch");
-
     }
 
 
@@ -97,4 +103,96 @@ public class Preprocessor {
         return false;
     }
 
+    /**
+     * Parses a PNML file to a NetSystem
+     * @param f file path of the petri net in PNML format
+     * @return NetSystem
+     */
+    public static NetSystem parseFile(File f){
+        //PNMLSerializer serializer = new PNMLSerializer();
+        //return serializer.parse(f.getAbsolutePath());
+        Parser p = new Parser();
+        try {
+            return p.parse(f);
+        }catch(Exception e){
+            System.err.println("Exception while parsing "+ e.getStackTrace());
+            return null;
+        }
+    }
+
+    /**
+     * Parses a XES file to a XLog file
+     * @param f
+     * @return
+     */
+    public static XLog parseLog(File f){
+        // no log file given
+        if(f == null){
+            return Pipeline.DUMMY_LOG;
+        }
+
+        XUniversalParser parser = new XUniversalParser();
+        Collection<XLog> collection;
+        try {
+            collection = parser.parse(f);
+        }catch(Exception e){
+            throw new Error("File " + f.toString() + " is not possible to parse as XES" + e.getStackTrace());
+        }
+
+        // non or more than one log found in directory
+        if(collection.size() != 1){
+            throw new Error("Under path " +f.toString() + " " + collection.size() + "!= 1 Logs were found" );
+        }
+        // return only log of collection
+        return collection.iterator().next();
+    }
+
+    /**
+     * checks if petri net is WF-net, sound and free choice
+     * throws illegal argument exception if not
+     * @param net
+     */
+    public static void checkPetriNetProperties(NetSystem net){
+        // TODO soundness
+        if (!PetriNet.STRUCTURAL_CHECKS.isWorkflowNet(net)){
+            throw new IllegalArgumentException("net is not WF-net:" + net.toString());
+        }
+        if(!PetriNet.STRUCTURAL_CHECKS.isExtendedFreeChoice(net)){
+            throw new IllegalArgumentException("net is not free choice:" + net.toString());
+        }
+
+        //TODO soundness incl 1 bounded.
+
+    }
+
+    /**
+     * Returns those files in path which are of one of the types defined in the second parameter.
+     * @param path
+     * @param types
+     * @return
+     */
+    public static File[] listFilesOfType(File path, final String[] types){
+        File[] files =  path.listFiles(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                for(String t : types) {
+                    if(name.toLowerCase().endsWith("."+t)){
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+        return files;
+    }
+
+    /**
+     *  Returns those files in path which is of the type defined in the second parameter.
+     * @param path
+     * @param type
+     * @return
+     */
+    public static File[] listFilesOfType(File path, String type){
+        String[] types = new String[]{type};
+        return listFilesOfType(path,types);
+    }
 }

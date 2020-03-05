@@ -63,10 +63,18 @@ public class Correspondence {
         nodesNet2.add(n2);
     }
 
+    /**
+     * Get the liklihood of the correspondence
+     * @return
+     */
     public double getLikelihood(){
         return likelihood;
     }
 
+    /**
+     * String representation of the correspondence
+     * @return
+     */
     @Override
     public String toString() {
         String s = "[";
@@ -83,6 +91,11 @@ public class Correspondence {
         return s;
     }
 
+    /**
+     * Is equal override
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         // Same type
@@ -110,12 +123,20 @@ public class Correspondence {
         return true;
     }
 
+    /**
+     * HashCode override
+     * todo: FUTURE WORK: More efficient hash
+     * @return
+     */
     @Override
     public int hashCode(){
         return 1;
     }
 
 
+    /**
+     * Builder class
+     */
     public static class Builder{
         private HashSet<Node> nodesNet1;
         private HashSet<Node> nodesNet2;
@@ -127,7 +148,7 @@ public class Correspondence {
         }
 
         /**
-         * Set Likelihood (label based)
+         * Set Likelihood
          * @param likelihood
          * @return
          */

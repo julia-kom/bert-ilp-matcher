@@ -10,6 +10,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
+/**
+ * This Class is for evaluation purpose only!
+ */
 public class NormalDistributionLabelSimilarity extends LabelSimilarity {
 
     private double nonMatchingMean = 0.0;

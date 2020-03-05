@@ -9,26 +9,32 @@ import bpm.ippm.similarity.Matrix;
 import bpm.ippm.similarity.Word;
 
 import gurobi.GRB;
-import org.deckfour.xes.in.XUniversalParser;
 import org.deckfour.xes.model.XLog;
 import org.jbpt.petri.NetSystem;
-import org.jbpt.petri.PetriNet;
 import org.jbpt.petri.Transition;
-import org.apache.commons.lang3.NotImplementedException;
 import org.json.JSONException;
 import org.json.simple.JSONObject;
 
 
 import java.sql.Timestamp;
 import java.io.File;
-import java.util.Collection;
 import java.util.Set;
 
 import static java.lang.System.exit;
 
 
 /**
- * Matching Pipeline. Note, use builder to construct.
+ * Matching Pipeline. This is the main flow of the ILP matcher:
+ * 1) Read File (PNML)
+ * 2) Read Log Files (optionally)
+ * 3) Check Petri Nets (sound, free-choice, WF-net)
+ * 4) Create Profiles
+ * 5) Preprocess: Delete tau transitions
+ * 6) Prematch (optionally)
+ * 7) Set up the ILP and optimize it
+ * 8) Postprocess the matching hypothesis
+ *
+ * Note, use builder to construct.
  */
 public class Pipeline implements MatchingPipeline{
     public static boolean PRINT_ENABLED = false;
@@ -62,17 +68,19 @@ public class Pipeline implements MatchingPipeline{
     @Override
     public Result run(File fileNet1, File fileLog1, File fileNet2, File fileLog2, ExecutionTimer timer){
         System.out.println("########"+fileNet1.getName()+ " to " +fileNet2.getName()+"#########");
+
+        //parse the net files
         if(PRINT_ENABLED) System.out.println("##### Start Net Parsing #####");
-        NetSystem net1 = parseFile(fileNet1);
+        NetSystem net1 = Preprocessor.parseFile(fileNet1);
         net1.setName(fileNet1.getName());
-        NetSystem net2 = parseFile(fileNet2);
+        NetSystem net2 = Preprocessor.parseFile(fileNet2);
         net2.setName(fileNet2.getName());
         if(PRINT_ENABLED) System.out.println("##### Net Parsing Complete #####");
 
         //parse log files
         if(PRINT_ENABLED) System.out.println("##### Start Log Parsing #####");
-        XLog log1 = parseLog(fileLog1);
-        XLog log2 = parseLog(fileLog2);
+        XLog log1 = Preprocessor.parseLog(fileLog1);
+        XLog log2 = Preprocessor.parseLog(fileLog2);
         if(PRINT_ENABLED) System.out.println("##### Log Parsing Complete #####");
 
         return run(net1, log1, net2, log2, timer);
@@ -100,10 +108,12 @@ public class Pipeline implements MatchingPipeline{
     @Override
     public Result run(File fileNet1, File fileNet2, ExecutionTimer timer) {
         System.out.println("########"+fileNet1.getName()+ " to " +fileNet2.getName()+"#########");
+
+        //parse the net files
         if(PRINT_ENABLED) System.out.println("##### Start Net Parsing #####");
-        NetSystem net1 = parseFile(fileNet1);
+        NetSystem net1 = Preprocessor.parseFile(fileNet1);
         net1.setName(fileNet1.getName());
-        NetSystem net2 = parseFile(fileNet2);
+        NetSystem net2 = Preprocessor.parseFile(fileNet2);
         net2.setName(fileNet2.getName());
         if(PRINT_ENABLED) System.out.println("##### Net Parsing Complete #####");
         return run(net1, null, net2, null, timer);
@@ -127,27 +137,22 @@ public class Pipeline implements MatchingPipeline{
      * @param timer timer object which is updated while execution (call by reference)
      */
     public Result run(NetSystem net1, XLog log1, NetSystem net2, XLog log2, ExecutionTimer timer){
-        // test if netsystems transitions are all in the log
-        if(PRINT_ENABLED) System.out.println("##### Start Log Check Up #####");
-        //TODO
-        if(PRINT_ENABLED) System.out.println("##### Log Checkup Complete #####");
 
         //  wf-net and free choice check
         if(PRINT_ENABLED) System.out.println("##### Start Check Up #####");
-        checkPetriNetProperties(net1);
-        checkPetriNetProperties(net2);
+        Preprocessor.checkPetriNetProperties(net1);
+        Preprocessor.checkPetriNetProperties(net2);
         if(PRINT_ENABLED) System.out.println("##### Check Up Complete #####");
+
         // Create Profile
         if(PRINT_ENABLED) System.out.println("##### Start Creating Profiles #####");
         timer.startBPTime();
-        AbstractProfile relNet1 = createProfile(net1, this.profile, log1);
-        //System.out.print("Net 1" +relNet1.toString());
-        AbstractProfile relNet2 = createProfile(net2, this.profile, log2);
-        //System.out.print("Net 2" +relNet1.toString());
+        AbstractProfile relNet1 = AbstractProfile.createProfile(net1, this.profile, log1);
+        AbstractProfile relNet2 = AbstractProfile.createProfile(net2, this.profile, log2);
         timer.stopBPTime();
         if(PRINT_ENABLED) System.out.println("##### Creating Profiles Complete #####");
 
-        // Preprocess ignore taus
+        // Preprocess: ignore tau transitions
         if(PRINT_ENABLED) System.out.println("##### Start Preprocessing Tau Transitions#####");
         Set<Transition> reducedNet1 = Preprocessor.reduceTauTransitions(net1.getTransitions());
         Set<Transition> reducedNet2 = Preprocessor.reduceTauTransitions(net2.getTransitions());
@@ -162,8 +167,7 @@ public class Pipeline implements MatchingPipeline{
         timer.stopLabelSimilarityTime();
         if(PRINT_ENABLED) System.out.println("##### Creating Similarity Matrix Complete #####");
 
-
-        // Preprocess ignore taus and prematch
+        // Preprocess: Prematch
         if(PRINT_ENABLED) System.out.println("##### Start Prematch #####");
         Alignment preAlignment;
         if(prematch){
@@ -178,12 +182,12 @@ public class Pipeline implements MatchingPipeline{
         // Run ILP
         if(PRINT_ENABLED) System.out.println("##### Start ILP #####");
         timer.startLpTime();
-        AbstractILP ilp = getILP();
+        AbstractILP ilpMatcher = AbstractILP.getILP(ilp);
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Result res;
         try {
-            ilp.init(new File("gurobi-logs/log-"+ timestamp+".log"), similarityWeight,ilpTimeLimit,ilpNodeLimit);
-            res = ilp.solve(relNet1, relNet2, reducedNet1, reducedNet2, simMatrix, preAlignment, net1.getName()+"-"+net2.getName());
+            ilpMatcher.init(new File("gurobi-logs/log-"+ timestamp+".log"), similarityWeight,ilpTimeLimit,ilpNodeLimit);
+            res = ilpMatcher.solve(relNet1, relNet2, reducedNet1, reducedNet2, simMatrix, preAlignment, net1.getName()+"-"+net2.getName());
         } catch (Exception e) {
             if(PRINT_ENABLED) System.out.println(e.getCause()+ ": " + e.getMessage());
             exit(1);
@@ -204,120 +208,9 @@ public class Pipeline implements MatchingPipeline{
     }
 
     /**
-     * Parses a PNML file to a NetSystem
-     * @param f file path of the petri net in PNML format
-     * @return NetSystem
-     */
-    public static NetSystem parseFile(File f){
-        //PNMLSerializer serializer = new PNMLSerializer();
-        //return serializer.parse(f.getAbsolutePath());
-        Parser p = new Parser();
-        try {
-            return p.parse(f);
-        }catch(Exception e){
-            System.err.println("Exception while parsing "+ e.getStackTrace());
-            return null;
-        }
-    }
-
-    /**
-     * Parses a XES file to a XLog file
-     * @param f
+     * Return a string representation of the pipeline configuration
      * @return
      */
-    public static XLog parseLog(File f){
-        // no log file given
-        if(f == null){
-            return DUMMY_LOG;
-        }
-
-        XUniversalParser parser = new XUniversalParser();
-        Collection<XLog> collection;
-        try {
-            collection = parser.parse(f);
-        }catch(Exception e){
-            throw new Error("File " + f.toString() + " is not possible to parse as XES" + e.getStackTrace());
-        }
-
-        // non or more than one log found in directory
-        if(collection.size() != 1){
-            throw new Error("Under path " +f.toString() + " " + collection.size() + "!= 1 Logs were found" );
-        }
-        // return only log of collection
-        return collection.iterator().next();
-    }
-
-
-    public static AbstractProfile createProfile(NetSystem net, AbstractProfile.Profile profile, XLog log){
-        AbstractProfile r;
-        switch(profile){
-            case BP:
-                r = new BP(net);
-                break;
-            case BPP:
-                r = new BPPlusOwn(net);
-                break;
-            case ARP:
-                r = new AlphaRelations(net);
-                break;
-            case LOG_DF:
-                r = new DirectlyFollowsLogProfile(net,log);
-                break;
-            case LOG_EF:
-                r = new EventuallyFollowsLogProfile(net,log);
-                break;
-            default:
-                throw new UnsupportedOperationException("Operator not yet implemented: " + profile.toString());
-        }
-        return r;
-    }
-
-    private AbstractILP getILP() throws NotImplementedException {
-        switch(ilp) {
-            case BASIC:
-                return new BasicILP();
-            case BASIC2:
-                return new BasicILP2();
-            case BASIC3:
-                return new BasicILP3();
-            case BASIC4:
-                return new BasicILP4();
-            case BASIC5:
-                return new BasicILP5();
-            case RELAXED:
-                return  new RelaxedILP();
-            case RELAXED2:
-                return new RelaxedILP2();
-            case RELAXED3:
-                return new RelaxedILP3();
-            case RELAXED4:
-                return new RelaxedILP4();
-            case QUADRATIC:
-                return new QuadraticILP();
-            default:
-                throw new NotImplementedException("ILP you searched for is not in switch");
-        }
-
-    }
-
-    /**
-     * checks if petri net is WF-net, sound and free choice
-     * throws illegal argument exception if not
-     * @param net
-     */
-    private void checkPetriNetProperties(NetSystem net){
-        // TODO soundness
-        if (!PetriNet.STRUCTURAL_CHECKS.isWorkflowNet(net)){
-            throw new IllegalArgumentException("net is not WF-net:" + net.toString());
-        }
-        if(!PetriNet.STRUCTURAL_CHECKS.isExtendedFreeChoice(net)){
-            throw new IllegalArgumentException("net is not free choice:" + net.toString());
-        }
-
-        //TODO soundness incl 1 bounded.
-
-    }
-
     @Override
     public String toString(){
         String res = "ILP: " + this.ilp.toString() + "\n" +
@@ -477,8 +370,5 @@ public class Pipeline implements MatchingPipeline{
             pip.ilpTimeLimit = this.ilpTimeLimit;
             return pip;
         }
-
-
     }
-
 }

@@ -39,8 +39,8 @@ public class RelaxedILP2 extends AbstractILP {
     @Override
     public Result solve(AbstractProfile relNet1, AbstractProfile relNet2, Set<Transition> net1, Set<Transition> net2, Matrix matrix, Alignment preAlignment, String name) throws GRBException {
         //setup variables
-        Node[] nodeNet1 =  net1.toArray(new Node[net1.size()]);
-        Node[] nodeNet2 =  net2.toArray(new Node[net2.size()]);
+        Transition[] nodeNet1 =  net1.toArray(new Transition[net1.size()]);
+        Transition[] nodeNet2 =  net2.toArray(new Transition[net2.size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
         int minSize = Math.max(nodesNet1,nodesNet2);

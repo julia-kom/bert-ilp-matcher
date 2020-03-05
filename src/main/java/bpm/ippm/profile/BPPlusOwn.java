@@ -85,7 +85,6 @@ public class BPPlusOwn extends AbstractProfile {
 
     }
 
-
     private boolean areCausal(Node n1, Node n2){
        return  (!inLoop(n1,n2) && getLeCmPre(n1,n2).contains(n1) && !n1.equals(n2)) ||
                (inLoop(n1,n2) && !getLeCmPre(n1,n2).contains(n1) && !getLeCmPre(n1,n2).contains(n2));
@@ -98,7 +97,6 @@ public class BPPlusOwn extends AbstractProfile {
     private boolean areConcurrent(Node n1, Node n2){
         Set<Node> leCmPre = getLeCmPre(n1, n2);
 
-        //todo maybe delete
         if(leCmPre.size() == 0){
             return false;
         }
@@ -129,7 +127,6 @@ public class BPPlusOwn extends AbstractProfile {
             return true;
         }
 
-        //todo maybe remve if NONE shouldnt be tighbreaker
         Set<Node> leCmPre = getLeCmPre(n1, n2);
         if(leCmPre.size() == 0){
             return false;

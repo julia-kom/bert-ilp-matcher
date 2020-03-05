@@ -9,7 +9,9 @@ import java.util.*;
 import javax.xml.parsers.*;
 import java.io.*;
 
-
+/**
+ * Bag of Words Label Simialrity
+ */
 public class LabelSimilarity {
 
     private Word.Similarities wordSimilarity;
@@ -70,12 +72,11 @@ public class LabelSimilarity {
             sum2+=max2;
         }
 
-        //if(PRINT_ENABLED) System.out.println("A: " + label1 + ", B: " + label2 + ":" +(sum1+sum2)/(bag1.size() + bag2.size()));
-        //aggregate
-        //special case when two empty labels are compared/or the label contained stopwords only:
         if(bag1.size() == 0 && bag2.size() == 0) {
+            //special case when two empty labels are compared/or the label contained stopwords only
             return 1.0;
         }else {
+            //aggregate according to the basic bag of word formula
             return (sum1 + sum2) / (bag1.size() + bag2.size());
         }
     }
@@ -85,8 +86,6 @@ public class LabelSimilarity {
         HashSet<String> set = new HashSet<>();
 
         // Get File Path
-       // File file = new File(LabelSimilarity.class.getClassLoader().getFile("stopwords.xml").getFile());
-
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         InputStream is = classloader.getResourceAsStream("stopwords.xml");
 
@@ -119,6 +118,34 @@ public class LabelSimilarity {
         return set;
     }
 
+    /**
+     * Compute the word similarity of the two words according to the configuration of this Label Similarity Measure.
+     * @param s1 word 1
+     * @param s2 word 2
+     * @return
+     */
+    private double wordSimilarity(String s1, String s2){
+        switch(wordSimilarity){
+            case LIN:
+                return Word.LinSimilarity(s1,s2);
+            case JIANG:
+                return Word.JiangSimilarity(s1,s2);
+            case LEVENSHTEIN:
+                return Word.LevenshteinSimilarity(s1,s2);
+            case LEVENSHTEIN_JIANG_MAX:
+                return Word.LevenshteinJiangMaxSimialrity(s1,s2);
+            case LEVENSHTEIN_LIN_MAX:
+                return Word.LevenshteinLinMaxSimialrity(s1,s2);
+            default:
+                throw new NotImplementedException("Word Similarity Function is not in switch.");
+        }
+    }
+
+    /**
+     *  Bag of Words of a label.
+     *  First the label is tokenized then stopwords are removed.
+     *  Additionally it offers access functions of the tokens.
+     */
     private class BagOfWords{
         List<String> words;
 
@@ -168,23 +195,6 @@ public class LabelSimilarity {
                     //if(PRINT_ENABLED) System.out.println("Stopword Removed: " + w);
                 }
             }
-        }
-    }
-
-    private double wordSimilarity(String s1, String s2){
-        switch(wordSimilarity){
-            case LIN:
-                return Word.LinSimilarity(s1,s2);
-            case JIANG:
-                return Word.JiangSimilarity(s1,s2);
-            case LEVENSHTEIN:
-                return Word.LevenshteinSimilarity(s1,s2);
-            case LEVENSHTEIN_JIANG_MAX:
-                return Word.LevenshteinJiangMaxSimialrity(s1,s2);
-            case LEVENSHTEIN_LIN_MAX:
-                return Word.LevenshteinLinMaxSimialrity(s1,s2);
-                default:
-                    throw new NotImplementedException("Word Similarity Function is not in switch.");
         }
     }
 }

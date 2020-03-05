@@ -1,7 +1,7 @@
 package bpm.ippm;
 
 import bpm.ippm.matcher.Parser;
-import bpm.ippm.matcher.Pipeline;
+import bpm.ippm.matcher.Preprocessor;
 import org.jbpt.petri.*;
 import org.jbpt.petri.io.PNMLSerializer;
 import org.junit.Assert;
@@ -213,7 +213,7 @@ public class ParserTest {
 
     @Test
     public void parseTest() throws IOException, SAXException, ParserConfigurationException {
-        NetSystem net = Pipeline.parseFile(new File("eval-data/pnml/bpi15/BPIC15_5_08_AWB45.pnml"));
+        NetSystem net = Preprocessor.parseFile(new File("eval-data/pnml/bpi15/BPIC15_5_08_AWB45.pnml"));
 
         return;
     }

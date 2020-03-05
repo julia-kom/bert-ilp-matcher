@@ -65,7 +65,7 @@ public class Eval {
     }
 
     /**
-     * GEt GAP of MIP. If no MIP then return -1
+     * Get GAP of MIP. If no MIP then return -1
      * @return
      */
     public double getGAP(){
@@ -309,7 +309,7 @@ public class Eval {
          * @return Eval
          */
         public static Eval ProbabilisticEvaluation(Result matcher, Alignment goldstandard) {
-            //todo
+            //todo FUTURE WORK
             throw new NotImplementedException("Probabilistic Evaluation is not yet implemented");
         }
     }

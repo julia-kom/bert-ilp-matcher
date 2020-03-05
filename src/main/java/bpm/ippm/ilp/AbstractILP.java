@@ -8,6 +8,7 @@ import gurobi.GRB;
 import gurobi.GRBEnv;
 import gurobi.GRBException;
 import gurobi.GRBModel;
+import org.apache.commons.lang3.NotImplementedException;
 import org.jbpt.petri.Transition;
 
 import java.io.File;
@@ -21,6 +22,40 @@ public abstract class AbstractILP {
     GRBEnv env;
     GRBModel model;
     double  similarityWeight;
+
+    /**
+     * Returns the ILP Matcher instance for the given ILP Enum type
+     * @param ilp
+     * @return
+     * @throws NotImplementedException
+     */
+    public static AbstractILP getILP(ILP ilp) throws NotImplementedException {
+        switch(ilp) {
+            case BASIC:
+                return new BasicILP();
+            case BASIC2:
+                return new BasicILP2();
+            case BASIC3:
+                return new BasicILP3();
+            case BASIC4:
+                return new BasicILP4();
+            case BASIC5:
+                return new BasicILP5();
+            case RELAXED:
+                return  new RelaxedILP();
+            case RELAXED2:
+                return new RelaxedILP2();
+            case RELAXED3:
+                return new RelaxedILP3();
+            case RELAXED4:
+                return new RelaxedILP4();
+            case QUADRATIC:
+                return new QuadraticILP();
+            default:
+                throw new NotImplementedException("ILP you searched for is not in switch");
+        }
+
+    }
 
     /**
      * Different ILP implementations
@@ -135,7 +170,6 @@ public abstract class AbstractILP {
 
     }
 
-    // todo maybe replace sim with a function pointer
     public abstract Result solve(AbstractProfile relNet1, AbstractProfile relNet2, Set<Transition> net1, Set<Transition> net2, Matrix matrix, Alignment preAlignment, String name) throws GRBException ;
 
 

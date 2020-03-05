@@ -3,6 +3,7 @@ package bpm.evaluation;
 import bpm.ippm.alignment.Alignment;
 import bpm.ippm.alignment.Result;
 import bpm.ippm.matcher.MatchingPipeline;
+import bpm.ippm.matcher.Preprocessor;
 import bpm.ippm.profile.AbstractProfile;
 import org.json.simple.parser.JSONParser;
 import org.jbpt.petri.NetSystem;
@@ -17,8 +18,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import static bpm.ippm.matcher.Pipeline.createProfile;
-import static bpm.ippm.matcher.Pipeline.parseFile;
+import static bpm.ippm.profile.AbstractProfile.createProfile;
+import static bpm.ippm.matcher.Preprocessor.parseFile;
 import static java.lang.System.exit;
 
 public class Pipeline{
@@ -42,38 +43,6 @@ public class Pipeline{
     private double postprocessingThreshold;
     private boolean gsEval;
 
-    /**
-     * Returns those files in path which are of one of the types defined in the second parameter.
-     * @param path
-     * @param types
-     * @return
-     */
-    // TODO move this somewhere better. Doesnt really suit here
-    public static File[] listFilesOfType(File path, final String[] types){
-        File[] files =  path.listFiles(new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                for(String t : types) {
-                    if(name.toLowerCase().endsWith("."+t)){
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-        return files;
-    }
-
-    /**
-     *  Returns those files in path which is of the type defined in the second parameter.
-     * @param path
-     * @param type
-     * @return
-     */
-    public static File[] listFilesOfType(File path, String type){
-        String[] types = new String[]{type};
-        return listFilesOfType(path,types);
-    }
-
 
     public void run(){
 
@@ -87,7 +56,7 @@ public class Pipeline{
                 netAnalysis = null;
             }
             // get files
-            File[] files = listFilesOfType(batchPath.toFile(), new String[]{"epml","pnml"});
+            File[] files = Preprocessor.listFilesOfType(batchPath.toFile(), new String[]{"epml","pnml"});
 
 
             // add to csv
@@ -117,7 +86,7 @@ public class Pipeline{
                 gsAnalysis = null;
             }
             // get files
-            File[] files = listFilesOfType(goldStandardPath.toFile(),"rdf");
+            File[] files = Preprocessor.listFilesOfType(goldStandardPath.toFile(),"rdf");
 
 
             // add to csv
@@ -241,7 +210,7 @@ public class Pipeline{
      */
     public List<Eval> batchEval(){
         // Get all pnml files in the batch dir
-        File[] files =  listFilesOfType(batchPath.toFile(),new String[]{"pnml","epml"});
+        File[] files =  Preprocessor.listFilesOfType(batchPath.toFile(),new String[]{"pnml","epml"});
 
         // run evaluation for each combination
         List<Eval> evals = new ArrayList<>();
@@ -283,9 +252,9 @@ public class Pipeline{
 
 
     public List<Eval> retrospectiveEval(Path resultPath, Path goldstandardPath){
-        File[] resultFiles =  listFilesOfType(resultPath.toFile(),"rdf");
+        File[] resultFiles =  Preprocessor.listFilesOfType(resultPath.toFile(),"rdf");
 
-        File[] goldstandardFiles =  listFilesOfType(goldstandardPath.toFile(),"rdf");
+        File[] goldstandardFiles =  Preprocessor.listFilesOfType(goldstandardPath.toFile(),"rdf");
 
         if(goldstandardFiles.length == 0){
             throw new Error("Gold Standard Path is empty");
