@@ -3,6 +3,7 @@ package bpm.ippm;
 import bpm.ippm.alignment.Result;
 import bpm.ippm.matcher.Pipeline;
 import bpm.ippm.profile.AbstractProfile;
+import bpm.ippm.similarity.LabelSimilarity;
 import bpm.ippm.similarity.NormalDistributionLabelSimilarity;
 import bpm.ippm.similarity.Word;
 import org.junit.Assert;
@@ -14,22 +15,22 @@ public class NormalDistributionLabelSimilarityTest {
     @Test
     public void functionalityTest(){
 
-        NormalDistributionLabelSimilarity l = new NormalDistributionLabelSimilarity(Word.Similarities.LIN);
+        NormalDistributionLabelSimilarity l = new NormalDistributionLabelSimilarity();
 
         String a = "Label A";
         String b = "Label B";
-        double sim1 = l.BagOfWords(a,b);
-        double sim2 = l.BagOfWords(a,b);
-        double sim3 = l.BagOfWords(b,a);
-        double sim4 = l.BagOfWords(a,b);
+        double sim1 = l.sim(a,b);
+        double sim2 = l.sim(a,b);
+        double sim3 = l.sim(b,a);
+        double sim4 = l.sim(a,b);
 
         Assert.assertTrue("1) Sim is not equal: " + sim1 +" " + sim2,sim1 == sim2);
         Assert.assertTrue("2) Sim is not equal: " + sim1 +" " + sim3,sim1 == sim3);
         Assert.assertTrue("3) Sim is not equal: " + sim1 +" " + sim4,sim1 == sim4);
 
         // test if sims are same over several executions!
-        l = new NormalDistributionLabelSimilarity(Word.Similarities.LIN);
-        double sim5 = l.BagOfWords(a,b);
+        l = new NormalDistributionLabelSimilarity();
+        double sim5 = l.sim(a,b);
 
         Assert.assertTrue("1) Sim is not equal: " + sim1 +" " + sim5,sim1 == sim2);
 
@@ -45,7 +46,7 @@ public class NormalDistributionLabelSimilarityTest {
             for(File f2 : path.listFiles()) {
                 Pipeline matcher = new Pipeline.Builder()
                         .atSimilarityWeight(0.5)
-                        .withWordSimilarity("NOISY")
+                        .withLabelSimilarity(LabelSimilarity.Similarities.NORMAL_DISTRIBUTION)
                         .withProfile(AbstractProfile.Profile.BPP)
                         .atPostprocessThreshold(0.0)
                         .withILP("BASIC2").Build();

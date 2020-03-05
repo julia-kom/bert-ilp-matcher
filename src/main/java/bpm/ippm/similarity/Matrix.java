@@ -3,7 +3,6 @@ package bpm.ippm.similarity;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
-import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
 
 import java.util.HashMap;
@@ -15,10 +14,10 @@ import java.util.Set;
  * Similarity.
  */
 public class Matrix{
-    private Word.Similarities wordSimilarityFunction;
     private Transition[] nodesNet1;
     private Transition[] nodesNet2;
     private Map<Pair<String,String>, Double> similarities;
+    private LabelSimilarity labelSimilarity;
 
     /**
      * Use Builder instead
@@ -32,19 +31,12 @@ public class Matrix{
      */
     private void construct(){
         this.similarities = new HashMap<>();
-        LabelSimilarity labelSimilarity;
-        if(wordSimilarityFunction.equals(Word.Similarities.NOISY)){
-            //this is needed for the similarity tests in the thesis
-            labelSimilarity = new NormalDistributionLabelSimilarity(wordSimilarityFunction);
-            System.out.println("note: you use the noise option for word and label.");
-        }else {
-            labelSimilarity = new LabelSimilarity(wordSimilarityFunction);
-        }
+
         // fill the matrix
         for(Transition n1 : nodesNet1){
             for (Transition n2 : nodesNet2){
-                //System.out.println(n1.getLabel()+" --"+ n2.getLabel() +":"+ labelSimilarity.BagOfWords(n1.getLabel(), n2.getLabel()));
-                similarities.put(new ImmutablePair<>(n1.getLabel(), n2.getLabel()), labelSimilarity.BagOfWords(n1.getLabel(), n2.getLabel()));
+                //System.out.println(n1.getLabel()+" --"+ n2.getLabel() +":"+ labelSimilarity.sim(n1.getLabel(), n2.getLabel()));
+                similarities.put(new ImmutablePair<>(n1.getLabel(), n2.getLabel()), labelSimilarity.sim(n1.getLabel(), n2.getLabel()));
             }
         }
     }
@@ -77,6 +69,7 @@ public class Matrix{
      */
     public static class Builder{
         Word.Similarities sim = Word.Similarities.LEVENSHTEIN_LIN_MAX;
+        LabelSimilarity.Similarities labelSim = LabelSimilarity.Similarities.BOW;
 
         /**
          * Select Word Simialrity which is used within the BoW Label Similarity
@@ -85,6 +78,11 @@ public class Matrix{
          */
         public Builder withWordSimilarity(Word.Similarities sim){
             this.sim = sim;
+            return this;
+        }
+
+        public Builder withLabelSimilarity(LabelSimilarity.Similarities labelSimilarity){
+            this.labelSim = labelSimilarity;
             return this;
         }
 
@@ -98,7 +96,18 @@ public class Matrix{
             Matrix res = new Matrix();
             res.nodesNet1 = nodesNet1.toArray(new Transition[nodesNet1.size()]);
             res.nodesNet2 = nodesNet2.toArray(new Transition[nodesNet2.size()]);
-            res.wordSimilarityFunction = this.sim;
+
+            switch(labelSim){
+                case BOW:
+                    res.labelSimilarity = new BagOfWordsSimilarity(this.sim);
+                    break;
+                case NORMAL_DISTRIBUTION:
+                    res.labelSimilarity = new NormalDistributionLabelSimilarity();
+                    break;
+                    default:
+                        throw new Error("This label similarity is not implemented in the Matrix yet!");
+            }
+
             res.construct();
             return res;
         }

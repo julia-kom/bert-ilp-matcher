@@ -13,7 +13,7 @@ import java.util.Set;
 /**
  * This Class is for evaluation purpose only!
  */
-public class NormalDistributionLabelSimilarity extends LabelSimilarity {
+public class NormalDistributionLabelSimilarity implements LabelSimilarity {
 
     private double nonMatchingMean = 0.0;
     private double nonMatchingVariance = 0.35;
@@ -26,15 +26,6 @@ public class NormalDistributionLabelSimilarity extends LabelSimilarity {
     private NormalDistribution nonMatchingND = new NormalDistribution(nonMatchingMean,nonMatchingVariance);
     private NormalDistribution matchingND = new NormalDistribution(matchingMean,matchingVariance);
 
-
-    /**
-     * Construct a Label Similarity Function with specific word similarity measure.
-     *
-     * @param wordSimilarity
-     */
-    public NormalDistributionLabelSimilarity(Word.Similarities wordSimilarity) {
-        super(wordSimilarity);
-    }
 
     public void setNonMatchingDistribution(double mean, double variance) {
         nonMatchingMean = mean;
@@ -51,7 +42,7 @@ public class NormalDistributionLabelSimilarity extends LabelSimilarity {
     }
 
     @Override
-    public double BagOfWords(String label1, String label2) {
+    public double sim(String label1, String label2) {
 
         //get cached first
         try {
@@ -72,11 +63,11 @@ public class NormalDistributionLabelSimilarity extends LabelSimilarity {
 
         //cut to [0,1] by rounding >1 to 1 and <0 to 0
         if(sim > 1 ){
-            sim = BagOfWords(label1, label2);
+            sim = sim(label1, label2);
         }
 
         if(sim < 0){
-            sim = BagOfWords(label1, label2);
+            sim = sim(label1, label2);
         }
 
         //update cache

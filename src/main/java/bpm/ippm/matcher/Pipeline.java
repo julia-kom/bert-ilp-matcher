@@ -5,6 +5,7 @@ import bpm.ippm.alignment.Result;
 import bpm.evaluation.ExecutionTimer;
 import bpm.ippm.ilp.*;
 import bpm.ippm.profile.*;
+import bpm.ippm.similarity.LabelSimilarity;
 import bpm.ippm.similarity.Matrix;
 import bpm.ippm.similarity.Word;
 
@@ -49,6 +50,7 @@ public class Pipeline implements MatchingPipeline{
     private double ilpNodeLimit;
 
     public static final XLog DUMMY_LOG = null;
+    private LabelSimilarity.Similarities labelSimilarity;
 
     /**
      * Empty Constructor for the Builder
@@ -162,6 +164,7 @@ public class Pipeline implements MatchingPipeline{
         if(PRINT_ENABLED) System.out.println("##### Start Creating Similarity Matrix #####");
         timer.startLabelSimilarityTime();
         Matrix simMatrix = new Matrix.Builder()
+                .withLabelSimilarity(this.labelSimilarity)
                 .withWordSimilarity(this.wordSimilarity)
                 .build(reducedNet1,reducedNet2);
         timer.stopLabelSimilarityTime();
@@ -256,8 +259,9 @@ public class Pipeline implements MatchingPipeline{
         private boolean prematch = false;
         private double ilpTimeLimit = GRB.INFINITY;
         private double ilpNodeLimit = GRB.INFINITY;
+        private LabelSimilarity.Similarities labelSimilarity = LabelSimilarity.Similarities.BOW;
 
-        /**
+            /**
          * Create a Builder to define a Pipline Object.
          */
         public Builder(){
@@ -297,6 +301,16 @@ public class Pipeline implements MatchingPipeline{
                 throw new NumberFormatException("Value PostprocessThreshold is out of range 0 to 1");
             }
             this.postprocessThreshold = p;
+            return this;
+        }
+
+        /**
+         * Set the used label similarity (standard is BOW)
+         * @param labelSimilarity
+         * @return
+         */
+        public Pipeline.Builder withLabelSimilarity(LabelSimilarity.Similarities labelSimilarity){
+            this.labelSimilarity = labelSimilarity;
             return this;
         }
 
@@ -367,6 +381,7 @@ public class Pipeline implements MatchingPipeline{
             pip.wordSimilarity = this.wordSimilarity;
             pip.prematch = this.prematch;
             pip.ilpNodeLimit = this.ilpNodeLimit;
+            pip.labelSimilarity = this.labelSimilarity;
             pip.ilpTimeLimit = this.ilpTimeLimit;
             return pip;
         }
