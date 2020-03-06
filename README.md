@@ -1,13 +1,13 @@
 ## Installation
 
-run `install.sh`, which sets up the local maven repository, cleans, compiles, tests and package the project into a jar `ilp-matcher.jar`. 
+run `install.sh`, which sets up the local maven repository, cleans, compiles, tests and package the project into a jar `ilp-matcher.jar` located in the root folder of this project. 
 This jar is stand-alone, meaning all dependencies are included in the jar. It can be transfered to a server without recompiling it for that system.
 
 
 ## Run the Matcher
 Executing the matcher is reached by executing the jar with the additional argument `matcher` as in the following example:
 
-`java -jar ilp-matcher.jar matcher <additional args>`
+`java -jar ilp-profile-matcher.jar matcher net-1 <pnml-file> net-2 <pnml-file> <additional args>`
 
 Arguments to specify are the following. Mandatory arguments in **bold**. Default values in _italic_. Either the full argument name or the short version can be used as input
 * **`net-1 <pnml-file>` (`n1 <pnml-file>`) - Path to sound, free choice, WF-Net File in PNML format of the first process**
@@ -40,7 +40,7 @@ Let us regard exemplary executions:
 
 ### Label Only Matcher (Lin Word Sim)
 The label only matcher is reached by setting the behavior share to zero.
-`java -jar ilp-matcher.jar matcher -n1 ./eval-data/pnml/app_store/app_create_account_comp1.pnml 
+`java -jar ./ilp-profile-matcher.jar matcher -n1 ./eval-data/pnml/app_store/app_create_account_comp1.pnml 
 -n2 ./eval-data/pnml/app_store/app_create_account_comp2.pnml 
 -s 0 
 -w LIN 
@@ -48,48 +48,82 @@ The label only matcher is reached by setting the behavior share to zero.
 -sys`
 
 ### 50:50 Label and BP Matcher
-`java -jar ilp-matcher.jar matcher -n1 ./eval-data/pnml/app_store/app_create_account_comp1.pnml -n2 ./eval-data/pnml/app_store/app_create_account_comp2.pnml -s 0.5 -p BP -w LIN -i BASIC2 -sys`
+`java -jar ./ilp-profile-matcher.jar matcher -n1 ./eval-data/pnml/app_store/app_create_account_comp1.pnml -n2 ./eval-data/pnml/app_store/app_create_account_comp2.pnml -s 0.5 -p BP -w LIN -i BASIC2 -sys`
 
 ### 50:50 Label and BP+ Matcher with Prematch
 We want to make use of the similarity functions defining soft similarities between profile relations: 
-`java -jar ilp-matcher.jar matcher -n1 ./eval-data/pnml/app_store/app_create_account_comp1.pnml -n2 ./eval-data/pnml/app_store/app_create_account_comp2.pnml -s 0.5 -p BPP -w LIN -i BASIC5 -pm -sys`
+`java -jar ./ilp-profile-matcher.jar matcher -n1 ./eval-data/pnml/app_store/app_create_account_comp1.pnml -n2 ./eval-data/pnml/app_store/app_create_account_comp2.pnml -s 0.5 -p BPP -w LIN -i BASIC5 -pm -sys`
 
 ### 50:50 Label and Eventually Follows with Logs
-`java -jar ilp-matcher.jar matcher -n1 ./eval-data/pnml/bpi15/BPIC15_2_07_OPS.pnml -l1 ./eval-data/xes/bpi15/BPIC15_2_07_OPS.xes -n2 ./eval-data/pnml/bpi15/BPIC15_4_07_OPS.pnml -l2 ./eval-data/xes/bpi15/BPIC15_4_07_OPS.xes -s 0.5 -p LOG_EF -w LIN -i BASIC5 -sys`
+`java -jar ./ilp-profile-matcher.jar matcher -n1 ./eval-data/pnml/bpi15/BPIC15_2_07_OPS.pnml -l1 ./eval-data/xes/bpi15/BPIC15_2_07_OPS.xes -n2 ./eval-data/pnml/bpi15/BPIC15_4_07_OPS.pnml -l2 ./eval-data/xes/bpi15/BPIC15_4_07_OPS.xes -s 0.5 -p LOG_EF -w LIN -i BASIC5 -sys`
 
 
 ## Run the Evaluation
-Executing the evaluation tool is reached by executing the jar with the additional argument `eval` as in the following example:
+Executing the evaluation tool is reached by executing the jar with the additional argument `eval` as in the following example.
 
-`java -jar ilp-matcher.jar eval <additional args>`
-
-
+`java -jar ./ilp-profile-matcher.jar eval <additional args>`
 
 
+The additional arguments are the above which define the matcher to be evaluated and additionally the following evaluation specific parameters:
+### Batch Evaluation
+Run the matcher on each possible pair of nets in the net-path folder which got a corresponding goldstandard file. 
+Association of pairs of nets and the goldstandard is done via the name:
+
+_net1.pnml_ and _net2.pnml_ correspond to a goldstandard _net1-net2.rdf_ in the goldstandard folder.
+
+If additional logs are used, then the log needs to be named exactly as the net it corresponds to. For example:
+
+_net1.xes_ corresponds to _net1.pnml_
+
+* **`batch` (`b`) - Enable batch evaluation**
+* **`gold-standard-path <path>` (`gsp`) - Path to the folder containing the Goldstandard Files.**
+* **`net-path` (`np`) - Path to the folder containing the net files in PNML**
+* `log-path <path>` (`lp`) - Path to the folder with the XES logs
+* `eval-strat <strategy>` (`e`)  - Choose the evaluation strategy used `<strategy>` can either be 
+  _* `BINARY`- Every 1:1 correspondence counts as one TP/FP/FN/TN. Complex correspondences are interpreted as several 1:1 correspondences._
+  * `STRIC_BINARY` - Every correspondence, regardless if simple or complex counts as one TP/FP/FN/TN. This was not used in evaluation of the thesis.
 
 
+Additionally the parameters of the matcher (described in the previous section) can be specified. Exemmplary analysis are:
+
+`java -jar ./ilp-profile-matcher.jar eval -batch -gold-standard-path ./eval-data/goldstandard/bpi15 -net-path ./eval-data/pnml/bpi15 -log-path ./eval-data/xes/bpi15  -ilp BASIC5 -p LOG_DF -sys -s 0.1 -tl 10`
 
 
-## Functionality
-This is a simultaneous label and behavior process model matcher.
-Install local repositories via maven commands:
-`install:install-file -Dfile=libs/ws4j-1.0.1.jar`,
+### Retrospective Evalution
+When we do not want to run the matcher but evaluate an already given alignment, which was result of a previous matching or a different matcher, then we use the retrospective analysis function:
+Needed therefore is the goldstandard, the result of the previous matching and the evaluation strategy. Optionally we can postprocess the matching based on a minimum confidence threshold.
+The parameters are the following:
+* **`retrospective` (`r`) - Enable retrospective evaluation**
+* **`gold-standard-path <path>` (`gsp`) - Path to the folder containing the Goldstandard Files.**
+* **`result-path <path>` (`rp`) - Path where the RDF alignments of a previous matching lay.**
+* `eval-strat <strategy>` (`e`)  - Choose the evaluation strategy used `<strategy>` can either be 
+  * _`BINARY`- Every 1:1 correspondence counts as one TP/FP/FN/TN. Complex correspondences are interpreted as several 1:1 correspondences._
+  * `STRIC_BINARY` - Every correspondence, regardless if simple or complex counts as one TP/FP/FN/TN. This was not used in evaluation of the thesis.
 
-`install:install-file -Dfile=libs/jawjaw-1.0.0.jar`
+* `postprocess-threshold` (`pp`) - postprocessing threshold of the given alignment. Default set ot _0_.
 
-`install:install-file -Dfile=libs/ExRoRUBPP-dev.jar -DgroupId=com.iise.shudi.exroru -Dversion=1.0 -Dpackaging=jar -DartifactId=ExRORUBPP-dev`
-## Run jar on server
-1. scp ./rwth-cluster-shell to RWTH Cluster $HOME
-2. scp ./eval-data to RWTH CLuster Home
-3. execute `sbatch batch-test.sh ` in ./rwth-cluster-shell.
-## General Structure of the matcher
-1.  Convert EPC etc. to Petri net via Prom. This is actually not implemented and needs to be done **once** manually.
-2.  Read pair of Labeled Petri Nets (and maybe check if it is sound, free choice WF-net)
-3.  Construct Profile Relations for both petri nets
-4.  Construct Label Similarity Matrix between the two processes' activities
-5.  Preprocess the matches
-6.  Run the ILP that simultaneously maximizes behavior and label similarity
-7.  Postprocess the matches
+Exemplary execution would look like this:
 
-## First Test Runs with following parameters:
-`-n1 ./src/main/resources/pnml-files/Uni/Frankfurt_reduced.pnml -n2 ./src/main/resources/pnml-files/Uni/Frankfurt_reduced.pnml`
+`java -jar ./ilp-profile-matcher.jar eval -retrospective -gold-standard-path ./eval-data/goldstandard/sap_original -result-path ./eval-results/_pmmc15_result/AML-PM/sap -pp 0.3`
+
+### Goldstandard Analysis
+A simple goldstandard analysis about the number of correspondences (1:1,1:n and trivial correspondences) can be executed in the following way:
+
+`java -jar ./ilp-profile-matcher.jar eval -gs-eval -gold-standard-path <gs-path> -net-path <net-path>`
+
+where `<gs-path>` is the folder of goldstandards to analyze and `<net-path>` the corresponding nets the goldstandard are regarding.
+
+An exemplary execution would look like this:
+
+`java -jar ./ilp-profile-matcher.jar eval -gs-eval -gold-standard-path ./eval-data/goldstandard/bpi15 -net-path /eval-data/pnml/bpi15`
+
+### Simple Net Analysis
+A simple net analysis gives us information about the data set. Especially how many transitions (silent and non silent) are included.
+It can be run by
+ 
+ `java -jar ./ilp-profile-matcher.jar eval -net-eval -net-path <path> -profile <profile>`
+
+`<path>` is the path to the nets to be analyzed and `<profile>` the relational profile we count the number of relations in the model. 
+The later information is not used in the paper though.  Exemplary execution looks like this:
+ 
+`java -jar ./ilp-profile-matcher.jar eval -net-eval -net-path ./eval-data/pnml/sap -profile BP`
