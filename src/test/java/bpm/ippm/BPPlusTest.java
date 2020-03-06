@@ -1,5 +1,6 @@
 package bpm.ippm;
 
+import bpm.ippm.ilp.AbstractILP;
 import bpm.ippm.matcher.Pipeline;
 import bpm.ippm.profile.AbstractProfile;
 import bpm.ippm.profile.BPPlusOwn;
@@ -304,7 +305,7 @@ public class BPPlusTest {
         File f2 = new File(getClass().getClassLoader().getResource("./pnml/sap/sap12t.pnml").getFile());
 
         //Behavior only test
-        Pipeline p1 = new Pipeline.Builder().withILP("BASIC").atSimilarityWeight(0.3).withILPTimeLimit(1).withProfile(AbstractProfile.Profile.BPP).Build();
+        Pipeline p1 = new Pipeline.Builder().withILP(AbstractILP.ILP.BASIC).atSimilarityWeight(0.3).withILPTimeLimit(1).withProfile(AbstractProfile.Profile.BPP).Build();
         p1.run(f1,f2);
     }
 
@@ -314,7 +315,7 @@ public class BPPlusTest {
         File f2 = new File(getClass().getClassLoader().getResource("./pnml/uni/Wuerzburg.pnml").getFile());
 
         //Behavior only test
-        Pipeline p1 = new Pipeline.Builder().withILP("BASIC").atSimilarityWeight(0.3).withILPTimeLimit(1).withProfile(AbstractProfile.Profile.BPP).Build();
+        Pipeline p1 = new Pipeline.Builder().withILP(AbstractILP.ILP.BASIC).atSimilarityWeight(0.3).withILPTimeLimit(1).withProfile(AbstractProfile.Profile.BPP).Build();
         p1.run(f1,f2);
     }
 

@@ -3,7 +3,6 @@ package bpm.evaluation;
 import bpm.ippm.matcher.Preprocessor;
 import bpm.ippm.profile.AbstractProfile;
 import bpm.ippm.profile.Relation;
-import org.jbpt.bp.RelSetType;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Transition;
 import java.io.File;
@@ -26,7 +25,7 @@ public class AggregatedNetAnalysis{
         csvWriter = new FileWriter(file.getAbsolutePath());
         csvWriter.append("Name, nSilentTransitions, nNonSilentTransitions,");
         // Number of relations
-        for (RelSetType t : RelSetType.values()) {
+        for (Relation.RelationType t : Relation.RelationType.values()) {
             csvWriter.append("n" + t.toString() + ",");
         }
         csvWriter.append("\n");

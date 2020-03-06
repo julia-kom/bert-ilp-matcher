@@ -1,6 +1,7 @@
 package bpm.ippm.matcher;
 
 import bpm.ippm.alignment.Result;
+import bpm.ippm.ilp.AbstractILP;
 import bpm.ippm.profile.AbstractProfile;
 import bpm.ippm.similarity.Word;
 import org.apache.commons.cli.*;
@@ -205,10 +206,10 @@ public class Matcher {
         //parse ILP
         if (line.hasOption("i")) {
             String sIlp = line.getOptionValue("i");
-            if(sIlp != null) {
-                builder.withILP(sIlp);
-            }else{
-                throw new IllegalArgumentException("ilp argument null");
+            try{
+                builder.withILP(AbstractILP.ILP.valueOf(sIlp));
+            }catch(Exception e){
+                throw new Error("ILP not possible to interpret" + sIlp);
             }
         }
 

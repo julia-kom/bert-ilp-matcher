@@ -1,6 +1,7 @@
 package bpm.ippm;
 
 import bpm.ippm.alignment.Result;
+import bpm.ippm.ilp.AbstractILP;
 import bpm.ippm.matcher.Pipeline;
 import bpm.ippm.profile.AbstractProfile;
 import bpm.ippm.similarity.LabelSimilarity;
@@ -49,7 +50,7 @@ public class NormalDistributionLabelSimilarityTest {
                         .withLabelSimilarity(LabelSimilarity.Similarities.NORMAL_DISTRIBUTION)
                         .withProfile(AbstractProfile.Profile.BPP)
                         .atPostprocessThreshold(0.0)
-                        .withILP("BASIC2").Build();
+                        .withILP(AbstractILP.ILP.BASIC2).Build();
 
                 //System.out.println(f1.toString() +f2.toString());
                 Result res = matcher.run(f1,f2);

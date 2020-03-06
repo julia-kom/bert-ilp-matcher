@@ -1,5 +1,6 @@
 package bpm.evaluation;
 
+import bpm.ippm.ilp.AbstractILP;
 import bpm.ippm.profile.AbstractProfile;
 import bpm.ippm.similarity.Word;
 import org.apache.commons.cli.*;
@@ -18,7 +19,6 @@ public class Evaluation {
      * @param args see -h for args
      */
     public static void main(String[] args) {
-        Option optComplexMatches = new Option("c", "complex-matches", false, "Run Matcher which detects complex matches (n:m, 1:n)");
         Option optRetrospectiveEval = new Option("r", "retrospective", false, "Run retrospective evaluation");
         Option optSysPrint = new Option("sys", "system-print", false, "Run code with System println commands");
         Option optNetEval= new Option("ne", "net-eval", false, "Run petri net evaluation");
@@ -122,7 +122,6 @@ public class Evaluation {
 
         //combine options
         Options options = new Options();
-        options.addOption(optComplexMatches);
         options.addOption(optSimilarityWeight);
         options.addOption(optPostprocessThreshold);
         options.addOption(optIlp);
@@ -153,20 +152,13 @@ public class Evaluation {
             line = parser.parse(options, args);
         } catch (ParseException exp) {
             // oops, something went wrong
-            System.err.println("Parsing failed.  Reason: " + exp.getMessage());
-            line = null;
-            System.exit(1);
+           throw new Error("Parsing failed.  Reason: " + exp.getMessage());
+
         }
 
         //create matching pipeline
         Pipeline.Builder evalBuilder = new Pipeline.Builder();
         bpm.ippm.matcher.Pipeline.Builder matcherBuilder = new bpm.ippm.matcher.Pipeline.Builder();
-
-
-        // parse complexMatches
-        if (line.hasOption("c")) {
-            matcherBuilder = matcherBuilder.withComplexMatches();
-        }
 
         // parse complexMatches
         if (line.hasOption("sys")) {
@@ -184,8 +176,8 @@ public class Evaluation {
             try {
                 double s = Double.parseDouble(sString);
                 matcherBuilder = matcherBuilder.atSimilarityWeight(s);
-            } catch (NumberFormatException numExp) {
-                System.err.println("Parsing Failed: Number Input s " + numExp.getMessage());
+            } catch (Exception numExp) {
+                throw new Error("Parsing Failed: Number Input s " + numExp.getMessage());
             }
         }
 
@@ -196,16 +188,19 @@ public class Evaluation {
                 double p = Double.parseDouble(pString);
                 evalBuilder = evalBuilder.atThreshold(p);
                 matcherBuilder = matcherBuilder.atPostprocessThreshold(p);
-            } catch (NumberFormatException numExp) {
-                System.err.println("Parsing Failed: Number Input p " + numExp.getMessage());
-                System.exit(1);
+            } catch (Exception numExp) {
+                throw new Error("Parsing Failed: Number Input p " + numExp.getMessage());
             }
         }
 
         // net 1 for single eval
         if (line.hasOption("i")) {
             String iString = line.getOptionValue("i");
-            matcherBuilder = matcherBuilder.withILP(iString);
+            try {
+                matcherBuilder = matcherBuilder.withILP(AbstractILP.ILP.valueOf(iString));
+            }catch(Exception e){
+                throw new Error("It was not possible to interprete the ILP" + iString);
+            }
         }
 
         // net 1 for single eval
@@ -250,16 +245,19 @@ public class Evaluation {
                 String sString = line.getOptionValue("p");
                 evalBuilder = evalBuilder.withNetEvalProfile(sString);
                 matcherBuilder =matcherBuilder.withProfile(AbstractProfile.Profile.valueOf(sString));
-            } catch (NumberFormatException numExp) {
-                System.err.println("Parsing Failed: Time Limit " + numExp.getMessage());
+            } catch (Exception numExp) {
+                throw new Error("Parsing Failed: Time Limit " + numExp.getMessage());
             }
         }
-
 
         // word similarity
         if (line.hasOption("w")) {
             String n2String = line.getOptionValue("w");
-            matcherBuilder = matcherBuilder.withWordSimilarity(Word.Similarities.valueOf(n2String));
+            try {
+                matcherBuilder = matcherBuilder.withWordSimilarity(Word.Similarities.valueOf(n2String));
+            } catch (Exception e) {
+                throw new Error("Not possible to read the word similarity" + n2String);
+            }
         }
 
         // path that contains all nets to compare
@@ -306,8 +304,8 @@ public class Evaluation {
             try {
                 double s = Double.parseDouble(sString);
                 matcherBuilder = matcherBuilder.withILPTimeLimit(s);
-            } catch (NumberFormatException numExp) {
-                System.err.println("Parsing Failed: Time Limit " + numExp.getMessage());
+            } catch (Exception numExp) {
+                throw new Error("Parsing Failed: Time Limit " + numExp.getMessage());
             }
         }
 
@@ -316,8 +314,8 @@ public class Evaluation {
             try {
                 double s = Double.parseDouble(sString);
                 matcherBuilder= matcherBuilder.withILPNodeLimit(s);
-            } catch (NumberFormatException numExp) {
-                System.err.println("Parsing Failed: Time Limit " + numExp.getMessage());
+            } catch (Exception numExp) {
+                throw new Error ("Parsing Failed: Node Limit " + numExp.getMessage());
             }
         }
 

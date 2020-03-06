@@ -2,6 +2,7 @@ package bpm.evaluation;
 
 import bpm.ippm.alignment.Alignment;
 import bpm.ippm.alignment.Result;
+import bpm.ippm.ilp.AbstractILP;
 import bpm.ippm.matcher.MatchingPipeline;
 import bpm.ippm.matcher.Preprocessor;
 import bpm.ippm.profile.AbstractProfile;
@@ -99,10 +100,10 @@ public class Pipeline{
 
                     //extract net-names
                     String model1Name = f.getName().substring(0,f.getName().indexOf('-'));
-                    File f1 = new File("."+batchPath+"/"+model1Name+".pnml");
+                    File f1 = new File(batchPath+"/"+model1Name+".pnml");
                     NetSystem net1 = parseFile(f1);
                     String model2Name = f.getName().substring(f.getName().indexOf('-')+1,f.getName().length()-4);
-                    File f2 = new File("."+ batchPath+"/"+model2Name+".pnml");
+                    File f2 = new File( batchPath+"/"+model2Name+".pnml");
                     NetSystem net2 = parseFile(f2);
 
                     // add to goldstandard analysis
@@ -276,7 +277,7 @@ public class Pipeline{
                     .atPostprocessThreshold(Double.valueOf(matcher.get("postprocessing-thresh").toString()))
                     .atSimilarityWeight(Double.valueOf(matcher.get("sim-weight").toString()))
                     .withWordSimilarity(Word.Similarities.valueOf(matcher.get("word-sim").toString()))
-                    .withILP(matcher.get("ilp").toString())
+                    .withILP(AbstractILP.ILP.valueOf(matcher.get("ilp").toString()))
                     .withILPNodeLimit(Double.valueOf(matcher.get("ilp-node-limit").toString()))
                     .withILPTimeLimit(Double.valueOf(matcher.get("ilp-time-limit").toString()))
                     .withProfile(AbstractProfile.Profile.valueOf(matcher.get("profile").toString()));
@@ -582,32 +583,49 @@ public class Pipeline{
 
             //tests
             if(pip.batch && pip.batchPath == null){
-                throw new IllegalArgumentException("When batch mode on, then -batchPath argument needed");
+                throw new Error("When batch mode on, then -batchPath argument needed");
             }
 
             if(!pip.batch && !retrospective && !netEval && !gsEval && (pip.net1 == null || pip.net2 == null)){
-                throw new IllegalArgumentException("When single evaluation, then -net1, -net2 argument needed");
+                throw new Error("When single evaluation, then -net1, -net2 argument needed");
             }
 
             if(!pip.batch && !retrospective  && !netEval && !gsEval && pip.goldStandard == null){
-                throw new IllegalArgumentException("When single evaluation, then goldstandard file -g argument needed");
+                throw new Error("When single evaluation, then goldstandard file -g argument needed");
             }
 
             if(pip.batch && pip.goldStandardPath == null){
-                throw new IllegalArgumentException("When batch mode on, then goldstandard path -gsp argument needed");
+                throw new Error("When batch mode on, then goldstandard path -gsp argument needed");
             }
 
             if(pip.retrospective && (pip.goldStandardPath == null || pip.resultPath == null)){
-                throw new IllegalArgumentException("When retrospective mode on, then goldstandard path and result path to rdf files are needed");
+                throw new Error("When retrospective mode on, then goldstandard path and result path to rdf files are needed");
             }
 
             if(pip.netEval && (pip.netProfile == null || pip.batchPath == null)){
-                throw new IllegalArgumentException("When netEval mode on, then batch path and net profile must be given");
+                throw new Error("When netEval mode on, then batch path and net profile must be given");
             }
 
             if(pip.gsEval &&  (pip.goldStandardPath == null || pip.batchPath == null)){
-                throw new IllegalArgumentException("When gsEval mode on, then goldstandardPath and batchPath must be given");
+                throw new Error("When gsEval mode on, then goldstandardPath and batchPath must be given");
             }
+
+            if(goldStandardPath != null && !goldStandardPath.toFile().exists()){
+                throw new Error("Goldstandard Path doesn't exist.");
+            }
+
+            if(batchPath != null && !batchPath.toFile().exists()){
+                throw new Error("Net Path doesn't exist.");
+            }
+
+            if(processLogPath != null && !processLogPath.toFile().exists()){
+                throw new Error("Log Path doesn't exist.");
+            }
+
+            if(resultPath != null && !resultPath.toFile().exists()){
+                throw new Error("Result Path doesn't exist.");
+            }
+
 
             // Define log folder where all log files are generated
             if(batch) {

@@ -149,3 +149,9 @@ The later information is not used in the paper though.  Exemplary execution look
 
 The output is a folder `net-<profile>-<date><time>`, containing a `net.eval`. 
 The file is in CSV format and contains for each net file in the <path> a row with the net information, as well as the average over all of the nets as an own row.
+
+## Server Tests
+Tests on the server are executed form a shell script in `server-tests/pads-shell`
+The script automatically iterates the sim weight parameter for a given configuration. 
+The batch evaluation then is started via 
+`` 

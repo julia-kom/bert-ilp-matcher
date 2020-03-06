@@ -327,8 +327,8 @@ public class Pipeline implements MatchingPipeline{
          * Sets the ILP Matcher to Basic
          * @return
          */
-        public Pipeline.Builder withILP(String sIlp){
-            this.ilp = AbstractILP.ILP.valueOf(sIlp);
+        public Pipeline.Builder withILP(AbstractILP.ILP ilp){
+            this.ilp = ilp;
             return this;
         }
 
