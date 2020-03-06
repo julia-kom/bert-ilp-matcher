@@ -105,7 +105,7 @@ public abstract class AbstractILP {
         //set time limit. When solving MIP this does still result in an alignment
         model.set(GRB.DoubleParam.TimeLimit, timeLimit);
 
-        // set node limit (for MIP only). Number of nodes to be
+        // set node limit (for MIP only). Number of nodes to be traversed
         model.set(GRB.DoubleParam.NodeLimit, nodeLimit);
 
         /*

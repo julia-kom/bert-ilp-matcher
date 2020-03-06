@@ -253,7 +253,7 @@ public class Pipeline implements MatchingPipeline{
         private boolean complexMatches = false;
         private double  similarityWeight = 0.3;
         private double  postprocessThreshold = 0.0;
-        private AbstractILP.ILP ilp = AbstractILP.ILP.BASIC;
+        private AbstractILP.ILP ilp = AbstractILP.ILP.BASIC2;
         protected AbstractProfile.Profile profile = AbstractProfile.Profile.BP;
         private Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
         private boolean prematch = false;
@@ -318,8 +318,8 @@ public class Pipeline implements MatchingPipeline{
          * Set the Word Similarity Function
          * @return Builder
          */
-        public Pipeline.Builder withWordSimilarity(String wordSim){
-            this.wordSimilarity = Word.Similarities.valueOf(wordSim);
+        public Pipeline.Builder withWordSimilarity(Word.Similarities wordSim){
+            this.wordSimilarity = wordSim;
             return this;
         }
 

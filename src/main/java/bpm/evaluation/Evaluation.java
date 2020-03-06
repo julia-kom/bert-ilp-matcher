@@ -1,6 +1,7 @@
 package bpm.evaluation;
 
 import bpm.ippm.profile.AbstractProfile;
+import bpm.ippm.similarity.Word;
 import org.apache.commons.cli.*;
 
 import java.io.BufferedWriter;
@@ -258,7 +259,7 @@ public class Evaluation {
         // word similarity
         if (line.hasOption("w")) {
             String n2String = line.getOptionValue("w");
-            matcherBuilder = matcherBuilder.withWordSimilarity(n2String);
+            matcherBuilder = matcherBuilder.withWordSimilarity(Word.Similarities.valueOf(n2String));
         }
 
         // path that contains all nets to compare

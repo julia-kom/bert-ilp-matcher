@@ -2,6 +2,7 @@ package bpm.ippm.matcher;
 
 import bpm.ippm.alignment.Result;
 import bpm.ippm.profile.AbstractProfile;
+import bpm.ippm.similarity.Word;
 import org.apache.commons.cli.*;
 import java.io.*;
 
@@ -13,8 +14,7 @@ public class Matcher {
      * @param args see -h for args
      */
     public static void main(String[] args) {
-        // create each option neeeded
-        Option optComplexMatches = new Option("c", "complex-matches", false, "Run Matcher which detects complex matches (n:m, 1:n)");
+        // create each option needed
         Option optSimilarityWeight = Option.builder("s")
                 .required(false)
                 .hasArg(true)
@@ -97,7 +97,6 @@ public class Matcher {
 
         //combine options
         Options options = new Options();
-        options.addOption(optComplexMatches);
         options.addOption(optSimilarityWeight);
         options.addOption(optPostprocessThreshold);
         options.addOption(ilp);
@@ -121,18 +120,11 @@ public class Matcher {
             line = parser.parse(options, args);
         } catch (ParseException exp) {
             // oops, something went wrong
-            System.err.println("Parsing failed.  Reason: " + exp.getMessage());
-            line = null;
-            System.exit(1);
+            throw new Error("Parsing failed.  Reason: " + exp.getMessage());
         }
 
         //create matching pipeline
         Pipeline.Builder builder = new Pipeline.Builder();
-
-        // parse complexMatches
-        if (line.hasOption("c")) {
-            builder = builder.withComplexMatches();
-        }
 
         // parse prematcher
         if (line.hasOption("pm")) {
@@ -150,8 +142,8 @@ public class Matcher {
             try {
                 double s = Double.parseDouble(sString);
                 builder = builder.withILPTimeLimit(s);
-            } catch (NumberFormatException numExp) {
-                 System.err.println("Parsing Failed: Time Limit " + numExp.getMessage());
+            } catch (Exception numExp) {
+                 throw new Error("Parsing Failed: Time Limit " + numExp.getMessage());
             }
         }
 
@@ -162,8 +154,8 @@ public class Matcher {
             try {
                 double s = Double.parseDouble(sString);
                 builder = builder.withILPNodeLimit(s);
-            } catch (NumberFormatException numExp) {
-                System.err.println("Parsing Failed: Time Limit " + numExp.getMessage());
+            } catch (Exception numExp) {
+                throw new Error("Parsing Failed: Time Limit " + numExp.getMessage());
             }
         }
 
@@ -172,8 +164,8 @@ public class Matcher {
             String sString = line.getOptionValue("p");
             try {
                 builder = builder.withProfile(AbstractProfile.Profile.valueOf(sString));
-            } catch (NumberFormatException numExp) {
-                System.err.println("Parsing Failed: Time Limit " + numExp.getMessage());
+            } catch (Exception numExp) {
+                throw new Error("Parsing Failed: Profile does not exist. Either use BP, ARP, BPP, LOG_EF, or LOG_DF " + numExp.getMessage());
             }
         }
 
@@ -184,15 +176,19 @@ public class Matcher {
             try {
                 double s = Double.parseDouble(sString);
                 builder = builder.atSimilarityWeight(s);
-            } catch (NumberFormatException numExp) {
-                System.err.println("Parsing Failed: Number Input s " + numExp.getMessage());
+            } catch (Exception numExp) {
+                throw new Error("Parsing Failed: Number Input s " + numExp.getMessage());
             }
         }
 
         // word similarity
         if (line.hasOption("w")) {
             String n2String = line.getOptionValue("w");
-            builder = builder.withWordSimilarity(n2String);
+            try {
+                builder = builder.withWordSimilarity(Word.Similarities.valueOf(n2String));
+            }catch (Exception e){
+                throw new Error("Parsing Failed: Word Similarity " +n2String+ ": " + e.getMessage());
+            }
         }
 
         // parse postprocessThreshold
@@ -201,9 +197,8 @@ public class Matcher {
             try {
                 double p = Double.parseDouble(pString);
                 builder = builder.atPostprocessThreshold(p);
-            } catch (NumberFormatException numExp) {
-                System.err.println("Parsing Failed: Number Input p " + numExp.getMessage());
-                System.exit(1);
+            } catch (Exception numExp) {
+                throw new Error("Parsing Failed: Number Input p " + numExp.getMessage());
             }
         }
 
@@ -216,7 +211,6 @@ public class Matcher {
                 throw new IllegalArgumentException("ilp argument null");
             }
         }
-
 
         // parse petri net 1 and 2
         File net1;
@@ -233,11 +227,7 @@ public class Matcher {
                 throw new FileNotFoundException("Net 2 file not found under" + n2String);
             }
         } catch (FileNotFoundException fileExp) {
-            System.err.println("Parsing Failed: Petri Net File not found:" + fileExp.getMessage());
-            System.exit(1);
-            net1 = null;
-            net2 = null;
-
+            throw new Error("Parsing Failed: Petri Net File not found:" + fileExp.getMessage());
         }
 
 
@@ -248,9 +238,7 @@ public class Matcher {
         String log1String = line.getOptionValue("l1");
         String log2String = line.getOptionValue("l2");
 
-        if(log1String == null || log2String == null){
-            System.out.println("Run without logs");
-        }else {
+        if(log1String != null) {
             try {
                 log1 = new File(log1String);
                 if (!log1.exists()) {
@@ -258,8 +246,10 @@ public class Matcher {
                 }
             } catch (FileNotFoundException fileExp) {
                 //if no log given, then we work without a log
-                log1 = null;
+                throw new Error("Log file not found." +fileExp.getMessage());
             }
+        }
+        if(log2String != null){
             try {
                 log2 = new File(log2String);
                 if (!log2.exists()) {
@@ -267,7 +257,7 @@ public class Matcher {
                 }
             } catch (FileNotFoundException fileExp) {
                 //if no log given, then we work without a log
-                log2 = null;
+                throw new Error("Log file not found." +fileExp.getMessage());
             }
         }
 
@@ -278,7 +268,7 @@ public class Matcher {
         Result r = pip.run(net1, log1, net2, log2);
 
         //print
-        if(Pipeline.PRINT_ENABLED) System.out.println(r.toString());
+        System.out.println(r.toString());
     }
 
 
