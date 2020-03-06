@@ -63,6 +63,8 @@ Executing the evaluation tool is reached by executing the jar with the additiona
 
 `java -jar ./ilp-profile-matcher.jar eval <additional args>`
 
+The output is written to `./eval-results/`.
+
 
 The additional arguments are the above which define the matcher to be evaluated and additionally the following evaluation specific parameters:
 ### Batch Evaluation
@@ -88,6 +90,15 @@ Additionally the parameters of the matcher (described in the previous section) c
 
 `java -jar ./ilp-profile-matcher.jar eval -batch -gold-standard-path ./eval-data/goldstandard/bpi15 -net-path ./eval-data/pnml/bpi15 -log-path ./eval-data/xes/bpi15  -ilp BASIC5 -p LOG_DF -sys -s 0.1 -tl 10`
 
+The output is a folder `batch-<dataset>-<eval-strategy>-<date><time>`, containing:
+* `aggResults.eval`: CSV file with the evalaution results per matching as well as macro and micro aggregation over all matchings.
+* `config.log`: Matcher configuration in JSON format.
+* `<net1>-<net2>.rdf` the alignment of <net1> and <net2> in RDF format (standard in Process Model Matching PMMC15 and OAEI17)
+
+The `aggResults.eval` file is in CSV format and contains for pair of nets in the net-path for which there exists a goldstandard a row with the matching result information (Name,TP,FP,FN,PRECISION,RECALL,FSCORE, Similarity score and timing, as well as GAP ILP information). 
+The structure of the file is equivalent to the batch test, but obviously can timing information not be stored, as it is done retrosepctive. 
+
+
 
 ### Retrospective Evalution
 When we do not want to run the matcher but evaluate an already given alignment, which was result of a previous matching or a different matcher, then we use the retrospective analysis function:
@@ -106,6 +117,11 @@ Exemplary execution would look like this:
 
 `java -jar ./ilp-profile-matcher.jar eval -retrospective -gold-standard-path ./eval-data/goldstandard/sap_original -result-path ./eval-results/_pmmc15_result/AML-PM/sap -pp 0.3`
 
+The output is a folder `retrospecitve-<dataset>-<eval-strategy>-<date><time>`, containing a `aggRetrosepctiveResults.eval`. 
+The file is in CSV format and contains for pair of nets in the net-path for which there exists a goldstandard a row with the matching result information (Name,TP,FP,FN,PRECISION,RECALL,FSCORE). 
+The structure of the file is equivalent to the batch test, but obviously can timing information not be stored, as it is done retrospective. 
+Additionally the config.log file gives the setup of the retropective analysis in json format. If possible it also copies the setup of the previous matching execution if that included in the result path.
+
 ### Goldstandard Analysis
 A simple goldstandard analysis about the number of correspondences (1:1,1:n and trivial correspondences) can be executed in the following way:
 
@@ -117,6 +133,9 @@ An exemplary execution would look like this:
 
 `java -jar ./ilp-profile-matcher.jar eval -gs-eval -gold-standard-path ./eval-data/goldstandard/bpi15 -net-path /eval-data/pnml/bpi15`
 
+The output is a folder `goldstandard-<net-path>-<date><time>`, containing a `goldstandard.eval`. 
+The file is in CSV format and contains for each goldstandard file in the <path> a row with the correspondence information.
+
 ### Simple Net Analysis
 A simple net analysis gives us information about the data set. Especially how many transitions (silent and non silent) are included.
 It can be run by
@@ -127,3 +146,6 @@ It can be run by
 The later information is not used in the paper though.  Exemplary execution looks like this:
  
 `java -jar ./ilp-profile-matcher.jar eval -net-eval -net-path ./eval-data/pnml/sap -profile BP`
+
+The output is a folder `net-<profile>-<date><time>`, containing a `net.eval`. 
+The file is in CSV format and contains for each net file in the <path> a row with the net information, as well as the average over all of the nets as an own row.
