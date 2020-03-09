@@ -12,6 +12,7 @@ import java.util.HashMap;
 public abstract class AbstractLogProfile extends AbstractProfile {
 
     public static final String LOG_ID_ATTRIBUTE = "action_code";
+    public static final String LOG_LIFECYCLE_ATTRIBUTE = "lifecycle:transition";
 
     NetSystem net;
     XLog log;

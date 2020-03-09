@@ -76,7 +76,7 @@ public class ioTest {
     // retrospective no result path exist
     @Test(expected = Error.class)
     public void rejectInputTest12(){
-        String args1 = "eval -retrospective -gold-standard-path ./eval-data/goldstandard/sap_original -result-path ./eval-data/noEx -pp 0.3";
+        String args1 = "eval -retrospective -gold-standard-path ./eval-data/goldstandard/sap_original -result-path ./eval-data/noEx -pp 0.3 -tl 1";
         bpm.Main.main(args1.split(" "));
     }
 }

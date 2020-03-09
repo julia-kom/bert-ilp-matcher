@@ -65,20 +65,27 @@ public class EventuallyFollowsLogProfile extends AbstractLogProfile{
             for(XTrace trace : log){
                 int i;
                 for(i = 0; i<trace.size()-1; i++){
-                    Transition t1 = new Transition(trace.get(i).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
-                    t1.setId(trace.get(i).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
+                    // id is action code + lifecycle
+                    String id1 = trace.get(i).getAttributes().get(LOG_ID_ATTRIBUTE).toString() +"+"+
+                            trace.get(i).getAttributes().get(LOG_LIFECYCLE_ATTRIBUTE).toString();
+                    Transition t1 = new Transition(id1);
+                    t1.setId(id1);
                     //update transition frequency
                     transitionFrequency.put(t1, getTransitionFrequency(t1) + 1);
                     for(int j = i+1; j<trace.size();j++) {
-                        Transition t2 = new Transition(trace.get(j).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
-                        t2.setId(trace.get(j).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
+                        String id2 = trace.get(j).getAttributes().get(LOG_ID_ATTRIBUTE).toString() +"+"+
+                                trace.get(j).getAttributes().get(LOG_LIFECYCLE_ATTRIBUTE).toString();
+                        Transition t2 = new Transition(id2);
+                        t2.setId(id2);
                         //update edge frequency
                         ImmutablePair edge = new ImmutablePair<Transition, Transition>(t1, t2);
                         followFrequency.put(edge, getFollowsFrequency(edge) + 1);
                     }
                 }
-                Transition tLast = new Transition(trace.get(trace.size()-1).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
-                tLast.setId(trace.get(trace.size()-1).getAttributes().get(LOG_ID_ATTRIBUTE).toString());
+                String idLast = trace.get(trace.size()-1).getAttributes().get(LOG_ID_ATTRIBUTE).toString() +"+"+
+                        trace.get(trace.size()-1).getAttributes().get(LOG_LIFECYCLE_ATTRIBUTE).toString();
+                Transition tLast = new Transition(idLast);
+                tLast.setId(idLast);
                 transitionFrequency.put(tLast,getTransitionFrequency(tLast) + 1);
             }
         }

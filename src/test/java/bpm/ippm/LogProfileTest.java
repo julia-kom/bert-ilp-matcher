@@ -4,11 +4,13 @@ import bpm.ippm.alignment.Result;
 import bpm.evaluation.ExecutionTimer;
 import bpm.ippm.ilp.AbstractILP;
 import bpm.ippm.matcher.Pipeline;
+import bpm.ippm.profile.AbstractLogProfile;
 import bpm.ippm.profile.AbstractProfile;
 import bpm.ippm.profile.DirectlyFollowsLogProfile;
 import bpm.ippm.profile.EventuallyFollowsLogProfile;
 import org.deckfour.xes.factory.XFactoryNaiveImpl;
 import org.deckfour.xes.model.*;
+import org.deckfour.xes.model.impl.XAttributeLiteralImpl;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Place;
 import org.jbpt.petri.Transition;
@@ -52,16 +54,27 @@ public class LogProfileTest {
 
     @BeforeClass
     public static void createArtificialLogs(){
+       XAttributeLiteral lifecycle = new XAttributeLiteralImpl(AbstractLogProfile.LOG_LIFECYCLE_ATTRIBUTE,"complete"); // dummy lifecycle, as the model contains neither one
        XEvent e1 = createEvent("t1");
+       e1.getAttributes().put(AbstractLogProfile.LOG_LIFECYCLE_ATTRIBUTE,lifecycle);
        XEvent e2 = createEvent("t2");
+       e2.getAttributes().put(AbstractLogProfile.LOG_LIFECYCLE_ATTRIBUTE,lifecycle);
        XEvent e3 = createEvent("t3");
+       e3.getAttributes().put(AbstractLogProfile.LOG_LIFECYCLE_ATTRIBUTE,lifecycle);
        XEvent e4 = createEvent("t4");
+       e4.getAttributes().put(AbstractLogProfile.LOG_LIFECYCLE_ATTRIBUTE,lifecycle);
        XEvent e5 = createEvent("t5");
+       e5.getAttributes().put(AbstractLogProfile.LOG_LIFECYCLE_ATTRIBUTE,lifecycle);
        XEvent e6 = createEvent("t6");
+       e6.getAttributes().put(AbstractLogProfile.LOG_LIFECYCLE_ATTRIBUTE,lifecycle);
        XEvent e7 = createEvent("t7");
+       e7.getAttributes().put(AbstractLogProfile.LOG_LIFECYCLE_ATTRIBUTE,lifecycle);
        XEvent e8 = createEvent("t8");
+       e8.getAttributes().put(AbstractLogProfile.LOG_LIFECYCLE_ATTRIBUTE,lifecycle);
        XEvent e9 = createEvent("t9");
+       e9.getAttributes().put(AbstractLogProfile.LOG_LIFECYCLE_ATTRIBUTE,lifecycle);
        XEvent e10 = createEvent("t10");
+       e10.getAttributes().put(AbstractLogProfile.LOG_LIFECYCLE_ATTRIBUTE,lifecycle);
 
 
        XFactoryNaiveImpl factory = new XFactoryNaiveImpl();
@@ -70,6 +83,7 @@ public class LogProfileTest {
        t1.insertOrdered(e2);
        t1.insertOrdered(e3);
        t1.insertOrdered(e6);
+
 
        XTrace t2 = factory.createTrace();
        t2.insertOrdered(e1);
@@ -87,7 +101,6 @@ public class LogProfileTest {
             log1.add(t2);
        }
 
-
         XTrace t3 = factory.createTrace();
         t3.insertOrdered(e7);
         t3.insertOrdered(e8);
@@ -104,16 +117,16 @@ public class LogProfileTest {
     @BeforeClass
     public static void createArtificialModels(){
 
-        t1.setId("t1");
-        t2.setId("t2");
-        t3.setId("t3");
-        t4.setId("t4");
-        t5.setId("t5");
-        t6.setId("t6");
-        t7.setId("t7");
-        t8.setId("t8");
-        t9.setId("t9");
-        t10.setId("t10");
+        t1.setId("t1+complete");
+        t2.setId("t2+complete");
+        t3.setId("t3+complete");
+        t4.setId("t4+complete");
+        t5.setId("t5+complete");
+        t6.setId("t6+complete");
+        t7.setId("t7+complete");
+        t8.setId("t8+complete");
+        t9.setId("t9+complete");
+        t10.setId("t10+complete");
 
         model1 = new NetSystem();
 
@@ -415,7 +428,7 @@ public class LogProfileTest {
 
     @Test
     public void realTest(){
-        Pipeline p = new Pipeline.Builder().withILP(AbstractILP.ILP.BASIC5).withProfile(AbstractProfile.Profile.LOG_EF).atSimilarityWeight(0.2).atPostprocessThreshold(0.0).withILPTimeLimit(10).Build();
+        Pipeline p = new Pipeline.Builder().withILP(AbstractILP.ILP.BASIC5).withProfile(AbstractProfile.Profile.LOG_DF).atSimilarityWeight(0.2).atPostprocessThreshold(0.0).withILPTimeLimit(10).Build();
         //Pipeline.PRINT_ENABLED = true;
         File f1 = new File("./eval-data/pnml/bpi15/BPIC15_5_01_BB.pnml");
         File f2 = new File("./eval-data/pnml/bpi15/BPIC15_2_01_BB.pnml");

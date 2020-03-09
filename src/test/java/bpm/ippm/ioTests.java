@@ -90,7 +90,7 @@ public class ioTests {
     // positive example that doesn't throw an error
     @Test
     public void trueExample(){
-        String args1 = "matcher -n1 ./eval-data/pnml/bpi15/BPIC15_2_07_OPS.pnml -l1 ./eval-data/xes/bpi15/BPIC15_2_07_OPS.xes -n2 ./eval-data/pnml/bpi15/BPIC15_4_07_OPS.pnml -l2 ./eval-data/xes/bpi15/BPIC15_4_07_OPS.xes -s 0.5 -p LOG_EF -w LIN -i BASIC5";
+        String args1 = "matcher -n1 ./eval-data/pnml/bpi15/BPIC15_2_07_OPS.pnml -l1 ./eval-data/xes/bpi15/BPIC15_2_07_OPS.xes -n2 ./eval-data/pnml/bpi15/BPIC15_4_07_OPS.pnml -l2 ./eval-data/xes/bpi15/BPIC15_4_07_OPS.xes -s 0.5 -p LOG_EF -w LIN -i BASIC5 -tl 1";
         bpm.Main.main(args1.split(" "));
     }
 
