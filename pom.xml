@@ -57,6 +57,7 @@
 
       <!-- https://mvnrepository.com/artifact/de.sciss/jawjaw -->
 
+      <!-- Alignemnt RDF file reader and writer -->
       <!-- https://jitpack.io/#dozed/align-api-project/-SNAPSHOT -->
       <dependency>
           <groupId>com.github.dozed.align-api-project</groupId>
@@ -73,6 +74,8 @@
 
 
 
+
+      <!-- HELPER LIBS -->
       <!-- https://mvnrepository.com/artifact/commons-cli/commons-cli -->
       <dependency>
           <groupId>commons-cli</groupId>
@@ -93,8 +96,14 @@
           <version>3.2</version>
       </dependency>
 
+      <dependency>
+          <groupId>com.googlecode.json-simple</groupId>
+          <artifactId>json-simple</artifactId>
+          <version>1.1.1</version>
+      </dependency>
 
 
+      <!-- Petri Net Framework -->
       <!-- https://mvnrepository.com/artifact/org.jbpt/jbpt-bp -->
       <dependency>
           <groupId>org.jbpt</groupId>
@@ -116,6 +125,8 @@
           <version>0.3.1</version>
       </dependency>
 
+
+      <!-- Gurobi Adapter -->
       <!-- https://mvnrepository.com/artifact/gurobi/gurobi-linux64 -->
       <dependency>
           <groupId>gurobi</groupId>
@@ -123,36 +134,29 @@
           <version>8.0.0</version>
       </dependency>
 
-      <!-- Exroru for BPP, is part of the local .m2 repo. Jar file to install can be found in /libs/ExRORU.jar
-           WITH BELOW MAVEN PACKAGE OPTIONS:
-           install:install-file -Dfile=libs/ExRORU.jar -DgroupId=com.iise.shudi -Dversion=1.0 -Dpackaging=jar -DartifactId=exroru
-           Exroru uses an adaption of the JBPT Lib, which is why the package org.jbpt.petri.unfolding is renamed to
-           org.jbpt.petri.unfoldingadapted in the ExRoru package -->
+
+      <!-- Exroru for BPP -->
       <dependency>
           <groupId>com.iise.shudi</groupId>
           <artifactId>exroru</artifactId>
           <version>1.0</version>
       </dependency>
 
-      <dependency>
-          <groupId>com.googlecode.json-simple</groupId>
-          <artifactId>json-simple</artifactId>
-          <version>1.1.1</version>
-      </dependency>
 
+
+      <!-- XES Log lib -->
       <dependency>
           <groupId>org.deckfour</groupId>
           <artifactId>xes</artifactId>
           <version>1.0.0</version>
       </dependency>
-
-      <!-- needed for deckfour -->
       <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
       <dependency>
           <groupId>com.google.guava</groupId>
           <artifactId>guava</artifactId>
           <version>28.2-jre</version>
       </dependency>
+
 
       <!-- needed to add javax to classpath for JDK 9 and above -->
       <dependency>
