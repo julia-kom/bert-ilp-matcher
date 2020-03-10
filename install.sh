@@ -6,6 +6,11 @@ mvn install:install-file -Dfile=libs/OpenXES-20181205.jar -DgroupId=org.deckfour
 #install original BP Plus package (though own implementation is used due to too many bugs in paper implementation)
 mvn install:install-file -Dfile=libs/ExRORU.jar -DgroupId=com.iise.shudi -Dversion=1.0 -Dpackaging=jar -DartifactId=exroru
 
+#install gurobi 8.0.0 connector (this does NOT install gurobi!)
+mvn install:install-file -Dfile=libs/gurobi-8-0-0.jar -DgroupId=gurobi -Dversion=8.0.0 -Dpackaging=jar -DartifactId=gurobi-linux64
+
+
+
 #create standalone jar
 mvn clean compile test assembly:single -f pom.xml
 
