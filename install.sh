@@ -10,7 +10,7 @@ mvn install:install-file -Dfile=libs/ExRORU.jar -DgroupId=com.iise.shudi -Dversi
 mvn install:install-file -Dfile=libs/gurobi-8-0-0.jar -DgroupId=gurobi -Dversion=8.0.0 -Dpackaging=jar -DartifactId=gurobi-linux64
 
 #install wordnet package
-mvn install:install-file -Dfile=libs/ws4j-1.0.0.jar -DgroupId=org.xerial -Dversion=3.7.2 -Dpackaging=jar -DartifactId=sqlite-jdbc
+mvn install:install-file -Dfile=libs/ws4j-1.0.1.jar -DgroupId=org.xerial -Dversion=3.7.2 -Dpackaging=jar -DartifactId=sqlite-jdbc
 
 
 
