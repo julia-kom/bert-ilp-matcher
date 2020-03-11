@@ -27,17 +27,17 @@ public class Matcher {
                 .required(false)
                 .hasArg(true)
                 .longOpt("postprocess-threshold")
-                .desc("Minimum Similarity value between 0 and 1 a, by the ILP proposed correspondance, got to have, to account as a match.")
+                .desc("Minimum Similarity value between 0 and 1 a, by the ILP proposed correspondence, got to have, to account as a match.")
                 .type(Double.TYPE)
                 .build();
         Option optPathNet1 = Option.builder("n1")
-                .required(true)
+                .required(false)
                 .hasArg(true)
                 .longOpt("net-1")
                 .desc("Sound, free-choice WF net 1")
                 .build();
         Option optPathNet2 = Option.builder("n2")
-                .required(true)
+                .required(false)
                 .hasArg(true)
                 .longOpt("net-2")
                 .desc("Sound, free-choice WF net 2")
@@ -46,26 +46,26 @@ public class Matcher {
                 .required(false)
                 .hasArg(true)
                 .longOpt("log-1")
-                .desc("Sound, free-choice WF net 1")
+                .desc("Log of net 1")
                 .build();
         Option optPathLog2 = Option.builder("l2")
                 .required(false)
                 .hasArg(true)
                 .longOpt("log-2")
-                .desc("Sound, free-choice WF net 2")
+                .desc("Log of net 2")
                 .build();
         Option optProfile = Option.builder("p")
                 .hasArg(true)
                 .longOpt("profile")
-                .desc("Relational Profile to use: BP, BPP, ARP")
+                .desc("Relational Profile to use: BP, BPP, ARP, LOG_EF,LOG_DF")
                 .build();
 
         Option ilp = Option.builder("i")
                 .hasArg(true)
                 .longOpt("ilp")
-                .desc("Choose an ILP Matcher here: \n Basic: 1:1 Matcher with ILP. Slow but returns similarity and matching. \n" +
-                        "Relaxed: 1:1 Matcher with LP. Slow but returns similarity and matching \n" +
-                        "Relaxed2: 1:1 Matcher with LP. Qucik but only matching.")
+                .desc("Choose an ILP Matcher here: \n BASIC: 1:1 Matcher with ILP. Slow but returns similarity and matching. \n" +
+                        "BASIC2: 1:1 Matcher with ILP and makes use of similarity property of the profile. Dont use with BP+ or log based approaches. \n" +
+                        "BASIC5: 1:1 Matcher with ILP. Uses relation similarity function of a profile. Use this for BP+ and log based profiles.")
                 .build();
 
         Option optTl = Option.builder("tl")
@@ -84,15 +84,18 @@ public class Matcher {
                 .hasArg(true)
                 .longOpt("word-sim")
                 .desc("Choose a used word similarity function, used inside the Bag-of-Words Label Similarity: \n " +
-                        "Lin: Lin Similarity \n" +
-                        "Levenshtein: Levenshtein Similarity \n" +
-                        "Jiang: Jiang Similarity \n" +
-                        "Levenshtein-Lin-Max: Maximum of Levenshtein and Lin Similarity \n" +
-                        "Levenshtein-Jiang-Max: Maximum of Levenshtein and Jiang Similarity")
+                        "LIN: Lin Similarity \n" +
+                        "LEVENSHTEIN: Levenshtein Similarity \n" +
+                        "JIANG: Jiang Similarity \n" +
+                        "LEVENSHTEIN-LIN-MAX: Maximum of Levenshtein and Lin Similarity \n" +
+                        "LEVENSHTEIN-JIANG-MAX: Maximum of Levenshtein and Jiang Similarity")
                 .build();
 
         Option optPreMatch = new Option("pm", "pre-match", false, "Run Prematcher before running the ILP, reducing runtime");
         Option optPrint= new Option("sys", "sys-print", false, "Enable System out print commands");
+
+        Option optHelp= new Option("h", "help", false, "Get help.");
+
 
 
 
@@ -111,6 +114,7 @@ public class Matcher {
         options.addOption(optTl);
         options.addOption(optNl);
         options.addOption(optProfile);
+        options.addOption(optHelp);
 
 
         //parse input
@@ -126,6 +130,13 @@ public class Matcher {
 
         //create matching pipeline
         Pipeline.Builder builder = new Pipeline.Builder();
+
+        // help
+        if (line.hasOption("h")) {
+            new HelpFormatter().printHelp("matcher", options);
+            return;
+        }
+
 
         // parse prematcher
         if (line.hasOption("pm")) {
@@ -156,7 +167,7 @@ public class Matcher {
                 double s = Double.parseDouble(sString);
                 builder = builder.withILPNodeLimit(s);
             } catch (Exception numExp) {
-                throw new Error("Parsing Failed: Time Limit " + numExp.getMessage());
+                throw new Error("Parsing Failed: Node Limit " + numExp.getMessage());
             }
         }
 
@@ -178,7 +189,7 @@ public class Matcher {
                 double s = Double.parseDouble(sString);
                 builder = builder.atSimilarityWeight(s);
             } catch (Exception numExp) {
-                throw new Error("Parsing Failed: Number Input s " + numExp.getMessage());
+                throw new Error("Parsing Failed: Number Input sim-weight " + numExp.getMessage());
             }
         }
 
@@ -199,7 +210,7 @@ public class Matcher {
                 double p = Double.parseDouble(pString);
                 builder = builder.atPostprocessThreshold(p);
             } catch (Exception numExp) {
-                throw new Error("Parsing Failed: Number Input p " + numExp.getMessage());
+                throw new Error("Parsing Failed: Number Input pp " + numExp.getMessage());
             }
         }
 
@@ -216,8 +227,17 @@ public class Matcher {
         // parse petri net 1 and 2
         File net1;
         File net2;
+
         String n1String = line.getOptionValue("n1");
+        if(n1String == null){
+            throw new Error("Net 1 is a required parameter");
+        }
+
         String n2String = line.getOptionValue("n2");
+        if(n2String == null){
+            throw new Error("Net 2 is a required parameter");
+        }
+
         try {
             net1 = new File(n1String);
             if (!net1.exists()) {

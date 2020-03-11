@@ -7,6 +7,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+/**
+ * Representation of an Alignment aka. Matching.
+ */
 public class Alignment {
     private HashSet<Correspondence> correspondences;
     private String name;
@@ -19,7 +22,7 @@ public class Alignment {
     /**
      * Check if the correspondences are mutually exclusive.
      * Meaning if there no two correspondences in the alignment which share at least one transaction.
-     * @return
+     * @return true iff mutually exclusiveness is given
      */
     public boolean isMutuallyExclusive(){
         for(Correspondence c1 : correspondences){
@@ -38,7 +41,7 @@ public class Alignment {
     /**
      * filter on the correspondence likelihood
      * @param minLikelihood minimum threshold
-     * @return
+     * @return filtered Alignment
      */
     public Alignment filter(double minLikelihood){
         Alignment.Builder builder = new Alignment.Builder();
@@ -56,7 +59,7 @@ public class Alignment {
      * Checks if two nodes are in correspondence relation
      * @param n1 node from net 1
      * @param n2 node from net 2
-     * @return boolean
+     * @return true iff nodes are mapped
      */
     public boolean isMapped(Node n1, Node n2){
         for(Correspondence c : correspondences){
@@ -70,7 +73,7 @@ public class Alignment {
     /**
      * Check if the alignment contains a certain correspondence
      * @param c correpsondence to check
-     * @return
+     * @return true iff correpsondence is contained in the alignment
      */
     public boolean contains(Correspondence c){
         for(Correspondence p : correspondences){
@@ -83,7 +86,7 @@ public class Alignment {
 
     /**
      * Check if the alignment contains complex correspondences
-     * @return boolean
+     * @return true iff there is a complex correspondence
      */
     public boolean isComplex(){
         for(Correspondence c : correspondences){
@@ -111,7 +114,7 @@ public class Alignment {
 
     /**
      * Get all nodes of net1 involved in the alignment
-     * @return
+     * @return set of nodes
      */
     public Set<Node> getAlignedNodesNet1(){
         HashSet<Node> res = new HashSet<>();
@@ -123,7 +126,7 @@ public class Alignment {
 
     /**
      * Get all nodes of net2 involved in the alignment
-     * @return
+     * @return set of nodes
      */
     public Set<Node> getAlignedNodesNet2(){
         HashSet<Node> res = new HashSet<>();
@@ -135,7 +138,7 @@ public class Alignment {
 
     /**
      * Get all correspondences
-     * @return
+     * @return set of all correspondences
      */
     public HashSet<Correspondence> getCorrespondences(){
         return correspondences;
@@ -143,7 +146,7 @@ public class Alignment {
 
     /**
      * Get the name of the alignment
-     * @return
+     * @return name of alignment
      */
     public String getName(){return name;}
 
@@ -155,7 +158,7 @@ public class Alignment {
 
     /**
      * String representation of the alignment
-     * @return
+     * @return String representation
      */
     @Override
     public String toString(){
@@ -170,7 +173,7 @@ public class Alignment {
      * Equal if both alignments contain the same mapped nodes.
      * It doesnt matter if complex correspondences are realized via several simple
      * correspondeces or via one correspondence
-     * @param o
+     * @param o object to compare with
      * @return
      */
     @Override
@@ -226,7 +229,7 @@ public class Alignment {
          * Adds pair of nodes to correspndence, such that no non-mutual exclusive alignments exist.
          * @param n1 node of net 1
          * @param n2 node of net 2
-         * @return
+         * @return Builder
          */
         public Builder add(Node n1, Node n2){
             boolean found = false;
@@ -252,7 +255,7 @@ public class Alignment {
 
         /**
          * Removes complex matches from the alignment that is build up
-         * @return
+         * @return Builder
          */
         public Builder removeComplexMatches(){
             Iterator<Correspondence> it = this.correspondences.iterator();

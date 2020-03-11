@@ -19,6 +19,7 @@ public class Evaluation {
      * @param args see -h for args
      */
     public static void main(String[] args) {
+        Option optHelp= new Option("h", "help", false, "Get help");
         Option optRetrospectiveEval = new Option("r", "retrospective", false, "Run retrospective evaluation");
         Option optSysPrint = new Option("sys", "system-print", false, "Run code with System println commands");
         Option optNetEval= new Option("ne", "net-eval", false, "Run petri net evaluation");
@@ -35,7 +36,7 @@ public class Evaluation {
                 .required(false)
                 .hasArg(true)
                 .longOpt("postprocess-threshold")
-                .desc("Minimum Similarity value between 0 and 1 a, by the ILP proposed correspondance, got to have, to account as a match.")
+                .desc("Minimum Similarity value between 0 and 1 a, by the ILP proposed correspondence, got to have, to account as a match.")
                 .type(Double.TYPE)
                 .build();
         Option optPathNet1 = Option.builder("n1")
@@ -51,9 +52,9 @@ public class Evaluation {
         Option optIlp = Option.builder("i")
                 .hasArg(true)
                 .longOpt("ilp")
-                .desc("Choose an ILP Matcher here: \n Basic: 1:1 Matcher with ILP. Slow but returns similarity and matching. \n" +
-                        "Relaxed: 1:1 Matcher with LP. Slow but returns similarity and matching \n" +
-                        "Relaxed2: 1:1 Matcher with LP. Qucik but only matching.")
+                .desc("Choose an ILP Matcher here: \n BASIC: 1:1 Matcher with ILP. Slow but returns similarity and matching. \n" +
+                        "BASIC2: 1:1 Matcher with ILP and makes use of similarity property of the profile. Dont use with BP+ or log based approaches. \n" +
+                        "BASIC5: 1:1 Matcher with ILP. Uses relation similarity function of a profile. Use this for BP+ and log based profiles.")
                 .build();
         Option optWordSim = Option.builder("w")
                 .hasArg(true)
@@ -92,7 +93,7 @@ public class Evaluation {
         Option optResultPath = Option.builder("rp")
                 .hasArg(true)
                 .longOpt("result-path")
-                .desc("ResultPath of a previous evaluation for performing a retrospective evaluation")
+                .desc("Result path of a previous evaluation for performing a retrospective evaluation")
                 .build();
         Option optEvalStrat = Option.builder("e")
                 .hasArg(true)
@@ -100,14 +101,14 @@ public class Evaluation {
                 .desc("Choose the evaluation strategy: \n" +
                         "Binary: Lose Binary Relations. Partley correct matches account partly \n" +
                         "StrictBinary: Only exact matches account as true positives \n" +
-                        "Probabilistically: Acc. to \"Probabilistic Evaluation of Process Model Matching Techniques\" ")
+                        "Probabilistically: Acc. to \"Probabilistic Evaluation of Process Model Matching Techniques\" NOT IMPLEMENTED ")
                 .build();
         Option optNetEvalProfile = Option.builder("p")
                 .hasArg(true)
                 .longOpt("profile")
                 .desc("Profile for matching/net evaluation")
                 .build();
-        Option optPreMatch = new Option("pm", "pre-match", false, "Run Prematcher before running the ILP, reducing runtime");
+        Option optPreMatch = new Option("pm", "pre-match", false, "Run Prematcher before running the ILP.");
 
         Option optTl = Option.builder("tl")
                 .hasArg(true)
@@ -143,6 +144,7 @@ public class Evaluation {
         options.addOption(optNl);
         options.addOption(optGSEval);
         options.addOption(optLogPath);
+        options.addOption(optHelp);
 
         //parse input
         CommandLine line;
@@ -160,7 +162,13 @@ public class Evaluation {
         Pipeline.Builder evalBuilder = new Pipeline.Builder();
         bpm.ippm.matcher.Pipeline.Builder matcherBuilder = new bpm.ippm.matcher.Pipeline.Builder();
 
-        // parse complexMatches
+        // help
+        if (line.hasOption("h")) {
+            new HelpFormatter().printHelp("evaluation", options);
+            return;
+        }
+
+        // use system out println
         if (line.hasOption("sys")) {
             bpm.ippm.matcher.Pipeline.PRINT_ENABLED = true;
         }
@@ -189,17 +197,60 @@ public class Evaluation {
                 evalBuilder = evalBuilder.atThreshold(p);
                 matcherBuilder = matcherBuilder.atPostprocessThreshold(p);
             } catch (Exception numExp) {
-                throw new Error("Parsing Failed: Number Input p " + numExp.getMessage());
+                throw new Error("Parsing Failed: Number Input pp " + numExp.getMessage());
             }
         }
 
-        // net 1 for single eval
+        // parse ilp
         if (line.hasOption("i")) {
             String iString = line.getOptionValue("i");
             try {
                 matcherBuilder = matcherBuilder.withILP(AbstractILP.ILP.valueOf(iString));
             }catch(Exception e){
-                throw new Error("It was not possible to interprete the ILP" + iString);
+                throw new Error("It was not possible to interpret the ILP" + iString);
+            }
+        }
+
+        // profile
+        if (line.hasOption("p")) {
+            try{
+                String sString = line.getOptionValue("p");
+                evalBuilder = evalBuilder.withNetEvalProfile(sString);
+                matcherBuilder =matcherBuilder.withProfile(AbstractProfile.Profile.valueOf(sString));
+            } catch (Exception numExp) {
+                throw new Error("Parsing Failed: Profile " + numExp.getMessage());
+            }
+        }
+
+        // word similarity
+        if (line.hasOption("w")) {
+            String n2String = line.getOptionValue("w");
+            try {
+                matcherBuilder = matcherBuilder.withWordSimilarity(Word.Similarities.valueOf(n2String));
+            } catch (Exception e) {
+                throw new Error("Not possible to read the word similarity" + n2String);
+            }
+        }
+
+        //time limit
+        if (line.hasOption("tl")) {
+            String sString = line.getOptionValue("tl");
+            try {
+                double s = Double.parseDouble(sString);
+                matcherBuilder = matcherBuilder.withILPTimeLimit(s);
+            } catch (Exception numExp) {
+                throw new Error("Parsing Failed: Time Limit " + numExp.getMessage());
+            }
+        }
+
+        // node limit
+        if (line.hasOption("nl")) {
+            String sString = line.getOptionValue("nl");
+            try {
+                double s = Double.parseDouble(sString);
+                matcherBuilder= matcherBuilder.withILPNodeLimit(s);
+            } catch (Exception numExp) {
+                throw new Error ("Parsing Failed: Node Limit " + numExp.getMessage());
             }
         }
 
@@ -239,27 +290,6 @@ public class Evaluation {
             evalBuilder = evalBuilder.withGSEval();
         }
 
-        // gold standard for single eval
-        if (line.hasOption("p")) {
-            try{
-                String sString = line.getOptionValue("p");
-                evalBuilder = evalBuilder.withNetEvalProfile(sString);
-                matcherBuilder =matcherBuilder.withProfile(AbstractProfile.Profile.valueOf(sString));
-            } catch (Exception numExp) {
-                throw new Error("Parsing Failed: Time Limit " + numExp.getMessage());
-            }
-        }
-
-        // word similarity
-        if (line.hasOption("w")) {
-            String n2String = line.getOptionValue("w");
-            try {
-                matcherBuilder = matcherBuilder.withWordSimilarity(Word.Similarities.valueOf(n2String));
-            } catch (Exception e) {
-                throw new Error("Not possible to read the word similarity" + n2String);
-            }
-        }
-
         // path that contains all nets to compare
         if (line.hasOption("np")) {
             String netString = line.getOptionValue("np");
@@ -293,31 +323,12 @@ public class Evaluation {
             evalBuilder = evalBuilder.withResultPath(rp);
         }
 
+        //eval strategy
         if (line.hasOption("e")) {
             Eval.Strategies strat = Eval.Strategies.valueOf(line.getOptionValue("e"));
             evalBuilder.withEvalStrat(strat);
         }
 
-
-        if (line.hasOption("tl")) {
-            String sString = line.getOptionValue("tl");
-            try {
-                double s = Double.parseDouble(sString);
-                matcherBuilder = matcherBuilder.withILPTimeLimit(s);
-            } catch (Exception numExp) {
-                throw new Error("Parsing Failed: Time Limit " + numExp.getMessage());
-            }
-        }
-
-        if (line.hasOption("nl")) {
-            String sString = line.getOptionValue("nl");
-            try {
-                double s = Double.parseDouble(sString);
-                matcherBuilder= matcherBuilder.withILPNodeLimit(s);
-            } catch (Exception numExp) {
-                throw new Error ("Parsing Failed: Node Limit " + numExp.getMessage());
-            }
-        }
 
         //build
         bpm.ippm.matcher.Pipeline matchingPip = matcherBuilder.Build();

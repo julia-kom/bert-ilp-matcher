@@ -12,6 +12,10 @@ import java.util.Set;
 
 /**
  * This Class is for evaluation purpose only!
+ * Same labeled transitions do not get a label sim score of one. Instead:
+ *
+ * If same labeled => draw similarity from matching-Gaussian
+ * If differently labeled => draw similarity from non matching Gaussian
  */
 public class NormalDistributionLabelSimilarity implements LabelSimilarity {
 
@@ -27,6 +31,11 @@ public class NormalDistributionLabelSimilarity implements LabelSimilarity {
     private NormalDistribution matchingND = new NormalDistribution(matchingMean,matchingVariance);
 
 
+    /**
+     * Set the Gaussian for non matching pairs of transitions
+     * @param mean Mean
+     * @param variance Variance
+     */
     public void setNonMatchingDistribution(double mean, double variance) {
         nonMatchingMean = mean;
         nonMatchingVariance = variance;
@@ -34,6 +43,11 @@ public class NormalDistributionLabelSimilarity implements LabelSimilarity {
         nonMatchingND = new NormalDistribution(nonMatchingMean,nonMatchingVariance);
     }
 
+    /**
+     * Set the gaussian for matching pairs of transition labels.
+     * @param mean Mean
+     * @param variance Variance
+     */
     public void setMatchingDistribution(double mean, double variance) {
         matchingMean = mean;
         matchingVariance = variance;
@@ -41,6 +55,14 @@ public class NormalDistributionLabelSimilarity implements LabelSimilarity {
         matchingND = new NormalDistribution(matchingMean,matchingVariance);
     }
 
+    /**
+     * Compute the similarity of two labels.
+     * To gain consistency over several iterations we use caching for once drawn similarities.
+     * Those are stored in ./
+     * @param label1
+     * @param label2
+     * @return
+     */
     @Override
     public double sim(String label1, String label2) {
 

@@ -63,8 +63,8 @@ public class Preprocessor {
     /**
      * Checks if transition is tau.
      * Tau if either: empty label, id == label, t_??, t??, tr_??, tr??, MESSAGE_??
-     * @param t
-     * @return
+     * @param t Transition
+     * @return true if silent
      */
     public static boolean isTau(Transition t){
         // silent
@@ -123,7 +123,7 @@ public class Preprocessor {
     /**
      * Parses a XES file to a XLog file
      * @param f
-     * @return
+     * @return XLog
      */
     public static XLog parseLog(File f){
         // no log file given
@@ -150,7 +150,7 @@ public class Preprocessor {
     /**
      * checks if petri net is WF-net, sound and free choice
      * throws illegal argument exception if not
-     * @param net
+     * @param net NetSystem
      */
     public static void checkPetriNetProperties(NetSystem net){
         // TODO soundness
@@ -167,9 +167,9 @@ public class Preprocessor {
 
     /**
      * Returns those files in path which are of one of the types defined in the second parameter.
-     * @param path
-     * @param types
-     * @return
+     * @param path Path to crawl
+     * @param types Types to search for
+     * @return List of files in that path with given type
      */
     public static File[] listFilesOfType(File path, final String[] types){
         File[] files =  path.listFiles(new FilenameFilter() {
@@ -186,10 +186,10 @@ public class Preprocessor {
     }
 
     /**
-     *  Returns those files in path which is of the type defined in the second parameter.
-     * @param path
-     * @param type
-     * @return
+     * Returns those files in path which are of one of the types defined in the second parameter.
+     * @param path Path to crawl
+     * @param type Type to search for
+     * @return List of files in that path with given type
      */
     public static File[] listFilesOfType(File path, String type){
         String[] types = new String[]{type};

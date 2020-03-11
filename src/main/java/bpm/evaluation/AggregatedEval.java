@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Aggregated Eval calculates and stores the aggregated evaluation of one batch execution
+ */
 public class AggregatedEval {
     private int tp = 0;
     private int fp = 0;
@@ -32,8 +35,8 @@ public class AggregatedEval {
     private List<Eval> evals = new LinkedList<>();
 
     /**
-     * Constructor
-     * @param evals
+     * Constructor: Calculates the aggregated evaluation of the given list of single matching evaluations
+     * @param evals list of evaluation which should be aggregated
      */
     public AggregatedEval(List<Eval> evals){
         this.evals = evals;

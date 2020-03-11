@@ -7,6 +7,9 @@ import org.json.simple.JSONObject;
 
 import java.io.File;
 
+/**
+ * Interface for a general matcher.
+ */
 public interface MatchingPipeline {
     Result run(File f1, File f2, ExecutionTimer t);
 

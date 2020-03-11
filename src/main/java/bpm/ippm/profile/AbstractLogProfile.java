@@ -9,8 +9,12 @@ import org.jbpt.petri.Transition;
 
 import java.util.HashMap;
 
+/**
+ * Abstract Log Profile. All Log based profiles derive this.
+ */
 public abstract class AbstractLogProfile extends AbstractProfile {
 
+    // attribute that is mapped to the transition ID in the NetSystem in combination with the lifecycle
     public static final String LOG_ID_ATTRIBUTE = "action_code";
     public static final String LOG_LIFECYCLE_ATTRIBUTE = "lifecycle:transition";
 
@@ -20,7 +24,12 @@ public abstract class AbstractLogProfile extends AbstractProfile {
     HashMap<ImmutablePair<Transition,Transition>, Integer> followFrequency = new HashMap<>();
 
 
-
+    /**
+     * Min/Max Similarity of relative frequencies.
+     * @param r1
+     * @param r2
+     * @return
+     */
     @Override
     public double getRelationSimilarity(Relation r1, Relation r2){
         double nRelativeFreq = r1.getFrequency();
@@ -45,7 +54,11 @@ public abstract class AbstractLogProfile extends AbstractProfile {
         return result;
     }
 
-
+    /**
+     * Get number of times an event/transition was executed
+     * @param t Transition to check
+     * @return number of times t was executed in the log
+     */
     int getTransitionFrequency(Transition t){
         if(transitionFrequency.containsKey(t)){
             return transitionFrequency.get(t);
@@ -54,6 +67,11 @@ public abstract class AbstractLogProfile extends AbstractProfile {
         }
     }
 
+    /**
+     * Get number of times a certain tradition t was executed after a certain other transition s
+     * @param edge (s,t) the two transitions  to check
+     * @return number of times t was executed after s in the log
+     */
     int getFollowsFrequency(ImmutablePair edge){
         if(followFrequency.containsKey(edge)){
             return followFrequency.get(edge);
@@ -65,8 +83,8 @@ public abstract class AbstractLogProfile extends AbstractProfile {
 
     /**
      * Calculates the relative frequency that n1 followed by n2
-     * @param n1
-     * @param n2
+     * @param n1 Node n1
+     * @param n2 Node n2
      * @return
      */
     double relativeFollowFrequencies(Node n1, Node n2){
@@ -83,7 +101,7 @@ public abstract class AbstractLogProfile extends AbstractProfile {
         int freqFollow = followFrequency.get(edge);
         int freqN1 = transitionFrequency.get(n1);
 
-        // special case that a transition is not occuring in the log for some reasons
+        // special case that a transition is not occurring in the log for some reasons
         if(freqN1 == 0){
             return 0;
         }

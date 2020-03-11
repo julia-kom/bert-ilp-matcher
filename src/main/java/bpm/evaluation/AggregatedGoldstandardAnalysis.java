@@ -10,6 +10,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Set;
 
+/**
+ * Aggregation of several single goldstandard analysis
+ */
 public class AggregatedGoldstandardAnalysis {
     FileWriter csvWriter;
 

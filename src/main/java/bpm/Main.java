@@ -2,6 +2,9 @@ package bpm;
 
 import org.apache.commons.lang3.ArrayUtils;
 
+/**
+ * Main function to call. Forwards arguments to the chosen main function.
+ */
 public class Main {
 
     /**
@@ -20,6 +23,7 @@ public class Main {
 
         String[] newArgs = ArrayUtils.subarray(args,1,args.length);
         String modus = args[0];
+
         if(modus.equals("eval")){
             bpm.evaluation.Evaluation.main(newArgs);
         }else if(modus.equals("matcher")){

@@ -11,9 +11,16 @@ import org.jbpt.petri.Node;
 import org.jbpt.petri.Transition;
 import java.util.HashSet;
 
-
+/**
+ * Eventually Follows Profile with optional Log enhancement
+ */
 public class EventuallyFollowsLogProfile extends AbstractLogProfile{
 
+    /**
+     * Compute Eventually Follows profile of net 1 with optional log.
+     * @param net net to compute the profile for
+     * @param log Log or null if no log is present.
+     */
     public EventuallyFollowsLogProfile(NetSystem net, XLog log){
         super();
         this.log = log;
@@ -22,7 +29,12 @@ public class EventuallyFollowsLogProfile extends AbstractLogProfile{
     }
 
 
-    // So comparison of equals
+    /**
+     * Get relation between two nodes
+     * @param n1 node 1
+     * @param n2 node 2
+     * @return Relation
+     */
     @Override
     public Relation getRelationForEntities(Node n1, Node n2) {
         double freq = relativeFollowFrequencies(n1,n2);
@@ -32,7 +44,7 @@ public class EventuallyFollowsLogProfile extends AbstractLogProfile{
 
 
     /**
-     * Calculates the frequencies (attributes) from the given log
+     * Calculates the eventually follows frequencies (attributes) from the given log
      */
     private void calculateFrequencies(){
         //if no log information, then the frequency is always 1 if directly follows relation is satisfied in the model

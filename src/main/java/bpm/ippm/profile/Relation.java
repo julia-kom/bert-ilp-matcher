@@ -1,6 +1,13 @@
 package bpm.ippm.profile;
 
+/**
+ * Relations have a relation type and a frequency.
+ * For binary relations frequency is set to 1.
+ */
 public class Relation {
+    /**
+     * Different type of relations.
+     */
     public enum RelationType {
         BP_ORDER,
         BP_EXCLUSIVE,
@@ -25,24 +32,46 @@ public class Relation {
     private RelationType type; // relation type
     private double frequency; //relative frequency
 
+    /**
+     * Create a new Relation with type and frequency
+     * @param type Type of the relation
+     * @param frequency Frequency of the relation
+     */
     public Relation(RelationType type, double frequency){
         this.frequency = frequency;
         this.type = type;
     }
 
+    /**
+     * Create new Relation with type only. Frequency is set to binary (therefore 1)
+     * @param type Type of the relation
+     */
     public Relation(RelationType type){
         this.frequency = 1;
         this.type = type;
     }
 
+    /**
+     * Get the frequency
+     * @return frequency or 1 if binary profile
+     */
     public double getFrequency() {
         return frequency;
     }
 
+    /**
+     * Get Type of relation
+     * @return type
+     */
     public RelationType getType() {
         return type;
     }
 
+    /**
+     * Equals.
+     * @param o Object to compare to
+     * @return true if same.
+     */
     @Override
     public boolean equals(Object o){
 

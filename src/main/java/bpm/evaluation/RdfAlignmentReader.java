@@ -18,7 +18,7 @@ import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Cell;
 /**
- * Use an adapter to read files from the PMMC'15 challenge
+ * Wrapper to read and write RDF files in the style of the PMMC'15 challenge
  */
 public class RdfAlignmentReader implements Reader{
     /**
@@ -84,7 +84,8 @@ public class RdfAlignmentReader implements Reader{
 
 
     /**
-     * Source of this class is the framework for PMMC'15: https://ai.wu.ac.at/emisa2015/contest.php
+     * Source of this class is the framework for PMMC'15
+     * https://ai.wu.ac.at/emisa2015/contest.php
      */
     private class ProcessAlignment extends URIAlignment {
 

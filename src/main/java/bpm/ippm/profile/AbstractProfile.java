@@ -11,16 +11,27 @@ import java.util.HashMap;
 
 public abstract class AbstractProfile {
 
+    /**
+     * Profiles to choose from
+     */
     public enum Profile{
         BP, // Behavioral Profile
-        BPP, // Causal Behavioral Profile
+        BPP, // Causal Behavioral Profile, execute with ILP BASIC 5
         ARP, // Alpha Relational Profile
-        LOG_DF, // Log based Directly Follows
-        LOG_EF // Log based Eventually follows
+        LOG_DF, // Log based Directly Follows, execute with ilp BASIC 5
+        LOG_EF // Log based Eventually follows, exectue with ilp BASIC 5
     }
 
     HashMap<ImmutablePair<Node,Node>, Relation> computedRelations = new HashMap<>();
 
+    /**
+     * Creates the profile for the given net with optional log support.
+     * Note only the LOG_DF and LOG_EF actually make use of the log. And even there it is optionally.
+     * @param net net to compute the profile for
+     * @param profile profile tye to compute
+     * @param log log to support
+     * @return
+     */
     public static AbstractProfile createProfile(NetSystem net, Profile profile, XLog log){
         AbstractProfile r;
         switch(profile){

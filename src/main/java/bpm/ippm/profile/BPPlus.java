@@ -24,6 +24,7 @@ import static com.iise.shudi.exroru.RefinedOrderingRelationsMatrix.NEW_TS;
  * The implementation was extended in the following way:
  *  - The package name of the changed jbpt package org.jbpt.petri.unfold was renamed so it is compatible with this project
  *  - Transitions are no longer addressed via their lables but their ID to allow for multiple same labeled transitions inside one net.
+ *  The package still is buggy, why BP+ was reimplemented in BPPlusOwn
  */
 @Deprecated
 public class BPPlus extends AbstractProfile {

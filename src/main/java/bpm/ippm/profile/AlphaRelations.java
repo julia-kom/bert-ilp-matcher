@@ -11,12 +11,19 @@ import org.jbpt.petri.behavior.ConcurrencyRelation;
 
 import java.util.*;
 
+/**
+ * Alpha Relational Profile
+ */
 public class AlphaRelations extends AbstractProfile {
 
     private NetSystem net;
     private HashMap<Transition, HashSet<Transition>> directlyFollows = new HashMap<>(); // contains the directly follows set of each transition
     private ConcurrencyRelation concurrencyRelation;
 
+    /**
+     * Create Alpha Relational Profile for net.
+     * @param net net to compute the profile for.
+     */
     public AlphaRelations(NetSystem net){
         if (!PetriNet.STRUCTURAL_CHECKS.isWorkflowNet(net)) throw new IllegalArgumentException();
         this.concurrencyRelation = new ConcurrencyRelation(net);
@@ -28,6 +35,12 @@ public class AlphaRelations extends AbstractProfile {
     }
 
 
+    /**
+     * If the relations are the same return 1 else return 0
+     * @param r1 Relation 1
+     * @param r2 Relation 2
+     * @return
+     */
     @Override
     public double getRelationSimilarity(Relation r1, Relation r2) {
         if (r1.getType() == r2.getType()) {
@@ -37,12 +50,21 @@ public class AlphaRelations extends AbstractProfile {
         }
     }
 
+    /**
+     * Filter artificially added transitions. As this is not needed for alpha relations, nothing happens here.
+     * @param res Result
+     * @return res
+     */
     @Override
     public Result filterTemporaryTransitions(Result res) {
         // no temporary transitions were added, therefore nothing needs to be removed
         return res;
     }
 
+    /**
+     * String representation of the profile.
+     * @return
+     */
     @Override
     public String toString(){
         String res = "";
@@ -55,6 +77,12 @@ public class AlphaRelations extends AbstractProfile {
         return res;
     }
 
+    /**
+     * Compute the relation for two entries and cache the result in computedRelations.
+     * @param n1 Node n1
+     * @param n2 Node n2
+     * @return Relation from n1 to n2
+     */
     @Override
     public Relation getRelationForEntities(Node n1, Node n2) {
         ImmutablePair<Node,Node> nodePair = new ImmutablePair<>(n1,n2);
@@ -89,9 +117,9 @@ public class AlphaRelations extends AbstractProfile {
      * follow up transitions of that tau transition too.
      * Break at already visited transitions to prevent infinite loops.
      *
-     * @param n1
-     * @param n2
-     * @param net
+     * @param n1 node 1
+     * @param n2 node 2
+     * @param net net of the two nodes
      * @return
      */
      public static boolean directlyFollows(Node n1, Node n2, NetSystem net) {
@@ -133,10 +161,10 @@ public class AlphaRelations extends AbstractProfile {
 
 
     /**
-     * Computes the directly follows set of transitions for each transition in net
+     * Computes the directly follows set of a node n in net
      * If there is a path of only tau transitions between these transitions then this is added too
      *
-     * @param n1
+     * @param n1 Node
      * @param net
      * @return
      */

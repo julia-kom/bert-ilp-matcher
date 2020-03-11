@@ -1,6 +1,5 @@
 package bpm.ippm.similarity;
 
-import org.apache.commons.lang3.NotImplementedException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -16,6 +15,7 @@ public class BagOfWordsSimilarity implements LabelSimilarity{
 
     private Word.Similarities wordSimilarity;
 
+    // List of stopwords
     public static final HashSet<String> STOPWORDS = loadStopWords();
 
     /**
@@ -50,7 +50,7 @@ public class BagOfWordsSimilarity implements LabelSimilarity{
             max1 = 0;
             for(int j = 0; j < bag2.size(); j++){
                 // calculate similarity
-                double tmp = wordSimilarity(bag1.at(i),bag2.at(j));
+                double tmp = Word.wordSimilarity(this.wordSimilarity,bag1.at(i),bag2.at(j));
                 if (max1 < tmp){
                     max1 =  tmp;
                 }
@@ -64,7 +64,7 @@ public class BagOfWordsSimilarity implements LabelSimilarity{
         for(int i = 0; i<bag2.size(); i++){
             max2 = 0;
             for(int j = 0; j < bag1.size(); j++){
-                double tmp = wordSimilarity(bag2.at(i),bag1.at(j));
+                double tmp = Word.wordSimilarity(this.wordSimilarity,bag2.at(i),bag1.at(j));
                 if (max2 < tmp){
                     max2 =  tmp;
                 }
@@ -81,6 +81,10 @@ public class BagOfWordsSimilarity implements LabelSimilarity{
         }
     }
 
+    /**
+     * Load the stopwords from file into hashmap.
+     * @return the hashmap
+     */
     private static HashSet<String> loadStopWords(){
         // Create HashSet
         HashSet<String> set = new HashSet<>();
@@ -116,29 +120,6 @@ public class BagOfWordsSimilarity implements LabelSimilarity{
             set.add(stopWord.item(i).getTextContent());
 
         return set;
-    }
-
-    /**
-     * Compute the word similarity of the two words according to the configuration of this Label Similarity Measure.
-     * @param s1 word 1
-     * @param s2 word 2
-     * @return
-     */
-    private double wordSimilarity(String s1, String s2){
-        switch(wordSimilarity){
-            case LIN:
-                return Word.LinSimilarity(s1,s2);
-            case JIANG:
-                return Word.JiangSimilarity(s1,s2);
-            case LEVENSHTEIN:
-                return Word.LevenshteinSimilarity(s1,s2);
-            case LEVENSHTEIN_JIANG_MAX:
-                return Word.LevenshteinJiangMaxSimialrity(s1,s2);
-            case LEVENSHTEIN_LIN_MAX:
-                return Word.LevenshteinLinMaxSimialrity(s1,s2);
-            default:
-                throw new NotImplementedException("Word Similarity Function is not in switch.");
-        }
     }
 
     /**

@@ -17,7 +17,9 @@ import java.util.Set;
 
 import static bpm.ippm.matcher.Pipeline.PRINT_ENABLED;
 
-
+/**
+ * Abstract ILP class. Here all solver specific parameters are set.
+ */
 public abstract class AbstractILP {
     GRBEnv env;
     GRBModel model;
@@ -79,8 +81,8 @@ public abstract class AbstractILP {
 
     /**
      * Init the ILP with a log file path and a similarity weight
-     * @param log
-     * @param similarityWeight
+     * @param log gurobi log file path
+     * @param similarityWeight simialrity weight
      * @throws GRBException
      */
     public void init(File log, double similarityWeight, double timeLimit, double nodeLimit) throws GRBException, IOException {
@@ -111,7 +113,7 @@ public abstract class AbstractILP {
         /*
         The Threads parameter controls the number of threads used by the parallel MIP solver to solve the model.
         The default is to use all cores in the machine. If you wish to leave some available for other activities,
-        adjust this parameter accordingly.
+        adjust this parameter accordingly. (c) Gurobi
          */
         //model.set(GRB.IntParam.Threads, 11);
 
@@ -122,7 +124,7 @@ public abstract class AbstractILP {
         MIPFocus=1. If you believe the solver is having no trouble finding the optimal solution,
         and wish to focus more attention on proving optimality, select MIPFocus=2.
         If the best objective bound is moving very slowly (or not at all), you may want to try MIPFocus=3 to
-        focus on the bound.
+        focus on the bound. (c) Gurobi
          */
         model.set(GRB.IntParam.MIPFocus, 3);
 
@@ -140,7 +142,7 @@ public abstract class AbstractILP {
         that gives up on moving the best bound and instead devotes all of its effort towards finding better feasible
         solutions. This parameter allows you to specify an optimality gap at which the MIP solver switches to
         a solution improvement strategy. For example, setting this parameter to 0.1 will cause the MIP solver to
-        switch strategies once the relative optimality gap is smaller than 0.1.
+        switch strategies once the relative optimality gap is smaller than 0.1. (c) Gurobi
          */
         model.set(GRB.DoubleParam.ImproveStartGap,0.0);
 
@@ -151,14 +153,14 @@ public abstract class AbstractILP {
         Conservative (1), Automatic (-1), or None (0). The more specific parameters override the more general,
         so for example setting MIRCuts to None (0) while also setting Cuts to Aggressive (2) would aggressively
         generate all cut types, except MIR cuts which would not be generated. Very easy models can sometimes benefit
-        from turning cuts off, while extremely difficult models can benefit from turning them to their Aggressive setting.
+        from turning cuts off, while extremely difficult models can benefit from turning them to their Aggressive setting. (c) Gurobi
          */
         model.set(GRB.IntParam.Cuts, -1);
 
         /*
         Controls the presolve level. A value of -1 corresponds to an automatic setting. Other options are off (0),
         conservative (1), or aggressive (2). More aggressive application of presolve takes more time, but can sometimes
-        lead to a significantly tighter model.
+        lead to a significantly tighter model. (c) Gurobi
          */
         model.set(GRB.IntParam.Presolve,-1);
 

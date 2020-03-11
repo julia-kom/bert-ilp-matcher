@@ -13,9 +13,9 @@ public class Result {
 
     /**
      * Create a new result object
-     * @param objective
-     * @param alignment
-     * @param gap
+     * @param objective process similarity score computed by the matcher
+     * @param alignment alignment computed by the matcher
+     * @param gap gap at the end of the time/node limit
      */
     public Result(double objective, Alignment alignment, double gap){
         this.similarity = objective;
@@ -25,7 +25,7 @@ public class Result {
 
     /**
      * Get the alignment
-     * @return
+     * @return Alignment
      */
     public Alignment getAlignment() {
         return alignment;
@@ -33,7 +33,7 @@ public class Result {
 
     /**
      * Get the process simialrity score
-     * @return
+     * @return Process similarity score
      */
     public double getSimilarity() {
         return similarity;
@@ -41,13 +41,13 @@ public class Result {
 
     /**
      * Get the GAP (only relevant for ILP based matchers)
-     * @return
+     * @return Gap value
      */
     public double getGAP() { return gap; }
 
     /**
      * Convert to string representation
-     * @return
+     * @return string representation of the result
      */
     @Override
     public String toString() {

@@ -2,6 +2,7 @@ package bpm.ippm.similarity;
 
 import edu.cmu.lti.ws4j.WS4J;
 import edu.cmu.lti.ws4j.util.WS4JConfiguration;
+import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.text.similarity.LevenshteinDistance;
 
 public class Word {
@@ -15,6 +16,29 @@ public class Word {
         LEVENSHTEIN,
         LEVENSHTEIN_LIN_MAX,
         LEVENSHTEIN_JIANG_MAX
+    }
+
+    /**
+     * Compute the word similarity of the two words according to the configuration of this Label Similarity Measure.
+     * @param s1 word 1
+     * @param s2 word 2
+     * @return  word similarity
+     */
+    public static double wordSimilarity(Similarities wordSimilarity, String s1, String s2){
+        switch(wordSimilarity){
+            case LIN:
+                return LinSimilarity(s1,s2);
+            case JIANG:
+                return JiangSimilarity(s1,s2);
+            case LEVENSHTEIN:
+                return LevenshteinSimilarity(s1,s2);
+            case LEVENSHTEIN_JIANG_MAX:
+                return LevenshteinJiangMaxSimialrity(s1,s2);
+            case LEVENSHTEIN_LIN_MAX:
+                return LevenshteinLinMaxSimialrity(s1,s2);
+            default:
+                throw new NotImplementedException("Word Similarity Function is not in switch.");
+        }
     }
 
     /**

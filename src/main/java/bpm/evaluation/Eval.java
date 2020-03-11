@@ -13,7 +13,11 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-
+/**
+ * Computes evaluation metrics for a single matching task
+ * Different ways of evelautions can be chosen
+ *
+ */
 public class Eval {
 
     public enum Strategies{

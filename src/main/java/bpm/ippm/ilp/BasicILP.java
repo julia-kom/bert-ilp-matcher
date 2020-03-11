@@ -28,7 +28,7 @@ public class BasicILP extends AbstractILP {
      * @param relNet2 Profile of Net 2
      * @param net1 Net 1
      * @param net2 Net 2
-     * @return
+     * @return Result file
      * @throws GRBException
      */
     @Override

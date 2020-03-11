@@ -12,6 +12,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+/**
+ * Aggregation of several single Net Analysis
+ */
 public class AggregatedNetAnalysis{
     FileWriter csvWriter;
     Set<NetAnalysis> netAnalyses = new HashSet<>();
@@ -44,8 +47,6 @@ public class AggregatedNetAnalysis{
         // transition stats
         csvWriter.append(analysis.name.replace(',', ';').replace("\n", " ") + ",").
                 append(analysis.nSilentTransitions + ",").append(analysis.nNonSilentTransitions + ",");
-
-        //todo this assumes that its always traversed in the same order. true??
         // Profile Stats
         for (Relation.RelationType t : Relation.RelationType.values()) {
             csvWriter.append(getNumberOfRelations(t, net, profile)+ ",");

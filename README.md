@@ -155,20 +155,7 @@ The file is in CSV format and contains for each net file in the <path> a row wit
 
 ## Server Tests
 On a linux server with installed gurobi, scripts can be used to run a batch of tests automatically.
-On a server set up the following hierarchy:
-```
-.
-+-- eval-data
-|   +-- goldstandard
-|   +-- pnml
-|   +-- xes
-+-- pads-shell
-    +-- ilp-profile-matcher-1.0-SNAPSHOT-jar-with-dependencies.jar
-    +-- batch-test.sh
-    +-- batch-log-test.sh
-    ...
-```
-This structure is gained by copying the `eval-data` folder as well as the `pads-shell` folder into the same directory on the server.
+Copy the `eval-data` folder as well as the `pads-shell` folder into the `$HOME` directory of the server.
 The script automatically iterates the sim weight parameter for a given configuration on either the PMMC datasets or the BPI15 log enhanced dataset.
 ### PMMC Dataset Tests
 The batch evaluation for non log profile tests on the PMMC datasets (Uni,Birth, SAP) can be executed via 

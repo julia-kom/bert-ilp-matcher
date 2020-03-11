@@ -45,7 +45,7 @@ public class Matrix{
      * Returns the similarity score of the two nodes indexes
      * @param i matrix index of node in net 1
      * @param j matrix index of node in net 2
-     * @return
+     * @return similarity between the two transitions
      */
     public double betweenIndex(int i, int j)  {
         if ( i <0 || i >= nodesNet1.length ||  j <0 || j >= nodesNet2.length){
@@ -58,7 +58,7 @@ public class Matrix{
      * Get the label similarity between node nodeNet1 and nodeNet2
      * @param nodeNet1 transition in net 1
      * @param nodeNet2 transition in net 2
-     * @return
+     * @return similarity between two transitions
      */
     public double between(Transition nodeNet1, Transition nodeNet2){
         return similarities.get(new ImmutablePair<>(nodeNet1.getLabel(),nodeNet2.getLabel()));
@@ -74,13 +74,18 @@ public class Matrix{
         /**
          * Select Word Simialrity which is used within the BoW Label Similarity
          * @param sim word similarity to be used
-         * @return
+         * @return Builder
          */
         public Builder withWordSimilarity(Word.Similarities sim){
             this.sim = sim;
             return this;
         }
 
+        /**
+         * Set label similarity function
+         * @param labelSimilarity label similarity
+         * @return Builder
+         */
         public Builder withLabelSimilarity(LabelSimilarity.Similarities labelSimilarity){
             this.labelSim = labelSimilarity;
             return this;
@@ -90,7 +95,7 @@ public class Matrix{
          * Build the matrix for the two sets of transitions
          * @param nodesNet1 set of transitions of net 1
          * @param nodesNet2 set of transitions of net 2
-         * @return
+         * @return Builder
          */
         public Matrix build(Set<Transition> nodesNet1, Set<Transition> nodesNet2){
             Matrix res = new Matrix();

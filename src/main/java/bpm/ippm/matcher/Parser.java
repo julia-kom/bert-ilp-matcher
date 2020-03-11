@@ -28,6 +28,7 @@ import java.util.HashMap;
 
 /**
  * Pnml Parser
+ * This class has written, since the jbpt parser is buggy. Sometimes labels and ids are not completely read.
  */
 public  class Parser {
 
@@ -35,6 +36,12 @@ public  class Parser {
 
     HashMap<String, org.jbpt.petri.Node> nodeMapping = new HashMap();
 
+    /**
+     * Parse a pnml file to a petri net NetSystem
+     * @param file path to petri net file in pnml
+     * @return NetSystem
+     * @throws Exception
+     */
     public NetSystem parse(File file) throws Exception {
 
         // create new net
@@ -55,6 +62,11 @@ public  class Parser {
         return target;
     }
 
+    /**
+     * Extract the net name from the document and set it in the target.
+     * @param doc Read XML (PNML) Doc
+     * @param target NetSystem
+     */
     private void handleNetName(Document doc, NetSystem target) {
         Node name = doc.getElementsByTagName("name").item(0);
         if(!name.getParentNode().getOwnerDocument().getNodeName().equals("net")){
@@ -65,7 +77,11 @@ public  class Parser {
         }
     }
 
-
+    /**
+     * Extract the transitions from the document and set it in the target.
+     * @param doc Read XML (PNML) Doc
+     * @param target NetSystem
+     */
     private void handleTransitions(Document doc, NetSystem target) throws Exception{
         //handle transitions
         NodeList transitions = doc.getElementsByTagName("transition");
@@ -99,7 +115,11 @@ public  class Parser {
 
     }
 
-
+    /**
+     * Extract the places from the document and set it in the target.
+     * @param doc Read XML (PNML) Doc
+     * @param target NetSystem
+     */
     private void handlePlaces(Document doc, NetSystem target) throws Exception{
         // handle places
         NodeList places = doc.getElementsByTagName("place");
@@ -149,6 +169,11 @@ public  class Parser {
     }
 
 
+    /**
+     * Extract the net arcs from the document and set it in the target.
+     * @param doc Read XML (PNML) Doc
+     * @param target NetSystem
+     */
     private void handleArcs(Document doc, NetSystem target) throws Exception{
         //<arc id="2198527b-49c4-4eb8-b9ec-bdf256cdd12f" source="n6" target="n76"/>
         // handle arcs
@@ -189,7 +214,18 @@ public  class Parser {
 
     }
 
+    /**
+     * Xml Parser
+     */
     public class Xml {
+        /**
+         * Parse an XML file to a Document file
+         * @param f XML file
+         * @return
+         * @throws ParserConfigurationException
+         * @throws IOException
+         * @throws SAXException
+         */
         public  Document parse(File f) throws ParserConfigurationException, IOException, SAXException {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setValidating(false);
@@ -200,7 +236,7 @@ public  class Parser {
 
         /**
          * replace backslash n by space and remove double spaces afterwards
-         * @return
+         * @return normlaized string
          */
         public  String normalize(String label){
             label = label.replace("\n", " ");
@@ -209,6 +245,13 @@ public  class Parser {
 
         }
 
+        /**
+         * Save document to XML file
+         * @param ref
+         * @param f
+         * @throws TransformerException
+         * @throws IOException
+         */
         public  void saveToFile(Document ref, File f) throws TransformerException, IOException {
             f.createNewFile();
 

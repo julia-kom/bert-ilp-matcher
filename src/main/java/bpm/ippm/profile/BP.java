@@ -10,12 +10,21 @@ import org.jbpt.petri.Node;
 public class BP extends AbstractProfile {
     BehaviouralProfile<NetSystem, Node> relations;
 
-
+    /**
+     * Create a BP profile for the given net.
+     * @param net to create the profile for
+     */
     public BP(NetSystem net){
         BPCreatorNet creator = BPCreatorNet.getInstance();
         relations = creator.deriveRelationSet(net);
     }
 
+    /**
+     * Get the relation between two node es of the net
+     * @param n1 node 1
+     * @param n2 node 2
+     * @return Relation between the nodes
+     */
     @Override
     public Relation getRelationForEntities(Node n1, Node n2) {
         RelSetType rel = relations.getRelationForEntities(n1, n2);
@@ -34,6 +43,11 @@ public class BP extends AbstractProfile {
         return null;
     }
 
+    /**
+     * Filter artificial start and end transitions. As these are not added in the BP profile nothing is deleted.
+     * @param result result to filter
+     * @return result
+     */
     @Override
     public Result filterTemporaryTransitions(Result result) {
         // no temporary transitions were added, therefore nothing needs to be removed
@@ -41,6 +55,15 @@ public class BP extends AbstractProfile {
     }
 
 
+    /**
+     * Relational simialrity between two different relations.
+     * Interleaving and Order relations are 0.5 similar.
+     * Others are 1 similar if the relations are equal, zero else.
+     * Make sure to use BASIC5 ILP to activate this functionality. In BASIC and BASIC2 only identical relations count.
+     * @param rel1 Relation 1
+     * @param rel2 Relation 2
+     * @return relation similarity
+     */
     @Override
     public double getRelationSimilarity(Relation rel1, Relation rel2) {
         Relation.RelationType r1 = rel1.getType();
@@ -56,6 +79,10 @@ public class BP extends AbstractProfile {
         }
     }
 
+    /**
+     * String representation of the profile.
+     * @return
+     */
     @Override
     public String toString(){
         return relations.toString();

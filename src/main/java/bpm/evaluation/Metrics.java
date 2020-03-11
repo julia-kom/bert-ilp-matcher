@@ -3,9 +3,9 @@ package bpm.evaluation;
 public class Metrics {
 
     /**
-     * Compute precision give tp and fp
-     * @param tp
-     * @param fp
+     * Compute precision given tp and fp
+     * @param tp number of true positives
+     * @param fp number of false positives
      * @return
      */
     public static double precision(int tp, int fp, int fn){
@@ -24,8 +24,8 @@ public class Metrics {
 
     /**
      * Compute Recall given tp and fn
-     * @param tp
-     * @param fn
+     * @param tp number of true positives
+     * @param fn number of false negatives
      * @return
      */
     public static double recall(int tp, int fn, int fp){
@@ -43,10 +43,10 @@ public class Metrics {
     }
 
     /**
-     * F1Score given tp, fp and fn
-     * @param tp
-     * @param fp
-     * @param fn
+     * FScore given tp, fp and fn
+     * @param tp number of true positives
+     * @param fp number of false positives
+     * @param fn number of false negatives
      * @return
      */
     public static double fscore(int tp, int fp, int fn){

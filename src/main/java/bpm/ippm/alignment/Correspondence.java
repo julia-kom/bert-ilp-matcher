@@ -20,7 +20,7 @@ public class Correspondence {
 
     /**
      * Check if the correspondence is complex (1:n or m:n)
-     * @return boolean
+     * @return true iff complex
      */
     public boolean isComplexCorrespondence(){
         if(nodesNet1.size() > 1 || nodesNet2.size() > 1){
@@ -64,8 +64,8 @@ public class Correspondence {
     }
 
     /**
-     * Get the liklihood of the correspondence
-     * @return
+     * Get the confidence of the correspondence
+     * @return confidence
      */
     public double getLikelihood(){
         return likelihood;
@@ -73,7 +73,7 @@ public class Correspondence {
 
     /**
      * String representation of the correspondence
-     * @return
+     * @return string representation
      */
     @Override
     public String toString() {
@@ -93,8 +93,8 @@ public class Correspondence {
 
     /**
      * Is equal override
-     * @param o
-     * @return
+     * @param o object ot compare
+     * @return true if equal
      */
     @Override
     public boolean equals(Object o) {
@@ -125,8 +125,8 @@ public class Correspondence {
 
     /**
      * HashCode override
-     * todo: FUTURE WORK: More efficient hash
-     * @return
+     * todo: FUTURE WORK: More efficient hash but it works like this.
+     * @return 1
      */
     @Override
     public int hashCode(){
@@ -148,9 +148,9 @@ public class Correspondence {
         }
 
         /**
-         * Set Likelihood
-         * @param likelihood
-         * @return
+         * Set confidence
+         * @param likelihood confidence
+         * @return Builder
          */
         public Builder  withLikelihood(double likelihood){
             this.likelihood = likelihood;
@@ -160,7 +160,7 @@ public class Correspondence {
         /**
          * Add a node from net 1 to the correspondence
          * @param nodeNet1 node from the first net
-         * @return
+         * @return Builder
          */
         public Builder addNodeFromNet1(Node nodeNet1){
             nodesNet1.add(nodeNet1);
@@ -170,7 +170,7 @@ public class Correspondence {
         /**
          * Add a node from net 2 to the correspondence
          * @param nodeNet2 node from the second net to add
-         * @return
+         * @return Builder
          */
         public Builder addNodeFromNet2(Node nodeNet2) {
             nodesNet2.add(nodeNet2);
@@ -179,7 +179,7 @@ public class Correspondence {
 
         /**
          * Build the Correspondence
-         * @return
+         * @return Builder
          */
         public Correspondence build(){
             //check if valid correspondance

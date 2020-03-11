@@ -26,9 +26,9 @@ import static java.lang.System.exit;
 
 /**
  * Matching Pipeline. This is the main flow of the ILP matcher:
- * 1) Read File (PNML)
+ * 1) Read File ( sound Petri net in PNML format)
  * 2) Read Log Files (optionally)
- * 3) Check Petri Nets (sound, free-choice, WF-net)
+ * 3) Check Petri Nets (free-choice, WF-net)
  * 4) Create Profiles
  * 5) Preprocess: Delete tau transitions
  * 6) Prematch (optionally)
@@ -212,7 +212,7 @@ public class Pipeline implements MatchingPipeline{
 
     /**
      * Return a string representation of the pipeline configuration
-     * @return
+     * @return String
      */
     @Override
     public String toString(){
@@ -230,7 +230,7 @@ public class Pipeline implements MatchingPipeline{
 
     /**
      * Return JSON Object of the Pipeline
-     * @return
+     * @return JSON Object
      */
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
@@ -246,9 +246,9 @@ public class Pipeline implements MatchingPipeline{
         return json;
     }
 
-        /**
-         * Builder for class Pipeline
-         */
+    /**
+     * Builder for class Pipeline
+     */
     public static class Builder{
         private boolean complexMatches = false;
         private double  similarityWeight = 0.3;
@@ -307,7 +307,7 @@ public class Pipeline implements MatchingPipeline{
         /**
          * Set the used label similarity (standard is BOW)
          * @param labelSimilarity
-         * @return
+         * @return Builder
          */
         public Pipeline.Builder withLabelSimilarity(LabelSimilarity.Similarities labelSimilarity){
             this.labelSimilarity = labelSimilarity;
@@ -325,7 +325,7 @@ public class Pipeline implements MatchingPipeline{
 
         /**
          * Sets the ILP Matcher to Basic
-         * @return
+         * @return Builder
          */
         public Pipeline.Builder withILP(AbstractILP.ILP ilp){
             this.ilp = ilp;
@@ -350,7 +350,7 @@ public class Pipeline implements MatchingPipeline{
         /**
          * set the ILP time limit in seconds
          * @param limit
-         * @return
+         * @return Builder
          */
         public Pipeline.Builder withILPTimeLimit(double limit) {
             this.ilpTimeLimit = limit;
@@ -360,7 +360,7 @@ public class Pipeline implements MatchingPipeline{
             /**
              * set the ILP node limit in seconds
              * @param limit
-             * @return
+             * @return Builder
              */
             public Pipeline.Builder withILPNodeLimit(double limit) {
                 this.ilpNodeLimit = limit;

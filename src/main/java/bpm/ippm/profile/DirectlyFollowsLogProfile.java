@@ -9,8 +9,17 @@ import org.jbpt.petri.Transition;
 
 import static bpm.ippm.profile.AlphaRelations.directlyFollows;
 
+/**
+ * Directly Follows Profile with optional Log enhancement
+ */
 public class DirectlyFollowsLogProfile extends AbstractLogProfile{
 
+    /**
+     * Construct aDirectly Follows Matrix Profile for given log and model.
+     * If no log is preferred, and only the net should be used to compute the follow relations then set log to null
+     * @param net Net to compute the profile for
+     * @param log Log or optionally null if no log is present.
+     */
     public DirectlyFollowsLogProfile(NetSystem net, XLog log){
         super();
         this.log = log;
@@ -18,6 +27,12 @@ public class DirectlyFollowsLogProfile extends AbstractLogProfile{
         calculateFrequencies();
     }
 
+    /**
+     * Get relation between two nodes
+     * @param n1 node n1
+     * @param n2 node n2
+     * @return Relation from n1 to n2
+     */
     @Override
     public Relation getRelationForEntities(Node n1, Node n2) {
         double freq = relativeFollowFrequencies(n1,n2);
@@ -26,7 +41,7 @@ public class DirectlyFollowsLogProfile extends AbstractLogProfile{
     }
 
     /**
-     * Calculates the frequencies (attributes) from the given log
+     * Calculates the directly follows frequencies (attributes) from the given log
      */
     private void calculateFrequencies(){
         //if no log information, then the frequency is always 1 if directly follows relation is satisfied in the model

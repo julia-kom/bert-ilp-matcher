@@ -26,7 +26,7 @@ public class BPPlusOwn extends AbstractProfile {
     private Transition ARTIFICIAL_END = new Transition("ARTIFICIAL-END");
 
     /**
-     * Extends the petri net by one transition in the front (NEW_TS) and one in the back (NEW_TE)
+     * Extends the petri net by one transition in the front (NEW_TS) and one in the back (NEW_TE) and computes the presets.
      * @param net
      */
     public BPPlusOwn(NetSystem net){
@@ -38,7 +38,7 @@ public class BPPlusOwn extends AbstractProfile {
 
     /**
      * Returns that node which is artificially added by BP+ to guarantee uniqueness property of the profile
-     * @return
+     * @return Transition
      */
     public Transition getArtificialInitialTransition(){
         return ARTIFICIAL_START;
@@ -46,13 +46,18 @@ public class BPPlusOwn extends AbstractProfile {
 
     /**
      * Returns that node which is artificially added by BP+ to guarentee uniquness property of the profile
-     * @return
+     * @return Transition
      */
     public Transition getArtificialFinalTransition(){
         return ARTIFICIAL_END;
     }
 
-
+    /**
+     * Get the relation between two nodes of a net.
+     * @param n1 node 1
+     * @param n2 node 2
+     * @return relation
+     */
     @Override
     public Relation getRelationForEntities(Node n1, Node n2) {
         //Causality
@@ -85,15 +90,33 @@ public class BPPlusOwn extends AbstractProfile {
 
     }
 
+    /**
+     * Detect if two nodes are causal
+     * @param n1 node 1
+     * @param n2 node 2
+     * @return true if so
+     */
     private boolean areCausal(Node n1, Node n2){
        return  (!inLoop(n1,n2) && getLeCmPre(n1,n2).contains(n1) && !n1.equals(n2)) ||
                (inLoop(n1,n2) && !getLeCmPre(n1,n2).contains(n1) && !getLeCmPre(n1,n2).contains(n2));
     }
 
+    /**
+     * Detect if two nodes are reverse causal
+     * @param n1 node 1
+     * @param n2 node 2
+     * @return true if so
+     */
     private boolean areReverseCausal(Node n1, Node n2){
         return  (!inLoop(n1,n2) && getLeCmPre(n1,n2).contains(n2) && !n1.equals(n2));
     }
 
+    /**
+     * Detect if two nodes are concurrent
+     * @param n1 node 1
+     * @param n2 node 2
+     * @return true if so
+     */
     private boolean areConcurrent(Node n1, Node n2){
         Set<Node> leCmPre = getLeCmPre(n1, n2);
 
@@ -120,6 +143,12 @@ public class BPPlusOwn extends AbstractProfile {
         return true;
     }
 
+    /**
+     * Detect if two nodes are in conflict
+     * @param n1 node 1
+     * @param n2 node 2
+     * @return true if so
+     */
     private boolean areConflict(Node n1, Node n2){
 
         //n1#n1 if not in a loop
@@ -162,7 +191,7 @@ public class BPPlusOwn extends AbstractProfile {
     }
 
     /**
-     * Compute the Pre Set of the net
+     * Compute the Pre Set of each node in the net
      */
     private void computePre(){
         for(Node n1 : net.getNodes()){
@@ -180,8 +209,8 @@ public class BPPlusOwn extends AbstractProfile {
 
     /**
      * Get Common Pre Set of the two given transitions
-     * @param t1
-     * @param t2
+     * @param t1 transition 1
+     * @param t2 transition 2
      * @return
      */
     private Set<Node> getCmPre(Node t1, Node t2){
@@ -209,9 +238,9 @@ public class BPPlusOwn extends AbstractProfile {
 
     /**
      * Get least Common Pre Set of the two given transitions
-     * @param n1
-     * @param n2
-     * @return
+     * @param n1 node 1
+     * @param n2 node 2
+     * @return least common preset of the two nodes
      */
     private Set<Node> getLeCmPre(Node n1, Node n2){
        return getLeCmPre(getCmPre(n1,n2));
@@ -220,9 +249,9 @@ public class BPPlusOwn extends AbstractProfile {
 
     /**
      * Check if two transitions are in the same loop or not
-     * @param t1
-     * @param t2
-     * @return
+     * @param t1 transition 1
+     * @param t2 transition 2
+     * @return true if so
      */
     private boolean inLoop( Node t1, Node t2){
         //boolean loop = getPre(t1).contains(t2) && getPre(t2).contains(t1);
@@ -230,7 +259,11 @@ public class BPPlusOwn extends AbstractProfile {
         return loop;
     }
 
-
+    /**
+     * Get pre set of a transitiont
+     * @param t transition
+     * @return preset
+     */
     private Set<Node> getPre(Node t){
         return preSet.get(t);
     }
@@ -266,7 +299,7 @@ public class BPPlusOwn extends AbstractProfile {
     }
 
     /**
-     * Matching Penalty for BP+ acc to "BP+: An Improved Behavioral Profile Metric for Process Models"
+     * Matching Penalty for BP+ acc. to "BP+: An Improved Behavioral Profile Metric for Process Models"
      * @param rel1 Relation 1
      * @param rel2 Relation 2
      * @return double similarity of the two relations
@@ -309,6 +342,10 @@ public class BPPlusOwn extends AbstractProfile {
         return 0.0;
     }
 
+    /**
+     * String representation of the profile
+     * @return
+     */
     @Override
     public String toString(){
         String res = "";
@@ -323,8 +360,8 @@ public class BPPlusOwn extends AbstractProfile {
 
     /**
      * Filters out those correspondences which contain at least one temporary transition
-     * @param result
-     * @return
+     * @param result Result of the matcher
+     * @return result without artificial start, end matches.
      */
     @Override
     public Result filterTemporaryTransitions(Result result){

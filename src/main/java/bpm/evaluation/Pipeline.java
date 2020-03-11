@@ -24,6 +24,9 @@ import static bpm.ippm.profile.AbstractProfile.createProfile;
 import static bpm.ippm.matcher.Preprocessor.parseFile;
 import static java.lang.System.exit;
 
+/**
+ * Pipeline for evaluation
+ */
 public class Pipeline{
     //Standard matcher options
     private MatchingPipeline matchingPipeline;
