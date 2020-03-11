@@ -9,20 +9,8 @@ word=$2
 time=$3
 profile=$4
 
-#start all birth jobs
+#start all bpi15 jobs
 for stepsize in "${@:5}";
 do
-  ./batch-birth-test.sh $stepsize $ilp $word $time $profile
-done
-
-#start all uni jobs
-for stepsize in "${@:5}";
-do
- ./batch-uni-test.sh $stepsize $ilp $word $time $profile
-done
-
-#start all sap jobs
-for stepsize in "${@:5}";
-do
- ./batch-sap-test.sh $stepsize $ilp $word $time $profile
+ ./batch-bpi15-test.sh $stepsize $ilp $word $time $profile
 done
