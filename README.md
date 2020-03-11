@@ -154,7 +154,37 @@ The output is a folder `net-<profile>-<date><time>`, containing a `net.eval`.
 The file is in CSV format and contains for each net file in the <path> a row with the net information, as well as the average over all of the nets as an own row.
 
 ## Server Tests
-Tests on the server are executed form a shell script in `server-tests/pads-shell`
-The script automatically iterates the sim weight parameter for a given configuration. 
-The batch evaluation then is started via 
-`` 
+On a linux server with installed gurobi, scripts can be used to run a batch of tests automatically.
+On a server set up the following hierarchy:
+```
+.
++-- eval-data
+|   +-- goldstandard
+|   +-- pnml
+|   +-- xes
++-- pads-shell
+    +-- ilp-profile-matcher-1.0-SNAPSHOT-jar-with-dependencies.jar
+    +-- batch-test.sh
+    +-- batch-log-test.sh
+    ...
+```
+This structure is gained by copying the `eval-data` folder as well as the `pads-shell` folder into the same directory on the server.
+The script automatically iterates the sim weight parameter for a given configuration on either the PMMC datasets or the BPI15 log enhanced dataset.
+### PMMC Dataset Tests
+The batch evaluation for non log profile tests on the PMMC datasets (Uni,Birth, SAP) can be executed via 
+
+`sh batch-test.sh <ilp> <word-sim> <ilp-time-limit> <profile> <sim-weight-1> ... <sim-weight-n>`
+
+### Log Enhanced Dataset BPI15
+The tests on the BPI15 daaset for log impact comparison can be run via 
+
+`sh batch-log-test.sh <stepsize> <ilp> <word-sim> <ilp-time-limit> <profile> <sim-weight-1> ... <sim-weight-n>`
+
+### Enable SLURM
+There is a SLURM server version of the scripts in the `rwth-cluster-shell` folder. 
+Though due to switching from SLURM to a stand alone linux node these scripts were not maintained nor tested. Therefore, denoted as **DEPRECATED**. 
+
+### Retrospective Evaluation. 
+The retrospective evaluation script allows us to perform a analysis of a given matching, where we vary the postprocessing threshold arbitrarily:
+
+`sh retrospective-eval.sh <result-folder> <goldstandard-path> <post-processing-thresh-1> ... <post-processing-thresh-n>`

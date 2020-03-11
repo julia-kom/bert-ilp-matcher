@@ -21,5 +21,5 @@ mvn clean compile test assembly:single -f pom.xml
 cp ./target/ilp-profile-matcher.jar ./ilp-profile-matcher.jar
 
 #copy jar to the server folders
-#cp ./target/ilp-profile-matcher.jar ./server-tests/pads-shell/ilp-profile-matcher-1.0-SNAPSHOT-jar-with-dependencies.jar
-#cp ./target/ilp-profile-matcher.jar ./server-tests/rwth-cluster-shell/ilp-profile-matcher-1.0-SNAPSHOT-jar-with-dependencies.jar
+cp ./target/ilp-profile-matcher.jar ./server-tests/pads-shell/ilp-profile-matcher-1.0-SNAPSHOT-jar-with-dependencies.jar
+cp ./target/ilp-profile-matcher.jar ./server-tests/rwth-cluster-shell/ilp-profile-matcher-1.0-SNAPSHOT-jar-with-dependencies.jar
