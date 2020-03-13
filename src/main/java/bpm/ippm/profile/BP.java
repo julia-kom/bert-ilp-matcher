@@ -59,7 +59,7 @@ public class BP extends AbstractProfile {
      * Relational simialrity between two different relations.
      * Interleaving and Order relations are 0.5 similar.
      * Others are 1 similar if the relations are equal, zero else.
-     * Make sure to use BASIC5 ILP to activate this functionality. In BASIC and BASIC2 only identical relations count.
+     * Make sure to use CUSTOM_IDENTIFICATION ILP to activate this functionality. In BASIC and SYMMETRIC only identical relations count.
      * @param rel1 Relation 1
      * @param rel2 Relation 2
      * @return relation similarity

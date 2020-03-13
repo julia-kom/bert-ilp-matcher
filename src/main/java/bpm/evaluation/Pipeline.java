@@ -25,7 +25,13 @@ import static bpm.ippm.matcher.Preprocessor.parseFile;
 import static java.lang.System.exit;
 
 /**
- * Pipeline for evaluation
+ * Pipeline for evaluation. Following evaluations are possible:
+ *
+ * Net evaluation: Analysis of a set of petri nets in pnml format with respect to a given profile (no log information used)
+ * Goldstandard Evaluation: Analysis of a set of goldstandards: #complex, #simple, #trivial correspondences
+ * Batch Evaluation: Perform the matching followed by an evaluation of each pair of processes in the batch path for which a goldstandard exists in the goldstandard path
+ * Retrospective Evaluation: Given a matching hypothesis in RDF format, calculate the evaluation over the set of alignments
+ * Single Evaluation: Evaluation of a single pair of models (optionally with logs)
  */
 public class Pipeline{
     //Standard matcher options
@@ -40,7 +46,9 @@ public class Pipeline{
     private Path batchPath;
     private Path processLogPath;
     private File net1;
+    private File log1;
     private File net2;
+    private File log2;
     private File goldStandard;
     private Path goldStandardPath;
     private Eval.Strategies evalStrat;
@@ -53,73 +61,11 @@ public class Pipeline{
 
         // Run a net evaluation test
         if(netEval){
-            AggregatedNetAnalysis netAnalysis;
-            try {
-                netAnalysis = new AggregatedNetAnalysis(new File("./eval-results/" + logFolder + "/net.eval"));
-            }catch(Exception e){
-                System.out.println("Net Analysis initialization not possible " + e.toString());
-                netAnalysis = null;
-            }
-            // get files
-            File[] files = Preprocessor.listFilesOfType(batchPath.toFile(), new String[]{"epml","pnml"});
-
-
-            // add to csv
-            for(File f : files){
-                NetSystem net1 = parseFile(f);
-                net1.setName(f.getName());
-                try {
-                    netAnalysis.addNet(net1, createProfile(net1, netProfile,null)); // todo add log
-                }catch(Exception e){
-                    System.out.println("Analysis not possible for net " + f.getName() );
-                    e.printStackTrace();
-                }
-            }
-            try {
-                netAnalysis.toCSV();
-            }catch(Exception e){
-                System.out.println("Flush not possible " + e.toString());
-            }
+            netAnalysis();
 
         // Run a gold standard evaluation
         }else if(gsEval){
-            AggregatedGoldstandardAnalysis gsAnalysis;
-            try {
-                gsAnalysis = new AggregatedGoldstandardAnalysis(new File("./eval-results/" + logFolder + "/goldstandard.eval"));
-            }catch(Exception e){
-                System.out.println("Goldstandard initialization not possible " + e.toString());
-                gsAnalysis = null;
-            }
-            // get files
-            File[] files = Preprocessor.listFilesOfType(goldStandardPath.toFile(),"rdf");
-
-
-            // add to csv
-            RdfAlignmentReader reader = new RdfAlignmentReader();
-            for(File f : files){
-                try {
-                    //get alignment
-                    Alignment a = reader.readAlignmentFrom(f);
-
-                    //extract net-names
-                    String model1Name = f.getName().substring(0,f.getName().indexOf('-'));
-                    File f1 = new File(batchPath+"/"+model1Name+".pnml");
-                    NetSystem net1 = parseFile(f1);
-                    String model2Name = f.getName().substring(f.getName().indexOf('-')+1,f.getName().length()-4);
-                    File f2 = new File( batchPath+"/"+model2Name+".pnml");
-                    NetSystem net2 = parseFile(f2);
-
-                    // add to goldstandard analysis
-                    gsAnalysis.addGoldstandard(a, net1, net2);
-                }catch(Exception e){
-                    System.out.println("Analysis not possible for goldstandard " + f.getName() + e.toString());
-                }
-            }
-            try {
-                gsAnalysis.toCSV();
-            }catch(Exception e){
-                System.out.println("Flush not possible " + e.toString());
-            }
+            goldstandardAnalysis();
 
         //run a batch evaluation
         } else if(batch) {
@@ -131,22 +77,8 @@ public class Pipeline{
                 System.out.println("It was not possible to write the aggregated result CSV!");
             }
 
-        //Run a single evaluation test
-        } else if(!retrospective){
-            try {
-                Eval eval = singleEval(net1, null, net2, null, goldStandard); // todo add log. But actually single eval is never done.
-                try {
-                    eval.toCSV(new File("eval-results/" + logFolder + "/"+eval.getName()+".eval"));
-                }catch(IOException e){
-                    System.out.println("It was not possible to write the single result CSV: " + eval.getName());
-                }
-            }catch(Exception e){
-                System.out.println("Evaluation of "+  net1.getName() + " to " + net2.getName() +
-                        "threw and Exception: " + e.getMessage());
-                exit(1);
-            }
         // Run a retrospective test
-        }else{
+        }else if(retrospective){
             List<Eval> evals = retrospectiveEval(resultPath,goldStandardPath);
             AggregatedEval aggregatedEval = new AggregatedEval(evals);
             try {
@@ -155,18 +87,33 @@ public class Pipeline{
                 System.out.println("It was not possible to write the aggregated result CSV!");
             }
         }
+        //Run a single evaluation test
+        else {
+            try {
+                Eval eval = singleEval(net1, log1, net2, log2, goldStandard);
+                try {
+                    eval.toCSV(new File("eval-results/" + logFolder + "/" + eval.getName() + ".eval"));
+                } catch (IOException e) {
+                    System.out.println("It was not possible to write the single result CSV: " + eval.getName());
+                }
+            } catch (Exception e) {
+                System.out.println("Evaluation of " + net1.getName() + " to " + net2.getName() +
+                        "threw and Exception: " + e.getMessage());
+                exit(1);
+            }
+        }
     }
 
     /**
-     * Perform single evaluation
+     * Perform the matching and the evaluation of a single pair of processes (log model pairs)
      * @param n1 net 1
-     * @param l1 log 1
+     * @param l1 log 1 optional if no log is present
      * @param n2 net 2
      * @param l2 log 2
      * @param gs gold standard
      * @return
      */
-    public Eval singleEval(File n1, File l1, File n2, File l2, File gs) throws Exception{
+    private Eval singleEval(File n1, File l1, File n2, File l2, File gs) throws Exception{
         // Initialize timer
         ExecutionTimer timer = new ExecutionTimer();
         timer.startOverallTime();
@@ -184,37 +131,40 @@ public class Pipeline{
         String model1 = result.getAlignment().getName().substring(0,result.getAlignment().getName().indexOf('-')-5);
         String model2 = result.getAlignment().getName().substring(result.getAlignment().getName().indexOf('-')+1,result.getAlignment().getName().length()-5);
 
-        //Write to file
+        //Write alignment to rdf file
         File rdfFile = new File("eval-results/" + logFolder + "/"+model1 +"-"+model2+".rdf");
         rdfFile.getParentFile().mkdirs();
         rdfFile.createNewFile();
         rdfParser.writeAlignmentTo(rdfFile,result.getAlignment(), model1, model2);
 
-
         // Read Gold Standard
         if(!gs.exists()){
             throw new FileNotFoundException("Gold Standard File not found:" + gs.toString());
         }
+
+        //fetch goldstandard matching and matcher hypothesis
         RdfAlignmentReader reader = new RdfAlignmentReader();
         Alignment goldstandard = reader.readAlignmentFrom(gs);
         Alignment matcherResult = result.getAlignment();
         matcherResult = matcherResult.filter(postprocessingThreshold);
+
+        //Perform evaluation
         Eval eval = evaluate(new Result(result.getSimilarity(),matcherResult,result.getGAP()),goldstandard);
         eval.setBenchmark(timer);
-        System.out.println(eval);
 
-        //Evaluate
+        System.out.println(eval);
         return eval;
 
     }
 
 
     /**
-     * Perform Batch Evaluation
-     * @return
+     * Perform Batch Evaluation: On the given batchPath all combinations of process models for which
+     * a goldstandard exists in goldStandardPath
+     * @return list of evals
      */
-    public List<Eval> batchEval(){
-        // Get all pnml files in the batch dir
+    private List<Eval> batchEval(){
+        // Get all pnml/epml files in the batch dir
         File[] files =  Preprocessor.listFilesOfType(batchPath.toFile(),new String[]{"pnml","epml"});
 
         // run evaluation for each combination
@@ -243,8 +193,10 @@ public class Pipeline{
                                 throw new Exception("Log file does not exist. Continue without log information: " + log1.toString() + " or "+ log2.toString());
                             }
                         }
-                        //run eval and append
+
+                        //run eval and append to list of single evaluations
                         evals.add(singleEval(f1, log1, f2, log2, gs));
+
                     }catch(Exception e){
                         System.out.println("Evaluation of "+  f1.getName() + " to " + f2.getName() +
                                 "threw an Exception: " + e.getMessage());
@@ -256,20 +208,28 @@ public class Pipeline{
     }
 
 
-    public List<Eval> retrospectiveEval(Path resultPath, Path goldstandardPath){
-        File[] resultFiles =  Preprocessor.listFilesOfType(resultPath.toFile(),"rdf");
+    /**
+     *
+     * @param resultPath Path to the computed matching hypothesis (alignment files in RDF format)
+     * @param goldstandardPath Goldstandard of the dataset
+     * @return list of single evaluations
+     */
+    private List<Eval> retrospectiveEval(Path resultPath, Path goldstandardPath){
 
+        //fetch matching hypthesis and goldstandards
+        File[] resultFiles =  Preprocessor.listFilesOfType(resultPath.toFile(),"rdf");
         File[] goldstandardFiles =  Preprocessor.listFilesOfType(goldstandardPath.toFile(),"rdf");
 
+        // check if empty
         if(goldstandardFiles.length == 0){
             throw new Error("Gold Standard Path is empty");
         }
-
         if(resultFiles.length == 0){
             throw new Error("Result Path is empty");
         }
 
-        //read config file and set matcher parameters if possible
+        //read config file of the matcher and set matcher parameters in the retrospective config.log file if possible
+        //if not possible, then this step is skipped. The config.log file for the matcher then contains
         try{
             File config = new File(resultPath +"/config.log");
             FileReader reader = new FileReader(config);
@@ -296,7 +256,6 @@ public class Pipeline{
             System.out.println("Reading Config file was not possible: \n" + e.toString());
         }
 
-
         // find corresponding alignments and calculate evaluation
         List<Eval> evals = new ArrayList<>();
         for(File f1 : resultFiles){
@@ -319,13 +278,80 @@ public class Pipeline{
     }
 
 
+    private void goldstandardAnalysis(){
+        AggregatedGoldstandardAnalysis gsAnalysis;
+        try {
+            gsAnalysis = new AggregatedGoldstandardAnalysis(new File("./eval-results/" + logFolder + "/goldstandard.eval"));
+        }catch(Exception e){
+            System.out.println("Goldstandard initialization not possible " + e.toString());
+            gsAnalysis = null;
+        }
+        // get files
+        File[] files = Preprocessor.listFilesOfType(goldStandardPath.toFile(),"rdf");
 
+
+        // add to csv
+        RdfAlignmentReader reader = new RdfAlignmentReader();
+        for(File f : files){
+            try {
+                //get alignment
+                Alignment a = reader.readAlignmentFrom(f);
+
+                //extract net-names
+                String model1Name = f.getName().substring(0,f.getName().indexOf('-'));
+                File f1 = new File(batchPath+"/"+model1Name+".pnml");
+                NetSystem net1 = parseFile(f1);
+                String model2Name = f.getName().substring(f.getName().indexOf('-')+1,f.getName().length()-4);
+                File f2 = new File( batchPath+"/"+model2Name+".pnml");
+                NetSystem net2 = parseFile(f2);
+
+                // add to goldstandard analysis
+                gsAnalysis.addGoldstandard(a, net1, net2);
+            }catch(Exception e){
+                System.out.println("Analysis not possible for goldstandard " + f.getName() + e.toString());
+            }
+        }
+        try {
+            gsAnalysis.toCSV();
+        }catch(Exception e){
+            System.out.println("Flush not possible " + e.toString());
+        }
+    }
+
+    private void netAnalysis(){
+        AggregatedNetAnalysis netAnalysis;
+        try {
+            netAnalysis = new AggregatedNetAnalysis(new File("./eval-results/" + logFolder + "/net.eval"));
+        }catch(Exception e){
+            System.out.println("Net Analysis initialization not possible " + e.toString());
+            netAnalysis = null;
+        }
+        // get files
+        File[] files = Preprocessor.listFilesOfType(batchPath.toFile(), new String[]{"epml","pnml"});
+
+        // add to csv
+        for(File f : files){
+            NetSystem net1 = parseFile(f);
+            net1.setName(f.getName());
+            try {
+                netAnalysis.addNet(net1, createProfile(net1, netProfile,null)); // todo add log
+            }catch(Exception e){
+                System.out.println("Analysis not possible for net " + f.getName() );
+                e.printStackTrace();
+            }
+        }
+        try {
+            netAnalysis.toCSV();
+        }catch(Exception e){
+            System.out.println("Flush not possible " + e.toString());
+        }
+    }
 
 
     /**
      * Call correct Evaluator for matcher and goldstandard
-     * @param matcher
-     * @param goldstandard
+     * @param matcher matching hypothesis
+     * @param goldstandard goldstandard
      * @return
      */
     protected Eval evaluate(Result matcher, Alignment goldstandard){
@@ -340,6 +366,10 @@ public class Pipeline{
         throw  new IllegalStateException("Evaluation Method not found");
     }
 
+    /**
+     * Create String representation of the Evaluation Pipeline
+     * @return
+     */
     @Override
     public String toString(){
         String res = "Batch: "+ Boolean.toString(this.batch) + "\n" +
@@ -367,6 +397,11 @@ public class Pipeline{
         return res;
     }
 
+    /**
+     * Create JSON Representation of the evaluation pipeline (used for config.log file)
+     * @return
+     * @throws JSONException
+     */
     public JSONObject toJSON() throws JSONException {
         //Create Evaluation object
         JSONObject jsonEval = new JSONObject();
@@ -398,6 +433,10 @@ public class Pipeline{
         return json;
     }
 
+    /**
+     * Get logging and result path
+     * @return Path
+     */
     public Path getLogPath(){
         return Paths.get("./eval-results/" + this.logFolder);
     }
@@ -418,6 +457,8 @@ public class Pipeline{
         private Path resultPath;
         private Path batchPath;
         private File net1;
+        private File log1 = null;
+        private File log2 = null;
         private File net2;
         private File goldStandard;
         private Path goldStandardPath;
@@ -431,7 +472,7 @@ public class Pipeline{
         }
 
         /**
-         * Perform a batch test on given folder
+         * Set the matcher used to evaluate in on-demand matcher tests (single, or batch tests)
          * @return
          */
         public Builder withMatcher(MatchingPipeline matchingPipeline){
@@ -488,8 +529,8 @@ public class Pipeline{
         }
 
         /**
-         * Batch path to be used
-         * @param p
+         * Batch path to be used where the nets are located
+         * @param p Path
          * @return
          */
         public Builder withBatchPath(Path p){
@@ -498,8 +539,8 @@ public class Pipeline{
         }
 
         /**
-         * Result path for retrospective evalaution
-         * @param p
+         * Result path, where the matching hypothesis rdf files are located, needed for retrospective evaluation
+         * @param p path
          * @return
          */
         public Builder withResultPath(Path p){
@@ -508,7 +549,7 @@ public class Pipeline{
         }
 
         /**
-         * for normal evaluation choose net1 one here
+         * for single evaluation choose net1 here
          * @param net1
          * @return
          */
@@ -518,7 +559,17 @@ public class Pipeline{
         }
 
         /**
-         * for normal evaluation choose net2 one here
+         * for single evaluation choose log1 here
+         * @param log1
+         * @return
+         */
+        public Builder onLog1(File log1){
+            this.log1 = log1;
+            return this;
+        }
+
+        /**
+         * for normal evaluation choose net2 here
          * @param net2
          * @return
          */
@@ -527,28 +578,59 @@ public class Pipeline{
             return this;
         }
 
+        /**
+         * for normal evaluation choose log2 here
+         * @param log2
+         * @return
+         */
+        public Builder onLog2(File log2){
+            this.log2 = log2;
+            return this;
+        }
+
+        /**
+         * Goldstandard file for a single evaluation
+         * @param goldStandard
+         * @return
+         */
         public Builder withGoldStandard(File goldStandard){
             this.goldStandard = goldStandard;
             return this;
         }
 
+        /**
+         * Goldstandard path for a batch evaluation
+         * @param goldStandard
+         * @return
+         */
         public Builder withGoldStandard(Path goldStandard){
             this.goldStandardPath = goldStandard;
             return this;
         }
 
+        /**
+         * Choose the evaluation strategy
+         * @param strat
+         * @return
+         */
         public Builder withEvalStrat(Eval.Strategies strat){
             this.evalStrat = strat;
             return this;
         }
 
+        /**
+         * set the subfolder for logging: ./eval-results/<processLogPath>
+         * @param processLogPath
+         * @return
+         */
         public Builder withLogPath(Path processLogPath) {
             this.processLogPath = processLogPath;
             return this;
         }
 
         /**
-         * Set post processing threshold for the pipeline
+         * Set post-processing threshold for the pipeline
+         * After executing the matcher an additional postprocessing threshold can be applied.
          * @param p
          * @return
          */
@@ -574,7 +656,9 @@ public class Pipeline{
             pip.resultPath = this.resultPath;
             pip.batchPath = this.batchPath;
             pip.net1 = this.net1;
+            pip.log1 = this.log1;
             pip.net2 = this.net2;
+            pip.log2 = this.log2;
             pip.goldStandard = this.goldStandard;
             pip.goldStandardPath = this.goldStandardPath;
             pip.evalStrat = this.evalStrat;
@@ -584,7 +668,7 @@ public class Pipeline{
             pip.gsEval = this.gsEval;
             pip.processLogPath = this.processLogPath;
 
-            //tests
+            //tests if all inputs are given, which are needed
             if(pip.batch && pip.batchPath == null){
                 throw new Error("When batch mode on, then -batchPath argument needed");
             }
@@ -630,7 +714,7 @@ public class Pipeline{
             }
 
 
-            // Define log folder where all log files are generated
+            // Define log folder where all log files are generated inside ./eval-results
             if(batch) {
                 pip.logFolder ="batch-"+batchPath.getFileName()+"-"+evalStrat.toString()+"-"+timestamp;
             }else if(retrospective){
@@ -642,14 +726,12 @@ public class Pipeline{
             }else{
                 pip.logFolder ="single-"+net1.getName()+"-"+net2.getName()+"-"+evalStrat.toString()+"-"+timestamp;
             }
-            //replace blanks : . in path name
+            //replace blanks : . by - in path name
             pip.logFolder = pip.logFolder.replace(" ", "-");
             pip.logFolder = pip.logFolder.replace(":", "-");
             pip.logFolder = pip.logFolder.replace(".", "-");
             File f = new File("eval-results/"+pip.logFolder);
             f.mkdirs();
-
-
             return pip;
         }
     }

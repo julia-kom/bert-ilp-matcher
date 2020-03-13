@@ -17,7 +17,7 @@ import java.util.Set;
 
 import static bpm.ippm.matcher.Pipeline.PRINT_ENABLED;
 
-
+@Deprecated
 public class BasicILP4 extends AbstractILP {
     public BasicILP4(){
 
@@ -25,8 +25,8 @@ public class BasicILP4 extends AbstractILP {
 
     /**
      * Compute the basic 1:1 ILP behavior/label simialrity match.
-     * Additionally we reduce the number of variables. On Y variables for exact same relations are constructed. T
-     * This isthe ILP with lowest number of varibales. If two relations are not equal, then they dont get a variable.
+     * Additionally we reduce the number of variables. Only Y variables for exact same relations are constructed. T
+     * This is the ILP with lowest number of variables. If two relations are not equal, then they don't get a variable.
      * property of the matrix
      * The identification for similar behavioral relation is now not encoded in y directly anymore.
      * y describes if s is matched to t and s' is matched to t'. The information that the relation between both is equal/similar

@@ -25,8 +25,9 @@ public class BasicILP2 extends AbstractILP {
 
     /**
      * Compute the basic 1:1 ILP behavior/label simialrity match.
-     * Additionally we reduce the number of variables by factor 2 by taking advantage of the similarity
-     * property of the matrix
+     * Additionally we reduce the number of variables by factor 2 by taking advantage of the symmetry
+     * property of the matrix. Note that therefore non-symmetric matrices can not be executed with this ILP.
+     * Use BASIC or CUSTOM_IDENTIFICATION instead
      * @param relNet1 Profile of Net 1
      * @param relNet2 Profile of Net 2
      * @param net1 Net 1

@@ -49,12 +49,22 @@ public class Evaluation {
                 .longOpt("net-2")
                 .desc("Sound, free-choice WF net 2")
                 .build();
+        Option optPathLog1 = Option.builder("l1")
+                .hasArg(true)
+                .longOpt("log-1")
+                .desc("Log for WF net 1")
+                .build();
+        Option optPathLog2 = Option.builder("l2")
+                .hasArg(true)
+                .longOpt("log-2")
+                .desc("Log for WF net 2")
+                .build();
         Option optIlp = Option.builder("i")
                 .hasArg(true)
                 .longOpt("ilp")
                 .desc("Choose an ILP Matcher here: \n BASIC: 1:1 Matcher with ILP. Slow but returns similarity and matching. \n" +
-                        "BASIC2: 1:1 Matcher with ILP and makes use of similarity property of the profile. Dont use with BP+ or log based approaches. \n" +
-                        "BASIC5: 1:1 Matcher with ILP. Uses relation similarity function of a profile. Use this for BP+ and log based profiles.")
+                        "SYMMETRIC: 1:1 Matcher with ILP and makes use of similarity property of the profile. Dont use with BP+ or log based approaches. \n" +
+                        "CUSTOM_IDENTIFICATION: 1:1 Matcher with ILP. Uses relation similarity function of a profile. Use this for BP+ and log based profiles.")
                 .build();
         Option optWordSim = Option.builder("w")
                 .hasArg(true)
@@ -130,6 +140,8 @@ public class Evaluation {
         options.addOption(optGoldStandard);
         options.addOption(optPathNet1);
         options.addOption(optPathNet2);
+        options.addOption(optPathLog1);
+        options.addOption(optPathLog2);
         options.addOption(optBatch);
         options.addOption(optNetPath);
         options.addOption(optGoldStandardPath);
@@ -268,6 +280,20 @@ public class Evaluation {
             evalBuilder = evalBuilder.onNet2(net2);
         }
 
+        // log 1 for single eval
+        if (line.hasOption("l1")) {
+            String n1String = line.getOptionValue("l1");
+            File log1 = new File(n1String);
+            evalBuilder = evalBuilder.onLog1(log1);
+        }
+
+        // log 2 for single eval
+        if (line.hasOption("l2")) {
+            String n2String = line.getOptionValue("l2");
+            File log2 = new File(n2String);
+            evalBuilder = evalBuilder.onLog2(log2);
+        }
+
         // gold standard for single eval
         if (line.hasOption("gs")) {
             String n2String = line.getOptionValue("gs");
@@ -329,12 +355,10 @@ public class Evaluation {
             evalBuilder.withEvalStrat(strat);
         }
 
-
-        //build
+        //build matcher and evaluation pipeline
         bpm.ippm.matcher.Pipeline matchingPip = matcherBuilder.Build();
         evalBuilder.withMatcher(matchingPip);
         Pipeline evalPip = evalBuilder.build();
-
 
         //run
         evalPip.run();
@@ -350,5 +374,4 @@ public class Evaluation {
             System.err.println("Unable to write Evaluation/Matcher Config file: " + e.getMessage());
         }
     }
-
 }

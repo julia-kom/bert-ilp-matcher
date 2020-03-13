@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # RUN THIS ON SLURM CLUSTER ONLY. FOR LINUX CLUSTER, USE PADS SHELL FOLDER. THIS IS DEPRECATED.
-#parameters $1 is ilp = {BASIC, RELAXED, RELAXED2, RELAXED3}
+#parameters $1 is ilp = {BASIC, SYMMETRIC,CUSTOM_IDENTIFICATION}
 #parameters $2 is word similarity = {LIN, LEVENSHTEIN, JIANG, LEVENSHTEIN_LIN_MAX, LEVENSHTEIN_JIANG_MAX}
 #parameters $3 ilp-time-limit
 #parameters $4 profile

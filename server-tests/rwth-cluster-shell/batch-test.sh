@@ -3,7 +3,7 @@
 #RUN ON SLURM CLUSTER ONLY. FOR LINUX SERVER REFER TO PADS SHELL FOLDER.
 
 
-#parameters $1 is ilp = {BASIC, RELAXED, RELAXED2, RELAXED3}
+#parameters $1 is ilp = {BASIC, SYMMETRIC or CUSTOM_IDENTIFICATION"}
 #parameters $2 is word similarity = {LIN, LEVENSHTEIN, JIANG, LEVENSHTEIN_LIN_MAX, LEVENSHTEIN_JIANG_MAX}
 #parameters $3 ilp-time-limit
 #parameters $4 profile

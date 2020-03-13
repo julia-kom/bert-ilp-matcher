@@ -400,7 +400,7 @@ public class LogProfileTest {
     @Test
     public void paperExample(){
         //Directly Follows
-        Pipeline p = new Pipeline.Builder().withILP(AbstractILP.ILP.BASIC5).withProfile(AbstractProfile.Profile.LOG_DF).atSimilarityWeight(1).atPostprocessThreshold(0.0).Build();
+        Pipeline p = new Pipeline.Builder().withILP(AbstractILP.ILP.CUSTOM_IDENTIFICATION).withProfile(AbstractProfile.Profile.LOG_DF).atSimilarityWeight(1).atPostprocessThreshold(0.0).Build();
         Result res1 = p.run(model1,log1,model2,log2, new ExecutionTimer());
         Result res2 = p.run(model1,log1,model2,null, new ExecutionTimer());
         Result res3 = p.run(model1,null,model2,null, new ExecutionTimer());
@@ -412,7 +412,7 @@ public class LogProfileTest {
         System.out.println(res4.toString());
 
         //Eventually follows
-        Pipeline q = new Pipeline.Builder().withILP(AbstractILP.ILP.BASIC5).withProfile(AbstractProfile.Profile.LOG_EF).atSimilarityWeight(1).atPostprocessThreshold(0.0).Build();
+        Pipeline q = new Pipeline.Builder().withILP(AbstractILP.ILP.CUSTOM_IDENTIFICATION).withProfile(AbstractProfile.Profile.LOG_EF).atSimilarityWeight(1).atPostprocessThreshold(0.0).Build();
         Result res5 = q.run(model1,log1,model2,log2, new ExecutionTimer());
         Result res6 = q.run(model1,log1,model2,null, new ExecutionTimer());
         Result res7 = q.run(model1,null,model2,null, new ExecutionTimer());
@@ -428,7 +428,7 @@ public class LogProfileTest {
 
     @Test
     public void realTest(){
-        Pipeline p = new Pipeline.Builder().withILP(AbstractILP.ILP.BASIC5).withProfile(AbstractProfile.Profile.LOG_DF).atSimilarityWeight(0.2).atPostprocessThreshold(0.0).withILPTimeLimit(10).Build();
+        Pipeline p = new Pipeline.Builder().withILP(AbstractILP.ILP.CUSTOM_IDENTIFICATION).withProfile(AbstractProfile.Profile.LOG_DF).atSimilarityWeight(0.2).atPostprocessThreshold(0.0).withILPTimeLimit(10).Build();
         //Pipeline.PRINT_ENABLED = true;
         File f1 = new File("./eval-data/pnml/bpi15/BPIC15_5_01_BB.pnml");
         File f2 = new File("./eval-data/pnml/bpi15/BPIC15_2_01_BB.pnml");

@@ -35,23 +35,30 @@ public abstract class AbstractILP {
         switch(ilp) {
             case BASIC:
                 return new BasicILP();
-            case BASIC2:
+            case SYMMETRIC:
                 return new BasicILP2();
             case BASIC3:
+                System.err.println("You are about to use a deprecated ILP. Please use BASIC, SYMMETRIC or CUSTOM_IDENTIFICATION");
                 return new BasicILP3();
             case BASIC4:
+                System.err.println("You are about to use a deprecated ILP. Please use BASIC, SYMMETRIC or CUSTOM_IDENTIFICATION");
                 return new BasicILP4();
-            case BASIC5:
+            case CUSTOM_IDENTIFICATION:
                 return new BasicILP5();
             case RELAXED:
+                System.err.println("You are about to use a deprecated ILP. Please use BASIC, SYMMETRIC or CUSTOM_IDENTIFICATION");
                 return  new RelaxedILP();
             case RELAXED2:
+                System.err.println("You are about to use a deprecated ILP. Please use BASIC, SYMMETRIC or CUSTOM_IDENTIFICATION");
                 return new RelaxedILP2();
             case RELAXED3:
+                System.err.println("You are about to use a deprecated ILP. Please use BASIC, SYMMETRIC or CUSTOM_IDENTIFICATION");
                 return new RelaxedILP3();
             case RELAXED4:
+                System.err.println("You are about to use a deprecated ILP. Please use BASIC, SYMMETRIC or CUSTOM_IDENTIFICATION");
                 return new RelaxedILP4();
             case QUADRATIC:
+                System.err.println("You are about to use a deprecated ILP. Please use BASIC, SYMMETRIC or CUSTOM_IDENTIFICATION");
                 return new QuadraticILP();
             default:
                 throw new NotImplementedException("ILP you searched for is not in switch");
@@ -63,16 +70,16 @@ public abstract class AbstractILP {
      * Different ILP implementations
      */
     public enum ILP{
-        BASIC, //Basic 1:1 behavior and label matcher
-        BASIC2, //Basic 1:1 behavior and label matcher with reduced number of variables
-        BASIC3, // Remove X variable compeletly
-        BASIC4, // Create Y variables for those pairs of relations only, which are equal. This is the minimum possible number of y variables
-        BASIC5, // As BASIC 2 but pull the identification function into the target + use non binary system for relational similarity.
+        BASIC, //Basic 1:1 behavior and label matcher with binary identification function and no variable reduction
+        SYMMETRIC, //Basic 1:1 behavior and label matcher  with binary identification function and reduced number of variables
+        BASIC3, // Basic 1:1 behavior and label matcher, with removed X variable. DEPRECATED.
+        BASIC4, // Basic 1:1 behavior and label matcher, create Y variables for those pairs of relations only, which are equal. This is the minimum possible number of y variables. DEPRECATED.
+        CUSTOM_IDENTIFICATION, // As BASIC 2 but pull the identification function into the target and use non binary system for relational similarity.
         RELAXED, // WRONG 1:1 behavioral and label matcher, converted BASIC to an LP problem, where linking between x and y is split into two constraints => similarity score but slow LP
         RELAXED2, // WRONG 1:1 behavioral and label matcher, converted BASIC to an LP problem, just by making all variables contineous. => no similarity score but fast LP.
         RELAXED3, // WRONG 1:1 behavioral and label matcher, converted BASIC to an LP problem, where linking between x and y is split into two constraints => similarity score but slow LP, now use of symmetry of the matrix
         RELAXED4, // WRONG 1:1 behavioral and label matcher, converted BASIC to an LP problem, where linking between x and y is split into two constraints => similarity score but slow LP addionally we constraint the y values per match.
-        QUADRATIC //Quadratic formulation of the ILP
+        QUADRATIC //Quadratic formulation of the ILP DEPRECATED
     }
 
     public void init(File log, double similarityWeight) throws GRBException, IOException {

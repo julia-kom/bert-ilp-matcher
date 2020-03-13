@@ -20,7 +20,7 @@ import static bpm.ippm.matcher.Pipeline.PRINT_ENABLED;
 
 
 /**
- * This is the implementation with the identification funktion inside the target function directly.
+ * This is the implementation with the identification function inside the target function directly.
  * We make use of the relational similarity score and do not onyl rely on equal realtions!
  * ONLY this can handle the Log based approach!
  */

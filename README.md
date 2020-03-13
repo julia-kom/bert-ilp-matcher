@@ -31,7 +31,9 @@ Arguments to specify are the following. Mandatory arguments in **bold**. Default
   * _`LEVENSHTEIN_LIN_MAX` - Maximum of Levenshtein and Lin Similarity_
   * `LEVENSHTEIN_JIANG_MAX` - Maximum of Levenshtein and Jiang Similarity
 * `ilp <ilp>` (`i <ilp>`) 
-  * 
+  * `BASIC` - BASIC ILP without any variable reduction. 
+  * `SYMMETRIC` (former: `BASIC2`) - Like `BASIC` but we make use of the symmetry property of symmetric Profiles (ARP, BP). Please do not use this with non symmetric profiles (BPP.LOG_EF,LOG_DF)
+  * `CUSTOM_IDENTIFICATION`(former `BASIC5`)- Like `BASIC` but we use the Profile specific identification function for relation similarity in the target function. Use this especially for LOG_EF and LOG_DF.
 * `postprocess-threshold <double>` (`pp <double>`) - Value in range [0,1] defining the minimum confidence of a produced correspondence to be included in to the returned matching. Default is _0_
 * `pre-match` (`pm`) - Enable pre-matching _(Default: disabled)_
 * `ilp-time-limit <int>` (`tl <int>`) - Maximum time (in seconds) until the ILP is terminated. The up to that point best solution is returned as result of the ILP. Default is _INFINITE_.
@@ -47,18 +49,18 @@ The label only matcher is reached by setting the behavior share to zero.
 -n2 ./eval-data/pnml/app_store/app_create_account_comp2.pnml 
 -s 0 
 -w LIN 
--i BASIC2 
+-i SYMMETRIC
 -sys`
 
 ### 50:50 Label and BP Matcher
-`java -jar ./ilp-profile-matcher.jar matcher -n1 ./eval-data/pnml/app_store/app_create_account_comp1.pnml -n2 ./eval-data/pnml/app_store/app_create_account_comp2.pnml -s 0.5 -p BP -w LIN -i BASIC2 -sys`
+`java -jar ./ilp-profile-matcher.jar matcher -n1 ./eval-data/pnml/app_store/app_create_account_comp1.pnml -n2 ./eval-data/pnml/app_store/app_create_account_comp2.pnml -s 0.5 -p BP -w LIN -i SYMMETRIC -sys`
 
 ### 50:50 Label and BP+ Matcher with Prematch
 We want to make use of the similarity functions defining soft similarities between profile relations: 
-`java -jar ./ilp-profile-matcher.jar matcher -n1 ./eval-data/pnml/app_store/app_create_account_comp1.pnml -n2 ./eval-data/pnml/app_store/app_create_account_comp2.pnml -s 0.5 -p BPP -w LIN -i BASIC5 -pm -sys`
+`java -jar ./ilp-profile-matcher.jar matcher -n1 ./eval-data/pnml/app_store/app_create_account_comp1.pnml -n2 ./eval-data/pnml/app_store/app_create_account_comp2.pnml -s 0.5 -p BPP -w LIN -i CUSTOM_IDENTIFICATION -pm -sys`
 
 ### 50:50 Label and Eventually Follows with Logs
-`java -jar ./ilp-profile-matcher.jar matcher -n1 ./eval-data/pnml/bpi15/BPIC15_2_07_OPS.pnml -l1 ./eval-data/xes/bpi15/BPIC15_2_07_OPS.xes -n2 ./eval-data/pnml/bpi15/BPIC15_4_07_OPS.pnml -l2 ./eval-data/xes/bpi15/BPIC15_4_07_OPS.xes -s 0.5 -p LOG_EF -w LIN -i BASIC5 -sys`
+`java -jar ./ilp-profile-matcher.jar matcher -n1 ./eval-data/pnml/bpi15/BPIC15_2_07_OPS.pnml -l1 ./eval-data/xes/bpi15/BPIC15_2_07_OPS.xes -n2 ./eval-data/pnml/bpi15/BPIC15_4_07_OPS.pnml -l2 ./eval-data/xes/bpi15/BPIC15_4_07_OPS.xes -s 0.5 -p LOG_EF -w LIN -i CUSTOM_IDENTIFICATION -sys`
 
 
 ## Run the Evaluation
@@ -91,7 +93,7 @@ _net1.xes_ corresponds to _net1.pnml_
 
 Additionally the parameters of the matcher (described in the previous section) can be specified. Exemmplary analysis are:
 
-`java -jar ./ilp-profile-matcher.jar eval -batch -gold-standard-path ./eval-data/goldstandard/bpi15 -net-path ./eval-data/pnml/bpi15 -log-path ./eval-data/xes/bpi15  -ilp BASIC5 -p LOG_DF -sys -s 0.1 -tl 10`
+`java -jar ./ilp-profile-matcher.jar eval -batch -gold-standard-path ./eval-data/goldstandard/bpi15 -net-path ./eval-data/pnml/bpi15 -log-path ./eval-data/xes/bpi15  -ilp CUSTOM_IDENTIFICATION -p LOG_DF -sys -s 0.1 -tl 10`
 
 The output is a folder `batch-<dataset>-<eval-strategy>-<date><time>`, containing:
 * `aggResults.eval`: CSV file with the evalaution results per matching as well as macro and micro aggregation over all matchings.

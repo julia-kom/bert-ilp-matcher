@@ -64,8 +64,8 @@ public class Matcher {
                 .hasArg(true)
                 .longOpt("ilp")
                 .desc("Choose an ILP Matcher here: \n BASIC: 1:1 Matcher with ILP. Slow but returns similarity and matching. \n" +
-                        "BASIC2: 1:1 Matcher with ILP and makes use of similarity property of the profile. Dont use with BP+ or log based approaches. \n" +
-                        "BASIC5: 1:1 Matcher with ILP. Uses relation similarity function of a profile. Use this for BP+ and log based profiles.")
+                        "SYMMETRIC: 1:1 Matcher with ILP and makes use of similarity property of the profile. Dont use with BP+ or log based approaches. \n" +
+                        "CUSTOM_IDENTIFICATION: 1:1 Matcher with ILP. Uses relation similarity function of a profile. Use this for BP+ and log based profiles.")
                 .build();
 
         Option optTl = Option.builder("tl")

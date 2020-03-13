@@ -253,7 +253,7 @@ public class Pipeline implements MatchingPipeline{
         private boolean complexMatches = false;
         private double  similarityWeight = 0.3;
         private double  postprocessThreshold = 0.0;
-        private AbstractILP.ILP ilp = AbstractILP.ILP.BASIC2;
+        private AbstractILP.ILP ilp = AbstractILP.ILP.SYMMETRIC;
         protected AbstractProfile.Profile profile = AbstractProfile.Profile.BP;
         private Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
         private boolean prematch = false;

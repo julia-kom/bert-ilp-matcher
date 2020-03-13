@@ -16,7 +16,6 @@ import static bpm.ippm.matcher.Pipeline.PRINT_ENABLED;
 import static java.lang.Math.abs;
 
 // There is a version with less variables instead (BasicILP2)
-@Deprecated
 public class BasicILP extends AbstractILP {
     public BasicILP(){
 
