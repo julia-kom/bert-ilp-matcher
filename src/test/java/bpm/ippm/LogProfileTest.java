@@ -20,7 +20,9 @@ import org.junit.Test;
 
 import java.io.File;
 
-
+/**
+ * Test Log base matchers EF, DF
+ */
 public class LogProfileTest {
     private static XLog log1;
     private static XLog log2;
@@ -52,6 +54,9 @@ public class LogProfileTest {
     static Place p11 = new Place();
     static Place p12 = new Place();
 
+    /**
+     * Create two artificial log
+     */
     @BeforeClass
     public static void createArtificialLogs(){
        XAttributeLiteral lifecycle = new XAttributeLiteralImpl(AbstractLogProfile.LOG_LIFECYCLE_ATTRIBUTE,"complete"); // dummy lifecycle, as the model contains neither one
@@ -114,6 +119,9 @@ public class LogProfileTest {
         }
     }
 
+    /**
+     * Create two artificial model
+     */
     @BeforeClass
     public static void createArtificialModels(){
 
@@ -186,8 +194,9 @@ public class LogProfileTest {
 
     }
 
-
-
+    /**
+     * Log Profile EF
+     */
     @Test
     public  void eventuallyFollowsTest(){
         EventuallyFollowsLogProfile profile = new EventuallyFollowsLogProfile(model1,log1);
@@ -228,8 +237,11 @@ public class LogProfileTest {
         Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t4).getFrequency()) < 0.0001);
     }
 
+    /**
+     * Model Profile EF
+     */
     @Test
-    public  void eventuallyFollowsTestNoLog(){
+    public  void eventuallyFollowsNoLogTest(){
         EventuallyFollowsLogProfile profile = new EventuallyFollowsLogProfile(model1,null);
         Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t1).getFrequency())==0);
         Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t2).getFrequency() ) == 1);
@@ -268,9 +280,9 @@ public class LogProfileTest {
         Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t4).getFrequency()) == 0);
     }
 
-
-
-
+    /**
+     * Log Profile DF
+     */
     @Test
     public void directlyFollowsTest(){
         DirectlyFollowsLogProfile profile = new DirectlyFollowsLogProfile(model1,log1);
@@ -311,6 +323,52 @@ public class LogProfileTest {
 
     }
 
+    /**
+     * Model Profile DF
+     */
+    @Test
+    public  void directlyFollowsNoLogTest(){
+        DirectlyFollowsLogProfile profile = new DirectlyFollowsLogProfile(model1,null);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t1).getFrequency())==0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t2).getFrequency() ) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t4).getFrequency()) ==1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t3).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t5).getFrequency() ) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t1,t6).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t1).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t2).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t3).getFrequency()) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t4).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t5).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t2,t6).getFrequency() ) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t2).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t3).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t4).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t5).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t3,t6).getFrequency()) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t1).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t2).getFrequency()) ==0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t3).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t4).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t5).getFrequency()) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t4,t6).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t1).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t2).getFrequency())== 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t3).getFrequency()) ==0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t4).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t5).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t5,t6).getFrequency()) == 1);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t6).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t5).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t3).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t1).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t2).getFrequency()) == 0);
+        Assert.assertTrue(Math.abs(profile.getRelationForEntities(t6,t4).getFrequency()) == 0);
+    }
+
+    /**
+     * Comparer function test
+     */
     @Test
     public void compareTest(){
         DirectlyFollowsLogProfile profile1 = new DirectlyFollowsLogProfile(model1,log1);
@@ -324,7 +382,9 @@ public class LogProfileTest {
 
     }
 
-
+    /**
+     * Test Log Model Matching DF
+     */
     @Test
     public void LogNoLogDirectlyFollowsTest(){
         DirectlyFollowsLogProfile profile1 = new DirectlyFollowsLogProfile(model1,log1);
@@ -344,6 +404,9 @@ public class LogProfileTest {
         Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t5,t6), profile2.getRelationForEntities(t7,t8))==1.0);
     }
 
+    /**
+     * Test Model Model Matching DF
+     */
     @Test
     public void NoLogNoLogDirectlyFollowsTest(){
         DirectlyFollowsLogProfile profile1 = new DirectlyFollowsLogProfile(model1,null);
@@ -355,6 +418,9 @@ public class LogProfileTest {
         Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t5,t6), profile2.getRelationForEntities(t7,t8))==1.0);
     }
 
+    /**
+     * Test Log -model Matching EF
+     */
     @Test
     public void LogNoLogEventualyFollowsTest(){
         EventuallyFollowsLogProfile profile1 = new EventuallyFollowsLogProfile(model1,log1);
@@ -378,6 +444,9 @@ public class LogProfileTest {
         Assert.assertTrue(profile1.getRelationSimilarity(profile1.getRelationForEntities(t5,t6), profile2.getRelationForEntities(t7,t8))==1.0);
     }
 
+    /**
+     * Test Model - Model matching EF
+     */
     @Test
     public void NoLogNoLogEventuallyFollowsTest(){
         EventuallyFollowsLogProfile profile1 = new EventuallyFollowsLogProfile(model1,null);
@@ -397,6 +466,9 @@ public class LogProfileTest {
         return factory.createEvent(map);
     }
 
+    /**
+     * Tests from teh paper
+     */
     @Test
     public void paperExample(){
         //Directly Follows
@@ -426,9 +498,12 @@ public class LogProfileTest {
 
     }
 
+    /**
+     * Test on real data set
+     */
     @Test
     public void realTest(){
-        Pipeline p = new Pipeline.Builder().withILP(AbstractILP.ILP.CUSTOM_IDENTIFICATION).withProfile(AbstractProfile.Profile.LOG_DF).atSimilarityWeight(0.2).atPostprocessThreshold(0.0).withILPTimeLimit(10).Build();
+        Pipeline p = new Pipeline.Builder().withILP(AbstractILP.ILP.CUSTOM_IDENTIFICATION).withProfile(AbstractProfile.Profile.LOG_DF).atSimilarityWeight(0.2).atPostprocessThreshold(0.0).withILPTimeLimit(1).Build();
         //Pipeline.PRINT_ENABLED = true;
         File f1 = new File("./eval-data/pnml/bpi15/BPIC15_5_01_BB.pnml");
         File f2 = new File("./eval-data/pnml/bpi15/BPIC15_2_01_BB.pnml");

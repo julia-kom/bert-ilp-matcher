@@ -15,8 +15,9 @@ import java.io.File;
 
 public class BPPlusTest {
 
-
-
+    /**
+     * Test BP+ 1
+     */
     @Test
     public void testBPPlus(){
         NetSystem net1 = new NetSystem();
@@ -30,8 +31,6 @@ public class BPPlusTest {
         t2.setLabel("Transition 2");
         net1.addTransition(t1);
         net1.addTransition(t2);
-
-
 
         Place p1 = new Place("p1");
         Place p2 = new Place("p2");
@@ -55,7 +54,9 @@ public class BPPlusTest {
         Assert.assertSame(plus.getRelationForEntities(t2,t1).getType(), Relation.RelationType.BPP_REVERSE_DIRECT_CAUSAL);
     }
 
-
+    /**
+     * Test BP+ 2
+     */
     @Test
     public void testBPPlus2(){
         NetSystem net1 = new NetSystem();
@@ -69,21 +70,14 @@ public class BPPlusTest {
         t2.setName("B");
         t2.setLabel("B");
 
-
         Transition t3 = new Transition();
         t3.setId("t3");
         t3.setName("C");
         t3.setLabel("C");
 
-
-
-
-
         net1.addTransition(t1);
         net1.addTransition(t2);
         net1.addTransition(t3);
-
-
 
         Place p1 = new Place("p1");
         Place p2 = new Place("p2");
@@ -102,8 +96,6 @@ public class BPPlusTest {
         net1.addEdge(t2,p3);
         net1.addEdge(p3,t3);
         net1.addEdge(t3,p4);
-
-
 
         BPPlusOwn plus = new BPPlusOwn(net1);
 
@@ -138,6 +130,9 @@ public class BPPlusTest {
         Assert.assertSame(plus.getRelationForEntities(t3,te).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
     }
 
+    /**
+     * Test BP+ 3
+     */
     @Test
     public void testBPPlusLoopTest(){
 
@@ -213,11 +208,14 @@ public class BPPlusTest {
 
     }
 
-
+    /**
+     * Test BP+ 4
+     */
     @Test
     public void testBPPlusParallelTest(){
 
-        // this test does not terminate. Loop in process model leads to loop in BP+. Failure in RefinedOrderMatrix line 288 while(!queue.isEmpty()) {
+        // this test does not terminate when we used the BP+ implementation of the paper:
+        // Failure in RefinedOrderMatrix line 288 while(!queue.isEmpty()) {
         // Queue gets larger before it becomes empty.
 
         NetSystem net1 = new NetSystem();
@@ -241,7 +239,6 @@ public class BPPlusTest {
         t4.setId("t4");
         t4.setName("D");
         t4.setLabel("D");
-
 
         net1.addTransition(t1);
         net1.addTransition(t2);
@@ -273,7 +270,6 @@ public class BPPlusTest {
         net1.addEdge(p5,t4);
         net1.addEdge(t4,p6);
 
-
         BPPlusOwn plus = new BPPlusOwn(net1);
         Assert.assertSame(plus.getRelationForEntities(t1,t1).getType(), Relation.RelationType.BPP_CONFLICT);
         Assert.assertSame(plus.getRelationForEntities(t1,t2).getType(), Relation.RelationType.BPP_DIRECT_CAUSAL);
@@ -295,12 +291,11 @@ public class BPPlusTest {
         Assert.assertSame(plus.getRelationForEntities(t4,t4).getType(), Relation.RelationType.BPP_CONFLICT);
     }
 
-
-
-
-
+    /**
+     * Test BP+ on real SAP dataset
+     */
     @Test
-    public void failedSAP(){
+    public void realSAP(){
         File f1 = new File(getClass().getClassLoader().getResource("./pnml/sap/sap12s.pnml").getFile());
         File f2 = new File(getClass().getClassLoader().getResource("./pnml/sap/sap12t.pnml").getFile());
 
@@ -309,8 +304,11 @@ public class BPPlusTest {
         p1.run(f1,f2);
     }
 
+    /**
+     * Test BP+ on real SAP dataset
+     */
     @Test
-    public void failedUni(){
+    public void realUni(){
         File f1 = new File(getClass().getClassLoader().getResource("./pnml/uni/Cologne.pnml").getFile());
         File f2 = new File(getClass().getClassLoader().getResource("./pnml/uni/Wuerzburg.pnml").getFile());
 

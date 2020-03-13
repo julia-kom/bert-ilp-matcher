@@ -2,6 +2,9 @@ package bpm.evaluation;
 
 import org.junit.Test;
 
+/**
+ * Check the User interface and if it detects all false inputs
+ */
 public class ioTest {
     // batch  no gsp
     @Test(expected = Error.class)

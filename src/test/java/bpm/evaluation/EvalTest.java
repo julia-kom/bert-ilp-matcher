@@ -26,6 +26,9 @@ import static java.lang.Math.abs;
 
 public class EvalTest {
 
+    /**
+     * Test Binary Evaluation
+     */
     @Test
     public void BinaryEvalTest(){
         Node n1 = new Node("n1");
@@ -60,6 +63,9 @@ public class EvalTest {
         Assert.assertTrue((abs(e3.getPrecision() - 1.0)) <0.0001 && (abs(e3.getRecall()- 0.75)) <0.0001);
     }
 
+    /**
+     * Check Strict Binary Evaluation
+     */
     @Test
     public void StrictBinaryEvalTest(){
         Node n1 = new Node("n1");
@@ -90,10 +96,16 @@ public class EvalTest {
         Assert.assertTrue((abs(e2.getPrecision() - 1.0)) <0.0001 && abs(e2.getRecall()- 1.0) <0.0001 && abs(e2.getFscore()- 1.0) <0.0001);
     }
 
+    /**
+     * Not implemented
+     */
     @Test
     public void ProbabilisticEvalTest(){}
 
 
+    /**
+     * Test the aggregation computation
+     */
     @Test
     public void AggregatedEvalTest(){
         Node n1 = new Node("n1");
@@ -135,6 +147,12 @@ public class EvalTest {
         Assert.assertTrue(abs(aggEval.getRecallMicro() - (10.0/11)) < 0.0001);
     }
 
+    /**
+     * Test Retrospective eval
+     * @throws IOException
+     * @throws JSONException
+     * @throws ParseException
+     */
     @Test
     public void retrospectiveTest() throws IOException, JSONException, ParseException {
         File goldstandard = new File(getClass().getClassLoader().getResource("./goldstandard/birth").getFile());
@@ -167,22 +185,4 @@ public class EvalTest {
         System.out.println(matcher2.toString());
         Assert.assertTrue(matcher1.equals(matcher2));
     }
-
-
-    public void batchEvaluationTest() throws IOException {
-        File goldstandard = new File(getClass().getClassLoader().getResource("./goldstandard/birth").getFile());
-        File batch = new File(getClass().getClassLoader().getResource("./pnml/birth").getFile());
-        //run retrospecitve test
-        bpm.ippm.matcher.Pipeline matcher = new bpm.ippm.matcher.Pipeline.Builder().withILP(AbstractILP.ILP.RELAXED3).Build();
-        Pipeline pip = new Pipeline.Builder().withGoldStandard(goldstandard.toPath()).atThreshold(0.7).withBatchPath(batch.toPath()).withBatch().withMatcher(matcher).atThreshold(0.7).build();
-        pip.run();
-        Path logPath = pip.getLogPath();
-        File f =  new File(logPath+"/aggResults.eval");
-        BufferedReader reader = new BufferedReader(new FileReader(f));
-        int lines = 0;
-        while (reader.readLine() != null) lines++;
-        reader.close();
-        Assert.assertTrue(lines == 4);
-    }
-
 }

@@ -17,7 +17,14 @@ import java.util.Set;
 import static bpm.ippm.profile.AbstractProfile.createProfile;
 import static java.lang.Math.abs;
 
+/**
+ * Test the preprocessor
+ */
 public class PreprocessorTest {
+
+    /**
+     * Tau transition tests
+     */
     @Test
     public void isTauTest() {
 
@@ -51,6 +58,9 @@ public class PreprocessorTest {
         Assert.assertTrue(Preprocessor.reduceTauTransitions(transitions).isEmpty());
     }
 
+    /**
+     * Prematching tests
+     */
     @Test
     public void preMatchTest() {
         // set up net system with two transitions each
@@ -95,8 +105,11 @@ public class PreprocessorTest {
 
     }
 
+    /**
+     * Test if BP is symmetric
+     */
     @Test
-    public void ProfileSymmetryTest(){
+    public void BPProfileSymmetryTest(){
         File folder = new File(getClass().getClassLoader().getResource("./pnml/app_store/").getFile());
         for(File file1 : folder.listFiles()) {
             NetSystem net1 = Preprocessor.parseFile(file1);
@@ -117,6 +130,39 @@ public class PreprocessorTest {
                             break;
                         case BP_REVERSE_ORDER:
                             Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).getType().equals(Relation.RelationType.BP_ORDER));
+                            break;
+                    }
+
+                }
+            }
+        }
+    }
+
+    /**
+     * Test if Alpha Relational Profile is symmetric
+     */
+    @Test
+    public void ARPProfileSymmetryTest(){
+        File folder = new File(getClass().getClassLoader().getResource("./pnml/app_store/").getFile());
+        for(File file1 : folder.listFiles()) {
+            NetSystem net1 = Preprocessor.parseFile(file1);
+            net1.setName(file1.getName());
+            AbstractProfile relNet1 = createProfile(net1, AbstractProfile.Profile.ARP, null);
+            for(Transition t1 : net1.getTransitions()){
+                for(Transition t2 : net1.getTransitions()){
+                    Relation r = relNet1.getRelationForEntities(t1,t2);
+                    switch(r.getType()){
+                        case ALPHA_EXCLUSIVE:
+                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).getType().equals(Relation.RelationType.ALPHA_EXCLUSIVE));
+                            break;
+                        case ALPHA_INTERLEAVING:
+                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).getType().equals(Relation.RelationType.ALPHA_INTERLEAVING));
+                            break;
+                        case ALPHA_ORDER:
+                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).getType().equals(Relation.RelationType.ALPHA_REVERSE_ORDER));
+                            break;
+                        case ALPHA_REVERSE_ORDER:
+                            Assert.assertTrue(relNet1.getRelationForEntities(t2,t1).getType().equals(Relation.RelationType.ALPHA_ORDER));
                             break;
                     }
 

@@ -19,8 +19,10 @@ public class AlignmentReaderTest
 {
     @Rule
     public TemporaryFolder folder= new TemporaryFolder();
+
     /**
-     * Rigorous Test :-)
+     * Write and alignment and read it again. Check if the same.
+     * @throws Exception
      */
     @Test
     public void RdfReadWriteTest() throws Exception

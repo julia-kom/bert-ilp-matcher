@@ -14,7 +14,9 @@ import org.junit.Test;
 
 import java.io.File;
 
-
+/**
+ * Testing of the Alpha Relations Profile Implementation
+ */
 public class AlphaRelationTest {
     @Test
     public void AlphaRelationBasicTest(){
@@ -65,6 +67,9 @@ public class AlphaRelationTest {
         Assert.assertSame(alpha.getRelationForEntities(t1,t3).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
     }
 
+    /**
+     * Check if it can deal with tau transitions
+     */
     @Test
     public void AlphaRelationTauTest() {
         NetSystem net1 = new NetSystem();
@@ -127,7 +132,9 @@ public class AlphaRelationTest {
         Assert.assertSame(alpha.getRelationForEntities(t1,t4).getType(), Relation.RelationType.ALPHA_ORDER);
     }
 
-
+    /**
+     * Check if it can deal with loops
+     */
     @Test
     public void AlphaRelationLoopTest() {
         NetSystem net1 = new NetSystem();
@@ -196,6 +203,9 @@ public class AlphaRelationTest {
         Assert.assertSame(alpha.getRelationForEntities(t4,t4).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
     }
 
+    /**
+     * Check if loops are handled correctly (2)
+     */
     @Test
     public void AlphaRelationTwoTransitionLoopTest() {
         NetSystem net1 = new NetSystem();
@@ -278,6 +288,9 @@ public class AlphaRelationTest {
         Assert.assertSame(alpha.getRelationForEntities(t4,t4).getType(), Relation.RelationType.ALPHA_EXCLUSIVE);
     }
 
+    /**
+     * Check if concurrency is handled well
+     */
     @Test
     public void AlphaConcurrentTest() {
         NetSystem net1 = new NetSystem();
@@ -348,10 +361,6 @@ public class AlphaRelationTest {
 
         net1.addEdge(t5,p7);
 
-
-
-
-
         net1.putTokens(p1,1);
 
         AlphaRelations alpha = new AlphaRelations(net1);
@@ -371,9 +380,11 @@ public class AlphaRelationTest {
         Assert.assertSame(alpha.getRelationForEntities(t4,t5).getType(), Relation.RelationType.ALPHA_ORDER);
     }
 
-
+    /**
+     * Real test on two SAP models
+     */
     @Test
-    public void failedSAP(){
+    public void realSAP(){
         File f1 = new File(getClass().getClassLoader().getResource("./pnml/sap/sap12s.pnml").getFile());
         File f2 = new File(getClass().getClassLoader().getResource("./pnml/sap/sap12t.pnml").getFile());
 
@@ -382,6 +393,9 @@ public class AlphaRelationTest {
         p1.run(f1,f2);
     }
 
+    /**
+     * Real test on two Uni models
+     */
     @Test
     public void failedUni(){
         File f1 = new File(getClass().getClassLoader().getResource("./pnml/uni/Cologne.pnml").getFile());

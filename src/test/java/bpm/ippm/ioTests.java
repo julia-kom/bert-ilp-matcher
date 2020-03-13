@@ -1,6 +1,9 @@
 package bpm.ippm;
 import org.junit.Test;
 
+/**
+ * IO tests for matcher interface
+ */
 public class ioTests {
 
     // not all nets given

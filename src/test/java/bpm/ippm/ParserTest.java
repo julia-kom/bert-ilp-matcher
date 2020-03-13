@@ -19,6 +19,10 @@ import static bpm.ippm.matcher.Preprocessor.isTau;
 
 public class ParserTest {
 
+    /**
+     * Run the new paerser and check if it ereads all Ids properly
+     * @throws Exception
+     */
     @Test
     public void newParserTest() throws Exception {
         File files = new File("eval-data/pnml/bpi15");
@@ -31,14 +35,14 @@ public class ParserTest {
             for(Transition t : net.getTransitions()){
                 if(!isTau(t))
                     Assert.assertTrue(t.getId() + t.getLabel() + " is not a valid Id. Read op did not work.",Character.isDigit(t.getId().charAt(0)) && Character.isDigit(t.getId().charAt(1)));
-
             }
-
-
         }
-
     }
 
+    /**
+     * Run the old paerser and check if it ereads all Ids properly
+     * @throws Exception
+     */
     @Test
     public void oldParserTest() throws Exception {
         File files = new File("eval-data/pnml/bpi15");
@@ -53,9 +57,15 @@ public class ParserTest {
                     Assert.assertTrue(t.getId() + t.getLabel() + " is not a valid Id. Read op did not work.",Character.isDigit(t.getId().charAt(0)) && Character.isDigit(t.getId().charAt(1)));
             }
         }
-
     }
 
+    /**
+     * The old paser sometimes removes a part of the label.
+     * This test parses each petri net once with the old and once with the new parser and checks if labels and ids in
+     * both parsed nets are the same.
+     * As the old parser sometimes deletes the beginning of the label it is fine too if a transitions label of the
+     * old parsers net is substring of the new parsers transition's label
+     */
     @Test
     public void parserCompTest() throws Exception {
         File birth = new File("eval-data/pnml/birth");
@@ -68,13 +78,6 @@ public class ParserTest {
         parserComp(bpi15);
     }
 
-    /**
-     * The old paser sometimes removes a part of the label.
-     * This test parses each petri net once with the old and once with the new parser and checks if labels and ids in
-     * both parsed nets are the same.
-     * As the old parser sometimes deletes the beginning of the label it is fine too if a transitions label of the
-     * old parsers net is substring of the new parsers transition's label
-     */
     private void parserComp(File path) throws Exception {
         File[] files = path.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
@@ -142,8 +145,12 @@ public class ParserTest {
         }
     }
 
-
-
+    /**
+     * Check if flow meaning the edges in the petrinet are correct when parsed with new Parser
+     * @param flows
+     * @param f
+     * @return
+     */
     private static boolean containsFlow(Collection<Flow> flows, Flow f){
         for(Flow g : flows){
             if(g.getSource().getId().equals(f.getSource().getId()) &&
@@ -211,6 +218,12 @@ public class ParserTest {
         }
     }
 
+    /**
+     * Check if any exception is thrown for real example
+     * @throws IOException
+     * @throws SAXException
+     * @throws ParserConfigurationException
+     */
     @Test
     public void parseTest() throws IOException, SAXException, ParserConfigurationException {
         NetSystem net = Preprocessor.parseFile(new File("eval-data/pnml/bpi15/BPIC15_5_08_AWB45.pnml"));

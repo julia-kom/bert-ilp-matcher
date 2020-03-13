@@ -11,7 +11,14 @@ import org.junit.Test;
 
 import java.io.File;
 
+/**
+ * Test the normal distribution noise for similarity evaluation
+ */
 public class NormalDistributionLabelSimilarityTest {
+
+    /**
+     * Test if caching over several iterations works properly
+     */
     @Test
     public void functionalityTest(){
 
@@ -38,6 +45,7 @@ public class NormalDistributionLabelSimilarityTest {
     }
 
 
+    // Execute this to get the actual values for the Paper.
     //@Test
     public void simTest(){
         File path = new File("eval-data/pnml/sim-comp");

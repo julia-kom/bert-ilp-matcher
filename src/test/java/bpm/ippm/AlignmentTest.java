@@ -12,6 +12,9 @@ import org.junit.Test;
  */
 public class AlignmentTest {
 
+    /**
+     * Detect complex alignments
+     */
     @Test
     public void complexCorrespondenceTest(){
         Node p1n1 = new Node("n1");
@@ -33,11 +36,17 @@ public class AlignmentTest {
         Assert.assertTrue(!c.isComplexCorrespondence());
     }
 
+    /**
+     * Check if not proper correspondences are detected
+     */
     @Test(expected = Exception.class)
     public void properCorrespondenceTest(){
         new Correspondence.Builder().build();
     }
 
+    /**
+     * Check mutually exclusiveness
+     */
     @Test
     public void MutuallyExclusivenessTest(){
         Node p1n1 = new Node("n1");
@@ -65,6 +74,9 @@ public class AlignmentTest {
         Assert.assertTrue(a.isMutuallyExclusive());
     }
 
+    /**
+     * Check mapped function
+     */
     @Test
     public void MappedTest(){
         Node p1n1 = new Node("n1");
@@ -93,6 +105,9 @@ public class AlignmentTest {
         Assert.assertTrue(!a.isMapped(p1n1,p1n1));
     }
 
+    /**
+     * Check get correspondences function
+     */
     @Test
     public void getCorrespondenceTest(){
         Node p1n1 = new Node("n1");
@@ -118,6 +133,9 @@ public class AlignmentTest {
         Assert.assertTrue(a.getCorrespondenceOfNode(p2n1).size() == 2);
     }
 
+    /**
+     * Check equals() function
+     */
     @Test
     public void nodeEqualityTest(){
         Node n1 = new Node("n1");
@@ -138,6 +156,9 @@ public class AlignmentTest {
         Assert.assertTrue(n2.hashCode() != n3.hashCode());
     }
 
+    /**
+     * Check equals() function
+     */
     @Test
     public void correspondeceEqualityTest(){
         Node n1 = new Node("n1");
@@ -175,6 +196,9 @@ public class AlignmentTest {
         // Assert.assertTrue(c2.hashCode() != c3.hashCode()); "       "
     }
 
+    /**
+     * Check contains function
+     */
     @Test
     public void alignmentContainsTest(){
         Node n1 = new Node("n1");
@@ -208,6 +232,9 @@ public class AlignmentTest {
         Assert.assertTrue(!a.getCorrespondences().contains(c2));
     }
 
+    /**
+     * Check remove complex correspondences
+     */
     @Test
     public void removeComplexMatches(){
         Transition n1 = new Transition("n1");
@@ -219,6 +246,9 @@ public class AlignmentTest {
         Assert.assertTrue(a.getCorrespondences().isEmpty());
     }
 
+    /**
+     * Test hash function of a correspondence
+     */
     @Test
     public void hashTest(){
         Transition n1 = new Transition("n1");
@@ -238,6 +268,9 @@ public class AlignmentTest {
         Assert.assertTrue(a.getCorrespondences().contains(c));
     }
 
+    /**
+     * Check equals() function of a correspondence
+     */
     @Test
     public void equalityTest(){
         Node p1n1 = new Node("n1");

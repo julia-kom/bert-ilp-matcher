@@ -17,6 +17,9 @@ import java.util.Set;
  */
 public class BagOfWordsSimilarityTest
 {
+    /**
+     * Test Word sim
+     */
     @Test
     public void wordSimilarityTests(){
         System.out.println();
@@ -28,6 +31,9 @@ public class BagOfWordsSimilarityTest
         Assert.assertTrue(Word.LevenshteinSimilarity("house","houte") == 0.8);
     }
 
+    /**
+     * Test bag of words
+     */
     @Test
     public void bagOfWordsTests(){
         // Order test
@@ -65,6 +71,9 @@ public class BagOfWordsSimilarityTest
         return Collections.max(Arrays.asList(vals));
     }
 
+    /**
+     * Check Similarity Matrix
+     */
     @Test
     public void matrixTests(){
         // Create two sets of nodes
@@ -92,6 +101,9 @@ public class BagOfWordsSimilarityTest
         }
     }
 
+    /**
+     * Check stopwords
+     */
     @Test
     public void stopWordTest(){
         String s1 = "A call from mom";
