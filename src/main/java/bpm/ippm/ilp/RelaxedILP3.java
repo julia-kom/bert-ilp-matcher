@@ -29,7 +29,6 @@ public class RelaxedILP3 extends AbstractILP {
      * Variables are contineous and the linking between x and y is split into two functions
      * Hint on Objective function is used.
      * We make use of the symmetry of the matrix
-     * This ILP produces a valid matching and similarity score
      * @param relNet1 Profile of Net 1
      * @param relNet2 Profile of Net 2
      * @param net1 Net 1
@@ -44,12 +43,7 @@ public class RelaxedILP3 extends AbstractILP {
         Transition[] nodeNet2 =  net2.toArray(new Transition[net2.size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
-        int minSize = Math.max(nodesNet1,nodesNet2);
-
-
-
-        model.set(GRB.IntParam.Crossover,0);
-        model.set(GRB.DoubleParam.TimeLimit,600);
+        int max = Math.max(nodesNet1,nodesNet2);
 
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
         for (int i = 0; i< nodesNet1; i++){
@@ -83,9 +77,9 @@ public class RelaxedILP3 extends AbstractILP {
                         //every correct entry which is not on the diagonal twice (because of the symmetry of the matrix)
                         //TODO somehow the result is not yet the same as in Relaxed1
                         if(i!=k && j!=l) {
-                            behavior.addTerm(2.0 / (minSize * minSize ), y[i][k][j][l]);
+                            behavior.addTerm(2.0 / (max * max ), y[i][k][j][l]);
                         }else{
-                            behavior.addTerm(1.0 / (minSize * minSize), y[i][k][j][l]);
+                            behavior.addTerm(1.0 / (max * max), y[i][k][j][l]);
                         }
                     }
                 }
@@ -96,7 +90,7 @@ public class RelaxedILP3 extends AbstractILP {
         GRBLinExpr label = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(minSize), x[i][j]);
+                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(max), x[i][j]);
             }
         }
         GRBLinExpr obj = new GRBLinExpr();
@@ -181,19 +175,6 @@ public class RelaxedILP3 extends AbstractILP {
                 if(PRINT_ENABLED) System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " + x[i][j].get(GRB.DoubleAttr.X));
             }
         }
-
-        /*for (int i = 0; i< nodesNet1; i++){
-            for (int k = i; k< nodesNet1; k++) {
-                for (int j = 0; j < nodesNet2; j++) {
-                    for (int l = j; l < nodesNet2; l++) {
-                        if(PRINT_ENABLED) System.out.println(y[i][k][j][l].get(GRB.StringAttr.VarName) + " " + y[i][k][j][l].get(GRB.DoubleAttr.X));
-                    }
-                }
-            }
-        }*/
-
-        //if(PRINT_ENABLED) System.out.println(sum.get(GRB.StringAttr.VarName) + " " + sum.get(GRB.DoubleAttr.X));
-        //if(PRINT_ENABLED) System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));
 
         //Create Results
         Alignment.Builder builder = new Alignment.Builder();

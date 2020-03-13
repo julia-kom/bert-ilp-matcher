@@ -21,7 +21,7 @@ import static bpm.ippm.matcher.Pipeline.PRINT_ENABLED;
 
 /**
  * This is the implementation with the identification function inside the target function directly.
- * We make use of the relational similarity score and do not onyl rely on equal realtions!
+ * We make use of the relational similarity score and do not only rely on equal relations!
  * ONLY this can handle the Log based approach!
  */
 public class BasicILP5 extends AbstractILP {
@@ -31,12 +31,11 @@ public class BasicILP5 extends AbstractILP {
 
     /**
      * Compute the basic 1:1 ILP behavior/label simialrity match.
-     * Additionally we reduce the number of variables by factor 2 by taking advantage of the similarity
-     * property of the matrix
+     * like BASIC but:
      * The identification for similar behavioral relation is now not encoded in y directly anymore.
      * y describes if s is matched to t and s' is matched to t'. The information that the relation between both is equal/similar
      * comes in the target function into play!
-     * Addtionally we do not only regard the question "equal relation or not", but use the weighting defined in
+     * Additionally we do not only regard the question "equal relation or not", but use the weighting defined in
      * AbstractRelationalProfile.getRelationSimilarity
      * @param relNet1 Profile of Net 1
      * @param relNet2 Profile of Net 2
@@ -52,9 +51,9 @@ public class BasicILP5 extends AbstractILP {
         Transition[] nodeNet2 =  net2.toArray(new Transition[net2.size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
-        int minSize = Math.max(nodesNet1,nodesNet2);
+        int max = Math.max(nodesNet1,nodesNet2);
 
-
+        // X(i,j) == 1 iff i is matched to j
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
@@ -62,7 +61,7 @@ public class BasicILP5 extends AbstractILP {
             }
         }
 
-
+        // Y(i,k,j,l) == 1 iff i matched to j and k matched to l
         GRBVar[][][][] y = new GRBVar[nodesNet1][nodesNet1][nodesNet2][nodesNet2];
         for (int i = 0; i< nodesNet1; i++){
             for (int k = 0; k< nodesNet1; k++){
@@ -75,7 +74,7 @@ public class BasicILP5 extends AbstractILP {
         }
 
         // Objective weighted between behavioral correspondance and label similarity
-        // Behavioral part
+        // Behavioral part with non-binary identification function of target function
         GRBLinExpr behavior = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int k = 0; k< nodesNet1; k++){
@@ -87,18 +86,18 @@ public class BasicILP5 extends AbstractILP {
                         double relSim = relNet1.getRelationSimilarity(rel1,rel2);
                         // when relational sim is zero we dont add it to the target function
                         if(relSim > 0) {
-                            behavior.addTerm(1.0 * relSim / (minSize * minSize), y[i][k][j][l]);
+                            behavior.addTerm(1.0 * relSim / (max * max), y[i][k][j][l]);
                         }
                     }
                 }
             }
         }
 
-        // Label Similarity Part
+        // Label Similarity Part of target function
         GRBLinExpr label = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(minSize), x[i][j]);
+                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(max), x[i][j]);
             }
         }
         GRBLinExpr obj = new GRBLinExpr();
@@ -107,8 +106,7 @@ public class BasicILP5 extends AbstractILP {
 
         model.setObjective(obj, GRB.MAXIMIZE);
 
-        //setup model
-
+        //further restricting the ILP. This is not changing the optimal solution but shrinks the searchspace further.
         model.addConstr(obj,GRB.LESS_EQUAL,1.0, "objective hint");
         model.addConstr(label,GRB.LESS_EQUAL,1.0, "objective hint");
         model.addConstr(behavior,GRB.LESS_EQUAL,1.0, "objective hint");
@@ -124,7 +122,7 @@ public class BasicILP5 extends AbstractILP {
             model.addConstr(con1, GRB.LESS_EQUAL, 1.0, "Max Matches");
         }
 
-        // matching to at most 1 constraint
+        // matching to at most one constraint
         for (int j = 0; j< nodesNet2; j++){
             GRBLinExpr con2 = new GRBLinExpr();
             con2.clear();
@@ -134,7 +132,7 @@ public class BasicILP5 extends AbstractILP {
             model.addConstr(con2, GRB.LESS_EQUAL, 1.0, "Max Matches");
         }
 
-        // linking between similar entries in the F matrices and the mapping
+        // linking between X and Y
         for (int i = 0; i< nodesNet1; i++){
             for (int k = 0; k < nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++){
@@ -167,7 +165,6 @@ public class BasicILP5 extends AbstractILP {
         model.optimize();
 
         //print alignment
-
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++) {
                 if(PRINT_ENABLED) System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " +
@@ -176,36 +173,13 @@ public class BasicILP5 extends AbstractILP {
             }
         }
 
-        /*for (int i = 0; i< nodesNet1; i++){
-            for (int k = i; k< nodesNet1; k++) {
-                for (int j = 0; j < nodesNet2; j++) {
-                    for (int l = j; l < nodesNet2; l++) {
-                        if(PRINT_ENABLED) System.out.println(y[i][k][j][l].get(GRB.StringAttr.VarName) + " " + y[i][k][j][l].get(GRB.DoubleAttr.X));
-                    }
-                }
-            }
-        }*/
-
-        //if(PRINT_ENABLED) System.out.println(sum.get(GRB.StringAttr.VarName) + " " + sum.get(GRB.DoubleAttr.X));
-        //if(PRINT_ENABLED) System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));
-
-        // create result
-        /*Alignment.Builder builder = new Alignment.Builder();
-        for (int i = 0; i< nodesNet1; i++) {
-            for (int j = 0; j < nodesNet2; j++) {
-                if( Math.abs(x[i][j].get(GRB.DoubleAttr.X) - 1.0) < 0.0001){
-                    builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(nodeNet1[i]).addNodeFromNet2(nodeNet2[j]).withLikelihood(matrix.between(nodeNet1[i],nodeNet2[j])).build());
-                }
-            }
-        }
-*/
-
+        // construct the alignment from the ILP solution
         Alignment.Builder builder = new Alignment.Builder();
         for (int i = 0; i< nodesNet1; i++) {
             for (int j = 0; j < nodesNet2; j++) {
                 if( Math.abs(x[i][j].get(GRB.DoubleAttr.X) - 1.0) < 0.0001){
 
-                    //compute mixed likelihood
+                    //compute confidence
                     double mixedLikelihood = 0.0;
                     for (int k =0; k< nodesNet1; k++){
                         for (int l = 0; l< nodesNet2; l++){
@@ -219,15 +193,14 @@ public class BasicILP5 extends AbstractILP {
                             }
                         }
                     }
-                    mixedLikelihood = mixedLikelihood *similarityWeight/minSize;
+                    mixedLikelihood = mixedLikelihood *similarityWeight/max;
                     mixedLikelihood += (1-similarityWeight) * matrix.between(nodeNet1[i],nodeNet2[j]);
                     builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(nodeNet1[i]).addNodeFromNet2(nodeNet2[j]).withLikelihood(mixedLikelihood).build());
                 }
             }
         }
 
-
-
+        //create the Result object
         Result res = new Result(model.get(GRB.DoubleAttr.ObjVal),builder.build(name), model.get(GRB.DoubleAttr.MIPGap));
 
         // Dispose of model and environment

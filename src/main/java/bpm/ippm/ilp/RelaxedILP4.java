@@ -28,7 +28,6 @@ public class RelaxedILP4 extends AbstractILP {
      * Compute the Relaxed 1:1 *LP* behavior/label simialrity match.
      * Variables are contineous and the linking between x and y is split into two functions
      * Hint on Objective function is used.
-     * This ILP produces a valid matching and similarity score
      * @param relNet1 Profile of Net 1
      * @param relNet2 Profile of Net 2
      * @param net1 Net 1
@@ -43,7 +42,7 @@ public class RelaxedILP4 extends AbstractILP {
         Transition[] nodeNet2 =  net2.toArray(new Transition[net2.size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
-        int minSize = Math.max(nodesNet1,nodesNet2);
+        int max = Math.max(nodesNet1,nodesNet2);
 
 
 
@@ -78,7 +77,7 @@ public class RelaxedILP4 extends AbstractILP {
             for (int k = 0; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        behavior.addTerm(1.0/(minSize*minSize), y[i][k][j][l]);
+                        behavior.addTerm(1.0/(max*max), y[i][k][j][l]);
                     }
                 }
             }
@@ -88,7 +87,7 @@ public class RelaxedILP4 extends AbstractILP {
         GRBLinExpr label = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(minSize), x[i][j]);
+                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(max), x[i][j]);
             }
         }
         GRBLinExpr obj = new GRBLinExpr();
@@ -169,8 +168,8 @@ public class RelaxedILP4 extends AbstractILP {
                             con7.addTerm(1, y[i][k][j][l]);
                     }
                 }
-                model.addConstr(con6, GRB.LESS_EQUAL, minSize, "y-max value");
-                model.addConstr(con7, GRB.LESS_EQUAL, minSize, "y-max value");
+                model.addConstr(con6, GRB.LESS_EQUAL, max, "y-max value");
+                model.addConstr(con7, GRB.LESS_EQUAL, max, "y-max value");
 
             }
         }

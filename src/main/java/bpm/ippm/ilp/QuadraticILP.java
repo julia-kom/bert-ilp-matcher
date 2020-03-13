@@ -39,8 +39,7 @@ public class QuadraticILP extends AbstractILP {
         Transition[] nodeNet2 =  net2.toArray(new Transition[net2.size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
-        int minSize = Math.max(nodesNet1,nodesNet2);
-        int maxMissmatches = minSize*minSize ;
+        int max = Math.max(nodesNet1,nodesNet2);
 
         //matching variables
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
@@ -58,7 +57,7 @@ public class QuadraticILP extends AbstractILP {
                 for (int j = 0; j < nodesNet2; j++){
                     for (int l = 0; l < nodesNet2; l++) {
                         if (relNet1.getRelationForEntities(nodeNet1[i], nodeNet1[k]).equals(relNet2.getRelationForEntities(nodeNet2[j], nodeNet2[l]))) {
-                            behavior.addTerm(1.0/(minSize*minSize),x[k][l],x[i][j]);
+                            behavior.addTerm(1.0/(max*max),x[k][l],x[i][j]);
                         }
                     }
                 }
@@ -69,7 +68,7 @@ public class QuadraticILP extends AbstractILP {
         GRBLinExpr label = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(minSize), x[i][j]);
+                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(max), x[i][j]);
             }
         }
 
@@ -78,12 +77,6 @@ public class QuadraticILP extends AbstractILP {
         obj.multAdd(1-this.similarityWeight, label);
 
         model.setObjective(obj, GRB.MAXIMIZE);
-
-        //model.addQConstr(obj,GRB.LESS_EQUAL,1.0, "limit");
-        //model.addConstr(label,GRB.LESS_EQUAL,1.0, "limit");
-        //model.addQConstr(behavior,GRB.LESS_EQUAL,1.0, "limit");
-
-
 
         // matching from at most one constraint
         for (int i = 0; i< nodesNet1; i++){
@@ -122,7 +115,6 @@ public class QuadraticILP extends AbstractILP {
         model.optimize();
 
         //print alignment
-
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++) {
                 if(PRINT_ENABLED) System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " +
@@ -130,19 +122,6 @@ public class QuadraticILP extends AbstractILP {
                         +" - "+ nodeNet2[j].getLabel()+ "("+nodeNet2[j].getId()+")");
             }
         }
-
-        /*for (int i = 0; i< nodesNet1; i++){
-            for (int k = 0; k< nodesNet1; k++) {
-                for (int j = 0; j < nodesNet2; j++) {
-                    for (int l = 0; l < nodesNet2; l++) {
-                        if(PRINT_ENABLED) System.out.println(y[i][k][j][l].get(GRB.StringAttr.VarName) + " " + y[i][k][j][l].get(GRB.DoubleAttr.X));
-                    }
-                }
-            }
-        }*/
-
-        //if(PRINT_ENABLED) System.out.println(sum.get(GRB.StringAttr.VarName) + " " + sum.get(GRB.DoubleAttr.X));
-        //if(PRINT_ENABLED) System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));
 
         // create result
         Alignment.Builder builder = new Alignment.Builder();

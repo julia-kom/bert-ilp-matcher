@@ -24,7 +24,11 @@ public class BasicILP3 extends AbstractILP {
     }
 
     /**
-     * Compute the basic 1:1 ILP behavior/label simialrity match. Without any X variable
+     * Compute the basic 1:1 ILP behavior/label simialrity match.
+     * In BASIC3 we decrease the number of variables by deleting the X variable
+     * and derive the matching state from the Y variables only.
+     *
+     * Result: There was no positive impact on the computational complexity
      *
      * @param relNet1 Profile of Net 1
      * @param relNet2 Profile of Net 2
@@ -53,9 +57,6 @@ public class BasicILP3 extends AbstractILP {
                 }
             }
         }
-
-        //GRBVar sum = model.addVar(0.0, GRB.INFINITY, 0.0, GRB.CONTINUOUS, "sum_y");
-        //GRBVar sum_x = model.addVar(0.0, GRB.INFINITY, 0.0, GRB.CONTINUOUS, "sum_x");
 
         // Objective weighted between behavioral correspondance and label similarity
         // Behavioral part

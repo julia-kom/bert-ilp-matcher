@@ -28,7 +28,6 @@ public class RelaxedILP2 extends AbstractILP {
      * Compute the Relaxed2 1:1 *LP* behavior/label simialrity match:
      * In comparison to the BASIC ILP here are just all Binary Variables Contineous.
      * No hint on objective function used
-     * This ILP produces a valid matching. No similarity score!
      * @param relNet1 Profile of Net 1
      * @param relNet2 Profile of Net 2
      * @param net1 Net 1
@@ -43,7 +42,7 @@ public class RelaxedILP2 extends AbstractILP {
         Transition[] nodeNet2 =  net2.toArray(new Transition[net2.size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
-        int minSize = Math.max(nodesNet1,nodesNet2);
+        int max = Math.max(nodesNet1,nodesNet2);
 
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
         for (int i = 0; i< nodesNet1; i++){
@@ -74,7 +73,7 @@ public class RelaxedILP2 extends AbstractILP {
             for (int k = 0; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        behavior.addTerm(1.0/(minSize*minSize), y[i][k][j][l]);
+                        behavior.addTerm(1.0/(max*max), y[i][k][j][l]);
                     }
                 }
             }
@@ -84,7 +83,7 @@ public class RelaxedILP2 extends AbstractILP {
         GRBLinExpr label = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(minSize), x[i][j]);
+                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(max), x[i][j]);
             }
         }
         GRBLinExpr obj = new GRBLinExpr();

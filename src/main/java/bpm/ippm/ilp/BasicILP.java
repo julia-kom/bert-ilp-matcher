@@ -22,7 +22,7 @@ public class BasicILP extends AbstractILP {
     }
 
     /**
-     * Compute the basic 1:1 ILP behavior/label simialrity match.
+     * Compute the basic 1:1 ILP behavior/label simialrity match with binary identification function for relation comparison
      * @param relNet1 Profile of Net 1
      * @param relNet2 Profile of Net 2
      * @param net1 Net 1
@@ -37,10 +37,9 @@ public class BasicILP extends AbstractILP {
         Transition[] nodeNet2 =  net2.toArray(new Transition[net2.size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
-        int minSize = Math.max(nodesNet1,nodesNet2);
+        int max = Math.max(nodesNet1,nodesNet2);
 
-
-
+        // X(i,j) == 1 iff i is matched to j
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
@@ -48,7 +47,7 @@ public class BasicILP extends AbstractILP {
             }
         }
 
-
+        // Y(i,k,j,l) == 1 iff i matched to j and k matched to l AND the relation between i and k equals the relation j and l
         GRBVar[][][][] y = new GRBVar[nodesNet1][nodesNet1][nodesNet2][nodesNet2];
         for (int i = 0; i< nodesNet1; i++){
             for (int k = 0; k< nodesNet1; k++){
@@ -60,9 +59,6 @@ public class BasicILP extends AbstractILP {
             }
         }
 
-        //GRBVar sum = model.addVar(0.0, GRB.INFINITY, 0.0, GRB.CONTINUOUS, "sum_y");
-        //GRBVar sum_x = model.addVar(0.0, GRB.INFINITY, 0.0, GRB.CONTINUOUS, "sum_x");
-
         // Objective weighted between behavioral correspondance and label similarity
         // Behavioral part
         GRBLinExpr behavior = new GRBLinExpr();
@@ -70,7 +66,7 @@ public class BasicILP extends AbstractILP {
             for (int k = 0; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        behavior.addTerm(1.0/(minSize*minSize), y[i][k][j][l]);
+                        behavior.addTerm(1.0/(max*max), y[i][k][j][l]);
                     }
                 }
             }
@@ -80,7 +76,7 @@ public class BasicILP extends AbstractILP {
         GRBLinExpr label = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(minSize), x[i][j]);
+                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(max), x[i][j]);
             }
         }
         GRBLinExpr obj = new GRBLinExpr();
@@ -91,36 +87,11 @@ public class BasicILP extends AbstractILP {
 
         //setup model
 
-        // hint expressions
+        //further restricting the ILP. This is not changing the optimal solution but shrinks the searchspace further.
         model.addConstr(obj,GRB.LESS_EQUAL,1.0, "objective hint");
         model.addConstr(label,GRB.LESS_EQUAL,1.0, "objective hint");
         model.addConstr(behavior,GRB.LESS_EQUAL,1.0, "objective hint");
 
-
-        /*GRBLinExpr conTest = new GRBLinExpr();
-        conTest.clear();
-        for (int i = 0; i< nodesNet1; i++){
-            for (int k = 0; k< nodesNet1; k++){
-                for (int j = 0; j < nodesNet2; j++) {
-                    for (int l = 0; l < nodesNet2; l++) {
-                        conTest.addTerm(1, y[i][k][j][l]);
-                    }
-                }
-            }
-        }
-        conTest.addTerm(-1, sum);
-        model.addConstr(conTest, GRB.EQUAL, 0.0, "Max Matches");
-
-
-        GRBLinExpr conTest2 = new GRBLinExpr();
-        for (int i = 0; i< nodesNet1; i++){
-            for (int j = 0; j < nodesNet2; j++) {
-                conTest2.addTerm(1, x[i][j]);
-            }
-        }
-        conTest2.addTerm(-1, sum_x);
-        model.addConstr(conTest2, GRB.EQUAL, 0.0, "Max Matches");
-        */
 
         // matching from at most one constraint
         for (int i = 0; i< nodesNet1; i++){
@@ -181,7 +152,6 @@ public class BasicILP extends AbstractILP {
         model.optimize();
 
         //print alignment
-
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++) {
                 if(PRINT_ENABLED) System.out.println(x[i][j].get(GRB.StringAttr.VarName) + " " +
@@ -190,26 +160,13 @@ public class BasicILP extends AbstractILP {
             }
         }
 
-        /*for (int i = 0; i< nodesNet1; i++){
-            for (int k = 0; k< nodesNet1; k++) {
-                for (int j = 0; j < nodesNet2; j++) {
-                    for (int l = 0; l < nodesNet2; l++) {
-                        if(PRINT_ENABLED) System.out.println(y[i][k][j][l].get(GRB.StringAttr.VarName) + " " + y[i][k][j][l].get(GRB.DoubleAttr.X));
-                    }
-                }
-            }
-        }*/
-
-        //if(PRINT_ENABLED) System.out.println(sum.get(GRB.StringAttr.VarName) + " " + sum.get(GRB.DoubleAttr.X));
-        //if(PRINT_ENABLED) System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));
-
         // create result
         Alignment.Builder builder = new Alignment.Builder();
         for (int i = 0; i< nodesNet1; i++) {
             for (int j = 0; j < nodesNet2; j++) {
                 if( Math.abs(x[i][j].get(GRB.DoubleAttr.X) - 1.0) < 0.0001){
 
-                    //compute mixed likelihood
+                    //compute confidence
                     double mixedLikelihood = 0.0;
                     for (int k = 0; k< nodesNet1; k++){
                         for (int l = 0; l< nodesNet2; l++){
@@ -218,7 +175,7 @@ public class BasicILP extends AbstractILP {
                             }
                         }
                     }
-                    mixedLikelihood = mixedLikelihood *similarityWeight/minSize;
+                    mixedLikelihood = mixedLikelihood *similarityWeight/max;
                     mixedLikelihood += (1-similarityWeight) * matrix.between(nodeNet1[i],nodeNet2[j]);
                     builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(nodeNet1[i]).addNodeFromNet2(nodeNet2[j]).withLikelihood(mixedLikelihood).build());
                 }

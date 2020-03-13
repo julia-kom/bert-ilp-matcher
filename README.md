@@ -60,7 +60,7 @@ We want to make use of the similarity functions defining soft similarities betwe
 `java -jar ./ilp-profile-matcher.jar matcher -n1 ./eval-data/pnml/app_store/app_create_account_comp1.pnml -n2 ./eval-data/pnml/app_store/app_create_account_comp2.pnml -s 0.5 -p BPP -w LIN -i CUSTOM_IDENTIFICATION -pm -sys`
 
 ### 50:50 Label and Eventually Follows with Logs
-`java -jar ./ilp-profile-matcher.jar matcher -n1 ./eval-data/pnml/bpi15/BPIC15_2_07_OPS.pnml -l1 ./eval-data/xes/bpi15/BPIC15_2_07_OPS.xes -n2 ./eval-data/pnml/bpi15/BPIC15_4_07_OPS.pnml -l2 ./eval-data/xes/bpi15/BPIC15_4_07_OPS.xes -s 0.5 -p LOG_EF -w LIN -i CUSTOM_IDENTIFICATION -sys`
+`java -jar ./ilp-profile-matcher.jar matcher -n1 ./eval-data/pnml/bpi15/BPIC15_2_07_OPS.pnml -l1 ./eval-data/xes/bpi15/BPIC15_2_07_OPS.xes -n2 ./eval-data/pnml/bpi15/BPIC15_4_07_OPS.pnml -l2 ./eval-data/xes/bpi15/BPIC15_4_07_OPS.xes -s 0.5 -p LOG_EF -w LIN -i CUSTOM_IDENTIFICATION -sys -tl 10`
 
 
 ## Run the Evaluation
@@ -136,7 +136,7 @@ where `<gs-path>` is the folder of goldstandards to analyze and `<net-path>` the
 
 An exemplary execution would look like this:
 
-`java -jar ./ilp-profile-matcher.jar eval -gs-eval -gold-standard-path ./eval-data/goldstandard/bpi15 -net-path /eval-data/pnml/bpi15`
+`java -jar ./ilp-profile-matcher.jar eval -gs-eval -gold-standard-path ./eval-data/goldstandard/bpi15 -net-path ./eval-data/pnml/bpi15`
 
 The output is a folder `goldstandard-<net-path>-<date><time>`, containing a `goldstandard.eval`. 
 The file is in CSV format and contains for each goldstandard file in the <path> a row with the correspondence information.
