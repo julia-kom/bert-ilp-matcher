@@ -25,7 +25,7 @@ public class NormalDistributionLabelSimilarity implements LabelSimilarity {
     private double matchingMean = 1.0;
     private double matchingVariance = 0.35;
 
-    private static final File CACHE = new File("cache.json");
+    private static final File CACHE = new File("gaussian-similarity-cache.json");
     private HashMap<String, Double> cache;
     private NormalDistribution nonMatchingND = new NormalDistribution(nonMatchingMean,nonMatchingVariance);
     private NormalDistribution matchingND = new NormalDistribution(matchingMean,matchingVariance);
