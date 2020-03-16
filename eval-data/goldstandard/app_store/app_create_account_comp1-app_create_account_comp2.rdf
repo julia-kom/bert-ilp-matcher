@@ -18,5 +18,29 @@
       <location>null</location>
     </Ontology>
   </onto2>
+  <map>
+      <Cell>
+        <entity1 rdf:resource='http://app_create_account_comp1#n9'/>
+        <entity2 rdf:resource='http://app_create_account_comp2#n7'/>
+        <relation>=</relation>
+        <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+      </Cell>
+   </map>
+     <map>
+         <Cell>
+           <entity1 rdf:resource='http://app_create_account_comp1#n6'/>
+           <entity2 rdf:resource='http://app_create_account_comp2#n9'/>
+           <relation>=</relation>
+           <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+         </Cell>
+      </map>
+     <map>
+         <Cell>
+           <entity1 rdf:resource='http://app_create_account_comp1#n7'/>
+           <entity2 rdf:resource='http://app_create_account_comp2#n8'/>
+           <relation>=</relation>
+           <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+         </Cell>
+      </map>
 </Alignment>
 </rdf:RDF>
