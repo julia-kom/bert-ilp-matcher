@@ -121,7 +121,7 @@ public class ilpTests {
     }
 
     /**
-     * Test the cofidence of two similar nets
+     * Test the confidence of two similar nets
      */
     @Test
     public void similarityFunctionTest(){
