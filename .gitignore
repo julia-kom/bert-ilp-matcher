@@ -38,16 +38,26 @@ out/
 ##############################
 *.log
 ./gurobi-logs
-WordNet-3.0
+
 ##############################
 ## Evaluation
 ##############################
 eval-results/
 *.eval
+cache.json
+
+##############################
+## Jupyter Notebook
+##############################
 *.ipynb
+.ipynb_checkpoints
+
+##############################
+## LP and WordNet Data
+##############################
 *.lp
 *.mps
 *.db
 WordNet-3.0/
+WordNet-3.0
 evidence.db
-cache.json
