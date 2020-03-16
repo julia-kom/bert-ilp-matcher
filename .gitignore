@@ -44,7 +44,6 @@ out/
 ##############################
 eval-results/
 *.eval
-cache.json
 
 ##############################
 ## Jupyter Notebook
