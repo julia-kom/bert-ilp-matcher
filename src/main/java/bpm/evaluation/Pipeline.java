@@ -236,11 +236,25 @@ public class Pipeline{
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(reader);
             JSONObject matcher = (JSONObject) json.get("matcher");
+
+            //map renamed ILP enum: BASIC2 => SYMMETRIC, BASIC5 => CUSTOM_IDENTIFICATION
+            AbstractILP.ILP ilp;
+            switch(matcher.get("ilp").toString()){
+                case "BASIC2":
+                    ilp  = AbstractILP.ILP.SYMMETRIC;
+                    break;
+                case "BASIC5":
+                    ilp = AbstractILP.ILP.CUSTOM_IDENTIFICATION;
+                    break;
+                    default:
+                        ilp = AbstractILP.ILP.valueOf(matcher.get("ilp").toString());
+            }
+
             bpm.ippm.matcher.Pipeline.Builder builder = new bpm.ippm.matcher.Pipeline.Builder()
                     .atPostprocessThreshold(Double.valueOf(matcher.get("postprocessing-thresh").toString()))
                     .atSimilarityWeight(Double.valueOf(matcher.get("sim-weight").toString()))
                     .withWordSimilarity(Word.Similarities.valueOf(matcher.get("word-sim").toString()))
-                    .withILP(AbstractILP.ILP.valueOf(matcher.get("ilp").toString()))
+                    .withILP(ilp)
                     .withILPNodeLimit(Double.valueOf(matcher.get("ilp-node-limit").toString()))
                     .withILPTimeLimit(Double.valueOf(matcher.get("ilp-time-limit").toString()))
                     .withProfile(AbstractProfile.Profile.valueOf(matcher.get("profile").toString()));

@@ -45,6 +45,7 @@ out/
 eval-results/
 *.eval
 *.xlsx
+*.csv
 
 ##############################
 ## Jupyter Notebook
