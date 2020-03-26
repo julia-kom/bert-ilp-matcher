@@ -2,12 +2,17 @@ package bpm.evaluation;
 
 import bpm.ippm.alignment.Alignment;
 import bpm.ippm.alignment.Correspondence;
+import bpm.ippm.matcher.Preprocessor;
+import bpm.ippm.similarity.BagOfWordsSimilarity;
+import bpm.ippm.similarity.Word;
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
+import org.jbpt.petri.Transition;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -23,7 +28,7 @@ public class AggregatedGoldstandardAnalysis {
      */
     public AggregatedGoldstandardAnalysis(File file) throws IOException {
         csvWriter = new FileWriter(file.getAbsolutePath());
-        csvWriter.append("Nets, correspondences, simple, complex, trivial");
+        csvWriter.append("Nets, correspondences, simple, complex, trivial, totalTransitions, unmappedTransitions, label sim matched, label sim unmatched");
         csvWriter.append("\n");
     }
 
@@ -33,6 +38,10 @@ public class AggregatedGoldstandardAnalysis {
      * simple correspondences # 1:1 relations
      * complex correspondences
      * BTW correspondences = simple + complex
+     * number of transitions in both nets
+     * number of transitions in both nets that are not matched
+     *
+     * average BoW similarity of matched/unmatched transitions
      *
      * @param alignment
      * @throws IOException
@@ -41,8 +50,10 @@ public class AggregatedGoldstandardAnalysis {
         AggregatedGoldstandardAnalysis.GoldstandardAnalysis analysis = new AggregatedGoldstandardAnalysis.GoldstandardAnalysis(alignment, net1, net2);
 
         // transition stats
-        csvWriter.append(analysis.name.replace(',', ';').replace("\n", " ") + ",").
-                append(analysis.correspondences + ",").append(analysis.simple+ ",").append(analysis.complex + ",").append(analysis.trivial + "\n");
+        csvWriter.append(analysis.name.replace(',', ';').replace("\n", " ") + ",")
+                .append(analysis.correspondences + ",").append(analysis.simple+ ",").append(analysis.complex + ",")
+                .append(analysis.trivial +",").append(analysis.totalTransitions +",").append(analysis.unmappedTransitions+ ",")
+                .append(analysis.avgMatchSim+",").append(analysis.avgNonMatchSim +"\n");
     }
 
     public int getTrivialCorrespondences(Alignment alignment, NetSystem n1, NetSystem n2){
@@ -139,6 +150,10 @@ public class AggregatedGoldstandardAnalysis {
         int simple = 0;
         int complex = 0;
         int trivial = 0;
+        int totalTransitions = 0;
+        int unmappedTransitions = 0;
+        double avgMatchSim = 0;
+        double avgNonMatchSim = 0;
 
         private GoldstandardAnalysis(Alignment alignment, NetSystem net1, NetSystem net2) {
             name = alignment.getName();
@@ -175,8 +190,43 @@ public class AggregatedGoldstandardAnalysis {
                 }
             }
 
-
             trivial = getTrivialCorrespondences(alignment,net1, net2);
+
+
+            //compute total and unmapped transitions
+            Set<Transition> nonTauTransitions1 = Preprocessor.reduceTauTransitions(new HashSet(net1.getTransitions()));
+            for(Transition t :nonTauTransitions1){
+              if(alignment.getCorrespondenceOfNode(t).size() == 0){
+                  unmappedTransitions++;
+              }
+            }
+            Set<Transition> nonTauTransitions2 = Preprocessor.reduceTauTransitions(new HashSet(net2.getTransitions()));
+            for(Transition t :nonTauTransitions2){
+                if(alignment.getCorrespondenceOfNode(t).size() == 0){
+                    unmappedTransitions++;
+                }
+            }
+            totalTransitions = nonTauTransitions1.size() + nonTauTransitions2.size();
+
+
+            // compute the average match/non-match similarity
+            int matchCounter = 0;
+            int nonMatchCounter = 0;
+            BagOfWordsSimilarity bow = new BagOfWordsSimilarity(Word.Similarities.LIN);
+            for(Transition s : nonTauTransitions1){
+                for(Transition t: nonTauTransitions2){
+                    double labelSim = bow.sim(s.getLabel(),t.getLabel());
+                    if(alignment.isMapped(s,t)){
+                        avgMatchSim += labelSim;
+                        matchCounter ++;
+                    }else{
+                        avgNonMatchSim += labelSim;
+                        nonMatchCounter++;
+                    }
+                }
+            }
+            avgNonMatchSim = avgNonMatchSim / nonMatchCounter;
+            avgMatchSim = avgMatchSim / matchCounter;
         }
     }
 
