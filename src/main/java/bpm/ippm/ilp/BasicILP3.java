@@ -44,7 +44,7 @@ public class BasicILP3 extends AbstractILP {
         Transition[] nodeNet2 =  net2.toArray(new Transition[net2.size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
-        int minSize = Math.max(nodesNet1, nodesNet2);
+        int minSize = Math.min(nodesNet1, nodesNet2);
 
 
         GRBVar[][][][] y = new GRBVar[nodesNet1][nodesNet1][nodesNet2][nodesNet2];
@@ -166,18 +166,6 @@ public class BasicILP3 extends AbstractILP {
         // Optimize model
         model.optimize();
 
-        //print alignment
-
-
-        for (int i = 0; i< nodesNet1; i++){
-            for (int k = i; k< nodesNet1; k++) {
-                for (int j = 0; j < nodesNet2; j++) {
-                    for (int l = j; l < nodesNet2; l++) {
-                        if(PRINT_ENABLED) System.out.println(y[i][k][j][l].get(GRB.StringAttr.VarName) + " " + y[i][k][j][l].get(GRB.DoubleAttr.X));
-                    }
-                }
-            }
-        }
 
         //if(PRINT_ENABLED) System.out.println(sum.get(GRB.StringAttr.VarName) + " " + sum.get(GRB.DoubleAttr.X));
         //if(PRINT_ENABLED) System.out.println(sum_x.get(GRB.StringAttr.VarName) + " " + sum_x.get(GRB.DoubleAttr.X));

@@ -45,7 +45,7 @@ public class BasicILP4 extends AbstractILP {
         Transition[] nodeNet2 =  net2.toArray(new Transition[net2.size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
-        int max = Math.max(nodesNet1,nodesNet2);
+        int min = Math.min(nodesNet1,nodesNet2);
 
 
         GRBVar[][] x = new GRBVar[nodesNet1][nodesNet2];
@@ -80,9 +80,9 @@ public class BasicILP4 extends AbstractILP {
                             //by reducing the number of variables, the total sum gets lower too, therefore we fix it by weighting
                             //every correct entry which is not on the diagonal twice (because of the symmetry of the matrix)
                             if (i != k && j != l) {
-                                behavior.addTerm(2.0 / (max * max), y[i][k][j][l]);
+                                behavior.addTerm(2.0 / (min * min), y[i][k][j][l]);
                             } else {
-                                behavior.addTerm(1.0 / (max * max), y[i][k][j][l]);
+                                behavior.addTerm(1.0 / (min * min), y[i][k][j][l]);
                             }
                         }
                     }
@@ -94,7 +94,7 @@ public class BasicILP4 extends AbstractILP {
         GRBLinExpr label = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(max), x[i][j]);
+                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(min), x[i][j]);
             }
         }
         GRBLinExpr obj = new GRBLinExpr();
@@ -188,7 +188,7 @@ public class BasicILP4 extends AbstractILP {
                             }
                         }
                     }
-                    mixedLikelihood = mixedLikelihood *similarityWeight/max;
+                    mixedLikelihood = mixedLikelihood *similarityWeight/min;
                     mixedLikelihood += (1-similarityWeight) * matrix.between(nodeNet1[i],nodeNet2[j]);
                     builder.addCorrespondence(new Correspondence.Builder().addNodeFromNet1(nodeNet1[i]).addNodeFromNet2(nodeNet2[j]).withLikelihood(mixedLikelihood).build());
                 }

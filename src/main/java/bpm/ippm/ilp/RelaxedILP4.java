@@ -42,7 +42,7 @@ public class RelaxedILP4 extends AbstractILP {
         Transition[] nodeNet2 =  net2.toArray(new Transition[net2.size()]);
         int nodesNet1 = nodeNet1.length;
         int nodesNet2 = nodeNet2.length;
-        int max = Math.max(nodesNet1,nodesNet2);
+        int min = Math.min(nodesNet1,nodesNet2);
 
 
 
@@ -77,7 +77,7 @@ public class RelaxedILP4 extends AbstractILP {
             for (int k = 0; k< nodesNet1; k++){
                 for (int j = 0; j < nodesNet2; j++) {
                     for (int l = 0; l < nodesNet2; l++) {
-                        behavior.addTerm(1.0/(max*max), y[i][k][j][l]);
+                        behavior.addTerm(1.0/(min*min), y[i][k][j][l]);
                     }
                 }
             }
@@ -87,7 +87,7 @@ public class RelaxedILP4 extends AbstractILP {
         GRBLinExpr label = new GRBLinExpr();
         for (int i = 0; i< nodesNet1; i++){
             for (int j = 0; j < nodesNet2; j++){
-                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(max), x[i][j]);
+                label.addTerm(matrix.between(nodeNet1[i],nodeNet2[j])/(min), x[i][j]);
             }
         }
         GRBLinExpr obj = new GRBLinExpr();
@@ -168,8 +168,8 @@ public class RelaxedILP4 extends AbstractILP {
                             con7.addTerm(1, y[i][k][j][l]);
                     }
                 }
-                model.addConstr(con6, GRB.LESS_EQUAL, max, "y-max value");
-                model.addConstr(con7, GRB.LESS_EQUAL, max, "y-max value");
+                model.addConstr(con6, GRB.LESS_EQUAL, min, "y-max value");
+                model.addConstr(con7, GRB.LESS_EQUAL, min, "y-max value");
 
             }
         }

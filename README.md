@@ -3,10 +3,6 @@ Run the program on a UNIX system:
 run `install.sh`, which sets up the local maven repository, cleans, compiles, tests and package the project into a jar `ilp-matcher.jar` located in the root folder of this project. 
 This jar is stand-alone, meaning all dependencies are included in the jar. It can be transfered to a server without recompiling it for that system.
 
-**Quickstart:**
-
-Use the `ilp-matcher.jar` provided in this repository containing all needed dependencies.
-
 ## Run the Matcher
 Executing the matcher is reached by executing the jar with the additional argument `matcher` as in the following example:
 
