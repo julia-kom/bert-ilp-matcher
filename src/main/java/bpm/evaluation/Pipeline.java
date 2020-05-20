@@ -188,7 +188,7 @@ public class Pipeline{
                         File log2 = null;
                         if(processLogPath != null) {
                             log1 = new File(processLogPath + "/" + f1.getName().replace("pnml", "xes"));
-                            log2 = new File(processLogPath + "/" + f1.getName().replace("pnml", "xes"));
+                            log2 = new File(processLogPath + "/" + f2.getName().replace("pnml", "xes"));
                             if (!log1.exists() || !log2.exists()) {
                                 throw new Exception("Log file does not exist. Continue without log information: " + log1.toString() + " or "+ log2.toString());
                             }
