@@ -11,6 +11,7 @@ public interface LabelSimilarity {
      * Implemented Label similarities
      */
     public enum Similarities{
+        BERT,
         BOW,
         NORMAL_DISTRIBUTION // used for evaluation only
     }

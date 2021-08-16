@@ -6,6 +6,7 @@ import bpm.ippm.ilp.AbstractILP;
 import bpm.ippm.matcher.MatchingPipeline;
 import bpm.ippm.matcher.Preprocessor;
 import bpm.ippm.profile.AbstractProfile;
+import bpm.ippm.similarity.LabelSimilarity;
 import bpm.ippm.similarity.Word;
 import org.json.simple.parser.JSONParser;
 import org.jbpt.petri.NetSystem;
@@ -253,6 +254,7 @@ public class Pipeline{
             bpm.ippm.matcher.Pipeline.Builder builder = new bpm.ippm.matcher.Pipeline.Builder()
                     .atPostprocessThreshold(Double.valueOf(matcher.get("postprocessing-thresh").toString()))
                     .atSimilarityWeight(Double.valueOf(matcher.get("sim-weight").toString()))
+                    .withLabelSimilarity(LabelSimilarity.Similarities.valueOf(matcher.get("label-sim").toString()))
                     .withWordSimilarity(Word.Similarities.valueOf(matcher.get("word-sim").toString()))
                     .withILP(ilp)
                     .withILPNodeLimit(Double.valueOf(matcher.get("ilp-node-limit").toString()))

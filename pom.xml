@@ -170,7 +170,19 @@
           <version>1.0.3</version>
       </dependency>
 
+      <!-- BERT Model Base, uncased-->
+      <dependency>
+          <groupId>com.robrua.nlp.models</groupId>
+          <artifactId>easy-bert-uncased-L-12-H-768-A-12</artifactId>
+          <version>1.0.0</version>
+      </dependency>
 
+      <!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+      <dependency>
+          <groupId>com.opencsv</groupId>
+          <artifactId>opencsv</artifactId>
+          <version>3.3</version>
+      </dependency>
 
   </dependencies>
 
@@ -192,8 +204,13 @@
           <version>3.8.0</version>
         </plugin>
         <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.1</version>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M3</version>
+            <configuration>
+                <forkCount>0</forkCount>
+                <testFailureIgnore>true</testFailureIgnore>
+            </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>

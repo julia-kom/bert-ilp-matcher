@@ -102,8 +102,6 @@ public class NormalDistributionLabelSimilarity implements LabelSimilarity {
         return sim;
     }
 
-
-
     /**
      * return the cached value of label1 vs label2
      * this is symmetric and stores over several executions

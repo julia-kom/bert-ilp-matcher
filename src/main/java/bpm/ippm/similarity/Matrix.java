@@ -103,6 +103,9 @@ public class Matrix{
             res.nodesNet2 = nodesNet2.toArray(new Transition[nodesNet2.size()]);
 
             switch(labelSim){
+                case BERT:
+                    res.labelSimilarity = new BertSimilarity();
+                    break;
                 case BOW:
                     res.labelSimilarity = new BagOfWordsSimilarity(this.sim);
                     break;

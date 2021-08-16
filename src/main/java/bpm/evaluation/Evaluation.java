@@ -130,6 +130,13 @@ public class Evaluation {
                 .longOpt("ilp-node-limit")
                 .desc("Choose the node limit for the ILP in seconds.")
                 .build();
+        Option optLS = Option.builder("ls")
+                .hasArg(true)
+                .longOpt("label-sim")
+                .desc("Choose a label similarity function: \n" +
+                        "BERT: Bert Similarity \n" +
+                        "BOW: Bag-of-Words Similarity")
+                .build();
 
         //combine options
         Options options = new Options();
@@ -157,6 +164,7 @@ public class Evaluation {
         options.addOption(optGSEval);
         options.addOption(optLogPath);
         options.addOption(optHelp);
+        options.addOption(optLS);
 
         //parse input
         CommandLine line;
@@ -354,6 +362,7 @@ public class Evaluation {
             Eval.Strategies strat = Eval.Strategies.valueOf(line.getOptionValue("e"));
             evalBuilder.withEvalStrat(strat);
         }
+
 
         //build matcher and evaluation pipeline
         bpm.ippm.matcher.Pipeline matchingPip = matcherBuilder.Build();
