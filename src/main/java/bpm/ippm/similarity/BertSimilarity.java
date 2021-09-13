@@ -23,11 +23,11 @@ public class BertSimilarity implements LabelSimilarity {
             e.printStackTrace();
         }
 
-        int sim = 0;
+        double sim = 0.0;
         for (String[] triple : r) {
 
             if (triple[0].equals(label1) && triple[1].equals(label2)) {
-                sim = Integer.parseInt(triple[3]);
+                sim = Double.parseDouble(triple[2]);
             }
         }
         return sim;

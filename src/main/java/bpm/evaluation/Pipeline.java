@@ -305,7 +305,6 @@ public class Pipeline{
         // get files
         File[] files = Preprocessor.listFilesOfType(goldStandardPath.toFile(),"rdf");
 
-
         // add to csv
         RdfAlignmentReader reader = new RdfAlignmentReader();
         for(File f : files){

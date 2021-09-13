@@ -2,6 +2,7 @@ package bpm.evaluation;
 
 import bpm.ippm.ilp.AbstractILP;
 import bpm.ippm.profile.AbstractProfile;
+import bpm.ippm.similarity.LabelSimilarity;
 import bpm.ippm.similarity.Word;
 import org.apache.commons.cli.*;
 
@@ -361,6 +362,15 @@ public class Evaluation {
         if (line.hasOption("e")) {
             Eval.Strategies strat = Eval.Strategies.valueOf(line.getOptionValue("e"));
             evalBuilder.withEvalStrat(strat);
+        }
+
+        if(line.hasOption("ls")){
+            String lsString = line.getOptionValue("ls");
+            try {
+                matcherBuilder = matcherBuilder.withLabelSimilarity(LabelSimilarity.Similarities.valueOf(lsString));
+            } catch (Exception e) {
+                throw new Error("Not possible to read the label similarity" + lsString);
+            }
         }
 
 

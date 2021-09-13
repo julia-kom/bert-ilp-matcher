@@ -3,6 +3,7 @@ package bpm.ippm.matcher;
 import bpm.ippm.alignment.Result;
 import bpm.ippm.ilp.AbstractILP;
 import bpm.ippm.profile.AbstractProfile;
+import bpm.ippm.similarity.LabelSimilarity;
 import bpm.ippm.similarity.Word;
 import org.apache.commons.cli.*;
 import java.io.*;
@@ -197,6 +198,16 @@ public class Matcher {
                 builder = builder.atSimilarityWeight(s);
             } catch (Exception numExp) {
                 throw new Error("Parsing Failed: Number Input sim-weight " + numExp.getMessage());
+            }
+        }
+
+        // label similarity
+        if (line.hasOption("ls")) {
+            String lsString = line.getOptionValue("ls");
+            try {
+                builder = builder.withLabelSimilarity(LabelSimilarity.Similarities.valueOf(lsString));
+            }catch (Exception e){
+                throw new Error("Parsing Failed: Label Similarity " +lsString+ ": " + e.getMessage());
             }
         }
 
