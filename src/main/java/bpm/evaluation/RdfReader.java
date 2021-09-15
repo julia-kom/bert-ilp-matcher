@@ -1,23 +1,18 @@
 package bpm.evaluation;
 
-import bpm.ippm.alignment.Alignment;
-
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.net.URI;
-import java.net.URISyntaxException;
 
-import bpm.ippm.alignment.Correspondence;
-import fr.inrialpes.exmo.align.impl.URIAlignment;
-import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.semanticweb.owl.align.AlignmentException;
-import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Cell;
+
+import static bpm.ippm.matcher.Preprocessor.parseFile;
 
 public class RdfReader {
 
@@ -26,12 +21,24 @@ public class RdfReader {
      * @return
      * @throws AlignmentException
      */
-    public void rdfToCsv(File gold, NetSystem net1, NetSystem net2) throws AlignmentException {
+    public static void rdfToCsv(File gold, File pnml1, File pnml2, File csv) throws AlignmentException {
+
+        // File to NetSystem
+
+        NetSystem net1 = parseFile(pnml1);
+        NetSystem net2 = parseFile(pnml2);
 
         // create an alignment parser
         AlignmentParser aparser = new AlignmentParser(0);
         // load an alignment from a file (a reference alignment)
         org.semanticweb.owl.align.Alignment reference = aparser.parse(gold.toURI());
+
+        FileWriter csvWriter = null;
+        try {
+            csvWriter = new FileWriter(f);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         for (Cell c : reference) {
             String[] correspondence = new String[3];
@@ -61,13 +68,22 @@ public class RdfReader {
 
             correspondence[2] = "1";
 
-            System.out.println(correspondence[0] + " | " + correspondence[1] + " | " + correspondence[2]);
-
-            // write to csv
-
+            try {
+                System.out.println(correspondence[0] + " | " + correspondence[1] + " | " + correspondence[2]);
+                csvWriter.append(correspondence[0] + "," + correspondence[1] + "," + correspondence[2] + "\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-    }
-
+            try {
+                csvWriter.flush();
+         
+        } cat
+            e.printStackTrace(
+            
+        
+            
+        
     public static void main(String args[]) {
 
         if (args.length < 1) {
@@ -79,16 +95,19 @@ public class RdfReader {
         File net1;
         File net2;
 
-        String gsString = args[0];
+        // write to csv
+        File csv = new File("./eval-data/csv/test.csv");
+
+        String gsString = "./eval-data/goldstandard/" + args[0];
         if (gsString == null) {
             throw new Error("Net 1 is a required parameter");
         }
-        String n1String = args[1];
+        String n1String = "./eval-data/pnml/" + args[1];
         if (n1String == null) {
             throw new Error("Net 1 is a required parameter");
         }
 
-        String n2String = args[2];
+        String n2String = "./eval-data/pnml/" + args[2];
         if (n2String == null) {
             throw new Error("Net 2 is a required parameter");
         }
@@ -110,7 +129,11 @@ public class RdfReader {
             throw new Error("Parsing Failed: Petri Net File not found:" + fileExp.getMessage());
         }
 
-        // rdf to csv
+        try {
+            rdfToCsv(gold, net1, net2, csv);
+        } catch (AlignmentException e) {
+            e.printStackTrace();
+        }
 
     }
 }
