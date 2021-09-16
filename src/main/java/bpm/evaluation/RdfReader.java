@@ -16,43 +16,53 @@ import static bpm.ippm.matcher.Preprocessor.parseFile;
 
 public class RdfReader {
 
-    /**
-     * @param file
-     * @return
-     * @throws AlignmentException
-     */
-    public static void rdfToCsv(File gold, File pnml1, File pnml2, File csv) throws AlignmentException {
+    public static void rdfToCsv(String gs_path, String n1_path, String n2_path, FileWriter csvWriter)
+            throws AlignmentException {
+
+        File gold;
+        File n1;
+        File n2;
+
+        try {
+            gold = new File(gs_path);
+            if (!gold.exists()) {
+                throw new FileNotFoundException("Goldstandard file not found under: " + gs_path);
+            }
+            n1 = new File(n1_path);
+            if (!n1.exists()) {
+                throw new FileNotFoundException("Net 1 file not found under: " + n1_path);
+            }
+            n2 = new File(n2_path);
+            if (!n2.exists()) {
+                throw new FileNotFoundException("Net 2 file not found under: " + n2_path);
+            }
+        } catch (FileNotFoundException fileExp) {
+            throw new Error("Parsing Failed: Petri Net File not found: " + fileExp.getMessage());
+        }
 
         // File to NetSystem
-
-        NetSystem net1 = parseFile(pnml1);
-        NetSystem net2 = parseFile(pnml2);
+        NetSystem net1 = parseFile(n1);
+        NetSystem net2 = parseFile(n2);
 
         // create an alignment parser
         AlignmentParser aparser = new AlignmentParser(0);
         // load an alignment from a file (a reference alignment)
         org.semanticweb.owl.align.Alignment reference = aparser.parse(gold.toURI());
 
-        FileWriter csvWriter = null;
-        try {
-            csvWriter = new FileWriter(f);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        // parse alignment and get labels
         for (Cell c : reference) {
             String[] correspondence = new String[3];
-            Node n1 = new Node();
+            Node node1 = new Node();
             String uri1 = c.getObject1().toString();
-            n1.setId(uri1.substring(uri1.indexOf('#') + 1, uri1.length()));
-            Node n2 = new Node();
+            node1.setId(uri1.substring(uri1.indexOf('#') + 1, uri1.length()));
+            Node node2 = new Node();
             String uri2 = c.getObject2().toString();
-            n2.setId(uri2.substring(uri2.indexOf('#') + 1, uri2.length()));
+            node2.setId(uri2.substring(uri2.indexOf('#') + 1, uri2.length()));
 
             // fetch actual label net1 (as this is not stored in the goldstandard)
             String labelNode1 = "";
             for (Node n : net1.getNodes()) {
-                if (n.getId().equals(n1.getId())) {
+                if (n.getId().equals(node1.getId())) {
                     labelNode1 = n.getLabel();
                     correspondence[0] = labelNode1;
                 }
@@ -60,14 +70,16 @@ public class RdfReader {
 
             String labelNode2 = "";
             for (Node n : net2.getNodes()) {
-                if (n.getId().equals(n2.getId())) {
+                if (n.getId().equals(node2.getId())) {
                     labelNode2 = n.getLabel();
                     correspondence[1] = labelNode2;
                 }
             }
 
+            // value 1 indicates a match
             correspondence[2] = "1";
 
+            // write[label1,label2,1] into csv
             try {
                 System.out.println(correspondence[0] + " | " + correspondence[1] + " | " + correspondence[2]);
                 csvWriter.append(correspondence[0] + "," + correspondence[1] + "," + correspondence[2] + "\n");
@@ -75,65 +87,55 @@ public class RdfReader {
                 e.printStackTrace();
             }
         }
-            try {
-                csvWriter.flush();
-         
-        } cat
-            e.printStackTrace(
-            
-        
-            
-        
+    }
+
     public static void main(String args[]) {
 
-        if (args.length < 1) {
-            throw new Error("Please Select a mode: eval or matcher");
-        }
+        // choose dataset
+        String[] datasets = { "uni", "birth", "sap" };
+        String[] pathnames;
 
-        // parse petri net 1 and 2
-        File gold;
-        File net1;
-        File net2;
+        for (String dataset : datasets) {
 
-        // write to csv
-        File csv = new File("./eval-data/csv/test.csv");
+            File f = new File("./eval-data/goldstandard/" + dataset);
 
-        String gsString = "./eval-data/goldstandard/" + args[0];
-        if (gsString == null) {
-            throw new Error("Net 1 is a required parameter");
-        }
-        String n1String = "./eval-data/pnml/" + args[1];
-        if (n1String == null) {
-            throw new Error("Net 1 is a required parameter");
-        }
+            // create csv and file writer
+            File csv = new File("./eval-data/csv/" + dataset + "-matches.csv");
 
-        String n2String = "./eval-data/pnml/" + args[2];
-        if (n2String == null) {
-            throw new Error("Net 2 is a required parameter");
-        }
+            // Populates the array with names of files and directories
+            pathnames = f.list();
 
-        try {
-            gold = new File(gsString);
-            if (!gold.exists()) {
-                throw new FileNotFoundException("Net 1 file not found under" + n1String);
+            // open one file wrtiter for each dataset
+            FileWriter csvWriter = null;
+            try {
+                csvWriter = new FileWriter(csv);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            net1 = new File(n1String);
-            if (!net1.exists()) {
-                throw new FileNotFoundException("Net 1 file not found under" + n1String);
-            }
-            net2 = new File(n2String);
-            if (!net2.exists()) {
-                throw new FileNotFoundException("Net 2 file not found under" + n2String);
-            }
-        } catch (FileNotFoundException fileExp) {
-            throw new Error("Parsing Failed: Petri Net File not found:" + fileExp.getMessage());
-        }
 
-        try {
-            rdfToCsv(gold, net1, net2, csv);
-        } catch (AlignmentException e) {
-            e.printStackTrace();
-        }
+            // run through whole dataset
+            for (String rdf : pathnames) {
+                rdf = rdf.substring(0, rdf.length() - 4);
+                String nets[] = rdf.split("-");
+                System.out.println(nets[0] + " | " + nets[1]);
 
+                try {
+                    rdfToCsv("./eval-data/goldstandard/" + dataset + "/" + rdf + ".rdf",
+                            "./eval-data/pnml/" + dataset + "/" + nets[0] + ".pnml",
+                            "./eval-data/pnml/" + dataset + "/" + nets[1] + ".pnml", csvWriter);
+
+                } catch (AlignmentException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            // close csv writer properly
+            try {
+                csvWriter.flush();
+                csvWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
