@@ -12,8 +12,6 @@ mvn install:install-file -Dfile=libs/gurobi-8-0-0.jar -DgroupId=gurobi -Dversion
 #install wordnet package
 mvn install:install-file -Dfile=libs/ws4j-1.0.1.jar -DgroupId=org.xerial -Dversion=3.7.2 -Dpackaging=jar -DartifactId=sqlite-jdbc
 
-
-
 #create standalone jar
 mvn clean compile test assembly:single -f pom.xml
 

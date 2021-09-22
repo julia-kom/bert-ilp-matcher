@@ -243,6 +243,7 @@ public class Pipeline implements MatchingPipeline{
         json.put("postprocessing-thresh", this.postprocessThreshold);
         json.put("ilp-time-limit", this.ilpTimeLimit);
         json.put("ilp-node-limit", this.ilpNodeLimit);
+        json.put("label-sim", this.labelSimilarity.toString());
         return json;
     }
 
@@ -256,10 +257,10 @@ public class Pipeline implements MatchingPipeline{
         private AbstractILP.ILP ilp = AbstractILP.ILP.SYMMETRIC;
         protected AbstractProfile.Profile profile = AbstractProfile.Profile.BP;
         private Word.Similarities wordSimilarity = Word.Similarities.LEVENSHTEIN_LIN_MAX;
+        private LabelSimilarity.Similarities labelSimilarity = LabelSimilarity.Similarities.BOW;
         private boolean prematch = false;
         private double ilpTimeLimit = GRB.INFINITY;
         private double ilpNodeLimit = GRB.INFINITY;
-        private LabelSimilarity.Similarities labelSimilarity = LabelSimilarity.Similarities.BOW;
 
             /**
          * Create a Builder to define a Pipline Object.

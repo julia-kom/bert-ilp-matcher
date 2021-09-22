@@ -3,6 +3,7 @@ package bpm.ippm.matcher;
 import bpm.ippm.alignment.Result;
 import bpm.ippm.ilp.AbstractILP;
 import bpm.ippm.profile.AbstractProfile;
+import bpm.ippm.similarity.LabelSimilarity;
 import bpm.ippm.similarity.Word;
 import org.apache.commons.cli.*;
 import java.io.*;
@@ -80,10 +81,18 @@ public class Matcher {
                 .desc("Choose the node limit for the ILP in seconds.")
                 .build();
 
+        Option labelSim = Option.builder("ls")
+                .hasArg(true)
+                .longOpt("label-sim")
+                .desc("Choose a label similarity function: \n" +
+                        "BERT: Bert Similarity \n" +
+                        "BOW: Bag-of-Words Similarity")
+                .build();
+
         Option wordSim = Option.builder("w")
                 .hasArg(true)
                 .longOpt("word-sim")
-                .desc("Choose a used word similarity function, used inside the Bag-of-Words Label Similarity: \n " +
+                .desc("Choose a used word similarity function, in case you chose the Bag-of-Words Label Similarity: \n " +
                         "LIN: Lin Similarity \n" +
                         "LEVENSHTEIN: Levenshtein Similarity \n" +
                         "JIANG: Jiang Similarity \n" +
@@ -97,14 +106,13 @@ public class Matcher {
         Option optHelp= new Option("h", "help", false, "Get help.");
 
 
-
-
         //combine options
         Options options = new Options();
         options.addOption(optSimilarityWeight);
         options.addOption(optPostprocessThreshold);
         options.addOption(ilp);
         options.addOption(wordSim);
+        options.addOption(labelSim);
         options.addOption(optPathNet1);
         options.addOption(optPathNet2);
         options.addOption(optPathLog1);
@@ -190,6 +198,16 @@ public class Matcher {
                 builder = builder.atSimilarityWeight(s);
             } catch (Exception numExp) {
                 throw new Error("Parsing Failed: Number Input sim-weight " + numExp.getMessage());
+            }
+        }
+
+        // label similarity
+        if (line.hasOption("ls")) {
+            String lsString = line.getOptionValue("ls");
+            try {
+                builder = builder.withLabelSimilarity(LabelSimilarity.Similarities.valueOf(lsString));
+            }catch (Exception e){
+                throw new Error("Parsing Failed: Label Similarity " +lsString+ ": " + e.getMessage());
             }
         }
 
