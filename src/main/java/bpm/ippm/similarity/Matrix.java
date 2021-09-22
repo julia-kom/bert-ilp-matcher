@@ -106,6 +106,9 @@ public class Matrix{
                 case BERT:
                     res.labelSimilarity = new BertSimilarity();
                     break;
+                case BERTFT:
+                    res.labelSimilarity = new BertFtSimilarity();
+                    break;
                 case BOW:
                     res.labelSimilarity = new BagOfWordsSimilarity(this.sim);
                     break;

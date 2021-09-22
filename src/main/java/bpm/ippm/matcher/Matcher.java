@@ -86,6 +86,7 @@ public class Matcher {
                 .longOpt("label-sim")
                 .desc("Choose a label similarity function: \n" +
                         "BERT: Bert Similarity \n" +
+                        "BERTFT: Bert Similarity (fine-tuned) \n" +
                         "BOW: Bag-of-Words Similarity")
                 .build();
 

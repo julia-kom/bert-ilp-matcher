@@ -1,31 +1,16 @@
 package bpm.evaluation;
 
-import bpm.ippm.alignment.Alignment;
-
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import bpm.ippm.alignment.Correspondence;
-import fr.inrialpes.exmo.align.impl.URIAlignment;
-import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
 import org.jbpt.petri.NetSystem;
 import org.jbpt.petri.Node;
 import org.semanticweb.owl.align.AlignmentException;
-import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Cell;
 
 public class RdfReader {
 
-    /**
-     * @param file
-     * @return
-     * @throws AlignmentException
-     */
     public void rdfToCsv(File gold, NetSystem net1, NetSystem net2) throws AlignmentException {
 
         // create an alignment parser
@@ -64,11 +49,12 @@ public class RdfReader {
             System.out.println(correspondence[0] + " | " + correspondence[1] + " | " + correspondence[2]);
 
             // write to csv
-
         }
     }
 
     public static void main(String args[]) {
+
+        System.out.println("Hello");
 
         if (args.length < 1) {
             throw new Error("Please Select a mode: eval or matcher");
@@ -79,16 +65,16 @@ public class RdfReader {
         File net1;
         File net2;
 
-        String gsString = args[0];
+        String gsString = "./eval-data/goldstandard/" + args[0];
         if (gsString == null) {
             throw new Error("Net 1 is a required parameter");
         }
-        String n1String = args[1];
+        String n1String = "./eval-data/pnml/" + args[1];
         if (n1String == null) {
             throw new Error("Net 1 is a required parameter");
         }
 
-        String n2String = args[2];
+        String n2String = "./eval-data/pnml/" + args[2];
         if (n2String == null) {
             throw new Error("Net 2 is a required parameter");
         }

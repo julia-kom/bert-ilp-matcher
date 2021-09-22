@@ -136,6 +136,7 @@ public class Evaluation {
                 .longOpt("label-sim")
                 .desc("Choose a label similarity function: \n" +
                         "BERT: Bert Similarity \n" +
+                        "BERTFT: Bert Similarity \n" +
                         "BOW: Bag-of-Words Similarity")
                 .build();
 

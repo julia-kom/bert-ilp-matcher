@@ -4,6 +4,7 @@ import bpm.ippm.alignment.Alignment;
 import bpm.ippm.alignment.Correspondence;
 import bpm.ippm.matcher.Preprocessor;
 import bpm.ippm.similarity.BagOfWordsSimilarity;
+import bpm.ippm.similarity.BertFtSimilarity;
 import bpm.ippm.similarity.BertSimilarity;
 import bpm.ippm.similarity.Word;
 import org.jbpt.petri.NetSystem;
@@ -214,6 +215,7 @@ public class AggregatedGoldstandardAnalysis {
             int matchCounter = 0;
             int nonMatchCounter = 0;
             BagOfWordsSimilarity bow = new BagOfWordsSimilarity(Word.Similarities.LIN);
+            BertFtSimilarity bertFt = new BertFtSimilarity();
             BertSimilarity bert = new BertSimilarity();
             for(Transition s : nonTauTransitions1){
                 for(Transition t: nonTauTransitions2){
@@ -224,6 +226,7 @@ public class AggregatedGoldstandardAnalysis {
                     }else {
                         labelSim = bert.sim(s.getLabel(), t.getLabel());
                     }
+
                     if(alignment.isMapped(s,t)){
                         avgMatchSim += labelSim;
                         matchCounter ++;
