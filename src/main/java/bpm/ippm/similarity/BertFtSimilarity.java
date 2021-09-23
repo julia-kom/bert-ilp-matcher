@@ -11,7 +11,7 @@ public class BertFtSimilarity implements LabelSimilarity {
 
     public double sim(String label1, String label2) {
 
-        String csvName = "./eval-data/pnml/sims.csv";
+        String csvName = "./eval-data/pnml/ft-sims.csv";
 
         List<String[]> r = null;
         try (CSVReader reader = new CSVReader(new FileReader(csvName))) {
