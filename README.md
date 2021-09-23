@@ -26,6 +26,10 @@ Arguments to specify are the following. Mandatory arguments in **bold**. Default
   * `LEVENSHTEIN` - Levenshtein Similarity (Syntactic Word Similarity based on Editing Distance)
   * _`LEVENSHTEIN_LIN_MAX` - Maximum of Levenshtein and Lin Similarity_
   * `LEVENSHTEIN_JIANG_MAX` - Maximum of Levenshtein and Jiang Similarity
+* `label-sim <label-sim>` (`ls <label-sim>`) - Choose the label similarity. `<label-sim>`can take the following values:
+  * `BOW` - Bag of Words Similarity
+  * `BERT` - BERT Similarity based on SentenceBERT
+  * `BERTFT` - BERT Similarity based on a fine-tuned SentenceBERT model
 * `ilp <ilp>` (`i <ilp>`) 
   * `BASIC` - BASIC ILP without any variable reduction. 
   * `SYMMETRIC` (former: `BASIC2`) - Like `BASIC` but we make use of the symmetry property of symmetric Profiles (ARP, BP). Please do not use this with non symmetric profiles (BPP.LOG_EF,LOG_DF)
